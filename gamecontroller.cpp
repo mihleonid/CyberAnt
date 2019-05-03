@@ -5,7 +5,7 @@ GameController::GameController(){
 	std::cout<<"Creating GameController"<<std::endl;
 	gaming=false;
 	ui=new UI;
-	mModel=new Model;
+	mModel=new FieldModel;
 }
 GameController::~GameController(){
 	std::cout<<"Exited"<<std::endl;
@@ -43,6 +43,8 @@ void GameController::stop(){
 	gaming=false;
 	ui->stop();
 	mModel->stop();
+	delete ui;
+	delete mModel;
 }
 void GameController::initFps(){
 	mLastFrame=SDL_GetTicks();
