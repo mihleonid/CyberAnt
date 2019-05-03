@@ -1,25 +1,27 @@
 # CyberAnt
 
 ## Compiling
-1. copy project and assets dir
-2. build
-   2. 1. for linux: install cmake and all dependencies (SDL)
+1. Copy project and assets dir.
+2. Build it:
+
+   2.1. For linux: install cmake and all dependencies (SDL).
 ```sh
 	cd <projdir>
 	mkdir build && cd build && cmake ..
 ```
-   make a link in build dir to assets:
+   Make a link in build dir to assets:
 ```sh
 	ln -s ../assets assets
 ```
-   2. 2. for windows: install cmake and all dependencies (SDL) (libsdl.org)
+
+   2.2. For windows: install cmake and all dependencies (SDL) (libsdl.org).
 ```bat
 	cd <projdir>
 	mkdir build
 	cd build
 	cmake ..
 ```
-   copy assets to build dir:
+   Copy assets to build dir:
 ```sh
 	xcopy ..\assets\ assets\
 ```
