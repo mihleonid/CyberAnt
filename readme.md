@@ -4,7 +4,7 @@
 1. Copy project and assets dir.
 2. Build it:
 
-   2.1. For linux: install cmake and all dependencies (SDL).
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.1. For linux: install cmake and all dependencies (SDL).
 ```sh
 	cd <projdir>
 	mkdir build && cd build && cmake ..
@@ -14,7 +14,7 @@
 	ln -s ../assets assets
 ```
 
-   2.2. For windows: install cmake and all dependencies (SDL) (libsdl.org).
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.2. For windows: install cmake and all dependencies (SDL) (libsdl.org).
 ```bat
 	cd <projdir>
 	mkdir build
