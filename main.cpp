@@ -9,7 +9,8 @@ int main(int argc, char * argv[]){
 		return 1;
 	}
 	// Game
-
+	GameController ctl;
+	ctl.start();
 	// Ending
 	SDL_Quit();
 	std::cout<<"Exiting"<<std::endl;
