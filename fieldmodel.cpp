@@ -1,6 +1,6 @@
 #include "fieldmodel.h"
 
-void Model::start(){
+void FieldModel::start(){
 	rset=new Resourceset();
 	rset->oxygen=100;
 	rset->iron=20;
@@ -15,10 +15,17 @@ void Model::start(){
 		}
 	}
 }
-void Model::stop(){
-	delete
+void FieldModel::stop(){
+	delete rset();
+	field.removeAll();
 }
-void Model::applyEvent(Event* c){ // TODO изменить события
+
+void FieldModel::pause(){ // С игрой ничего не должо случаться
+}
+void FieldModel::resume(){
+}
+
+void FieldModel::applyEvent(Event* c){ // TODO изменить события
 	if(c->type==EBuild){
 		if(field.get(c->x, c->y)==nullptr){
 			switch(c->what){
@@ -39,7 +46,8 @@ void Model::applyEvent(Event* c){ // TODO изменить события
 		}
 	}
 }
-void Model::loop(){
+
+void FieldModel::loop(){
 	for(int x=0;x<BlocksX;x++){ // Вот тут надо проходить через все (чтобы создавать новые случайные).
 		for(int y=0;y<BlocksY;y++){
 			FO* c=field.get(x, y);
