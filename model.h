@@ -6,8 +6,5 @@ class Model{
 		virtual void stop();
 
 		virtual void loop();
-
-		virtual void pause(); // Остановка с сохранением состояния
-		virtual void resume();
 };
 

@@ -15,8 +15,5 @@ class FieldModel:public Model{
 		void loop(); // Проход цикла
 		void start(); // Начало
 		void stop(); // Конец
-
-		void pause();
-		void resume();
 };
 

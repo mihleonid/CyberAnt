@@ -20,11 +20,6 @@ void FieldModel::stop(){
 	field.removeAll();
 }
 
-void FieldModel::pause(){ // С игрой ничего не должо случаться
-}
-void FieldModel::resume(){
-}
-
 void FieldModel::applyEvent(Event* c){ // TODO изменить события
 	if(c->type==EBuild){
 		if(field.get(c->x, c->y)==nullptr){
