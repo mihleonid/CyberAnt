@@ -2,7 +2,7 @@
 
 class View{
 	public:
-		virtual void loop();
+		virtual void loop(const Model* m);
 		virtual void applyEvent(void* event);//TODO events
 };
 
