@@ -11,9 +11,10 @@ class FieldModel:public Model{
 	public:
 		Field field; // Поле, на котором ведётся игра
 		Resourceset* rset; // Ресурсы в базе
-		void applyEvent(Event* c); // Пока такой механизм событий. Нужно будет изменить потом.
+
+		FieldModel();
+		void applyEvent(void* c); // Пока такой механизм событий. Нужно будет изменить потом.
 		void loop(); // Проход цикла
-		void start(); // Начало
-		void stop(); // Конец
+		~FieldModel();
 };
 

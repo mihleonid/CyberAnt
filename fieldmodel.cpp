@@ -1,6 +1,6 @@
 #include "fieldmodel.h"
 
-void FieldModel::start(){
+FieldModel::FieldModel(){
 	rset=new Resourceset();
 	rset->oxygen=100;
 	rset->iron=20;
@@ -15,12 +15,12 @@ void FieldModel::start(){
 		}
 	}
 }
-void FieldModel::stop(){
-	delete rset();
+FieldModel::~FieldModel(){
 	field.removeAll();
 }
 
-void FieldModel::applyEvent(Event* c){ // TODO изменить события
+void FieldModel::applyEvent(void* ce){ // TODO изменить события
+	Event* c=(Event*)ce;
 	if(c->type==EBuild){
 		if(field.get(c->x, c->y)==nullptr){
 			switch(c->what){
