@@ -2,9 +2,7 @@
 
 class Model{
 	public:
-		virtual void start();
-		virtual void stop();
-
 		virtual void loop();
+		virtual void applyEvent(void* event);//TODO events
 };
 
