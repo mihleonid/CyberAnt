@@ -4,19 +4,16 @@
 GameController::GameController(){
 	std::cout<<"Creating GameController"<<std::endl;
 	gaming=false;
-	ui=new UI;
-	mModel=new FieldModel;
 }
 GameController::~GameController(){
+	delete currentController;
 	std::cout<<"Exited"<<std::endl;
 }
 void GameController::start(){
 	gaming=true;
-	// Многопоточность лучше не делать (пока) - SDL2 не рекомендует
 	try{
 		std::cout<<"Initialization finishing..."<<std::endl;
-		mModel->start();
-		ui->start();
+		currentController=new FieldController();
 		initFps();
 		std::cout<<"Initialization success"<<std::endl;
 	}catch(int code){
@@ -25,27 +22,22 @@ void GameController::start(){
 	}
 	loop();
 }
-// Пока это игровой, рисовальный и событийный цикл. TODO Нужно изменить механизм событий
 void GameController::loop(){
-	std::vector<Event*> current;
 	while(gaming){
-		for(Event* evt:current){
-			mModel->applyEvent(evt);
-			delete evt;
+		currentController->loop();
+		EventQueue q=currentController->eventLoop();
+		Event* c=nullptr;
+		while(!(q.empty())){
+			c=q.pop();
+			delete c;
 		}
-		mModel->loop();
-		ui->loop(this);
-		current=ui->getEvent(this);
 		delayFps();
 	}
 }
 void GameController::stop(){
 	gaming=false;
-	ui->stop();
-	mModel->stop();
-	delete ui;
-	delete mModel;
 }
+
 void GameController::initFps(){
 	mLastFrame=SDL_GetTicks();
 }

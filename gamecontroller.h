@@ -5,10 +5,7 @@ class GameController;
 
 class GameController{
 	public:
-		// Динамическое выделение памяти для создания композиции рекомендуется всеми вокруг (а особенно в сочетании с cmake).
-		// Чтобы потключать заголовки по одному щелчку пальца (представьте цикл a.h -> b.h -> a.h - ужас, а так с помощью class всё решается).
-		UI* ui;
-		FieldModel* mModel;
+		Controller* currentController;
 
 		// Идёт ли игра?
 		bool gaming;
@@ -20,9 +17,13 @@ class GameController{
 		void start(); // Начать игру
 		void stop(); // Остановить игру
 	private:
+		View* fieldView;
+		Model* fieldModel;
 		Uint32 mLastFrame; // Время прошлого кадра
 		void initFps(); // Записать время первого кадра
 		void delayFps(); // Сделать задержку
 		void loop(); // Игровой цикл
+
+		Controller* changeController(Controller* ctl); // Возвращает текущий
 };
 
