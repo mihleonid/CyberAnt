@@ -5,23 +5,17 @@ class GameController;
 
 class GameController{
 	public:
-		Controller* currentController;
-
-		// Идёт ли игра?
-		bool gaming;
-		// FPS=UPS=...
-		int FUPS=26;
-
 		GameController();
 		~GameController();
-		void start(); // Начать игру
-		void stop(); // Остановить игру
 	private:
-		View* fieldView;
-		Model* fieldModel;
+		Controller* currentController;
+
 		Uint32 mLastFrame; // Время прошлого кадра
+		int FUPS=26; // FPS=UPS=...
+
 		void initFps(); // Записать время первого кадра
 		void delayFps(); // Сделать задержку
+
 		void loop(); // Игровой цикл
 
 		Controller* changeController(Controller* ctl); // Возвращает текущий

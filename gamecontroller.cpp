@@ -3,14 +3,6 @@
 
 GameController::GameController(){
 	std::cout<<"Creating GameController"<<std::endl;
-	gaming=false;
-}
-GameController::~GameController(){
-	delete currentController;
-	std::cout<<"Exited"<<std::endl;
-}
-void GameController::start(){
-	gaming=true;
 	try{
 		std::cout<<"Initialization finishing..."<<std::endl;
 		currentController=new FieldController();
@@ -22,8 +14,13 @@ void GameController::start(){
 	}
 	loop();
 }
+GameController::~GameController(){
+	delete currentController;
+	std::cout<<"Exited"<<std::endl;
+}
+
 void GameController::loop(){
-	while(gaming){
+	while(true){
 		currentController->loop();
 		EventQueue q=currentController->eventLoop();
 		Event* c=nullptr;
@@ -33,9 +30,6 @@ void GameController::loop(){
 		}
 		delayFps();
 	}
-}
-void GameController::stop(){
-	gaming=false;
 }
 
 void GameController::initFps(){
