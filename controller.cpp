@@ -24,6 +24,7 @@ EventQueue Controller::eventLoop(){
 			res.push(c);
 		}else{
 			model->applyEvent(c);
+			delete c;
 		}
 	}
 	return res;
