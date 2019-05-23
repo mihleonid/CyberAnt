@@ -1,5 +1,6 @@
 #include <iostream>
 #include "gamecontroller.h"
+#include "eventqueue.h"
 
 GameController::GameController(){
 	std::cout<<"Creating GameController"<<std::endl;

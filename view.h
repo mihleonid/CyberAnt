@@ -1,4 +1,5 @@
 #pragma once
+#include "eventqueue.h"
 
 class View{
 	public:

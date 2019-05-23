@@ -1,7 +1,5 @@
 #pragma once
-class GameController;
-#include "ui.h"
-#include "fieldmodel.h"
+#include "controller.h"
 
 class GameController{
 	private:

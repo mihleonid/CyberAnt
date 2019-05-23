@@ -1,6 +1,7 @@
 #pragma once
 #include "model.h"
 #include "view.h"
+#include "eventqueue.h"
 
 class Controller{
 	private:

@@ -1,5 +1,6 @@
 #pragma once
 #include <queue>
+#include "event.h"
 
 class EventQueue{
 	private:
