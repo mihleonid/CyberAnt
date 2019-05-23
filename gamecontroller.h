@@ -4,9 +4,6 @@ class GameController;
 #include "fieldmodel.h"
 
 class GameController{
-	public:
-		GameController();
-		~GameController();
 	private:
 		Controller* currentController;
 
@@ -19,5 +16,9 @@ class GameController{
 		void loop(); // Игровой цикл
 
 		Controller* changeController(Controller* ctl); // Возвращает текущий
+
+	public:
+		GameController();
+		~GameController();
 };
 
