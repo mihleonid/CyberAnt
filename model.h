@@ -3,6 +3,6 @@
 class Model{
 	public:
 		virtual void loop();
-		virtual void applyEvent(void* event);//TODO events
+		virtual void applyEvent(Event* event);
 };
 
