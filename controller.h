@@ -12,5 +12,6 @@ class Controller{
 		View* getView();
 
 		void loop();
+		EventQueue eventLoop();
 };
 

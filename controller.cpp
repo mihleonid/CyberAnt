@@ -14,4 +14,18 @@ void Controller::loop(){
 	model->loop();
 	view->loop(model);
 }
+EventQueue Controller::eventLoop(){
+	EventQueue res;
+	EventQueue rr=view->getEvents(model);
+	Event* c=nullptr;
+	while(!(rr.empty())){
+		c=rr.pop();
+		if(c.forGameController){
+			res.push(c);
+		}else{
+			model->applyEvent(c);
+		}
+	}
+	return res;
+}
 
