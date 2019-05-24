@@ -20,7 +20,7 @@ EventQueue Controller::eventLoop(){
 	Event* c=nullptr;
 	while(!(rr.empty())){
 		c=rr.pop();
-		if(c.forGameController()){
+		if(c->forGameController()){
 			res.push(c);
 		}else{
 			model->applyEvent(c);

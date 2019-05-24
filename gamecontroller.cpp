@@ -20,6 +20,41 @@ GameController::~GameController(){
 	std::cout<<"Exited"<<std::endl;
 }
 
+void GameController::clearHist(int k){
+	if(k>0){
+		for(int i=0;i<k;i++){
+			if(hist.empty()){
+				break;
+			}
+			delete hist.top();
+			hist.pop();
+		}
+	}else{
+		if(k<0){
+			k=hist.size()-k;
+			clearHist(k);
+		}
+	}
+}
+void GameController::changeController(Controller* ctl, bool h){
+	Controller* old=currentController;
+	currentController=ctl;
+	if(h){
+		hist.push(old);
+	}else{
+		delete old;
+	}
+}
+bool GameController::back(){
+	delete currentController;
+	if(hist.empty()){
+		return true;
+	}
+	currentController=hist.top();
+	hist.pop();
+	return false;
+}
+
 void GameController::loop(){
 	while(true){
 		currentController->loop();
@@ -27,10 +62,24 @@ void GameController::loop(){
 		Event* c=nullptr;
 		while(!(q.empty())){
 			c=q.pop();
+			if(c->getExit()){
+				goto quite;
+			}
+			if(c->getBack()){
+				if(back()){
+					goto quite;
+				}
+			}
+			if(c->getController()!=nullptr){
+				changeController(c->getController(), c->getLeaving());
+			}
+			clearHist(c->getDeleting());
+			FUPS+=c->getFUPSDelta();
 			delete c;
 		}
 		delayFps();
 	}
+	quite:;
 }
 
 void GameController::initFps(){
