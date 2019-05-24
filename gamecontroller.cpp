@@ -1,5 +1,6 @@
 #include <iostream>
 #include "gamecontroller.h"
+#include "gamecontrollerevent.h"
 #include "eventqueue.h"
 
 GameController::GameController(){
