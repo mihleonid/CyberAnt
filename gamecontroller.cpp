@@ -39,11 +39,7 @@ void GameController::clearHist(int k){
 void GameController::changeController(Controller* ctl, bool h){
 	Controller* old=currentController;
 	currentController=ctl;
-	if(h){
-		hist.push(old);
-	}else{
-		delete old;
-	}
+	hist.push(old);
 }
 bool GameController::back(){
 	delete currentController;

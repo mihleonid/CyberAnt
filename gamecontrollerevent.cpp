@@ -3,13 +3,8 @@
 GameControllerEvent::GameControllerEvent(int fupsdelta){
 	FUPSDelta=fupsdelta;
 }
-GameControllerEvent::GameControllerEvent(Controller* newctl, bool h){
-	newCtl=newctl;
-	leaveHist=h;
-}
 GameControllerEvent::GameControllerEvent(Controller* newctl){
 	newCtl=newctl;
-	leaveHist=true;
 }
 GameControllerEvent::GameControllerEvent(Controller* newctl, int d){
 	newCtl=newctl;
@@ -28,9 +23,6 @@ bool GameControllerEvent::getBack(){
 }
 bool GameControllerEvent::getExit(){
 	return exit;
-}
-bool GameControllerEvent::getLeaving(){
-	return leaveHist;
 }
 int GameControllerEvent::getDeleting(){
 	return delHist;
