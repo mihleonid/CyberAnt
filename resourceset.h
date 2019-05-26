@@ -1,5 +1,4 @@
 #pragma once
-class ResourceSet;
 #include <map>
 #include "resource.h"
 
