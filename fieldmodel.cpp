@@ -9,7 +9,7 @@ FieldModel::FieldModel(){
 		for(int y=0;y<BlocksY;y++){
 			switch(rand()%20){
 				case 1:
-					field.set(new Iron(x, y, &field));
+					field.set(new Iron(x, y, &field)); // TODO FO, Resource node
 					break;
 			}
 		}
@@ -19,8 +19,8 @@ FieldModel::~FieldModel(){
 	field.removeAll();
 }
 
-void FieldModel::applyEvent(void* ce){ // TODO изменить события
-	Event* c=(Event*)ce;
+void FieldModel::applyEvent(Event* ce){
+	FieldEvent* c=(FieldEvent*)ce;
 	if(c->type==EBuild){
 		if(field.get(c->x, c->y)==nullptr){
 			switch(c->what){
@@ -28,7 +28,7 @@ void FieldModel::applyEvent(void* ce){ // TODO изменить события
 					if(!baseBuilded){
 						Base* b=new Base(c->x, c->y, &field);
 						field.set((FO*)b);
-						dynamic_cast<Storaged*>(b)->have=*rset;
+						((Storage*)b)->have=*rset;
 						delete rset;
 						rset=&(dynamic_cast<Storaged*>(b)->have);
 						baseBuilded=true;

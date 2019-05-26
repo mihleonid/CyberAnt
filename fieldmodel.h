@@ -1,5 +1,4 @@
 #pragma once
-class FieldModel;
 #include "model.h"
 #include "field.h"
 #include "event.h"
@@ -13,7 +12,7 @@ class FieldModel:public Model{
 		Resourceset* rset; // Ресурсы в базе
 
 		FieldModel();
-		void applyEvent(void* c); // Пока такой механизм событий. Нужно будет изменить потом.
+		void applyEvent(Event* c);
 		void loop(); // Проход цикла
 		~FieldModel();
 };
