@@ -5,13 +5,14 @@ FO::FO(Point p, Field* currF){
 	pos=p;
 	currField=currF;
 }
-virtual SDL_Texture* FO::getTexture(Assets ass, SDL_Renderer* ren){
+virtual SDL_Texture* FO::getTexture(Assets ass*, SDL_Renderer* ren){
 	std::cerr<<"Calling to FO"<<std::endl;
 	return nullptr;
 }
 virtual void FO::update(){
 	std::cerr<<"Calling to FO"<<std::endl;
 }
+
 FOType FO::getType(){
 	return type;
 }

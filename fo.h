@@ -1,4 +1,5 @@
 #pragma once
+#include <SDL.h>
 class FO;
 #include "field.h"
 #include "assets.h"
