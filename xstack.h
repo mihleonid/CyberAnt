@@ -1,6 +1,6 @@
 #pragma once
 #include <set>
-// Этот класс нужен для поля (список не пустых)
+// Этот класс нужен для поля (список непустых)
 template<class T> class XStack{
 	private:
 		int maxs; // Максимальный размер
@@ -17,8 +17,9 @@ template<class T> class XStack{
 		T get();
 		int size();
 		T get(int pos);
-		std::pair<int*, int>  getDeleted(); // Когда жлемент удаляется, вместо него ставится другой
 		int remove(int pos); // Номер, кого нужно обновить
 		T operator[](int pos);
+
+		friend class XStackIterator;
 };
 

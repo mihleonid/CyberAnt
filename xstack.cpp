@@ -9,11 +9,11 @@ template<class T> XStack::XStack(int size){
 }
 template<class T> int XStack::push(T el){
 	arr[top]=el;
-	top++;
+	++top;
 	return top-1;
 }
 template<class T> T XStack::pop(){
-	top--;
+	--top;
 	return arr[top];
 }
 template<class T> T XStack::operator[](int pos){
@@ -22,18 +22,13 @@ template<class T> T XStack::operator[](int pos){
 template<class T> T XStack::get(int pos){
 	return arr[pos];
 }
-template<class T> std::pair<int*, int> XStack::back(){
-	int* tmp=dels;
-	int tmpc=delc;
-	dels=new int[maxs];
-	delc=0;
-	return std::pair<int*, int>(tmp, tmpc);
-}
 template<class T> int XStack::remove(int pos){
-	top--;
+	--top;
 	arr[pos]=arr[top];
-	dels[delc]=pos;
-	delc++;
+	if(delc<maxs){
+		dels[delc]=pos;
+		delc++;
+	}
 	return pos;
 }
 template<class T> T XStack::get(){
