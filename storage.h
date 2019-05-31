@@ -1,7 +1,7 @@
 #pragma once
 #include "resourceset.h"
 
-class Storaged{//может хранить
+class Storage{//может хранить
 	public:
 		Resourceset have;
 
