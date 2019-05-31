@@ -2,10 +2,12 @@
 #include "gamecontroller.h"
 #include "gamecontrollerevent.h"
 #include "eventqueue.h"
+#include "random.h"
 
 GameController::GameController(){
 	std::cout<<"Creating GameController"<<std::endl;
 	try{
+		Random::init();
 		std::cout<<"Initialization finishing..."<<std::endl;
 		currentController=new FieldController();
 		initFps();

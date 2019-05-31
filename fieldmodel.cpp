@@ -1,4 +1,5 @@
 #include "fieldmodel.h"
+#include "random.h"
 
 FieldModel::FieldModel(){
 	rset=new Resourceset();
@@ -7,7 +8,7 @@ FieldModel::FieldModel(){
 	rset->cristall=10;
 	for(int x=0;x<BlocksX;x++){
 		for(int y=0;y<BlocksY;y++){
-			switch(rand()%20){
+			switch(Random::rnd(20)){
 				case 1:
 					field.set(new Iron(x, y, &field)); // TODO FO, Resource node
 					break;
@@ -47,7 +48,7 @@ void FieldModel::loop(){
 		for(int y=0;y<BlocksY;y++){
 			FO* c=field.get(x, y);
 			if(c==nullptr){
-				switch(rand()%80000){
+				switch(Random::rnd(80000)){
 					case 1:
 						field.set(new Iron(x, y, &field));
 						break;
