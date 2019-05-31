@@ -1,5 +1,5 @@
 #include <iostream>
-#include "resource.h"
+#include "resourced.h"
 
 bool Resource::empty(){
 	std::cerr<<"Resuorce::empty must be overloaded"<<std::endl;
