@@ -14,5 +14,7 @@ class Controller{
 
 		void loop();
 		EventQueue eventLoop();
+
+		Controller~();
 };
 
