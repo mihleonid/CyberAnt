@@ -4,6 +4,6 @@
 class Resourced{//добывательно
 	public:
 		virtual bool empty();
-		virtual Resourceset mine(Resourceset need);//добыть(сколько нужно)
+		virtual Resourceset mine(ResourceSet need);//добыть(сколько нужно)
 };
 
