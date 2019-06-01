@@ -15,7 +15,7 @@ bool Base::empty(){
 void Base::put(Resourceset g){
 	have.add(g);
 }
-Resourceset Base::mine(Resourceset need){
+ResourceSet Base::mine(ResourceSet need){
 	Resourceset rest=have.sub(need);
 	need.sub(rest);
 	return need;

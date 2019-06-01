@@ -14,6 +14,6 @@ class Base:public Building, public Storage, public Resourced, public Putable{
 		Base(int xx, int yy, Field* f, int lvl);
 		bool empty();
 		void put(Resourceset g);
-		Resourceset mine(Resourceset need);
+		ResourceSet mine(ResourceSet need);
 };
 
