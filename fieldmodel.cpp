@@ -1,4 +1,6 @@
 #include "fieldmodel.h"
+#include "resourced.h"
+#include "storage.h"
 #include "random.h"
 
 FieldModel::FieldModel(){
@@ -31,7 +33,7 @@ void FieldModel::applyEvent(Event* ce){
 						field.set((FO*)b);
 						((Storage*)b)->have=*rset;
 						delete rset;
-						rset=&(dynamic_cast<Storaged*>(b)->have);
+						rset=&(dynamic_cast<Storage*>(b)->have);
 						baseBuilded=true;
 					}
 					break;
