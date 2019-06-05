@@ -38,4 +38,7 @@ template<class T> void XStackIterator::checkRemove(){
 	}
 	cur->delc=0;
 }
+template<class T> void XStackIterator::~XStackIterator(){
+	delete deleted;
+}
 

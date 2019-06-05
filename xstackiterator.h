@@ -3,7 +3,7 @@
 
 template<class T> class XStackIterator{
 	private:
-		XStack* cur;
+		XStack<T>* cur;
 		int pos;
 		int* deleted;
 		int deletedTop;
@@ -14,5 +14,6 @@ template<class T> class XStackIterator{
 		void next();
 		bool ended();
 		T current();
+		~XStackIterator();
 };
 
