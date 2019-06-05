@@ -1,7 +1,6 @@
 #pragma once
 #include <vector>
 
-typedef std::vector<Point> Path;
 class Point{
 	private:
 		int x, y;
@@ -19,4 +18,6 @@ class Point{
 };
 bool operator==(Point& a, Point& b);
 bool operator!=(Point& a, Point& b);
+
+typedef std::vector<Point> Path;
 
