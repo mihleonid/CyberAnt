@@ -23,7 +23,7 @@ virtual ResourceSet ResourceNode::mine(ResourceSet need){
 	have.sub(Random.rnd(taxMin, taxMax));
 	return need;
 }
-virtual SDL_Texture* Base::getTexture(Assets ass*, SDL_Renderer* ren){
-	return ass->tex(ass->getMine(Resource::typeToString(rtype)), ren, have.get(rtype));
+virtual SDL_Texture* ResourceNode::getTexture(Assets ass*, SDL_Renderer* ren){
+	return ass->rtex(ass->getNode(Resource::typeToString(rtype)), ren, have.get(rtype));
 }
 
