@@ -15,5 +15,5 @@ class ResourceSet{
 
 		int sub(ResourceType type, int a); // Возвращает, сколько осталось
 		ResourceSet sub(ResourceSet& another); // Аналогично
-}
+};
 

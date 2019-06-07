@@ -3,6 +3,6 @@
 
 class Putable{//можно давать
 	public:
-		virtual void put(Resourceset give);//дать ресурссет
+		virtual void put(ResourceSet give);//дать ресурссет
 };
 

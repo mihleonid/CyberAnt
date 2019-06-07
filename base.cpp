@@ -6,17 +6,17 @@ Base::Base(int xx, int yy, Field* f, int lvl):Building(xx, yy, f, lvl){
 }
 void Base::update(){
 }
-SDL_Texture* Base::getTexture(Assets ass*, SDL_Renderer* ren){
+SDL_Texture* Base::getTexture(Assets* ass, SDL_Renderer* ren){
 	return ass->tex(ass->getbase(), ren, ((Building*)this)->level);
 }
 bool Base::empty(){
 	return false;
 }
-void Base::put(Resourceset g){
+void Base::put(ResourceSet g){
 	have.add(g);
 }
 ResourceSet Base::mine(ResourceSet need){
-	Resourceset rest=have.sub(need);
+	ResourceSet rest=have.sub(need);
 	need.sub(rest);
 	return need;
 }

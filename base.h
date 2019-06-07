@@ -1,4 +1,5 @@
 #pragma once
+#include "resource.h"
 #include "assets.h"
 #include "building.h"
 #include "field.h"
@@ -13,7 +14,7 @@ class Base:public Building, public Storage, public Resourced, public Putable{
 		virtual SDL_Texture* getTexture(Assets* ass, SDL_Renderer* ren);
 		Base(int xx, int yy, Field* f, int lvl);
 		bool empty();
-		void put(Resourceset g);
+		void put(ResourceSet g);
 		ResourceSet mine(ResourceSet need);
 };
 

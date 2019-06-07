@@ -7,7 +7,7 @@ class FO;
 #include "foenum.h"
 
 class FO{
-	private:
+	protected:
 		FOType type;
 		FOWhat what;
 		Field* currField;

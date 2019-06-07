@@ -1,5 +1,4 @@
 #pragma once
-#include <set>
 // Этот класс нужен для поля (список непустых)
 template<class T> class XStack{
 	private:

@@ -3,7 +3,7 @@
 
 class Storage{//может хранить
 	public:
-		Resourceset have;
+		ResourceSet have;
 
 };
 
