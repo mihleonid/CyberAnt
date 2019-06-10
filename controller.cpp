@@ -14,13 +14,13 @@ void Controller::loop(){
 	model->loop();
 	view->loop(model);
 }
-Controller::controller~(){
+Controller::~Controller(){
 	delete model;
 	delete view;
 }
 EventQueue Controller::eventLoop(){
 	EventQueue res;
-	EventQueue rr=view->getEvents(model);
+	EventQueue rr=view->getEvents();
 	Event* c=nullptr;
 	while(!(rr.empty())){
 		c=rr.pop();

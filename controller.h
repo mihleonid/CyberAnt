@@ -9,12 +9,12 @@ class Controller{
 		View* view;
 		void initialize(Model* m, View* v);
 	public:
-		Model* getModle();
+		Model* getModel();
 		View* getView();
 
 		void loop();
 		EventQueue eventLoop();
 
-		Controller~();
+		~Controller();
 };
 

@@ -8,7 +8,7 @@ Event* EventQueue::pop(){
 void EventQueue::push(Event* e){
 	queue.push(e);
 }
-void EventQueue::empty(){
+bool EventQueue::empty(){
 	return queue.empty();
 }
 

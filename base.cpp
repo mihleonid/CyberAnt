@@ -1,6 +1,6 @@
 #include "base.h"
 
-Base::Base(int xx, int yy, Field* f, int lvl):Building(xx, yy, f, lvl){
+Base::Base(Point p, Field* f, int lvl):Building(p, f, lvl){
 	what=BBase;
 	type=(FOType)(FOBuilding|FOResourced|FOStorage|FOPutable);
 }

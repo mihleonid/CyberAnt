@@ -7,12 +7,13 @@
 #include "resourced.h"
 #include "resourceset.h"
 #include "storage.h"
+#include "point.h"
 
 class Base:public Building, public Storage, public Resourced, public Putable{
 	public:
 		virtual void update();
 		virtual SDL_Texture* getTexture(Assets* ass, SDL_Renderer* ren);
-		Base(int xx, int yy, Field* f, int lvl);
+		Base(Point p, Field* f, int lvl);
 		bool empty();
 		void put(ResourceSet g);
 		ResourceSet mine(ResourceSet need);

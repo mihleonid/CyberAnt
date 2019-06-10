@@ -5,6 +5,6 @@
 class Building:public FO{//можно строить, имеет уровень
 	public:
 		int level=0;
-		Building(int x, int y, Field* currF, int lvl);
+		Building(Point p, Field* currF, int lvl);
 };
 

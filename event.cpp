@@ -1,6 +1,6 @@
 #include "event.h"
 
-virtual bool Event::forGameController(){
+bool Event::forGameController(){
 	return false;
 }
 

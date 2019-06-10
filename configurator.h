@@ -1,5 +1,6 @@
 #pragma once
 #include "foenum.h"
+#include "resource.h"
 
 class Configurator{
 	public:

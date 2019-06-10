@@ -1,5 +1,5 @@
 #include "building.h"
 
-Building::Building(int x, int y, Field* currF, int lvl):FO(x, y, currF), level(lvl){
+Building::Building(Point p, Field* currF, int lvl):FO(p, currF), level(lvl){
 }
 

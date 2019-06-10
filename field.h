@@ -8,7 +8,7 @@
 class Field{
 	private:
 		FO** field=new FO*[BlocksX*BlocksY];
-		XStack<FO*> all(BlocksX*BlocksY);
+		XStack<FO*> all=XStack<FO*>(BlocksX*BlocksY);
 	public:
 		FO* get(int x, int y);
 		FO* get(Point p);

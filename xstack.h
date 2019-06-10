@@ -19,6 +19,6 @@ template<class T> class XStack{
 		int remove(int pos); // Номер, кого нужно обновить
 		T operator[](int pos);
 
-		friend class XStackIterator;
+		template<typename ListType> friend class XStackIterator;
 };
 
