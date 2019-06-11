@@ -1,5 +1,5 @@
 #include <list>
-#include <math>
+#include <math.h>
 #include <cmath>
 #include <algorithm>
 #include "field.h"
@@ -13,11 +13,11 @@ Field::Field(){
 FO* Field::get(int x, int y) {
 	return field[y*BlocksX+x];
 }
-FO* Field::get(Point p){
+FO* Field::get(const Point& p){
 	return get(p.getX(), p.getY());
 }
 
-void Field::remove(Point p){
+void Field::remove(const Point& p){
 	remove(p.getX(), p.getY());
 }
 void Field::remove(int x, int y){
@@ -44,7 +44,7 @@ void Field::set(FO* f) {
 	field[i]=f;
 }
 
-Path Field::getnb(Point p){
+Path Field::getnb(const Point& p){
 	return getnb(p.getX(), p.getY());
 }
 Path Field::getnb(int x, int y) {
@@ -147,7 +147,7 @@ class Node { //этот класс нужен только здесь, и я н�
         }
 };
 
-Path Field::findPath(Point& a, Point& b){
+Path Field::findPath(const Point& a, const Point& b){
 	return findPath(a.getX(), a.getY(), b.getX(), b.getY());
 }
 Path Field::findPath( int x, int y, int tx, int ty ) {
