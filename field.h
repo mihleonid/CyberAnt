@@ -11,6 +11,8 @@ class Field{
 		FO** field=new FO*[BlocksX*BlocksY];
 		XStack<FO*> all=XStack<FO*>(BlocksX*BlocksY);
 	public:
+		Field();
+
 		FO* get(int x, int y);
 		FO* get(const Point& p);
 
@@ -22,8 +24,10 @@ class Field{
 		Path getnb(int x, int y);
 		Path getnb(const Point& p);
 
+		/*
 		Path findPath(int x, int y, int tx, int ty);
 		Path findPath(const Point& start, const Point& end);
+		*/
 
 		XStackIterator<FO*> begin();
 };

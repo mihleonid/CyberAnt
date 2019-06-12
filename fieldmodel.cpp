@@ -4,15 +4,15 @@
 #include "random.h"
 
 FieldModel::FieldModel(){
-	rset=new Resourceset();
-	rset->oxygen=100;
-	rset->iron=20;
-	rset->cristall=10;
+	rset=new ResourceSet();
+	rset->add(Oxygen, 100);
+	rset->add(Iron, 20);
+	rset->add(Cristall, 10);
 	for(int x=0;x<BlocksX;x++){
 		for(int y=0;y<BlocksY;y++){
 			switch(Random::rnd(20)){
 				case 1:
-					field.set(new Iron(x, y, &field)); // TODO FO, Resource node
+					//field.set(new Iron(x, y, &field)); // TODO FO, Resource node
 					break;
 			}
 		}

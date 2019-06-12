@@ -28,6 +28,6 @@ class FieldView:public View{
 		virtual void loop(const Model* m);
 		virtual EventQueue getEvents();
 		FieldView();
-		FieldView~();
+		~FieldView();
 };
 

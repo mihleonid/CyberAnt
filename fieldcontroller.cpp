@@ -1,4 +1,4 @@
-#include "fieldcontroller.cpp"
+#include "fieldcontroller.h"
 #include "fieldmodel.h"
 #include "fieldview.h"
 

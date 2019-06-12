@@ -150,7 +150,7 @@ FieldView::FieldView(){
 	}
 	ass=new Assets(ren);
 }
-FieldView::FieldView~() {
+FieldView::~FieldView() {
     delete ass;
     SDL_DestroyRenderer(ren);
     SDL_DestroyWindow(win);

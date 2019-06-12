@@ -7,6 +7,7 @@ class Controller{
 	private:
 		Model* model;
 		View* view;
+	protected:
 		void initialize(Model* m, View* v);
 	public:
 		Model* getModel();

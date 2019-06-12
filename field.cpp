@@ -147,6 +147,7 @@ class Node { //этот класс нужен только здесь, и я н�
         }
 };
 
+/*
 Path Field::findPath(const Point& a, const Point& b){
 	return findPath(a.getX(), a.getY(), b.getX(), b.getY());
 }
@@ -221,4 +222,5 @@ Path Field::findPath( int x, int y, int tx, int ty ) {
         std::reverse( result.begin(), result.end() );
         return result;
 }
+*/
 
