@@ -25,12 +25,12 @@ FieldModel::~FieldModel(){
 
 void FieldModel::applyEvent(Event* ce){
 	FieldEvent* c=(FieldEvent*)ce;
-	if(c->type==EBuild){
-		if(field.get(c->x, c->y)==nullptr){
-			switch(c->what){
+	if(c->getType()==EBuild){
+		if(field.get(c->getPos())==nullptr){
+			switch(c->getWhat()){
 				case BBase:
 					if(!baseBuilded){
-						Base* b=new Base(c->x, c->y, &field);
+						Base* b=new Base(c->getPos(), &field);
 						field.set((FO*)b);
 						((Storage*)b)->have=*rset;
 						delete rset;
@@ -39,7 +39,7 @@ void FieldModel::applyEvent(Event* ce){
 					}
 					break;
 				case BIMine:
-					field.set(new IronMine(c->x, c->y, &field));
+					//field.set(new IronMine(c->x, c->y, &field));
 					break;
 			}
 		}
