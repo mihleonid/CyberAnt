@@ -14,7 +14,7 @@ class FieldEvent:public Event{
 		Point getPos();
 		FOWhat getWhat();
 		FieldEventType getType();
-		Event(EventType t, Point p, FOWhat wh);
+		FieldEvent(FieldEventType t, Point p, FOWhat wh);
 		virtual bool forGameController();
 };
 

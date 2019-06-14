@@ -1,6 +1,7 @@
 #include "fieldmodel.h"
 #include "resourced.h"
 #include "storage.h"
+#include "fieldevent.h"
 #include "random.h"
 
 FieldModel::FieldModel(){
