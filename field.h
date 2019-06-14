@@ -18,6 +18,7 @@ class Field{
 
 		void remove(int x, int y);
 		void remove(const Point& p);
+		void removeAll();
 
 		void set(FO* f);
 
