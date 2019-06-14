@@ -10,7 +10,15 @@ Field::Field(){
 	}
 }
 
-FO* Field::get(int x, int y) {
+
+const FO* Field::get(int x, int y) const{
+	return (const FO*)(field[y*BlocksX+x]);
+}
+const FO* Field::get(const Point& p) const{
+	return (const FO*)get(p.getX(), p.getY());
+}
+
+FO* Field::get(int x, int y){
 	return field[y*BlocksX+x];
 }
 FO* Field::get(const Point& p){

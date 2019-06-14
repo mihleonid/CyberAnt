@@ -2,6 +2,7 @@
 #include "resourced.h"
 #include "storage.h"
 #include "fieldevent.h"
+#include "base.h"
 #include "random.h"
 
 FieldModel::FieldModel(){
@@ -30,7 +31,7 @@ void FieldModel::applyEvent(Event* ce){
 			switch(c->getWhat()){
 				case BBase:
 					if(!baseBuilded){
-						Base* b=new Base(c->getPos(), &field);
+						Base* b=new Base(c->getPos(), &field, 0);
 						field.set((FO*)b);
 						((Storage*)b)->have=*rset;
 						delete rset;
@@ -53,13 +54,13 @@ void FieldModel::loop(){
 			if(c==nullptr){
 				switch(Random::rnd(80000)){
 					case 1:
-						field.set(new Iron(x, y, &field));
+						//field.set(new Iron(x, y, &field));
 						break;
 				}
 				continue;
 			}
-			if(c->type&FOResource){
-				if((dynamic_cast<Resource*>(c))->empty()){
+			if(c->getType()&FOResourced){
+				if((dynamic_cast<Resourced*>(c))->empty()){
 					field.remove(x, y);
 					continue;
 				}

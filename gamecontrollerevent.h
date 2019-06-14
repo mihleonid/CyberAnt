@@ -1,5 +1,6 @@
 #pragma once
 #include "event.h"
+#include "controller.h"
 
 class GameControllerEvent:public Event{
 	private:

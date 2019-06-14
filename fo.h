@@ -22,7 +22,7 @@ class FO{
 
 		FO(Point p, Field* currField);
 		virtual void update();
-		virtual SDL_Texture* getTexture(Assets* ass, SDL_Renderer* ren);
+		virtual SDL_Texture* getTexture(Assets* ass, SDL_Renderer* ren) const;
 
 		friend class Field;
 };

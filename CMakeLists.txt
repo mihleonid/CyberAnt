@@ -11,6 +11,7 @@ set(src
 	eventqueue.cpp
 	field.cpp
 	fieldcontroller.cpp
+	fieldevent.cpp
 	fieldmodel.cpp
 	fieldview.cpp
 	fo.cpp

@@ -11,7 +11,7 @@ Point FieldEvent::getPos(){
 FieldEventType FieldEvent::getType(){
 	return type;
 }
-FOType FieldEvent::getWhat(){
+FOWhat FieldEvent::getWhat(){
 	return what;
 }
 bool FieldEvent::forGameController(){

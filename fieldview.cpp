@@ -1,16 +1,22 @@
 #include <iostream>
+#include "point.h"
+#include "gamecontrollerevent.h"
+#include "fieldevent.h"
 #include "fieldview.h"
-#include "commpn.hpp"
+#include "fo.h"
+#include "fieldmodel.h"
+#include "common.hpp"
 
-virtual void FieldView::loop(){
+void FieldView::loop(const Model* mode){
+	const FieldModel* model=(const FieldModel*)mode;
 	clamp(scrollX, -20, BlocksX*FW-SCREEN_W+20);
 	clamp(scrollY, -20, BlocksY*FH-SCREEN_H+20);
 	SDL_RenderClear(ren);
 	for(int i=0;i<BlocksX;i++){
 		for(int j=0;j<BlocksY;j++){
-			FO* c=gamectl->mModel.field.get(i, j);
+			const FO* c=model->field.get(i, j);
 			if(c==nullptr){
-				draw(FW*i-scrollX, FH*j-scrollY, ass.getFieldTex());
+				draw(FW*i-scrollX, FH*j-scrollY, ass->getFieldTex());
 			}else{
 				SDL_Texture* tex=c->getTexture(ass, ren);
 				draw(FW*i-scrollX, FH*j-scrollY, tex);
@@ -20,23 +26,23 @@ virtual void FieldView::loop(){
 	}
 	int ay=drawTextRight(SCREEN_W, 0, "Base contains: ").second;
 	int x=drawText(0, 0, "FPS: ").first;
-	drawText(x, 0, gamectl->FUPS);
-	std::pair<int, int> c=drawTextRight(SCREEN_W, ay, gamectl->mModel.rset->iron);
+	drawText(x, 0, 24); // TODO FUPS and GameControleer data
+	std::pair<int, int> c=drawTextRight(SCREEN_W, ay, model->rset->get(Iron));
 	int y=drawTextRight(SCREEN_W-c.first, ay, "Iron: ").second;
 	y=mmax(y, c.second);
-	std::pair<int, int> cc=drawTextRight(SCREEN_W, ay+y, gamectl->mModel.rset->oxygen);
+	std::pair<int, int> cc=drawTextRight(SCREEN_W, ay+y, model->rset->get(Oxygen));
 	int yy=drawTextRight(SCREEN_W-cc.first, ay+y, "Oxygen: ").second;
 	yy=mmax(y+yy, c.second+yy);
-	std::pair<int, int> ccc=drawTextRight(SCREEN_W, ay+yy, gamectl->mModel.rset->cristall);
+	std::pair<int, int> ccc=drawTextRight(SCREEN_W, ay+yy, model->rset->get(Cristall));
 	drawTextRight(SCREEN_W-ccc.first, ay+yy, "Cristall: ").second;
 	SDL_RenderPresent(ren);
 }
-virtual EventQueue FieldView::getEvents(){
+EventQueue FieldView::getEvents(){
 	SDL_Event evt;
 	EventQueue v;
 	while(SDL_PollEvent(&evt)){
 		if(evt.type==SDL_QUIT){
-			gamectl->stop();
+			v.push(new GameControllerEvent(true, false));
 			break;
 		}
 		if(evt.type==SDL_MOUSEMOTION){
@@ -62,8 +68,8 @@ virtual EventQueue FieldView::getEvents(){
 				y/=FH;
 				clamp(x, 0, BlocksX);
 				clamp(y, 0, BlocksY);
-				v.push(new Event(EBuild, x, y, BBase));
-				v.push(new Event(EBuild, x, y, BIMine));
+				v.push(new FieldEvent(EBuild, Point(x, y), BBase));
+				v.push(new FieldEvent(EBuild, Point(x, y), BIMine));
 			}
 			mouseMoved=false;
 		}
@@ -120,7 +126,7 @@ virtual EventQueue FieldView::getEvents(){
 					scrollY--;
 					break;
 				case SDLK_ESCAPE:
-					gamectl->stop();
+					v.push(new GameControllerEvent(true, false));
 					break;
 				default:
 					break;
