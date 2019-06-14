@@ -1,15 +1,17 @@
 #include <iostream>
 #include "gamecontroller.h"
+#include "fieldcontroller.h"
 #include "gamecontrollerevent.h"
 #include "eventqueue.h"
 #include "random.h"
+#include "common.hpp"
 
 GameController::GameController(){
 	std::cout<<"Creating GameController"<<std::endl;
 	try{
 		Random::init();
 		std::cout<<"Initialization finishing..."<<std::endl;
-		currentController=new FieldController();
+		currentController=new FieldController;
 		initFps();
 		std::cout<<"Initialization success"<<std::endl;
 	}catch(int code){
@@ -19,6 +21,7 @@ GameController::GameController(){
 	loop();
 }
 GameController::~GameController(){
+	clearHist(hist.size());
 	delete currentController;
 	std::cout<<"Exited"<<std::endl;
 }
@@ -34,12 +37,12 @@ void GameController::clearHist(int k){
 		}
 	}else{
 		if(k<0){
-			k=hist.size()-k;
+			k=hist.size()+k;
 			clearHist(k);
 		}
 	}
 }
-void GameController::changeController(Controller* ctl, bool h){
+void GameController::changeController(Controller* ctl){
 	Controller* old=currentController;
 	currentController=ctl;
 	hist.push(old);
@@ -58,9 +61,9 @@ void GameController::loop(){
 	while(true){
 		currentController->loop();
 		EventQueue q=currentController->eventLoop();
-		Event* c=nullptr;
+		GameControllerEvent* c=nullptr;
 		while(!(q.empty())){
-			c=q.pop();
+			c=(GameControllerEvent*)(q.pop());
 			if(c->getExit()){
 				goto quite;
 			}
@@ -70,7 +73,7 @@ void GameController::loop(){
 				}
 			}
 			if(c->getController()!=nullptr){
-				changeController(c->getController(), c->getLeaving());
+				changeController(c->getController());
 			}
 			clearHist(c->getDeleting());
 			FUPS+=c->getFUPSDelta();

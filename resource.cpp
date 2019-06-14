@@ -5,37 +5,38 @@
 ResourceType Resource::randomType(){
 	switch(rand()%3){
 		case 0:
-			return RIron;
+			return Iron;
 		case 1:
-			return ROxygen;
+			return Oxygen;
 		case 2:
-			return RCristall;
+			return Cristall;
 	}
+	return Iron;
 }
 std::string Resource::typeToString(ResourceType type){
 	switch(type){
-		case RIron:
+		case Iron:
 			return "iron";
-		case ROxygen:
+		case Oxygen:
 			return "oxygen";
-		case RCristall:
+		case Cristall:
 			return "cristall";
 		default:
 			std::cerr<<"Resource::typeToString: Unknown type "<<type<<std::endl;
-			return "error"
+			return "error";
 	}
 }
 ResourceType Resource::stringToType(std::string str){
 	if(str.compare("iron")==0){
-		return RIron;
+		return Iron;
 	}
 	if(str.compare("oxygen")==0){
-		return ROxygen;
+		return Oxygen;
 	}
 	if(str.compare("cristall")==0){
-		return RCristall;
+		return Cristall;
 	}
 	std::cerr<<"Resource::stringToType: Unknown type "<<str<<std::endl;
-	return RIron;
+	return Iron;
 }
 

@@ -1,12 +1,12 @@
 #pragma once
+#include "resource.h"
 #include "assets.h"
 #include "field.h"
 #include "resourced.h"
-#include "resource.h"
 #include "resourceset.h"
 #include "storage.h"
 
-class ResourceNode:public Resourced, public Storage{
+class ResourceNode:public Resourced, public Storage, public FO{
 	private:
 		int add;
 		int addPossible;
@@ -16,7 +16,7 @@ class ResourceNode:public Resourced, public Storage{
 	public:
 		virtual void update();
 		virtual SDL_Texture* getTexture(Assets* ass, SDL_Renderer* ren);
-		ResourceNode(int xx, int yy, Field* f, ResorceType type);
+		ResourceNode(Point pos, Field* f, ResourceType type);
 		bool empty();
 		ResourceSet mine(ResourceSet need);
 };

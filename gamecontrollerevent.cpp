@@ -31,7 +31,7 @@ Controller* GameControllerEvent::getController(){
 	return newCtl;
 }
 
-virtual bool GameControllerEvent::forGameController(){
+bool GameControllerEvent::forGameController(){
 	return true;
 }
 

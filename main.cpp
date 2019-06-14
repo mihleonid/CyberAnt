@@ -1,5 +1,6 @@
 #include <iostream>
 #include <SDL.h>
+#include "gamecontroller.h"
 
 int main(int argc, char * argv[]){
 	// Starting
@@ -10,7 +11,6 @@ int main(int argc, char * argv[]){
 	}
 	// Game
 	GameController ctl;
-	ctl.start();
 	// Ending
 	SDL_Quit();
 	std::cout<<"Exiting"<<std::endl;

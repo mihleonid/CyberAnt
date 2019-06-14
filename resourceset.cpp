@@ -13,7 +13,7 @@ int ResourceSet::sub(ResourceType t, int a){
 		contain[t]-=a;
 		return 0;
 	}else{
-		int res=a-contatin[t];
+		int res=a-contain[t];
 		contain[t]=0;
 		return res;
 	}
@@ -34,7 +34,7 @@ ResourceSet ResourceSet::sub(ResourceSet& rset){
 	}
 	return res;
 }
-ResourceSet::get(ResourceType t){
-	return contain[t]
+int ResourceSet::get(ResourceType t){
+	return contain[t];
 }
 

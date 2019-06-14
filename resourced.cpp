@@ -1,12 +1,12 @@
 #include <iostream>
 #include "resourced.h"
 
-bool Resource::empty(){
+bool Resourced::empty(){
 	std::cerr<<"Resuorce::empty must be overloaded"<<std::endl;
 	return true;
 }
-ResourceSet Resource::mine(ResourceSet need){
+ResourceSet Resourced::mine(ResourceSet need){
 	std::cerr<<"Resource::mine must be overloaded"<<std::endl;
-	return Resourceset();
+	return ResourceSet();
 }
 

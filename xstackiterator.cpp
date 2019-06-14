@@ -1,13 +1,13 @@
 #include "xstackiterator.h"
 
-template<class T> XStackIterator::XStackIterator(XStack* current){
+template<class T> XStackIterator<T>::XStackIterator(XStack<T>* current){
 	cur=current;
 	deleted=new int[cur->maxs];
 	deletedTop=0;
 	pos=0;
 	checkRemove();
 }
-template<class T> void XStackIterator::next(){
+template<class T> void XStackIterator<T>::next(){
 	checkRemove();
 	if(deletedTop>0){
 		--deletedTop;
@@ -15,20 +15,20 @@ template<class T> void XStackIterator::next(){
 		++pos;
 	}
 }
-template<class T> bool XStackIterator::ended(){
+template<class T> bool XStackIterator<T>::ended(){
 	checkRemove();
 	if(deletedTop>0){
 		return false;
 	}
 	return (pos==cur->top);
 }
-template<class T> T XStackIterator::current(){
+template<class T> T XStackIterator<T>::current(){
 	if(deletedTop>0){
 		return cur->arr[deleted[deletedTop-1]];
 	}
 	return cur->arr[pos];
 }
-template<class T> void XStackIterator::checkRemove(){
+template<class T> void XStackIterator<T>::checkRemove(){
 	int delc=cur->delc;
 	for(int i=0;i<delc;++i){
 		if(cur->dels[i]<pos){
@@ -38,7 +38,7 @@ template<class T> void XStackIterator::checkRemove(){
 	}
 	cur->delc=0;
 }
-template<class T> void XStackIterator::~XStackIterator(){
+template<class T> XStackIterator<T>::~XStackIterator(){
 	delete deleted;
 }
 
