@@ -1,4 +1,5 @@
 #include <iostream>
+#include "configurator.h"
 #include "point.h"
 #include "gamecontrollerevent.h"
 #include "fieldevent.h"
@@ -140,7 +141,7 @@ FieldView::FieldView(){
 	scrollY=0;
 	mouseDown=false;
 	mouseMoved=false;
-	win = SDL_CreateWindow("HiberAnt", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_W, SCREEN_H, SDL_WINDOW_SHOWN);
+	win = SDL_CreateWindow(Configurator::getWindowTitle(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_W, SCREEN_H, SDL_WINDOW_SHOWN);
 	if (win == nullptr) {
 	std::cerr << "SDL_CreateWindow error: " << SDL_GetError() << std::endl;
 	throw 1;

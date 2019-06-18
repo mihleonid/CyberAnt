@@ -8,4 +8,7 @@ void Configurator::configureResourceNode(ResourceType t, int& add, int& addP, in
 	startVal=100;
 	//TODO from files
 }
+const char* Configurator::getWindowTitle(){
+	return "CyberAnt";
+}
 
