@@ -38,6 +38,13 @@ void Field::remove(int x, int y){
 	delete field[i];
 	field[i]=nullptr;
 }
+void Field::removeAll(){
+	for(int x=0;x<BlocksX;++x){
+		for(int y=0;y<BlocksY;++y){
+			remove(x, y);
+		}
+	}
+}
 
 void Field::set(FO* f) {
 	int i=(f->getPos().getY())*BlocksX+(f->getPos().getX());

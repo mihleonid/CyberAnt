@@ -19,6 +19,7 @@ set(src
 	gamecontroller.cpp
 	gamecontrollerevent.cpp
 	main.cpp
+	model.cpp
 	point.cpp
 	putable.cpp
 	random.cpp
@@ -27,6 +28,7 @@ set(src
 	resourcenode.cpp
 	resourceset.cpp
 	tubed.cpp
+	view.cpp
 	xstack.cpp
 	xstackiterator.cpp
 )
