@@ -12,7 +12,7 @@
 class Base:public Building, public Storage, public Resourced, public Putable{
 	public:
 		virtual void update();
-		virtual SDL_Texture* getTexture(Assets* ass, SDL_Renderer* ren);
+		virtual SDL_Texture* getTexture(Assets* ass, SDL_Renderer* ren) const;
 		Base(Point p, Field* f, int lvl);
 		bool empty();
 		void put(ResourceSet g);

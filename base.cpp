@@ -6,7 +6,7 @@ Base::Base(Point p, Field* f, int lvl):Building(p, f, lvl){
 }
 void Base::update(){
 }
-SDL_Texture* Base::getTexture(Assets* ass, SDL_Renderer* ren){
+SDL_Texture* Base::getTexture(Assets* ass, SDL_Renderer* ren) const{
 	return ass->tex(ass->getbase(), ren, ((Building*)this)->level);
 }
 bool Base::empty(){

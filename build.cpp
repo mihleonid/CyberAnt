@@ -1,3 +1,4 @@
+#define _GLIBCXX_DEBUG
 #include "assets.cpp"
 #include "base.cpp"
 #include "building.cpp"
