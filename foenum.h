@@ -7,9 +7,5 @@ enum FOType{FOBuilding=1, FOResourced=2, FOPutable=4, FOStorage=8, FOTubed=16, F
 // Storage - хранит. Можно безнаказно брать.
 // Tubed - можно давать, но он не съест, пустит куда-либо.
 enum FOWhat{BBase, BIMine, BCanal, BRadio, RIron, ROxygen, RCristall};//radio = vishka
-//inline FOType operator|(FOType a, FOType b);
-inline FOType operator|(FOType a, FOType b){
-	return static_cast<FOType>(static_cast<int>(a) | static_cast<int>(b));
-}
-//TODO move to cpp
+inline FOType operator|(FOType a, FOType b);
 
