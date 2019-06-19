@@ -2,7 +2,7 @@
 #include "random.h"
 
 void Random::init(){
-	srand(2);
+	srand(time(0));
 }
 int Random::rnd(){
 	return rand();

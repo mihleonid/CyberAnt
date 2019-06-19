@@ -1,7 +1,6 @@
 #pragma once
 
 class Random{
-	//TODO fast random
 	public:
 		static void init();
 		static int rnd();
