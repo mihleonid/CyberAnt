@@ -1,7 +1,4 @@
 #pragma once
-//TODO должен знать fieldview
-#define FW 64
-#define FH 64
 
 #define mmin(x, y) (((x)<(y))?(x):(y))
 #define mmax(x, y) (((x)>(y))?(x):(y))

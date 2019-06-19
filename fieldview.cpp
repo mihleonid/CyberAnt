@@ -8,6 +8,9 @@
 #include "fieldmodel.h"
 #include "common.hpp"
 
+#define FW 64
+#define FH 64
+
 void FieldView::loop(const Model* mode){
 	const FieldModel* model=(const FieldModel*)mode;
 	clamp(scrollX, -20, BlocksX*FW-SCREEN_W+20);
@@ -204,4 +207,6 @@ std::pair<int, int> FieldView::drawTextRight(int x, int y, int text){
 	SDL_DestroyTexture(txt);
 	return res;
 }
+#undef FW
+#undef FH
 
