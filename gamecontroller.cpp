@@ -6,14 +6,15 @@
 #include "random.h"
 #include "common.hpp"
 
-GameController::GameController(){
-	std::cout<<"Creating GameController"<<std::endl;
+GameController::GameController(bool m){
+	std::cout<<"Creating GameController..."<<std::endl;
+	sdlMode=m;
 	try{
 		Random::init();
 		std::cout<<"Initialization finishing..."<<std::endl;
 		currentController=new FieldController;
 		initFps();
-		std::cout<<"Initialization success"<<std::endl;
+		std::cout<<"Initialization success."<<std::endl;
 	}catch(int code){
 		std::cerr<<"Initialization failed with code "<<code<<std::endl;
 		exit(code);
