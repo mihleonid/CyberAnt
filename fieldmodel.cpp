@@ -1,9 +1,12 @@
 #include "fieldmodel.h"
 #include "resourced.h"
+#include "resourcenode.h"
 #include "storage.h"
 #include "fieldevent.h"
 #include "base.h"
 #include "random.h"
+#include "foenum.h"
+#include "resource.h"
 
 FieldModel::FieldModel(){
 	rset=new ResourceSet();
@@ -40,7 +43,7 @@ void FieldModel::applyEvent(Event* ce){
 					}
 					break;
 				case BIMine:
-					//field.set(new IronMine(c->x, c->y, &field));
+					field.set(new ResourceNode(c->getPos(), &field, Iron));
 					break;
 			}
 		}
