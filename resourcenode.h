@@ -15,7 +15,7 @@ class ResourceNode:public Resourced, public Storage, public FO{
 		ResourceType rtype;
 	public:
 		virtual void update();
-		virtual SDL_Texture* getTexture(Assets* ass, SDL_Renderer* ren);
+		virtual SDL_Texture* getTexture(Assets* ass, SDL_Renderer* ren) const;
 		ResourceNode(Point pos, Field* f, ResourceType type);
 		bool empty();
 		ResourceSet mine(ResourceSet need);
