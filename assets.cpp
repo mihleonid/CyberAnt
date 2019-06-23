@@ -7,12 +7,10 @@
 Assets::Assets(SDL_Renderer* ren) {
 	loadfield();
 	loadbase();
-	loadiron();
 	loadironmine();
 
 	assert(field != nullptr);
 	assert(base!=nullptr);
-	assert(iron!=nullptr);
 	assert(ironmine!=nullptr);
 
 	fieldtex = tex(getfield(), ren, 0);
@@ -21,14 +19,17 @@ Assets::Assets(SDL_Renderer* ren) {
 Assets::~Assets(){
 	SDL_FreeSurface(field);
 	SDL_FreeSurface(base);
-	SDL_FreeSurface(iron);
 
 	SDL_DestroyTexture(fieldtex);
 	TTF_CloseFont(font);
 }
 
 SDL_Surface* Assets::getNode(std::string type){
-	return SDL_LoadBMP(("./assets/"+type+"node.bmp").c_str());
+	SDL_Surface* sur=SDL_LoadBMP(("./assets/"+type+"node.bmp").c_str());
+	if(sur==nullptr){
+		std::cerr<<"No file ./assets/"<<type<<"node.bmp"<<std::endl;
+	}
+	return sur;
 }
 
 SDL_Texture* Assets::tex(SDL_Surface* surface, SDL_Renderer* ren, int lvl) {

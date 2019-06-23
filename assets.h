@@ -9,7 +9,6 @@ class Assets {
 private:
     SDL_Surface* field;
     SDL_Surface* base;
-    SDL_Surface* iron;
     SDL_Surface* ironmine;
 
     SDL_Texture* fieldtex;
@@ -21,7 +20,6 @@ public:
 
     getload(field);
     getload(base);
-    getload(iron);
     getload(ironmine);
 
     SDL_Texture* getFieldTex();
