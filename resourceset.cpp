@@ -2,7 +2,7 @@
 
 ResourceSet::ResourceSet(){
 }
-bool ResourceSet::isEmpty(ResourceType type){
+bool ResourceSet::isEmpty(ResourceType type) const{
 	return (get(type)==0);
 }
 void ResourceSet::add(ResourceType t, int a){
@@ -34,7 +34,10 @@ ResourceSet ResourceSet::sub(ResourceSet& rset){
 	}
 	return res;
 }
-int ResourceSet::get(ResourceType t){
-	return contain[t];
+int ResourceSet::get(ResourceType t) const{
+	if(contain.count(t)){
+		return contain.at(t);
+	}
+	return 0;
 }
 
