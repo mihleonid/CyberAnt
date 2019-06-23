@@ -2,7 +2,7 @@
 #include "tubed.h"
 
 void Tubed::send(ResourceSet give){
-	//TODO TO surrounding
+	send(new TO(give));
 }
 void Tubed::send(TO* give){
 	std::cerr<<"Calling to tubed"<<std::endl;

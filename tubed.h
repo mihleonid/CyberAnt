@@ -1,9 +1,6 @@
 #pragma once
 #include "resourceset.h"
-//#include "to.h"
-class TO{
-};
-//TODO TO
+#include "to.h"
 
 //класс нужный, но пока не готовый, сначала TO (TubeObject)
 class Tubed{//можно давать и ничего ресурсу не будет
