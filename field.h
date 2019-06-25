@@ -1,8 +1,8 @@
 #pragma once
 class Field;
 #include "common.hpp"
-#include "xstack.h"
-#include "xstackiterator.h"
+#include "xstack/xstack.h"
+#include "xstack/xstackiterator.h"
 #include "fo.h"
 #include "point.h"
 

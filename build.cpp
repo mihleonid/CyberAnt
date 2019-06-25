@@ -27,6 +27,6 @@
 #include "to.cpp"
 #include "tubed.cpp"
 #include "view.cpp"
-#include "xstack.cpp"
-#include "xstackiterator.cpp"
+#include "xstack/xstack.cpp"
+#include "xstack/xstackiterator.cpp"
 
