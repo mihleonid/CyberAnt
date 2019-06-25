@@ -11,8 +11,15 @@ void FieldTView::loop(const Model* m){
 	T_GOTO(50, 1);
 	std::cout<<"CyberAnt v1.0 (Terminal graphics)";
 	T_NL();
+	char cmd;
+	std::cin>>cmd;
+	T_CLEAR();
 }
 EventQueue FieldTView::getEvents(){
 	return EventQueue();
+}
+FieldTView::~FieldTView(){
+	T_OPT(O_RESET);
+	T_CLEAR();
 }
 
