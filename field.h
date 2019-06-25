@@ -1,15 +1,12 @@
 #pragma once
 class Field;
 #include "common.hpp"
-#include "xstack/xstack.h"
-#include "xstack/xstackiterator.h"
 #include "fo.h"
 #include "point.h"
 
 class Field{
 	private:
 		FO** field=new FO*[BlocksX*BlocksY];
-		XStack<FO*> all=XStack<FO*>(BlocksX*BlocksY);
 	public:
 		Field();
 
@@ -25,13 +22,8 @@ class Field{
 
 		void set(FO* f);
 
-		Path getnb(int x, int y);
-		Path getnb(const Point& p);
-
-		/*
-		Path findPath(int x, int y, int tx, int ty);
-		Path findPath(const Point& start, const Point& end);
-		*/
+		Path getnb(int x, int y) const;
+		Path getnb(const Point& p) const;
 
 		XStackIterator<FO*> begin();
 };

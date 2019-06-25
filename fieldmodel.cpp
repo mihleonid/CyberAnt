@@ -65,6 +65,7 @@ void FieldModel::loop(){
 			if(c->getType()&FOResourced){
 				if((dynamic_cast<Resourced*>(c))->empty()){
 					field.remove(x, y);
+					delete c;
 					continue;
 				}
 			}
