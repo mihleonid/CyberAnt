@@ -1,6 +1,8 @@
 #include <iostream>
 #include "view.h"
 
+void View::init(){
+}
 void View::loop(const Model* m){
 	std::cerr<<"Calling to view"<<std::endl;
 }

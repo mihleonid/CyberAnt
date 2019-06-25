@@ -1,8 +1,17 @@
 #include "controller.h"
 
-void Controller::initialize(Model* m, View* v){
+Controller::Controller(bool sdl){
+	sdlMode=sdl;
+}
+void Controller::initialize(Model* m, View* v, View* tv){
 	model=m;
 	view=v;
+	tview=tv;
+	if(sdlMode){
+		v->init();
+	}else{
+		tv->init();
+	}
 }
 Model* Controller::getModel(){
 	return model;
@@ -10,13 +19,21 @@ Model* Controller::getModel(){
 View* Controller::getView(){
 	return view;
 }
+View* Controller::getTView(){
+	return tview;
+}
 void Controller::loop(){
 	model->loop();
-	view->loop(model);
+	if(sdlMode){
+		view->loop(model);
+	}else{
+		tview->loop(model);
+	}
 }
 Controller::~Controller(){
 	delete model;
 	delete view;
+	delete tview;
 }
 EventQueue Controller::eventLoop(){
 	EventQueue res;

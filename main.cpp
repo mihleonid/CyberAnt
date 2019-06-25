@@ -1,8 +1,9 @@
 #include <iostream>
 #include <SDL.h>
+#include "terminal.h"
 #include "gamecontroller.h"
 
-int main(int argc, char * argv[]){
+int main(int argc, char* argv[]){
 	// Starting
 	std::cout<<"Starting..."<<std::endl;
 	bool sdlMode=true;
@@ -15,11 +16,19 @@ int main(int argc, char * argv[]){
 			return 1;
 		}
 		sdlMode=false;
+		T_CLEAR();
+		T_GOTO(5, 5);
+		T_OPT(F_MAGENTA);
+		T_OPT(B_GREEN);
+		std::cout<<"CYBERANT v 1.0 (Terminal graphics)";
+		T_NL();
 	}
 	// Game
 	GameController ctl(sdlMode);
 	// Ending
-	SDL_Quit();
+	if(sdlMode){
+		SDL_Quit();
+	}
 	std::cout<<"Exiting"<<std::endl;
 	return 0;
 }

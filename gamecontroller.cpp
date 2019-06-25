@@ -12,7 +12,7 @@ GameController::GameController(bool m){
 	try{
 		Random::init();
 		std::cout<<"Initialization finishing..."<<std::endl;
-		currentController=new FieldController;
+		currentController=new FieldController(m);
 		initFps();
 		std::cout<<"Initialization success."<<std::endl;
 	}catch(int code){

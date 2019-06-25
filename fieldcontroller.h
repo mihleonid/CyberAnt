@@ -3,6 +3,6 @@
 
 class FieldController:public Controller{
 	public:
-		FieldController();
+		FieldController(bool sdl);
 };
 

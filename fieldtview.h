@@ -1,8 +1,9 @@
 #pragma once
+#include "view.h"
 #include "eventqueue.h"
-#include "model.h"
+#include "assets.h"
 
-class View{
+class FieldTView:public View{
 	public:
 		virtual void init();
 		virtual void loop(const Model* m);

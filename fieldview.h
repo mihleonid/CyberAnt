@@ -27,7 +27,7 @@ class FieldView:public View{
 	public:
 		virtual void loop(const Model* m);
 		virtual EventQueue getEvents();
-		FieldView();
+		virtual void init();
 		~FieldView();
 };
 

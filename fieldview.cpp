@@ -139,24 +139,24 @@ EventQueue FieldView::getEvents(){
 	}
 	return v;
 }
-FieldView::FieldView(){
+void FieldView::init(){
 	scrollX=0;
 	scrollY=0;
 	mouseDown=false;
 	mouseMoved=false;
 	win = SDL_CreateWindow(Configurator::getWindowTitle(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_W, SCREEN_H, SDL_WINDOW_SHOWN);
 	if (win == nullptr) {
-	std::cerr << "SDL_CreateWindow error: " << SDL_GetError() << std::endl;
-	throw 1;
+		std::cerr << "SDL_CreateWindow error: " << SDL_GetError() << std::endl;
+		throw 1;
 	}
 	ren = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 	if (ren == nullptr) {
-	std::cerr << "SDL_CreateRenderer error: " << SDL_GetError() << std::endl;
-	throw 1;
+		std::cerr << "SDL_CreateRenderer error: " << SDL_GetError() << std::endl;
+		throw 1;
 	}
 	if (TTF_Init() != 0) {
-	std::cerr << "TTF_Init error" << std::endl;
-	throw 1;
+		std::cerr << "TTF_Init error" << std::endl;
+		throw 1;
 	}
 	ass=new Assets(ren);
 }

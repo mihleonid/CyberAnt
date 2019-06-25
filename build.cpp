@@ -10,6 +10,7 @@
 #include "fieldcontroller.cpp"
 #include "fieldevent.cpp"
 #include "fieldmodel.cpp"
+#include "fieldtview.cpp"
 #include "fieldview.cpp"
 #include "fo.cpp"
 #include "foenum.cpp"

@@ -36,6 +36,7 @@ void Field::remove(int x, int y){
 	(all[uo])->order=uo;
 	
 	std::cerr<<field[i]<<std::endl; // FIXME
+	std::cerr<<field[i]->getPos().getX()<<std::endl;
 	delete field[i];
 	field[i]=nullptr;
 }
