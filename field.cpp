@@ -35,9 +35,9 @@ void Field::remove(int x, int y){
 	int uo=all.remove(cur->order); // Номер того, кого хотим обновить
 	(all[uo])->order=uo;
 	
-	std::cerr<<field[i]<<std::endl; // FIXME
-	std::cerr<<field[i]->getPos().getX()<<std::endl;
-	delete field[i];
+	std::cerr<<cur<<std::endl; // FIXME
+	std::cerr<<cur->getPos().getX()<<std::endl;
+	delete cur;
 	field[i]=nullptr;
 }
 void Field::removeAll(){
