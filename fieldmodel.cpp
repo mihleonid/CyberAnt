@@ -68,6 +68,10 @@ void FieldModel::loop(){
 					delete c;
 					continue;
 				}
+			}else{
+				field.remove(x, y);
+				delete c;
+				continue;
 			}
 			c->update();
 		}

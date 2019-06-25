@@ -16,15 +16,13 @@ class Field{
 		const FO* get(int x, int y) const;
 		const FO* get(const Point& p) const;
 
-		void remove(int x, int y);
-		void remove(const Point& p);
-		void removeAll();
+		FO* remove(int x, int y);
+		FO* remove(const Point& p);
+		void removeAll(); // deletes
 
 		void set(FO* f);
 
 		Path getnb(int x, int y) const;
 		Path getnb(const Point& p) const;
-
-		XStackIterator<FO*> begin();
 };
 

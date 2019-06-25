@@ -36,21 +36,13 @@ FO* Field::remove(int x, int y){
 void Field::removeAll(){
 	for(int x=0;x<BlocksX;++x){
 		for(int y=0;y<BlocksY;++y){
-			remove(x, y);
+			delete remove(x, y);
 		}
 	}
 }
 
 void Field::set(FO* f) {
 	int i=(f->getPos().getY())*BlocksX+(f->getPos().getX());
-	int o=f->order;
-	if((o>=0)&&(o<all.size())){
-		if(all[o]==f){
-			goto ef;
-		}
-	}
-	f->order=all.push(f);
-	ef:;
 	field[i]=f;
 }
 
