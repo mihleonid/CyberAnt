@@ -12,18 +12,15 @@ class FO{
 		FOWhat what;
 		Field* currField;
 		Point pos;
-		int order=-1; // Нужно для Field
 	public:
 		FOType getType();
 		FOWhat getWhat();
 		Field* getField();
-		Point getPos();
+		Point getPos() const;
 		void setPos(Point p);
 
 		FO(Point p, Field* currField);
 		virtual void update();
 		virtual SDL_Texture* getTexture(Assets* ass, SDL_Renderer* ren) const;
-
-		friend class Field;
 };
 

@@ -22,7 +22,7 @@ FOWhat FO::getWhat(){
 Field* FO::getField(){
 	return currField;
 }
-Point FO::getPos(){
+Point FO::getPos() const{
 	return pos;
 }
 void FO::setPos(Point p){
