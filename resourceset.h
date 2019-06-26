@@ -13,9 +13,9 @@ class ResourceSet{
 		int get(ResourceType type) const;
 
 		void add(ResourceType type, int a);
-		void add(ResourceSet& another);
+		void add(const ResourceSet& another);
 
 		int sub(ResourceType type, int a); // Возвращает, сколько осталось
-		ResourceSet sub(ResourceSet& another); // Аналогично
+		ResourceSet sub(const ResourceSet& another); // Аналогично
 };
 

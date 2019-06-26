@@ -6,7 +6,14 @@ ResourceSet::ResourceSet(ResourceType t, int a){
 	add(t, a);
 }
 bool ResourceSet::empty() const{
-	return (contain.empty());
+	auto beg=contain.begin();
+	auto end=contain.end();
+	for(auto i=beg; i!=end;i++){
+		if(!empty(i->first)){
+			return false;
+		}
+	}
+	return true;
 }
 bool ResourceSet::empty(ResourceType type) const{
 	return (get(type)==0);
@@ -24,14 +31,15 @@ int ResourceSet::sub(ResourceType t, int a){
 		return res;
 	}
 }
-void ResourceSet::add(ResourceSet& rset){
+
+void ResourceSet::add(const ResourceSet& rset){
 	auto beg=rset.contain.begin();
 	auto end=rset.contain.end();
 	for(auto i=beg; i!=end;i++){
 		add(i->first, i->second);
 	}
 }
-ResourceSet ResourceSet::sub(ResourceSet& rset){
+ResourceSet ResourceSet::sub(const ResourceSet& rset){
 	auto beg=rset.contain.begin();
 	auto end=rset.contain.end();
 	ResourceSet res;
