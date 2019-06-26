@@ -2,7 +2,13 @@
 
 ResourceSet::ResourceSet(){
 }
-bool ResourceSet::isEmpty(ResourceType type) const{
+ResourceSet::ResourceSet(ResourceType t, int a){
+	add(t, a);
+}
+bool ResourceSet::empty() const{
+	return (contain.empty());
+}
+bool ResourceSet::empty(ResourceType type) const{
 	return (get(type)==0);
 }
 void ResourceSet::add(ResourceType t, int a){

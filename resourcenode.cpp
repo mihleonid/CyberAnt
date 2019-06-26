@@ -16,7 +16,7 @@ void ResourceNode::update(){
 	}
 }
 bool ResourceNode::empty(){
-	return have.isEmpty(rtype);
+	return have.empty(rtype);
 }
 ResourceSet ResourceNode::mine(ResourceSet need){
 	ResourceSet rest=have.sub(need);

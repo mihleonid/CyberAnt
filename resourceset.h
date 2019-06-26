@@ -7,7 +7,9 @@ class ResourceSet{
 		std::map<ResourceType, int> contain;
 	public:
 		ResourceSet();
-		bool isEmpty(ResourceType type) const;
+		ResourceSet(ResourceType type, int count);
+		bool empty() const;
+		bool empty(ResourceType type) const;
 		int get(ResourceType type) const;
 
 		void add(ResourceType type, int a);
