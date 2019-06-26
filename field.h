@@ -19,8 +19,8 @@ class Field{
 		const FO* get(int x, int y) const;
 		const FO* get(const Point& p) const;
 
-		void remove(int x, int y);
-		void remove(const Point& p);
+		FO* remove(int x, int y);
+		FO* remove(const Point& p);
 		void removeAll();
 
 		void set(FO* f);

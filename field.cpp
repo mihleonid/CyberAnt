@@ -25,25 +25,25 @@ FO* Field::get(const Point& p){
 	return get(p.getX(), p.getY());
 }
 
-void Field::remove(const Point& p){
-	remove(p.getX(), p.getY());
+FO* Field::remove(const Point& p){
+	return remove(p.getX(), p.getY());
 }
-void Field::remove(int x, int y){
+FO* Field::remove(int x, int y){
 	int i=y*BlocksX+x;
 	FO* cur=field[i];
 
 	int uo=all.remove(cur->order); // Номер того, кого хотим обновить
 	(all[uo])->order=uo;
 	
-	std::cerr<<cur<<std::endl; // FIXME
-	std::cerr<<cur->getPos().getX()<<std::endl;
-	delete cur;
 	field[i]=nullptr;
+	return cur;
 }
 void Field::removeAll(){
 	for(int x=0;x<BlocksX;++x){
 		for(int y=0;y<BlocksY;++y){
-			remove(x, y);
+			if(field[y*BlocksX+x]!=nullptr){
+				delete remove(x, y);
+			}
 		}
 	}
 }
