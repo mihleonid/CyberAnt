@@ -17,7 +17,7 @@ FieldModel::FieldModel(){
 		for(int y=0;y<BlocksY;y++){
 			switch(Random::rnd(20)){
 				case 1:
-					//field.set(new Iron(x, y, &field)); // TODO FO, Resource node
+					field.set(new ResourceNode(Point(x, y), &field, Iron));
 					break;
 			}
 		}
@@ -65,6 +65,7 @@ void FieldModel::loop(){
 			if(c->getType()&FOResourced){
 				if((dynamic_cast<Resourced*>(c))->empty()){
 					field.remove(x, y);
+					delete c;
 					continue;
 				}
 			}
