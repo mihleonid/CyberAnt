@@ -47,7 +47,12 @@ LWindow::LWindow(const char* title, bool force){
 void LWindow::add(){
 }
 void LWindow::update(){
-	T_HOME();
+	if(!sdlMode){
+		T_HOME();
+		T_OPT(F_MAGENTA);
+		LDrawer::drawTextCenterT(tw/2, 1, wtitle);
+		T_NL();
+	}
 }
 LWindow::~LWindow(){
 	if(win!=nullptr){

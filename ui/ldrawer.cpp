@@ -1,12 +1,12 @@
-#define "ldrawer.h"
+#include "ldrawer.h"
 
 std::pair<int, int> LDrawer::draw(int x, int y, SDL_Texture* tex) {
-    SDL_Rect pos;
-    pos.x = x;
-    pos.y = y;
-    SDL_QueryTexture(tex, NULL, NULL, &pos.w, &pos.h);
-    SDL_RenderCopy(ren, tex, NULL, &pos);
-    return std::pair<int, int>(pos.w, pos.h);
+	SDL_Rect pos;
+	pos.x = x;
+	pos.y = y;
+	SDL_QueryTexture(tex, NULL, NULL, &pos.w, &pos.h);
+	SDL_RenderCopy(ren, tex, NULL, &pos);
+	return std::pair<int, int>(pos.w, pos.h);
 }
 std::pair<int, int> LDrawer::drawText(int x, int y, const char* text){
 	SDL_Texture* txt=makeText(ren, text);
@@ -22,13 +22,13 @@ std::pair<int, int> LDrawer::drawText(int x, int y, int text){
 }
 
 std::pair<int, int> LDrawer::drawRight(int x, int y, SDL_Texture* tex) {
-    SDL_Rect pos;
-    pos.x = x;
-    pos.y = y;
-    SDL_QueryTexture(tex, NULL, NULL, &pos.w, &pos.h);
-    pos.x-=pos.w;
-    SDL_RenderCopy(ren, tex, NULL, &pos);
-    return std::pair<int, int>(pos.w, pos.h);
+	SDL_Rect pos;
+	pos.x = x;
+	pos.y = y;
+	SDL_QueryTexture(tex, NULL, NULL, &pos.w, &pos.h);
+	pos.x-=pos.w;
+	SDL_RenderCopy(ren, tex, NULL, &pos);
+	return std::pair<int, int>(pos.w, pos.h);
 }
 std::pair<int, int> LDrawer::drawTextRight(int x, int y, const char* text){
 	SDL_Texture* txt=makeText(ren, text);
@@ -44,13 +44,13 @@ std::pair<int, int> LDrawer::drawTextRight(int x, int y, int text){
 }
 
 std::pair<int, int> LDrawer::drawCenter(int x, int y, SDL_Texture* tex) {
-    SDL_Rect pos;
-    pos.x = x;
-    pos.y = y;
-    SDL_QueryTexture(tex, NULL, NULL, &pos.w, &pos.h);
-    pos.x-=pos.w/2;
-    SDL_RenderCopy(ren, tex, NULL, &pos);
-    return std::pair<int, int>(pos.w, pos.h);
+	SDL_Rect pos;
+	pos.x = x;
+	pos.y = y;
+	SDL_QueryTexture(tex, NULL, NULL, &pos.w, &pos.h);
+	pos.x-=pos.w/2;
+	SDL_RenderCopy(ren, tex, NULL, &pos);
+	return std::pair<int, int>(pos.w, pos.h);
 }
 std::pair<int, int> LDrawer::drawTextCenter(int x, int y, const char* text){
 	SDL_Texture* txt=makeText(ren, text);
