@@ -85,10 +85,4 @@ void Assets::pixelset(int x, int y, Uint32 color, SDL_Surface* surface){
 SDL_Texture* Assets::getFieldTex() {
 	return fieldtex;
 }
-SDL_Texture* Assets::makeText(SDL_Renderer* ren, const char* c){
-	SDL_Color white={255, 255, 255};
-	SDL_Surface* surfaceMessage=TTF_RenderText_Solid(font, c, white);
-	SDL_Texture* message=SDL_CreateTextureFromSurface(ren, surfaceMessage);
-	SDL_FreeSurface(surfaceMessage);
-	return message;
-}
+

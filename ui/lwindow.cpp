@@ -22,6 +22,9 @@ LWindow::LWindow(const char* title, bool force){
 		T_OPT(B_GREEN);
 		std::cout<<"LUI v 1.0 (Terminal graphics)";
 		T_NL();
+		Point p=terminal_size();
+		tw=p.getX();
+		th=p.getY();
 		std::this_thread::sleep_for(std::chrono::milliseconds(500)); // Micro sleep
 	}else{
 		sdlMode=true;
@@ -40,6 +43,11 @@ LWindow::LWindow(const char* title, bool force){
 			throw 1;
 		}
 	}
+}
+void LWindow::add(){
+}
+void LWindow::update(){
+	T_HOME();
 }
 LWindow::~LWindow(){
 	if(win!=nullptr){

@@ -8,14 +8,6 @@
 
 class FieldView:public View{
 	private:
-		/*
-		std::pair<int, int> draw(int x, int y, SDL_Texture* tex);
-		std::pair<int, int> drawText(int x, int y, int text);
-		std::pair<int, int> drawText(int x, int y, const char* text);
-		std::pair<int, int> drawRight(int x, int y, SDL_Texture* tex);
-		std::pair<int, int> drawTextRight(int x, int y, int text);
-		std::pair<int, int> drawTextRight(int x, int y, const char* text);
-		*/
 		int scrollX;
 		int scrollY;
 		bool mouseDown;

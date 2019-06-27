@@ -154,50 +154,6 @@ void FieldView::init(){
 FieldView::~FieldView() {
     delete ass;
 }
-/*
-std::pair<int, int> FieldView::draw(int x, int y, SDL_Texture* tex) {
-    SDL_Rect pos;
-    pos.x = x;
-    pos.y = y;
-    SDL_QueryTexture(tex, NULL, NULL, &pos.w, &pos.h);
-    SDL_RenderCopy(ren, tex, NULL, &pos);
-    return std::pair<int, int>(pos.w, pos.h);
-}
-std::pair<int, int> FieldView::drawText(int x, int y, const char* text){
-	SDL_Texture* txt=ass->makeText(ren, text);
-	std::pair<int, int> res=draw(x, y, txt);
-	SDL_DestroyTexture(txt);
-	return res;
-}
-std::pair<int, int> FieldView::drawText(int x, int y, int text){
-	SDL_Texture* txt=ass->makeText(ren, std::to_string(text).c_str());
-	std::pair<int, int> res=draw(x, y, txt);
-	SDL_DestroyTexture(txt);
-	return res;
-}
-
-std::pair<int, int> FieldView::drawRight(int x, int y, SDL_Texture* tex) {
-    SDL_Rect pos;
-    pos.x = x;
-    pos.y = y;
-    SDL_QueryTexture(tex, NULL, NULL, &pos.w, &pos.h);
-    pos.x-=pos.w;
-    SDL_RenderCopy(ren, tex, NULL, &pos);
-    return std::pair<int, int>(pos.w, pos.h);
-}
-std::pair<int, int> FieldView::drawTextRight(int x, int y, const char* text){
-	SDL_Texture* txt=ass->makeText(ren, text);
-	std::pair<int, int> res=drawRight(x, y, txt);
-	SDL_DestroyTexture(txt);
-	return res;
-}
-std::pair<int, int> FieldView::drawTextRight(int x, int y, int text){
-	SDL_Texture* txt=ass->makeText(ren, std::to_string(text).c_str());
-	std::pair<int, int> res=drawRight(x, y, txt);
-	SDL_DestroyTexture(txt);
-	return res;
-}
-*/
 #undef FW
 #undef FH
 
