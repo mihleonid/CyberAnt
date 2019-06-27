@@ -1,10 +1,11 @@
 #include <cassert>
 #include "build.cpp"
+
 #include "resourceset_test.cpp"
 #include "field_test.cpp"
 
 int main(){
-	std::cout<<"Cyberant testing..."<<std::endl;
+	std::cout<<"CyberAnt testing..."<<std::endl;
 
 	std::cout<<" ResourceSet testing..."<<std::endl;
 	resourceset_test();
