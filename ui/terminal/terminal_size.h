@@ -1,5 +1,5 @@
 #pragma once
-#include "point.h"
+#include "../../point.h"
 #ifdef _WIN32
 #include <windows.h>
 Point terminal_size(){

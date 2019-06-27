@@ -1,4 +1,4 @@
-#include "terminal.h"
+#include "ui/terminal/terminal.h"
 #include "fieldtview.h"
 
 void FieldTView::init(){

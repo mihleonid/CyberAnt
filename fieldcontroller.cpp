@@ -3,6 +3,6 @@
 #include "fieldview.h"
 #include "fieldtview.h"
 
-FieldController::FieldController(bool sdl):Controller::Controller(sdl){
-	initialize(new FieldModel, new FieldView, new FieldTView);
+FieldController::FieldController(){
+	initialize(new FieldModel, new FieldView);
 }

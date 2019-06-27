@@ -7,15 +7,11 @@ class Controller{
 	private:
 		Model* model;
 		View* view;
-		View* tview;
-		bool sdlMode;
 	protected:
-		void initialize(Model* m, View* v, View* tv);
+		void initialize(Model* m, View* v);
 	public:
-		Controller(bool sdl);
 		Model* getModel();
 		View* getView();
-		View* getTView();
 
 		void loop();
 		EventQueue eventLoop();

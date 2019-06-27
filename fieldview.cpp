@@ -12,6 +12,7 @@
 #define FH 64
 
 void FieldView::loop(const Model* mode){
+	/*
 	const FieldModel* model=(const FieldModel*)mode;
 	clamp(scrollX, -20, BlocksX*FW-SCREEN_W+20);
 	clamp(scrollY, -20, BlocksY*FH-SCREEN_H+20);
@@ -40,10 +41,12 @@ void FieldView::loop(const Model* mode){
 	std::pair<int, int> ccc=drawTextRight(SCREEN_W, ay+yy, model->rset->get(Cristall));
 	drawTextRight(SCREEN_W-ccc.first, ay+yy, "Cristall: ").second;
 	SDL_RenderPresent(ren);
+	*/
 }
 EventQueue FieldView::getEvents(){
 	SDL_Event evt;
 	EventQueue v;
+	/*
 	while(SDL_PollEvent(&evt)){
 		if(evt.type==SDL_QUIT){
 			v.push(new GameControllerEvent(true, false));
@@ -137,6 +140,7 @@ EventQueue FieldView::getEvents(){
 			}
 		}
 	}
+	*/
 	return v;
 }
 void FieldView::init(){
@@ -144,27 +148,13 @@ void FieldView::init(){
 	scrollY=0;
 	mouseDown=false;
 	mouseMoved=false;
-	win = SDL_CreateWindow(Configurator::getWindowTitle(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_W, SCREEN_H, SDL_WINDOW_SHOWN);
-	if (win == nullptr) {
-		std::cerr << "SDL_CreateWindow error: " << SDL_GetError() << std::endl;
-		throw 1;
-	}
-	ren = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
-	if (ren == nullptr) {
-		std::cerr << "SDL_CreateRenderer error: " << SDL_GetError() << std::endl;
-		throw 1;
-	}
-	if (TTF_Init() != 0) {
-		std::cerr << "TTF_Init error" << std::endl;
-		throw 1;
-	}
-	ass=new Assets(ren);
+	win=new LWindow(Configurator::getWindowTitle());
+	//ass=new Assets(nullptr/*ren*/);//TODO
 }
 FieldView::~FieldView() {
     delete ass;
-    SDL_DestroyRenderer(ren);
-    SDL_DestroyWindow(win);
 }
+/*
 std::pair<int, int> FieldView::draw(int x, int y, SDL_Texture* tex) {
     SDL_Rect pos;
     pos.x = x;
@@ -207,6 +197,7 @@ std::pair<int, int> FieldView::drawTextRight(int x, int y, int text){
 	SDL_DestroyTexture(txt);
 	return res;
 }
+*/
 #undef FW
 #undef FH
 

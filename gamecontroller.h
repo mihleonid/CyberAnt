@@ -20,10 +20,8 @@ class GameController{
 		void clearHist(int k); // k>0 -> удаляет последние k. k<0 -> оставляет первые -k.
 		bool back(); // Нужно ли выходить
 
-		bool sdlMode; // TODO do it
-
 	public:
-		GameController(bool sdlMode);
+		GameController();
 		~GameController();
 };
 

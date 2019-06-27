@@ -1,4 +1,5 @@
 #define _GLIBCXX_DEBUG
+#define DEBUG
 #include "assets.cpp"
 #include "base.cpp"
 #include "building.cpp"
@@ -30,4 +31,5 @@
 #include "view.cpp"
 #include "xstack/xstack.cpp"
 #include "xstack/xstackiterator.cpp"
+#include "ui/lui.cpp"
 
