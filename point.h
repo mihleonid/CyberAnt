@@ -9,6 +9,8 @@ class Point{
 		int getY() const;
 
 		Point();
+		Point(int a); // (a, a)
+		Point(const Point& p);
 		Point(int x, int y);
 		int dist(Point& p);
 		Point& operator+=(Point& p);
@@ -17,6 +19,19 @@ class Point{
 		Point operator-(Point& p);
 		friend bool operator==(const Point& a, const Point& b);
 		friend bool operator!=(const Point& a, const Point& b);
+};
+class Rect{
+	private:
+		Point a;
+		Point b;
+	public:
+		Point getA() const;
+		Point getB() const;
+
+		Rect();
+		Rect(const Point& p);
+		Rect(const Rect& r);
+		Rect(Point a, Point b);
 };
 bool operator==(const Point& a, const Point& b);
 bool operator!=(const Point& a, const Point& b);

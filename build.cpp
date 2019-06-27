@@ -28,8 +28,8 @@
 #include "resourceset.cpp"
 #include "to.cpp"
 #include "tubed.cpp"
+#include "ui/lui.cpp"
 #include "view.cpp"
 #include "xstack/xstack.cpp"
 #include "xstack/xstackiterator.cpp"
-#include "ui/lui.cpp"
 

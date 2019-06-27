@@ -3,6 +3,7 @@
 
 #include "resourceset_test.cpp"
 #include "field_test.cpp"
+#include "point_test.cpp"
 
 int main(){
 	std::cout<<"CyberAnt testing..."<<std::endl;
@@ -14,6 +15,10 @@ int main(){
 	std::cout<<" Field testing..."<<std::endl;
 	field_test();
 	std::cout<<" Field OK"<<std::endl;
+
+	std::cout<<" Point testing..."<<std::endl;
+	point_test();
+	std::cout<<" Point OK"<<std::endl;
 
 	std::cout<<"OK"<<std::endl;
 	return 0;
