@@ -17,8 +17,6 @@ class Point{
 		Point operator+(Point& p);
 		Point& operator-=(Point& p);
 		Point operator-(Point& p);
-		friend bool operator==(const Point& a, const Point& b);
-		friend bool operator!=(const Point& a, const Point& b);
 };
 class Rect{
 	private:
@@ -35,6 +33,8 @@ class Rect{
 };
 bool operator==(const Point& a, const Point& b);
 bool operator!=(const Point& a, const Point& b);
+bool operator==(const Rect& a, const Rect& b);
+bool operator!=(const Rect& a, const Rect& b);
 
 typedef std::vector<Point> Path;
 

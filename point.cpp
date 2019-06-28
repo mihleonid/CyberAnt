@@ -36,10 +36,10 @@ int Point::getX() const{
 	return x;
 }
 bool operator==(const Point& a, const Point& b){
-	return ((a.x==b.x)&&(a.y==b.y));
+	return ((a.getX()==b.getX())&&(a.getY()==b.getY()));
 }
 bool operator!=(const Point& a, const Point& b){
-	return ((a.x!=b.x)||(a.y!=b.y));
+	return ((a.getX()!=b.getX())||(a.getY()!=b.getY()));
 }
 
 Rect::Rect():a(0), b(0){
@@ -55,5 +55,11 @@ Point Rect::getA() const{
 }
 Point Rect::getB() const{
 	return b;
+}
+bool operator==(const Rect& a, const Rect& b){
+	return ((a.getA()==b.getA())&&(a.getB()==b.getB()));
+}
+bool operator!=(const Rect& a, const Rect& b){
+	return ((a.getA()!=b.getA())||(a.getB()!=b.getB()));
 }
 
