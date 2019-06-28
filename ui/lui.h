@@ -8,4 +8,6 @@
 
 #include "lwindow.h"
 #include "ldrawer.h"
+#include "sdl/lsdrawer.h"
+#include "terminal/ltdrawer.h"
 

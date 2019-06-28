@@ -1,5 +1,7 @@
 #include <thread>
 #include <chrono>
+#include "terminal/ltdrawer.h"
+#include "sdl/lsdrawer.h"
 #include "lwindow.h"
 
 LWindow::LWindow(const char* title, bool force){
@@ -25,6 +27,7 @@ LWindow::LWindow(const char* title, bool force){
 		Point p=terminal_size();
 		tw=p.getX();
 		th=p.getY();
+		ldr=new LTDrawer;
 		std::this_thread::sleep_for(std::chrono::milliseconds(500)); // Micro sleep
 	}else{
 		sdlMode=true;
@@ -37,29 +40,26 @@ LWindow::LWindow(const char* title, bool force){
 			std::cerr<<"SDL_CreateWindow error:"<<SDL_GetError()<<std::endl;
 			throw 1;
 		}
-		ren=SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+		SDL_Renderer* ren=SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 		if(ren==nullptr){
 			std::cerr<<"SDL_CreateRenderer error:"<<SDL_GetError()<<std::endl;
 			throw 1;
 		}
+		ldr=new LSDrawer(ren);
 	}
 }
 void LWindow::add(){
 }
 void LWindow::update(){
-	if(!sdlMode){
-		T_HOME();
-		T_OPT(F_MAGENTA);
-		LDrawer::drawTextCenterT(tw/2, 1, wtitle);
-		T_NL();
-	}
+	T_HOME();
+	T_OPT(F_MAGENTA);
+	ldr->drawTextCenter(tw/2, 1, wtitle);
+	T_NL();
 }
 LWindow::~LWindow(){
 	if(win!=nullptr){
 		SDL_DestroyWindow(win);
 	}
-	if(ren!=nullptr){
-		SDL_DestroyRenderer(ren);
-	}
+	delete ldr;
 }
 
