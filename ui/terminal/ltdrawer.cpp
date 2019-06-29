@@ -1,3 +1,4 @@
+#include "terminal.h"
 #include "ltdrawer.h"
 
 Rect LTDrawer::drawText(int x, int y, const char* c, int len){

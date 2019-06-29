@@ -55,6 +55,12 @@ void LWindow::update(){
 	T_OPT(F_MAGENTA);
 	ldr->drawTextCenter(tw/2, 1, wtitle);
 	T_NL();
+	char* cmd=new char[100];
+	std::cin>>cmd;
+	if(cmd[0]=='q'){
+		exit(0);
+	}
+	delete cmd;
 }
 LWindow::~LWindow(){
 	if(win!=nullptr){

@@ -12,6 +12,7 @@
 #define FH 64
 
 void FieldView::loop(const Model* mode){
+	win->update();
 	/*
 	const FieldModel* model=(const FieldModel*)mode;
 	clamp(scrollX, -20, BlocksX*FW-SCREEN_W+20);
