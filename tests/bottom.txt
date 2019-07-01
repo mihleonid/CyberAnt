@@ -1,0 +1,5 @@
+
+	std::cout<<"OK"<<std::endl;
+	return 0;
+}
+
