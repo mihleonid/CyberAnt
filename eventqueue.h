@@ -8,6 +8,6 @@ class EventQueue{
 	public:
 		Event* pop();
 		void push(Event* e);
-		bool empty();
+		bool empty() const;
 };
 
