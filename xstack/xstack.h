@@ -15,6 +15,7 @@ template<class T> class XStack{
 		T pop();
 		T get();
 		int size();
+		bool empty();
 		T get(int pos);
 		int remove(int pos); // Номер, кого нужно обновить
 		T operator[](int pos);

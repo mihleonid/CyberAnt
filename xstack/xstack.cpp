@@ -37,4 +37,7 @@ template<class T> T XStack<T>::get(){
 template<class T> int XStack<T>::size(){
 	return top;
 }
+template<class T> bool XStack<T>::empty(){
+	return size()==0;
+}
 
