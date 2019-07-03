@@ -1,4 +1,5 @@
 void resourceset_test(){
+	// Test 1
 	ResourceSet myset;
 
 	assert(myset.empty()==true);
@@ -23,5 +24,13 @@ void resourceset_test(){
 	assert(myset.empty()==true);
 	assert(tosub.get(Iron)==4);
 	assert(rest.get(Iron)==2);
+
+	// Test 2
+	ResourceSet a(Iron, 2);
+	ResourceSet b(Iron, 3);
+
+	assert(a!=b);
+	b.sub(Iron, 1);
+	assert(a==b);
 }
 

@@ -17,5 +17,11 @@ class ResourceSet{
 
 		int sub(ResourceType type, int a); // Возвращает, сколько осталось
 		ResourceSet sub(const ResourceSet& another); // Аналогично
+
+		friend bool operator==(const ResourceSet& a, const ResourceSet& b);
+		friend bool operator!=(const ResourceSet& a, const ResourceSet& b);
 };
+
+bool operator==(const ResourceSet& a, const ResourceSet& b);
+bool operator!=(const ResourceSet& a, const ResourceSet& b);
 

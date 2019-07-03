@@ -54,4 +54,10 @@ int ResourceSet::get(ResourceType t) const{
 	}
 	return 0;
 }
+bool operator==(const ResourceSet& a, const ResourceSet& b){
+	return a.contain==b.contain;
+}
+bool operator!=(const ResourceSet& a, const ResourceSet& b){
+	return a.contain!=b.contain;
+}
 
