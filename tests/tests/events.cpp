@@ -12,5 +12,8 @@ void events_test(){
 	eq.push(ee);
 	assert(eq.pop()==e);
 	assert(eq.pop()==ee);
+
+	delete e;
+	delete ee;
 }
 

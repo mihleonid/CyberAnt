@@ -4,5 +4,7 @@ void fo_test(){
 
 	assert(f->getPos()==p);
 	assert(f->getField()==nullptr);
+
+	delete f;
 }
 

@@ -18,9 +18,12 @@ class FO{
 		FOWhat getWhat();
 		Field* getField();
 		Point getPos();
+
 		void setPos(Point p);
 
 		FO(Point p, Field* currField);
+		virtual ~FO();
+
 		virtual void update();
 		virtual SDL_Texture* getTexture(Assets* ass, SDL_Renderer* ren) const;
 

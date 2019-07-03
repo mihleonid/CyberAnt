@@ -11,5 +11,8 @@ void base_test(){
 	assert(need==ResourceSet(Iron, 1));
 	assert(b->empty()==true);
 	assert(b->level==3);
+
+	f->removeAll();
+	delete f;
 }
 

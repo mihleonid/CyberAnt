@@ -5,6 +5,8 @@ FO::FO(Point p, Field* currF){
 	pos=p;
 	currField=currF;
 }
+FO::~FO(){
+}
 SDL_Texture* FO::getTexture(Assets* ass, SDL_Renderer* ren) const{
 	std::cerr<<"Calling to FO::getTexture(...)"<<std::endl;
 	return nullptr;

@@ -52,6 +52,7 @@ void field_test(){
 	Point n=Point(14, 15);
 	Base* mb=new Base(o, tfield, 2);
 
+	mb->setPos(o);
 	mb->setPos(n);
 	assert(tfield->get(o)==nullptr);
 	assert(tfield->get(n)==mb);
@@ -86,5 +87,7 @@ void field_test(){
 	}
 	assert(i==1);
 	assert(fs==cnt2);
+
+	delete tfield;
 }
 

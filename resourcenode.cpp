@@ -14,15 +14,17 @@ void ResourceNode::update(){
 	if(Random::rnd(addPossible)==1){
 		have.add(rtype, add);
 	}
+	if(empty()){
+		getField()->remove(getPos());
+	}
 }
-bool ResourceNode::empty(){
+bool ResourceNode::empty() const{
 	return have.empty(rtype);
 }
 ResourceSet ResourceNode::mine(ResourceSet need){
 	ResourceSet rest=have.sub(need);
-	need.sub(rest);
 	have.sub(rtype, Random::rnd(taxMin, taxMax));
-	return need;
+	return rest;
 }
 SDL_Texture* ResourceNode::getTexture(Assets* ass, SDL_Renderer* ren) const{
 	return ass->rtex(ass->getNode(Resource::typeToString(rtype)), ren, have.get(rtype));
