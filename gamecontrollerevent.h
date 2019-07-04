@@ -17,12 +17,12 @@ class GameControllerEvent:public Event{
 		GameControllerEvent(Controller* newCtl, int delhist);
 		GameControllerEvent(Controller* newCtl);
 
-		int getFUPSDelta();
-		int getDeleting();
-		bool getExit();
-		bool getBack();
+		int getFUPSDelta() const;
+		int getDeleting() const;
+		bool getExit() const;
+		bool getBack() const;
 		Controller* getController();
 
-		virtual bool forGameController();
+		virtual bool forGameController() const;
 };
 

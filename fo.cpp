@@ -15,16 +15,16 @@ void FO::update(){
 	std::cerr<<"Calling to FO::update(...)"<<std::endl;
 }
 
-FOType FO::getType(){
+FOType FO::getType() const{
 	return type;
 }
-FOWhat FO::getWhat(){
+FOWhat FO::getWhat() const{
 	return what;
 }
 Field* FO::getField(){
 	return currField;
 }
-Point FO::getPos(){
+Point FO::getPos() const{
 	return pos;
 }
 void FO::setPos(Point p){

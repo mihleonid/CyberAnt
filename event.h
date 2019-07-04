@@ -2,6 +2,6 @@
 
 class Event{
 	public:
-		virtual bool forGameController();
+		virtual bool forGameController() const;
 };
 

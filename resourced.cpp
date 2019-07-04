@@ -1,7 +1,7 @@
 #include <iostream>
 #include "resourced.h"
 
-bool Resourced::empty(){
+bool Resourced::empty() const{
 	std::cerr<<"Resuorce::empty must be overloaded"<<std::endl;
 	return true;
 }

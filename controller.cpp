@@ -11,6 +11,12 @@ Model* Controller::getModel(){
 View* Controller::getView(){
 	return view;
 }
+const Model* Controller::getModel() const{
+	return model;
+}
+const View* Controller::getView() const{
+	return view;
+}
 void Controller::loop(){
 	model->loop();
 	view->loop(model);

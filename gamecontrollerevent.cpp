@@ -15,23 +15,23 @@ GameControllerEvent::GameControllerEvent(bool e, bool b){
 	back=b;
 }
 
-int GameControllerEvent::getFUPSDelta(){
+int GameControllerEvent::getFUPSDelta() const{
 	return FUPSDelta;
 }
-bool GameControllerEvent::getBack(){
+bool GameControllerEvent::getBack() const{
 	return back;
 }
-bool GameControllerEvent::getExit(){
+bool GameControllerEvent::getExit() const{
 	return exit;
 }
-int GameControllerEvent::getDeleting(){
+int GameControllerEvent::getDeleting() const{
 	return delHist;
 }
 Controller* GameControllerEvent::getController(){
 	return newCtl;
 }
 
-bool GameControllerEvent::forGameController(){
+bool GameControllerEvent::forGameController() const{
 	return true;
 }
 

@@ -14,10 +14,10 @@ class FO{
 		Point pos;
 		int order=-1; // Нужно для Field
 	public:
-		FOType getType();
-		FOWhat getWhat();
+		FOType getType() const;
+		FOWhat getWhat() const;
 		Field* getField();
-		Point getPos();
+		Point getPos() const;
 
 		void setPos(Point p);
 

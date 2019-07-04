@@ -12,7 +12,7 @@ class Point{
 		Point(int a); // (a, a)
 		Point(const Point& p);
 		Point(int x, int y);
-		int dist(Point& p);
+		int dist(Point& p) const;
 		Point& operator+=(Point& p);
 		Point operator+(Point& p);
 		Point& operator-=(Point& p);

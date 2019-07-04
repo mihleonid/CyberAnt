@@ -10,7 +10,7 @@ Point::Point(const Point& p):x(p.getX()), y(p.getY()){
 }
 Point::Point(int x, int y):x(x), y(y){
 }
-int Point::dist(Point& p) {
+int Point::dist(Point& p) const{
 	return(mmax(std::abs(p.y-y), std::abs(p.x-x)));
 }
 Point& Point::operator+=(Point& p){

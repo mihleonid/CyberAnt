@@ -76,10 +76,10 @@ void Field::set(FO* f, int px, int py){
 	Field::set(f, Point(px, py));
 }
 
-Path Field::getnb(const Point& p){
+Path Field::getnb(const Point& p) const{
 	return getnb(p.getX(), p.getY());
 }
-Path Field::getnb(int x, int y) {
+Path Field::getnb(int x, int y) const{
 	Path result;
 	if(x==0){
 		//((x|x+1), **)

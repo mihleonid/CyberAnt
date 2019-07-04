@@ -11,10 +11,9 @@ class FieldEvent:public Event{
 		FieldEventType type;
 		FOWhat what;//ROxygen or BBase etc.
 	public:
-		Point getPos();
-		FOWhat getWhat();
-		FieldEventType getType();
+		Point getPos() const;
+		FOWhat getWhat() const;
+		FieldEventType getType() const;
 		FieldEvent(FieldEventType t, Point p, FOWhat wh);
-		virtual bool forGameController();
 };
 

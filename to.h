@@ -11,4 +11,5 @@ class TO{
 		TO(ResourceSet r);
 		virtual const Tubed* where(std::vector<std::pair<const Tubed*, const Point&>>);//принимает доступных строений. отдаёт куда направить. nullptr=удалить
 };
+//TODO tubes
 

@@ -13,6 +13,9 @@ class Controller{
 		Model* getModel();
 		View* getView();
 
+		const Model* getModel() const;
+		const View* getView() const;
+
 		void loop();
 		EventQueue eventLoop();
 

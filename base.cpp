@@ -9,13 +9,13 @@ void Base::update(){
 SDL_Texture* Base::getTexture(Assets* ass, SDL_Renderer* ren) const{
 	return ass->tex(ass->getbase(), ren, ((Building*)this)->level);
 }
-bool Base::empty(){
+bool Base::empty() const{
 	return have.empty();
 }
 void Base::put(ResourceSet g){
 	have.add(g);
 }
 ResourceSet Base::mine(ResourceSet need){
-	return have.sub(need);//TODO const
+	return have.sub(need);
 }
 

@@ -27,8 +27,8 @@ class Field{
 		void set(FO* f, const Point& prevPos);
 		void set(FO* f, int px, int py);
 
-		Path getnb(int x, int y);
-		Path getnb(const Point& p);
+		Path getnb(int x, int y) const;
+		Path getnb(const Point& p) const;
 
 		/*
 		Path findPath(int x, int y, int tx, int ty);

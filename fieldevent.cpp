@@ -5,16 +5,13 @@ FieldEvent::FieldEvent(FieldEventType t, Point p, FOWhat wh){
 	what=wh;
 	pos=p;
 }
-Point FieldEvent::getPos(){
+Point FieldEvent::getPos() const{
 	return pos;
 }
-FieldEventType FieldEvent::getType(){
+FieldEventType FieldEvent::getType() const{
 	return type;
 }
-FOWhat FieldEvent::getWhat(){
+FOWhat FieldEvent::getWhat() const{
 	return what;
-}
-bool FieldEvent::forGameController(){
-	return false;
 }
 
