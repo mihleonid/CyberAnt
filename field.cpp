@@ -53,12 +53,27 @@ void Field::set(FO* f) {
 	int o=f->order;
 	if((o>=0)&&(o<all.size())){
 		if(all[o]==f){
+			return;
+		}
+	}
+	f->order=all.push(f);
+	field[i]=f;
+}
+void Field::set(FO* f, const Point& prevPos){
+	int i=(f->getPos().getY())*BlocksX+(f->getPos().getX());
+	int o=f->order;
+	if((o>=0)&&(o<all.size())){
+		if(all[o]==f){
+			field[prevPos.getY()*BlocksX+prevPos.getX()]=nullptr;
 			goto ef;
 		}
 	}
 	f->order=all.push(f);
 	ef:;
 	field[i]=f;
+}
+void Field::set(FO* f, int px, int py){
+	Field::set(f, Point(px, py));
 }
 
 Path Field::getnb(const Point& p){

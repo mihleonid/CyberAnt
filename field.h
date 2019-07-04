@@ -24,6 +24,8 @@ class Field{
 		void removeAll();
 
 		void set(FO* f);
+		void set(FO* f, const Point& prevPos);
+		void set(FO* f, int px, int py);
 
 		Path getnb(int x, int y);
 		Path getnb(const Point& p);

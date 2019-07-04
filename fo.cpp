@@ -28,7 +28,8 @@ Point FO::getPos(){
 	return pos;
 }
 void FO::setPos(Point p){
+	Point ppos=pos;
 	pos=p;
-	currField->set(this);
+	currField->set(this, ppos);
 }
 
