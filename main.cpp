@@ -1,6 +1,4 @@
 #include <iostream>
-#include <SDL.h>
-#include "ui/terminal/terminal.h"
 #include "gamecontroller.h"
 
 int main(int argc, char* argv[]){

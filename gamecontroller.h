@@ -1,6 +1,5 @@
 #pragma once
 #include <stack>
-#include <SDL.h>
 #include "controller.h"
 
 class GameController{

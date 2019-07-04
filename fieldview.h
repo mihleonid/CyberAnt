@@ -1,5 +1,4 @@
 #pragma once
-#include <SDL.h>
 #include "view.h"
 #include "eventqueue.h"
 #include "assets.h"
