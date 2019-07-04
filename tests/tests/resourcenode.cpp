@@ -7,6 +7,11 @@ void resourcenode_test(){
 	assert(f->get(rn->getPos())==((FO*)rn));
 
 	rn->update();
+	rn->setPos(Point(3, 4));
+	
+	assert(rn->getPos()==Point(3, 4));
+	assert(f->get(3, 2)==nullptr);
+	assert(f->get(3, 4)==rn);
 
 	f->removeAll();
 	delete f;

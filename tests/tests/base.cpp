@@ -1,6 +1,8 @@
 void base_test(){
-	Field* f;
+	Field* f=new Field;
 	Base* b=new Base(Point(2, 3), f, 3);
+	f->set(b);
+
 	ResourceSet add(Iron, 3);
 	ResourceSet need(Iron, 4);
 
