@@ -6,6 +6,8 @@
 
 //Leightweight UI
 
+#include "lcolor.h"
+#include "lmonocolor.h"
 #include "lwindow.h"
 #include "ldrawer.h"
 #include "sdl/lsdrawer.h"

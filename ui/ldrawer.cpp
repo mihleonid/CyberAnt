@@ -28,3 +28,16 @@ Rect LDrawer::drawTextCenter(int x, int y, const char* text){
 	return Rect();
 }
 
+void LDrawer::clear(){
+	std::cerr<<"Calling to LDrawer::clear()"<<std::endl;
+}
+void LDrawer::present(){
+	std::cerr<<"Calling to LDrawer::present()"<<std::endl;
+}
+void LDrawer::color(){
+	std::cerr<<"Calling to LDrawer::color()"<<std::endl;
+}
+void LDrawer::color(LColor c){
+	std::cerr<<"Calling to LDrawer::color(LColor)"<<std::endl;
+}
+

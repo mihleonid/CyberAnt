@@ -1,8 +1,10 @@
+#include <iostream>
 #include <thread>
 #include <chrono>
 #include "terminal/ltdrawer.h"
 #include "sdl/lsdrawer.h"
 #include "lwindow.h"
+#include "lcolor.h"
 
 LWindow::LWindow(const char* title, bool force){
 	wtitle=title;
@@ -52,7 +54,7 @@ void LWindow::add(){
 }
 void LWindow::update(){
 	T_HOME();
-	T_OPT(F_MAGENTA);
+	ldr->color(LColor(139, 0, 139));
 	ldr->drawTextCenter(tw/2, 1, wtitle);
 	T_NL();
 	char* cmd=new char[100];

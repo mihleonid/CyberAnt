@@ -75,9 +75,23 @@ Rect LSDrawer::drawTextCenter(int x, int y, int text){
 SDL_Texture* LSDrawer::makeText(SDL_Renderer* ren, const char* c){
 	//TODO
 	TTF_Font* font=nullptr;
-	SDL_Color white={255, 255, 255};
+	SDL_Color white={(Uint8)(col.fg().r()), (Uint8)(col.fg().g()), (Uint8)(col.fg().b())};
 	SDL_Surface* surfaceMessage=TTF_RenderText_Solid(font, c, white);
 	SDL_Texture* message=SDL_CreateTextureFromSurface(ren, surfaceMessage);
 	SDL_FreeSurface(surfaceMessage);
 	return message;
 }
+void LSDrawer::clear(){
+	SDL_RenderClear(ren);
+}
+void LSDrawer::present(){
+	SDL_RenderPresent(ren);
+}
+
+void LSDrawer::color(){
+	col.def();
+}
+void LSDrawer::color(LColor c){
+	col=c;
+}
+

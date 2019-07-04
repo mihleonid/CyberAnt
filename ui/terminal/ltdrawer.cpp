@@ -1,8 +1,15 @@
 #include "terminal.h"
 #include "ltdrawer.h"
 
+LTDrawer::LTDrawer(){
+	clear();
+}
+LTDrawer::~LTDrawer(){
+}
 Rect LTDrawer::drawText(int x, int y, const char* c, int len){
 	T_GOTO(x, y);
+	T_OPT(foreground);
+	T_OPT(background);
 	std::cout<<c;
 	return Rect(Point(x, y), Point(x+len, y));
 }
@@ -18,9 +25,7 @@ Rect LTDrawer::drawText(int x, int y, int text){
 }
 
 Rect LTDrawer::drawTextRight(int x, int y, const char* c, int len){
-	T_GOTO(x-len, y);
-	std::cout<<c;
-	return Rect(Point(x-len, y), Point(x, y));
+	return drawText(x-len, y, c, len);
 }
 Rect LTDrawer::drawTextRight(int x, int y, const char* c){
 	int len=0;
@@ -34,9 +39,7 @@ Rect LTDrawer::drawTextRight(int x, int y, int text){
 }
 
 Rect LTDrawer::drawTextCenter(int x, int y, const char* c, int len){
-	T_GOTO(x-(len/2), y);
-	std::cout<<c;
-	return Rect(Point(x-(len/2), y), Point(x+len-(len/2), y));
+	return drawText(x-(len/2), y, c, len);
 }
 Rect LTDrawer::drawTextCenter(int x, int y, const char* c){
 	int len=0;
@@ -48,3 +51,21 @@ Rect LTDrawer::drawTextCenter(int x, int y, const char* c){
 Rect LTDrawer::drawTextCenter(int x, int y, int text){
 	return drawTextCenter(x, y, std::to_string(text).c_str());
 }
+void LTDrawer::clear(){
+	T_CLEAR();
+	color();
+}
+void LTDrawer::present(){
+	T_HOME();
+	//TODO buffers;
+}
+
+void LTDrawer::color(){
+	LColor c;
+	color(c);
+}
+void LTDrawer::color(LColor c){
+	foreground=c.fg().t(false);
+	background=c.bg().t(true);
+}
+
