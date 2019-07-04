@@ -2,11 +2,13 @@
 
 LSDrawer::LSDrawer(SDL_Renderer* r){
 	ren=r;
+	font=TTF_OpenFont("assets/ubuntumono.ttf", 21);
+	assert(font!=nullptr);
+	assert(ren!=nullptr);
 }
 LSDrawer::~LSDrawer(){
-	if(ren!=nullptr){
-		SDL_DestroyRenderer(ren);
-	}
+	SDL_DestroyRenderer(ren);
+	TTF_CloseFont(font);
 }
 Rect LSDrawer::draw(int x, int y, SDL_Texture* tex){
 	SDL_Rect pos;
@@ -82,6 +84,7 @@ SDL_Texture* LSDrawer::makeText(SDL_Renderer* ren, const char* c){
 	return message;
 }
 void LSDrawer::clear(){
+	color();
 	SDL_RenderClear(ren);
 }
 void LSDrawer::present(){

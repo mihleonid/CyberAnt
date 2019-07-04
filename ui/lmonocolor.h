@@ -5,6 +5,7 @@ class LMonoColor{
 		int mr;
 		int mg;
 		int mb;
+		bool eq(int a, int b, int eps) const;
 	public:
 		LMonoColor();
 		LMonoColor(int c);
@@ -14,6 +15,6 @@ class LMonoColor{
 		int r() const;
 		int g() const;
 		int b() const;
-		int t(bool back) const;
+		int t(bool back, int eps=40) const; // TODO eps is a param for color recognization. We need a better recognization.
 };
 

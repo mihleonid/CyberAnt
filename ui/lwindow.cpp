@@ -30,13 +30,15 @@ LWindow::LWindow(const char* title, bool force){
 		tw=p.getX();
 		th=p.getY();
 		ldr=new LTDrawer;
-		std::this_thread::sleep_for(std::chrono::milliseconds(500)); // Micro sleep
+		std::this_thread::sleep_for(std::chrono::milliseconds(1500)); // Micro sleep
 	}else{
 		sdlMode=true;
 		if(TTF_Init()!=0){
 			std::cerr<<"TTF_Init error"<<std::endl;
 			throw 1;
 		}
+		tw=SCREEN_W;
+		th=SCREEN_H;
 		win=SDL_CreateWindow(wtitle, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_W, SCREEN_H, SDL_WINDOW_SHOWN);
 		if(win==nullptr){
 			std::cerr<<"SDL_CreateWindow error:"<<SDL_GetError()<<std::endl;
@@ -54,7 +56,8 @@ void LWindow::add(){
 }
 void LWindow::update(){
 	T_HOME();
-	ldr->color(LColor(139, 0, 139));
+	ldr->clear();
+	ldr->color(LColor(154, 0, 160));
 	ldr->drawTextCenter(tw/2, 1, wtitle);
 	T_NL();
 	char* cmd=new char[100];

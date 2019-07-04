@@ -18,24 +18,36 @@ int LMonoColor::g() const{
 int LMonoColor::b() const{
 	return mb;
 }
-int LMonoColor::t(bool back) const{
-	//TODO color recognize
-	if((mr==139)&&(mg==0)&&(mb==139)){
+bool LMonoColor::eq(int a, int b, int eps) const{
+	int d=a-b;
+	if(d<0){
+		d=-d;
+	}
+	if(d<eps){
+		return true;
+	}
+	return false;
+}
+int LMonoColor::t(bool back, int eps) const{
+	if(eps<1){
+		eps=1;
+	}
+	if(eq(mr, 139, eps)&&eq(mg, 0, eps)&&eq(mb, 139, eps)){
 		return ((back)?(B_MAGENTA):(F_MAGENTA));
 	}
-	if((mr==0)&&(mg==0)&&(mb==0)){
+	if(eq(mr, 0, eps)&&eq(mg, 0, eps)&&eq(mb, 0, eps)){
 		return ((back)?(B_BLACK):(F_BLACK));
 	}
-	if((mr==255)&&(mg==255)&&(mb==255)){
+	if(eq(mr, 255, eps)&&eq(mg, 255, eps)&&eq(mb, 255, eps)){
 		return ((back)?(B_WHITE):(F_WHITE));
 	}
-	if((mr==255)&&(mg==0)&&(mb==0)){
+	if(eq(mr, 255, eps)&&eq(mg, 0, eps)&&eq(mb, 0, eps)){
 		return ((back)?(B_RED):(F_RED));
 	}
-	if((mr==0)&&(mg==255)&&(mb==0)){
+	if(eq(mr, 0, eps)&&eq(mg, 255, eps)&&eq(mb, 0, eps)){
 		return ((back)?(B_GREEN):(F_GREEN));
 	}
-	if((mr==0)&&(mg==0)&&(mb==255)){
+	if(eq(mr, 0, eps)&&eq(mg, 0, eps)&&eq(mb, 255, eps)){
 		return ((back)?(B_BLUE):(F_BLUE));
 	}
 	if(back){

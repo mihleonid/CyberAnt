@@ -7,6 +7,7 @@ class LSDrawer:public LDrawer{
 	private:
 		SDL_Texture* makeText(SDL_Renderer* ren, const char* c);
 		SDL_Renderer* ren=nullptr;
+		TTF_Font* font;
 
 		LColor col;
 	public:
