@@ -32,26 +32,6 @@ SDL_Surface* Assets::getNode(std::string type){
 	return sur;
 }
 
-SDL_Texture* Assets::tex(SDL_Surface* surface, SDL_Renderer* ren, int lvl) {
-	SDL_Surface* s = SDL_ConvertSurfaceFormat(surface, SDL_PIXELFORMAT_RGBA32, SDL_SWSURFACE);
-	SDL_LockSurface(s);
-	for (int x = 0; x < s->w; x++) {
-		for (int y = 0; y < s->h; y++) {
-			Uint32 color = pixelget(x, y, s);
-			if ((color&0xFFFFFF) == 0x010101) {
-				pixelset(x, y, (0x000000 | ((15 * lvl)*0x00010000)), s);
-				//min 0xFF000000 max (17*15*0x00010000=255*0x00010000=0xFF*0x00010000=0x00FF0000)|0xFF000000=0xFFFF0000
-			}
-		}
-	}
-	SDL_UnlockSurface(s);
-	SDL_Texture *t = SDL_CreateTextureFromSurface(ren, s);
-	SDL_FreeSurface(s);
-	if (t == nullptr) {
-		std::cerr << "SDL_CreateTextureFromSurface Error: " << SDL_GetError() << std::endl;
-	}
-	return t;
-}
 SDL_Texture* Assets::rtex(SDL_Surface* surface, SDL_Renderer* ren, int contain) {
 	SDL_Surface* s = SDL_ConvertSurfaceFormat(surface, SDL_PIXELFORMAT_RGBA32, SDL_SWSURFACE);
 	SDL_LockSurface(s);

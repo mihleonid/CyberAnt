@@ -7,12 +7,12 @@ FO::FO(Point p, Field* currF){
 }
 FO::~FO(){
 }
-SDL_Texture* FO::getTexture(Assets* ass, SDL_Renderer* ren) const{
-	std::cerr<<"Calling to FO::getTexture(...)"<<std::endl;
+const Limage* FO::getImage() const{
+	std::cerr<<"Calling to FO::getImage()"<<std::endl;
 	return nullptr;
 }
 void FO::update(){
-	std::cerr<<"Calling to FO::update(...)"<<std::endl;
+	std::cerr<<"Calling to FO::update()"<<std::endl;
 }
 
 FOType FO::getType() const{

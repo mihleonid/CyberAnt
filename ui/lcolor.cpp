@@ -10,6 +10,10 @@ LColor::LColor(int r, int g, int v):f(r, g, v), b(0){
 }
 LColor::LColor(const LColor& c):f(c.fg()), b(c.bg()){
 }
+LColor::LColor(int r):f(r), b(0){
+}
+LColor::LColor(int r, bool g):f(r, g), b(0){
+}
 
 LMonoColor LColor::fg() const{
 	return f;

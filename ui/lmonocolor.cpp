@@ -4,6 +4,11 @@ LMonoColor::LMonoColor():mr(0), mg(0), mb(0){
 }
 LMonoColor::LMonoColor(int c):mr(c), mg(c), mb(c){
 }
+LMonoColor::LMonoColor(int c, bool hex){
+	mb=c&0xFF;
+	mg=(c&0xFF00)/0x100;
+	mr=(c&0xFF0000)/0x10000;
+}
 LMonoColor::LMonoColor(int r, int g, int b):mr(r), mg(g), mb(b){
 }
 LMonoColor::LMonoColor(const LMonoColor& c):mr(c.r()), mg(c.g()), mb(c.b()){
@@ -17,6 +22,9 @@ int LMonoColor::g() const{
 }
 int LMonoColor::b() const{
 	return mb;
+}
+int LMonoColor::hex() const{
+	return mb+mg*0x100+mr*0x10000;
 }
 bool LMonoColor::eq(int a, int b, int eps) const{
 	int d=a-b;

@@ -12,6 +12,7 @@ class FO{
 		FOWhat what;
 		Field* currField;
 		Point pos;
+		Limage img;
 		int order=-1; // Нужно для Field
 	public:
 		FOType getType() const;
@@ -25,7 +26,7 @@ class FO{
 		virtual ~FO();
 
 		virtual void update();
-		virtual SDL_Texture* getTexture(Assets* ass, SDL_Renderer* ren) const;
+		virtual const Limage* getImage() const;
 
 		friend class Field;
 };
