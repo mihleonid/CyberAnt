@@ -1,22 +1,14 @@
 #pragma once
-#include "ui/limage.h"
 #include <string>
+#include <map>
+#include "ui/limage.h"
 
-class Assets{
+class Assets{ // Class for loading and caching limages
 	private:
-		LImage field;
+		std::map<std::string, LImage> cache;
 	public:
-		Assets();
-		~Assets();
-		SDL_Surface* getNode(std::string str);
-
-		getload(field);
-		getload(base);
-		getload(ironmine);
-
-		SDL_Texture* getFieldTex();
-
-		SDL_Texture* tex(SDL_Surface* s, SDL_Renderer* ren, int lvl);
-		SDL_Texture* rtex(SDL_Surface* s, SDL_Renderer* ren, int contain);
+		LImage getNode(std::string type);
+		LImage getMine(std::string type);
+		LImage get(std::string str);
 };
 
