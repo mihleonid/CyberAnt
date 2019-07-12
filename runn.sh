@@ -1,9 +1,9 @@
 #!/bin/bash
-echo "Your file (without cpp):";
+echo "Running without sdl: "
 n="build"
 b="$(basename -- $n)"
-g++ "$n.cpp" -c -lpthread
-g++ -o "$b" "$b.o" -lpthread
+g++ -D_GLIBCXX_DEBUG -DDEBUG "$n.cpp" -c -lpthread
+g++ -D_GLIBCXX_DEBUG -DDEBUG -o "$b" "$b.o" -lpthread
 rm "$b.o"
 "./$b"
 
