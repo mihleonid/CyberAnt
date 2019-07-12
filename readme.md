@@ -22,7 +22,7 @@
 	cmake ..
 ```
    Copy assets to build dir:
-```sh
+```bat
 	xcopy ..\assets\ assets\
 ```
    We do not know is this application suitable for windows.
@@ -31,30 +31,19 @@
 	make
 ```
 
-## Overview
-HiberAnt is the best game of all.
-There is a big field. You can place buildings on it. Build base, mines, attack buildings. Protect your base and fight against other players and enemies.
-There are 18 levels of buildings.
-
-## Controls
-	<Left> Slow left scrolling
-	<Right> Slow right scrolling
-	<Up> Slow up scrolling
-	<Down> Slow down scrolling
-	<Esc> Exit
-	w, a, s, d - scrolling
-	^w, ^a, ^s, ^d - fast scrolling
-	W, A, S, D - fast scrolling
-	^W, ^A, ^S, ^D - very fast scrolling
-
-	Mouse drag and move - scrolling
-	Mouse down and up without movement - click
-
-
-	xcopy ..\assets\ assets\
-   we do not know is this application suitable for windows
-3) Compile the project:
-	make
+## Alternative run (Linux only)
+1. Copy project and assets dir.
+2. Run:
+```sh
+	bash *.sh
+```
+   Where `*`.sh can be:
+	  dub.sh - debug with gdb.
+	  run.sh - run.
+	  runn.sh - run with no sdl.
+	  rune.sh - run with stderr to less.
+	  product.sh - run with -03 -0fast without debug macros.
+	  productn.sh - run with -03 -0fast without debug macros without sdl.
 
 ## Overview
 HiberAnt is the best game of all.
