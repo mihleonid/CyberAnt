@@ -1,5 +1,6 @@
 #pragma once
 // Этот класс нужен для поля (список непустых)
+//TODO resize
 template<class T> class XStack{
 	private:
 		int maxs; // Максимальный размер
@@ -11,6 +12,7 @@ template<class T> class XStack{
 		int delc; // Количество удалённых
 	public:
 		XStack(int maxsize);
+		~XStack();
 		int push(T el); // returns new element index
 		T pop();
 		T get();

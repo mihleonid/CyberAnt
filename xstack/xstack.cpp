@@ -1,11 +1,15 @@
 #include "xstack.h"
 
 template<class T> XStack<T>::XStack(int size){
-	arr=new T[size];
-	dels=new int[size];
+	arr=(T*)malloc(size*sizeof(T));
+	dels=(int*)malloc(size*sizeof(int));
 	maxs=size;
 	top=0;
 	delc=0;
+}
+template<class T> XStack<T>::~XStack(){
+	free(arr);
+	free(dels);
 }
 template<class T> int XStack<T>::push(T el){
 	arr[top]=el;

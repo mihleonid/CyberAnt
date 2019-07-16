@@ -2,7 +2,7 @@
 
 template<class T> XStackIterator<T>::XStackIterator(XStack<T>* current){
 	cur=current;
-	deleted=new int[cur->maxs];
+	deleted=(int*)malloc((cur->maxs)*sizeof(int));
 	deletedTop=0;
 	pos=0;
 	checkRemove();
@@ -39,6 +39,6 @@ template<class T> void XStackIterator<T>::checkRemove(){
 	cur->delc=0;
 }
 template<class T> XStackIterator<T>::~XStackIterator(){
-	delete deleted;
+	free(deleted);
 }
 
