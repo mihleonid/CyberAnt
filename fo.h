@@ -1,10 +1,9 @@
 #pragma once
-#include <SDL.h>
-class FO;
-#include "field.h"
+#include "ui/limage.h"
+#include "foenum.h"
 #include "assets.h"
 #include "point.h"
-#include "foenum.h"
+class Field; // This is for avoiding cyclic includes
 
 class FO{
 	protected:
@@ -12,7 +11,6 @@ class FO{
 		FOWhat what;
 		Field* currField;
 		Point pos;
-		Limage img;
 		int order=-1; // Нужно для Field
 	public:
 		FOType getType() const;
@@ -26,7 +24,7 @@ class FO{
 		virtual ~FO();
 
 		virtual void update();
-		virtual const Limage* getImage() const;
+		virtual LImage getImage(Assets* ass) const;
 
 		friend class Field;
 };

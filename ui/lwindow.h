@@ -1,4 +1,9 @@
 #pragma once
+
+#ifdef SDL
+#include <SDL.h>
+#endif
+
 #include "ldrawer.h"
 
 #define SCREEN_W 1024
@@ -7,7 +12,9 @@
 class LWindow{
 	private:
 		bool sdlMode;
+#ifdef SDL
 		SDL_Window* win=nullptr;
+#endif
 		int tw;
 		int th;
 		const char* wtitle;

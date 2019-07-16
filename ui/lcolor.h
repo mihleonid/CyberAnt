@@ -17,6 +17,14 @@ class LColor{
 
 		LMonoColor fg() const;
 		LMonoColor bg() const;
+
+		void setFg(const LMonoColor& c);
+		void setBg(const LMonoColor& c);
+		void setFg(char c);
+		void setBg(char c);
+
 		void def();
 };
+bool operator==(const LColor& a, const LColor& b);
+bool operator!=(const LColor& a, const LColor& b);
 

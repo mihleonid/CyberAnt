@@ -21,8 +21,26 @@ LMonoColor LColor::fg() const{
 LMonoColor LColor::bg() const{
 	return b;
 }
+void LColor::setFg(const LMonoColor& c){
+	f=c;
+}
+void LColor::setBg(const LMonoColor& c){
+	b=c;
+}
+void LColor::setFg(char c){
+	f=LMonoColor(c);
+}
+void LColor::setBg(char c){
+	b=LMonoColor(c);
+}
 void LColor::def(){
 	f=LMonoColor(255);
 	b=LMonoColor(0);
+}
+bool operator==(const LColor& a, const LColor& b){
+	return((a.fg()==b.fg())&&(a.bg()==b.bg()));
+}
+bool operator!=(const LColor& a, const LColor& b){
+	return((a.fg()!=b.fg())||(a.bg()!=b.bg()));
 }
 

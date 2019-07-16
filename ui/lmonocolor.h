@@ -9,6 +9,7 @@ class LMonoColor{
 	public:
 		LMonoColor();
 		LMonoColor(int c);
+		LMonoColor(char c); // Parse console
 		LMonoColor(int c, bool hex);
 		LMonoColor(int r, int g, int b);
 		LMonoColor(const LMonoColor& c);
@@ -19,4 +20,6 @@ class LMonoColor{
 		int hex() const;
 		int t(bool back, int eps=40) const; // TODO eps is a param for color recognization. We need a better recognization.
 };
+bool operator==(const LMonoColor& a, const LMonoColor& b);
+bool operator!=(const LMonoColor& a, const LMonoColor& b);
 

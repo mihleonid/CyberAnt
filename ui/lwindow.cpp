@@ -1,13 +1,15 @@
 #include <iostream>
 #include <thread>
 #include <chrono>
-#include "terminal/ltdrawer.h"
-#include "sdl/lsdrawer.h"
 #include "lwindow.h"
+#include "terminal/ltdrawer.h"
+#include "terminal/terminal_size.h"
+#include "sdl/lsdrawer.h"
 #include "lcolor.h"
 
 LWindow::LWindow(const char* title, bool force){
 	wtitle=title;
+#ifdef SDL
 	if(SDL_Init(SDL_INIT_EVERYTHING)!=0){
 		std::cerr<<"SDL_Init error: "<<SDL_GetError()<<std::endl;
 		std::cout<<"SDL is unavailible. Do you want to enter non-sdl mode? [1/0]:"<<std::endl;
@@ -18,6 +20,7 @@ LWindow::LWindow(const char* title, bool force){
 		}
 		force=true;
 	}
+#endif
 	if(force){
 		sdlMode=false;
 		T_CLEAR();
@@ -32,6 +35,7 @@ LWindow::LWindow(const char* title, bool force){
 		ldr=new LTDrawer;
 		std::this_thread::sleep_for(std::chrono::milliseconds(1500)); // Micro sleep
 	}else{
+#ifdef SDL
 		sdlMode=true;
 		if(TTF_Init()!=0){
 			std::cerr<<"TTF_Init error"<<std::endl;
@@ -50,6 +54,7 @@ LWindow::LWindow(const char* title, bool force){
 			throw 1;
 		}
 		ldr=new LSDrawer(ren);
+#endif
 	}
 }
 void LWindow::add(){

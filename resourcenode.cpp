@@ -26,7 +26,9 @@ ResourceSet ResourceNode::mine(ResourceSet need){
 	have.sub(rtype, Random::rnd(taxMin, taxMax));
 	return rest;
 }
-SDL_Texture* ResourceNode::getTexture(Assets* ass, SDL_Renderer* ren) const{
-	return ass->rtex(ass->getNode(Resource::typeToString(rtype)), ren, have.get(rtype));
+LImage ResourceNode::getImage(Assets* ass) const{
+	LImage img=ass->getNode(Resource::typeToString(rtype));
+	img.applyColors(0xFFFFFF&((have.get(rtype)/4)*0x00000102));
+	return img;
 }
 

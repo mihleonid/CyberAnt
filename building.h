@@ -3,7 +3,7 @@
 #include "fo.h"
 #include "field.h"
 
-class Building:public FO{//можно строить, имеет уровень
+class Building:public FO{ // Можно строить, имеет уровень
 	protected:
 		LColor levelColor() const; // Цвет уровня
 	public:

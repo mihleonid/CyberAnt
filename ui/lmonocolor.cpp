@@ -1,3 +1,4 @@
+#include "terminal/terminal.h"
 #include "lmonocolor.h"
 
 LMonoColor::LMonoColor():mr(0), mg(0), mb(0){
@@ -25,6 +26,32 @@ int LMonoColor::b() const{
 }
 int LMonoColor::hex() const{
 	return mb+mg*0x100+mr*0x10000;
+}
+LMonoColor::LMonoColor(char c){
+	switch(c){
+		default:
+		case 'b':
+			{
+				mr=0;
+				mg=0;
+				mb=0;
+				break;
+			}
+		case 'm':
+			{
+				mr=139;
+				mg=0;
+				mb=139;
+				break;
+			}
+		case 'w':
+			{
+				mr=255;
+				mg=255;
+				mb=255;
+				break;
+			}
+	}
 }
 bool LMonoColor::eq(int a, int b, int eps) const{
 	int d=a-b;
@@ -62,5 +89,11 @@ int LMonoColor::t(bool back, int eps) const{
 		return B_BLACK;
 	}
 	return F_WHITE;
+}
+bool operator==(const LMonoColor& a, const LMonoColor& b){
+	return((a.r()==b.r())&&(a.g()==b.g())&&(a.b()==b.b()));
+}
+bool operator!=(const LMonoColor& a, const LMonoColor& b){
+	return((a.r()!=b.r())||(a.g()!=b.g())||(a.b()!=b.b()));
 }
 

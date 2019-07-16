@@ -1,3 +1,5 @@
+#include <SDL.h>
+#include <SDL2/SDL_ttf.h>
 #include "lsdrawer.h"
 
 LSDrawer::LSDrawer(SDL_Renderer* r){

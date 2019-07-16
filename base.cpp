@@ -6,8 +6,10 @@ Base::Base(Point p, Field* f, int lvl):Building(p, f, lvl){
 }
 void Base::update(){
 }
-SDL_Texture* Base::getTexture(Assets* ass, SDL_Renderer* ren) const{
-	return ass->tex(ass->getbase(), ren, ((Building*)this)->level);
+LImage Base::getImage(Assets* ass) const{
+	LImage img=ass->get("base");
+	img.applyColors(levelColor());
+	return img;
 }
 bool Base::empty() const{
 	return have.empty();
