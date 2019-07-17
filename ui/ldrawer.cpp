@@ -1,6 +1,10 @@
 #include <iostream>
 #include "ldrawer.h"
 
+Rect LDrawer::draw(int x, int y, LImage& img){
+	std::cerr<<"Calling to LDrawer::draw..."<<std::endl;
+	return Rect();
+}
 Rect LDrawer::drawText(int x, int y, int text){
 	std::cerr<<"Calling to LDrawer::drawText..."<<std::endl;
 	return Rect();
