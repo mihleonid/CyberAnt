@@ -1,5 +1,6 @@
 #define _GLIBCXX_DEBUG
 #define DEBUG
+#define SDL
 #include "../assets.cpp"
 #include "../base.cpp"
 #include "../building.cpp"

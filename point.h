@@ -27,8 +27,8 @@ class Rect{
 		Point getB() const;
 
 		Rect();
-		Rect(const Point& p);
-		Rect(const Rect& r);
+		Rect(const Point& p); // (p, p)
+		Rect(const Rect& r); // Copy
 		Rect(Point a, Point b);
 };
 bool operator==(const Point& a, const Point& b);

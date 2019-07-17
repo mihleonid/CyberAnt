@@ -14,24 +14,22 @@
 void FieldView::loop(const Model* mode){
 	win->update();
 	//TODO Draw from lwindow
-	//TODO tmp desigion - overdraw
-	/*
 	const FieldModel* model=(const FieldModel*)mode;
 	clamp(scrollX, -20, BlocksX*FW-SCREEN_W+20);
 	clamp(scrollY, -20, BlocksY*FH-SCREEN_H+20);
-	SDL_RenderClear(ren);
 	for(int i=0;i<BlocksX;i++){
 		for(int j=0;j<BlocksY;j++){
 			const FO* c=model->field.get(i, j);
+			LImage img;
 			if(c==nullptr){
-				draw(FW*i-scrollX, FH*j-scrollY, ass->getFieldTex());
+				img=ass->get("field");
 			}else{
-				SDL_Texture* tex=c->getTexture(ass, ren);
-				draw(FW*i-scrollX, FH*j-scrollY, tex);
-				SDL_DestroyTexture(tex);
+				img=c->getImage(ass);
 			}
+			win->getDrawer()->draw(FW*i-scrollX, FH*j-scrollY, img);
 		}
 	}
+	/*
 	int ay=drawTextRight(SCREEN_W, 0, "Base contains: ").second;
 	int x=drawText(0, 0, "FPS: ").first;
 	drawText(x, 0, 24); // TODO FUPS and GameControleer data
@@ -43,8 +41,8 @@ void FieldView::loop(const Model* mode){
 	yy=mmax(y+yy, c.second+yy);
 	std::pair<int, int> ccc=drawTextRight(SCREEN_W, ay+yy, model->rset->get(Cristall));
 	drawTextRight(SCREEN_W-ccc.first, ay+yy, "Cristall: ").second;
-	SDL_RenderPresent(ren);
 	*/
+
 	win->present();
 }
 EventQueue FieldView::getEvents(){
