@@ -4,7 +4,9 @@
 #include "lwindow.h"
 #include "terminal/ltdrawer.h"
 #include "terminal/terminal_size.h"
+#ifdef SDL
 #include "sdl/lsdrawer.h"
+#endif
 #include "lcolor.h"
 
 LWindow::LWindow(const char* title, bool force){
@@ -58,19 +60,18 @@ LWindow::LWindow(const char* title, bool force){
 	}
 }
 void LWindow::add(){
+	//TODO add component
+}
+LDrawer* LWindow::getDrawer(){
+	return ldr;
 }
 void LWindow::update(){
-	T_HOME();
 	ldr->clear();
 	ldr->color(LColor(154, 0, 160));
 	ldr->drawTextCenter(tw/2, 1, wtitle);
-	T_NL();
-	char* cmd=new char[100];
-	std::cin>>cmd;
-	if(cmd[0]=='q'){
-		exit(0);
-	}
-	delete cmd;
+}
+void LWindow::present(){
+	ldr->present();
 }
 LWindow::~LWindow(){
 	if(win!=nullptr){

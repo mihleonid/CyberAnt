@@ -13,6 +13,8 @@
 
 void FieldView::loop(const Model* mode){
 	win->update();
+	//TODO Draw from lwindow
+	//TODO tmp desigion - overdraw
 	/*
 	const FieldModel* model=(const FieldModel*)mode;
 	clamp(scrollX, -20, BlocksX*FW-SCREEN_W+20);
@@ -43,6 +45,7 @@ void FieldView::loop(const Model* mode){
 	drawTextRight(SCREEN_W-ccc.first, ay+yy, "Cristall: ").second;
 	SDL_RenderPresent(ren);
 	*/
+	win->present();
 }
 EventQueue FieldView::getEvents(){
 	SDL_Event evt;

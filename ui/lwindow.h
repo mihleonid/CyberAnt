@@ -21,8 +21,10 @@ class LWindow{
 		LDrawer* ldr;
 	public:
 		LWindow(const char* title, bool forceTerminal=false);
-		void add();
-		void update();
+		void add();//TODO add component
+		void update(); // Наведение на кнопки м пр.
+		void present(); // Обновть картинку на экране
+		LDrawer* getDrawer(); ///@deprecated
 		~LWindow();
 
 };
