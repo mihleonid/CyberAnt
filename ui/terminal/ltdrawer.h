@@ -1,5 +1,6 @@
 #pragma once
 #include "../ldrawer.h"
+#include "../limage.h"
 #include "../../point.h"
 
 class LTDrawer:public LDrawer{
@@ -14,6 +15,9 @@ class LTDrawer:public LDrawer{
 	public:
 		LTDrawer();
 		~LTDrawer();
+
+		virtual Rect draw(int x, int y, LImage& img);
+
 		virtual Rect drawText(int x, int y, int text);
 		virtual Rect drawText(int x, int y, const char* text);
 
