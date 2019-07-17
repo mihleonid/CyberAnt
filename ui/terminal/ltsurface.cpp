@@ -12,13 +12,23 @@ int LTSurface::getW() const{
 int LTSurface::getH() const{
 	return h;
 }
-LTSurface::LTSurface(int x, int y):w(x), h(y){
-	surf=new std::pair<char, LColor>[x*y];
+LTSurface::LTSurface(int x, int y){
+	w=x;
+	h=y;
+	if(x*y!=0){
+		surf=new std::pair<char, LColor>[x*y];
+	}else{
+		surf=nullptr;
+	}
 }
 LTSurface::LTSurface(const LTSurface& a){
 	w=a.getW();
 	h=a.getH();
-	surf=new std::pair<char, LColor>[w*h];
+	if(w*h!=0){
+		surf=new std::pair<char, LColor>[w*h];
+	}else{
+		surf=nullptr;
+	}
 	for(int x=0;x<w;++x){
 		for(int y=0;y<h;++y){
 			set(x, y, a.get(x, y));
@@ -28,7 +38,11 @@ LTSurface::LTSurface(const LTSurface& a){
 LTSurface::LTSurface(const LTSurface& a, const LColor& c){
 	w=a.getW();
 	h=a.getH();
-	surf=new std::pair<char, LColor>[w*h];
+	if(w*h!=0){
+		surf=new std::pair<char, LColor>[w*h];
+	}else{
+		surf=nullptr;
+	}
 	for(int x=0;x<w;++x){
 		for(int y=0;y<h;++y){
 			set(x, y, a.get(x, y));
@@ -37,7 +51,9 @@ LTSurface::LTSurface(const LTSurface& a, const LColor& c){
 	applyColors(c);
 }
 LTSurface::~LTSurface(){
-	delete surf;
+	if(surf!=nullptr){
+		delete surf;
+	}
 }
 LTSurface::LTSurface(const char* c){
 	std::ifstream str(c);
