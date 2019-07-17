@@ -50,7 +50,6 @@ void FieldView::loop(const Model* mode){
 EventQueue FieldView::getEvents(){
 	SDL_Event evt;
 	EventQueue v;
-	/*
 	while(SDL_PollEvent(&evt)){
 		if(evt.type==SDL_QUIT){
 			v.push(new GameControllerEvent(true, false));
@@ -144,7 +143,6 @@ EventQueue FieldView::getEvents(){
 			}
 		}
 	}
-	*/
 	return v;
 }
 void FieldView::init(){
@@ -153,10 +151,11 @@ void FieldView::init(){
 	mouseDown=false;
 	mouseMoved=false;
 	win=new LWindow(Configurator::getWindowTitle());
-	//ass=new Assets(nullptr/*ren*/);//TODO
+	ass=new Assets();
 }
 FieldView::~FieldView() {
     delete ass;
+    delete win;
 }
 #undef FW
 #undef FH
