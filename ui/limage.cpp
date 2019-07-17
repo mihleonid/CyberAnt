@@ -9,25 +9,45 @@ LImage::LImage(){
 }
 LImage::LImage(const char* str){
 #ifdef SDL
-	surf=SDL_LoadBMP((std::string("./assets/")+std::string(str)+std::string(".bmp")).c_str());
+	surf=SDL_LoadBMP((std::string(str)+std::string(".bmp")).c_str());
+#ifdef DEBUG
+	std::cout<<"Loaded "<<std::string(str)+std::string(".bmp")<<std::endl;
 #endif
-	tsurf=new LTSurface((std::string("./assets/")+std::string(str)+std::string(".txt")).c_str());
+#endif
+	tsurf=new LTSurface((std::string(str)+std::string(".txt")).c_str());
+#ifdef DEBUG
+	std::cout<<"Loaded "<<std::string(str)+std::string(".txt")<<std::endl;
+#endif
 }
 LImage::LImage(const std::string& str){
 #ifdef SDL
-	surf=SDL_LoadBMP((std::string("./assets/")+str+std::string(".bmp")).c_str());
+	surf=SDL_LoadBMP((str+std::string(".bmp")).c_str());
+#ifdef DEBUG
+	std::cout<<"Loaded "<<str+std::string(".bmp")<<std::endl;
 #endif
-	tsurf=new LTSurface((std::string("./assets/")+str+std::string(".txt")).c_str());
-}
-LImage::LImage(const LImage& img){
-#ifdef SDL
-	SDL_Surface* surf=SDL_ConvertSurfaceFormat(img.surf, SDL_PIXELFORMAT_RGBA32, SDL_SWSURFACE);
 #endif
-	tsurf=new LTSurface(*(img.tsurf));
+	tsurf=new LTSurface((str+std::string(".txt")).c_str());
+#ifdef DEBUG
+	std::cout<<"Loaded "<<str+std::string(".txt")<<std::endl;
+#endif
 }
-LImage::LImage(const LImage& img, const LColor& c){
+LImage::LImage(LImage* img){
 #ifdef SDL
-	SDL_Surface* surf=SDL_ConvertSurfaceFormat(img.surf, SDL_PIXELFORMAT_RGBA32, SDL_SWSURFACE);
+	if(img->surf==nullptr){
+		surf=nullptr;
+	}else{
+		surf=SDL_ConvertSurfaceFormat(img->surf, SDL_PIXELFORMAT_RGBA32, SDL_SWSURFACE);
+	}
+#endif
+	if(img->tsurf==nullptr){
+		tsurf=nullptr;
+	}else{
+		tsurf=new LTSurface(img->tsurf);
+	}
+}
+LImage::LImage(LImage* img, const LColor& c){
+#ifdef SDL
+	surf=SDL_ConvertSurfaceFormat(img.surf, SDL_PIXELFORMAT_RGBA32, SDL_SWSURFACE);
 #endif
 	tsurf=new LTSurface(*(img.tsurf));
 	applyColors(c);
@@ -42,14 +62,15 @@ LImage::~LImage(){
 		delete tsurf;
 	}
 }
-void LImage::applyColors(const LColor& c){
+LImage* LImage::applyColors(const LColor& c){
 #ifdef SDL
 	applySDL(c);
 #endif
 	applyT(c);
+	return this;
 }
-void LImage::applyColors(int hex){
-	applyColors(LColor(hex, true));
+LImage* LImage::applyColors(int hex){
+	return applyColors(LColor(hex, true));
 }
 
 #ifdef SDL

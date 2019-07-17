@@ -35,6 +35,20 @@ LTSurface::LTSurface(const LTSurface& a){
 		}
 	}
 }
+LTSurface::LTSurface(LTSurface* a){
+	w=a->getW();
+	h=a->getH();
+	if(w*h!=0){
+		surf=new std::pair<char, LColor>[w*h];
+	}else{
+		surf=nullptr;
+	}
+	for(int x=0;x<w;++x){
+		for(int y=0;y<h;++y){
+			set(x, y, a->get(x, y));
+		}
+	}
+}
 LTSurface::LTSurface(const LTSurface& a, const LColor& c){
 	w=a.getW();
 	h=a.getH();

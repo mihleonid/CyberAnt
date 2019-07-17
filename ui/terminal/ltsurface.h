@@ -9,6 +9,7 @@ class LTSurface{
 	public:
 		LTSurface(const char* fullpath); // full path
 		LTSurface(const LTSurface& a);
+		LTSurface(LTSurface* a);
 		LTSurface(const LTSurface& a, const LColor& c);
 		LTSurface(int w, int h);
 		LTSurface();

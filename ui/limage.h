@@ -17,11 +17,11 @@ class LImage{
 		LImage();
 		LImage(const char* str); // path withowt ext
 		LImage(const std::string& str); // path withowt ext
-		LImage(const LImage& img);
-		LImage(const LImage& img, const LColor& c);
+		LImage(LImage* img);
+		LImage(LImage* img, const LColor& c);
 		~LImage();
-		void applyColors(const LColor& c);
-		void applyColors(int hex);
+		LImage* applyColors(const LColor& c); // this
+		LImage* applyColors(int hex);
 
 #ifdef SDL
 		SDL_Texture* newTexture(const LColor& c, SDL_Renderer* ren); // Special color (1, 1, 1)=>(c)
