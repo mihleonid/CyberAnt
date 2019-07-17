@@ -2,6 +2,7 @@
 #include <SDL.h>
 #include <SDL_ttf.h>
 #include "../ldrawer.h"
+#include "../limage.h"
 #include "../../point.h"
 
 class LSDrawer:public LDrawer{
@@ -12,7 +13,9 @@ class LSDrawer:public LDrawer{
 
 		LColor col;
 	public:
-		Rect draw(int x, int y, SDL_Texture* tex);//TODO Limage
+		virtual Rect draw(int x, int y, LImage& img);
+
+		Rect draw(int x, int y, SDL_Texture* tex);
 		Rect drawRight(int x, int y, SDL_Texture* tex);
 		Rect drawCenter(int x, int y, SDL_Texture* tex);
 		LSDrawer(SDL_Renderer* r);
