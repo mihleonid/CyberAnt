@@ -24,7 +24,7 @@ class FO{
 		virtual ~FO();
 
 		virtual void update();
-		virtual LImage getImage(Assets* ass) const;
+		virtual LImage* getImage(Assets* ass) const;
 
 		friend class Field;
 };

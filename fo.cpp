@@ -7,9 +7,9 @@ FO::FO(Point p, Field* currF){
 }
 FO::~FO(){
 }
-LImage FO::getImage(Assets* ass) const{
+LImage* FO::getImage(Assets* ass) const{
 	std::cerr<<"Calling to FO::getImage()"<<std::endl;
-	return LImage();
+	return nullptr;
 }
 void FO::update(){
 	std::cerr<<"Calling to FO::update()"<<std::endl;

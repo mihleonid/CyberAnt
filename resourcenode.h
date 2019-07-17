@@ -15,7 +15,7 @@ class ResourceNode:public Resourced, public Storage, public FO{
 		ResourceType rtype;
 	public:
 		virtual void update();
-		virtual LImage getImage(Assets* ass) const;
+		virtual LImage* getImage(Assets* ass) const;
 		ResourceNode(Point pos, Field* f, ResourceType type);
 		bool empty() const;
 		ResourceSet mine(ResourceSet need);
