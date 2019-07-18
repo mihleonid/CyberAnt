@@ -14,11 +14,24 @@
 void FieldView::loop(const Model* mode){
 	win->update();
 	//TODO Draw from lwindow
+	//TODO LComponent caching texture
 	const FieldModel* model=(const FieldModel*)mode;
 	clamp(scrollX, -20, BlocksX*FW-SCREEN_W+20);
 	clamp(scrollY, -20, BlocksY*FH-SCREEN_H+20);
 	for(int i=0;i<BlocksX;i++){
 		for(int j=0;j<BlocksY;j++){
+			if(FW*i-scrollX+FW<0){
+				continue;
+			}
+			if(FW*i-scrollX>SCREEN_W){
+				continue;
+			}
+			if(FW*i-scrollX+FH<0){
+				continue;
+			}
+			if(FH*j-scrollY>SCREEN_H){
+				continue;
+			}
 			const FO* c=model->field.get(i, j);
 			LImage* img;
 			if(c==nullptr){
@@ -27,6 +40,7 @@ void FieldView::loop(const Model* mode){
 				img=c->getImage(ass);
 			}
 			win->getDrawer()->draw(FW*i-scrollX, FH*j-scrollY, img);
+			delete img;
 		}
 	}
 	/*

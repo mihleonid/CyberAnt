@@ -55,7 +55,7 @@ LImage::LImage(LImage* img, const LColor& c){
 LImage::~LImage(){
 #ifdef SDL
 	if(surf!=nullptr){
-		delete surf;
+		SDL_FreeSurface(surf);
 	}
 #endif
 	if(tsurf!=nullptr){
