@@ -13,9 +13,9 @@ class LSDrawer:public LDrawer{
 
 		LColor col;
 	public:
-		virtual Rect draw(int x, int y, LImage& img);
+		virtual Rect draw(int x, int y, LImage* img);
 
-		Rect draw(int x, int y, SDL_Texture* tex);
+		Rect draw(int x, int y, SDL_Texture* tex);//destroys texture
 		Rect drawRight(int x, int y, SDL_Texture* tex);
 		Rect drawCenter(int x, int y, SDL_Texture* tex);
 		LSDrawer(SDL_Renderer* r);

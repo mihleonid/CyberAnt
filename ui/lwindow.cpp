@@ -67,8 +67,12 @@ LDrawer* LWindow::getDrawer(){
 }
 void LWindow::update(){
 	ldr->clear();
-	ldr->color(LColor(154, 0, 160));
-	ldr->drawTextCenter(tw/2, 1, wtitle);
+	
+	if(!sdlMode){
+		ldr->color(LColor(154, 0, 160));
+		ldr->drawTextCenter(tw/2, 1, wtitle);
+		T_NL();
+	}
 }
 void LWindow::present(){
 	ldr->present();

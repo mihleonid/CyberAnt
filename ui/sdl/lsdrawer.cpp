@@ -12,8 +12,8 @@ LSDrawer::~LSDrawer(){
 	SDL_DestroyRenderer(ren);
 	TTF_CloseFont(font);
 }
-Rect LSDrawer::draw(int x, int y, LImage& img){
-	return draw(x, y, img.newTexture(ren));
+Rect LSDrawer::draw(int x, int y, LImage* img){
+	return draw(x, y, img->newTexture(ren));
 }
 Rect LSDrawer::draw(int x, int y, SDL_Texture* tex){
 	SDL_Rect pos;

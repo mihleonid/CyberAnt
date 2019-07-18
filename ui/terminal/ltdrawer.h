@@ -16,7 +16,7 @@ class LTDrawer:public LDrawer{
 		LTDrawer();
 		~LTDrawer();
 
-		virtual Rect draw(int x, int y, LImage& img);
+		virtual Rect draw(int x, int y, LImage* img);
 
 		virtual Rect drawText(int x, int y, int text);
 		virtual Rect drawText(int x, int y, const char* text);

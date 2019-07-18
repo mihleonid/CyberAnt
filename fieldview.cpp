@@ -20,7 +20,7 @@ void FieldView::loop(const Model* mode){
 	for(int i=0;i<BlocksX;i++){
 		for(int j=0;j<BlocksY;j++){
 			const FO* c=model->field.get(i, j);
-			LImage img;
+			LImage* img;
 			if(c==nullptr){
 				img=ass->get("field");
 			}else{

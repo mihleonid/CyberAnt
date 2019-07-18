@@ -1,7 +1,7 @@
 #include <iostream>
 #include "ldrawer.h"
 
-Rect LDrawer::draw(int x, int y, LImage& img){
+Rect LDrawer::draw(int x, int y, LImage* img){
 	std::cerr<<"Calling to LDrawer::draw..."<<std::endl;
 	return Rect();
 }

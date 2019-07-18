@@ -6,7 +6,7 @@ LTDrawer::LTDrawer(){
 }
 LTDrawer::~LTDrawer(){
 }
-Rect LTDrawer::draw(int x, int y, LImage& img){
+Rect LTDrawer::draw(int x, int y, LImage* img){
 	//TODO draw
 	return Rect(0);
 }

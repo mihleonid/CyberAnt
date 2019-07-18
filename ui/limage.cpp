@@ -47,9 +47,9 @@ LImage::LImage(LImage* img){
 }
 LImage::LImage(LImage* img, const LColor& c){
 #ifdef SDL
-	surf=SDL_ConvertSurfaceFormat(img.surf, SDL_PIXELFORMAT_RGBA32, SDL_SWSURFACE);
+	surf=SDL_ConvertSurfaceFormat(img->surf, SDL_PIXELFORMAT_RGBA32, SDL_SWSURFACE);
 #endif
-	tsurf=new LTSurface(*(img.tsurf));
+	tsurf=new LTSurface(img->tsurf);
 	applyColors(c);
 }
 LImage::~LImage(){
