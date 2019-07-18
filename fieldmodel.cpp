@@ -17,7 +17,7 @@ FieldModel::FieldModel(){
 		for(int y=0;y<BlocksY;y++){
 			switch(Random::rnd(20)){
 				case 1:
-					//field.set(new ResourceNode(Point(x, y), &field, Iron));
+					field.set(new ResourceNode(Point(x, y), &field, Iron));
 					break;
 			}
 		}
@@ -57,7 +57,7 @@ void FieldModel::loop(){
 			if(c==nullptr){
 				switch(Random::rnd(80000)){
 					case 1:
-						//field.set(new Iron(x, y, &field));
+						field.set(new ResourceNode(Point(x, y), &field, Iron));
 						break;
 				}
 				continue;
