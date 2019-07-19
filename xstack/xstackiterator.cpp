@@ -1,3 +1,5 @@
+#pragma once
+#include <stdlib.h>
 #include "xstackiterator.h"
 
 template<class T> XStackIterator<T>::XStackIterator(XStack<T>* current){

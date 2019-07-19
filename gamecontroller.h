@@ -8,7 +8,7 @@ class GameController{
 		std::stack<Controller*> hist;
 
 		uint mLastFrame; // Время прошлого кадра
-		Uint32 FUPS=26; // FPS=UPS=...
+		uint FUPS=26; // FPS=UPS=...
 
 		void initFps(); // Записать время первого кадра
 		void delayFps(); // Сделать задержку

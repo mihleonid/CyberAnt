@@ -1,4 +1,6 @@
 #include <iostream>
+#include <chrono>
+#include <thread>
 #include "gamecontroller.h"
 #include "fieldcontroller.h"
 #include "gamecontrollerevent.h"
@@ -95,16 +97,17 @@ void GameController::loop(){
 }
 
 void GameController::initFps(){
-	mLastFrame=SDL_GetTicks();
+	// TODO not uint but chrono
+	mLastFrame=std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 }
 void GameController::delayFps(){
-	Uint32 c=SDL_GetTicks();
-	Uint32 delta=c-mLastFrame;
+	uint c=std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+	uint delta=c-mLastFrame;
 	mLastFrame=c;
-	Uint32 delay=1000/FUPS;
+	uint delay=1000/FUPS;
 	delta+=3;
 	if(delay<=delta){return;}
 	delay-=delta;
-	SDL_Delay(delay);
+	std::this_thread::sleep_for(std::chrono::milliseconds(delay));
 }
 

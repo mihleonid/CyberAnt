@@ -27,10 +27,19 @@ set(src
 	resourced.cpp
 	resourcenode.cpp
 	resourceset.cpp
+	to.cpp
 	tubed.cpp
+	ui/lcolor.cpp
+	ui/ldrawer.cpp
+	ui/limage.cpp
+	ui/lmonocolor.cpp
+	ui/lwindow.cpp
+	ui/sdl/lsdrawer.cpp
+	ui/terminal/ltdrawer.cpp
+	ui/terminal/ltsurface.cpp
 	view.cpp
-	xstack.cpp
-	xstackiterator.cpp
+	xstack/xstack.cpp
+	xstack/xstackiterator.cpp
 )
 
 find_package(SDL2 REQUIRED)
@@ -41,4 +50,6 @@ add_executable(cyberant ${src})
 target_link_libraries(cyberant SDL2 SDL2_ttf pthread)
 
 add_definitions(-std=c++11)
+add_definitions(-DDEBUG)
+add_definitions(-DSDL)
 

@@ -1,5 +1,6 @@
 #include <iostream>
 #include "fo.h"
+#include "field.h"
 
 FO::FO(Point p, Field* currF){
 	pos=p;

@@ -12,6 +12,7 @@ class Field{
 		XStack<FO*> all=XStack<FO*>(BlocksX*BlocksY);
 	public:
 		Field();
+		~Field();
 
 		FO* get(int x, int y);
 		FO* get(const Point& p);

@@ -1,6 +1,10 @@
 #include <random>
 #include "random.h"
 
+int Random::current;
+int Random::cyclesdone;
+int Random::rands[SIZE];
+
 void Random::init(){
 	srand(time(0));
 	current=0;

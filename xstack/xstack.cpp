@@ -1,3 +1,5 @@
+#pragma once
+#include <stdlib.h>
 #include "xstack.h"
 
 template<class T> XStack<T>::XStack(int size){

@@ -1,9 +1,8 @@
 #pragma once
 #include <vector>
-class TO;
+class Tubed;
 #include "resourceset.h"
 #include "point.h"
-#include "tubed.h"
 
 class TO{
 	public:

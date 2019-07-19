@@ -14,7 +14,4 @@ class Random{
 		static int rnd(int max); // From 1 to max
 		static int rnd(int min, int max); // From min to max
 };
-int Random::current;
-int Random::cyclesdone;
-int Random::rands[SIZE];
 

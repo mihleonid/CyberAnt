@@ -3,11 +3,17 @@
 #include <cmath>
 #include <algorithm>
 #include "field.h"
+//Especially for cmake
+#include "xstack/xstack.cpp"
+#include "xstack/xstackiterator.cpp"
 
 Field::Field(){
 	for(int i=0;i<BlocksX*BlocksY;i++){
 		field[i]=nullptr;
 	}
+}
+Field::~Field(){
+	delete field;
 }
 
 

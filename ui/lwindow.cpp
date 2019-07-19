@@ -4,6 +4,7 @@
 #include "lwindow.h"
 #include "terminal/ltdrawer.h"
 #include "terminal/terminal_size.h"
+#include "terminal/terminal.h"
 #ifdef SDL
 #include "sdl/lsdrawer.h"
 #endif
