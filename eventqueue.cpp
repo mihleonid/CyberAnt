@@ -8,6 +8,16 @@ Event* EventQueue::pop(){
 void EventQueue::push(Event* e){
 	queue.push(e);
 }
+void EventQueue::pipeM(EventQueue& eq){
+	while(!(eq.empty())){
+		push(eq.pop());
+	}
+}
+void EventQueue::pipe(EventQueue eq){
+	while(!(eq.empty())){
+		push(eq.pop());
+	}
+}
 bool EventQueue::empty() const{
 	return queue.empty();
 }

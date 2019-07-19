@@ -8,6 +8,8 @@ class EventQueue{
 	public:
 		Event* pop();
 		void push(Event* e);
+		void pipeM(EventQueue& eq); // Modificate
+		void pipe(EventQueue eq);
 		bool empty() const;
 };
 

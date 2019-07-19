@@ -3,4 +3,6 @@
 bool Event::forGameController() const{
 	return false;
 }
+Event::~Event(){
+}
 
