@@ -5,6 +5,9 @@
 #endif
 
 #include "ldrawer.h"
+#include "lscene.h"
+#include "lcontrol.h"
+#include "../eventqueue.h"
 
 #define SCREEN_W 1024
 #define SCREEN_H 764
@@ -19,12 +22,18 @@ class LWindow{
 		int th;
 		const char* wtitle;
 		LDrawer* ldr;
+		LScene* scene;
+		LControl* cnt;
 	public:
 		LWindow(const char* title, bool forceTerminal=false);
-		void add();//TODO add component
+
+		LScene* getScene();
+
 		void update(); // Наведение на кнопки м пр.
 		void present(); // Обновть картинку на экране
+		EventQueue getEvents();
 		LDrawer* getDrawer(); ///@deprecated
+		LControl* getControl();
 		~LWindow();
 
 };

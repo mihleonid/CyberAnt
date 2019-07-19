@@ -27,13 +27,18 @@ set(src
 	resourced.cpp
 	resourcenode.cpp
 	resourceset.cpp
+	subscriber.cpp
 	to.cpp
 	tubed.cpp
 	ui/lcolor.cpp
 	ui/lcomponent.cpp
+	ui/lcontrol.cpp
 	ui/ldrawer.cpp
+	ui/levent.cpp
 	ui/limage.cpp
+	ui/lkeyboardevent.cpp
 	ui/lmonocolor.cpp
+	ui/lmouseevent.cpp
 	ui/lscene.cpp
 	ui/lwindow.cpp
 	ui/sdl/lsdrawer.cpp

@@ -23,6 +23,9 @@ void LScene::draw(LDrawer* ldr){
 		cps[i]->draw(ldr);
 	}
 }
+LScene::~LScene(){
+	clearDelete();
+}
 EventQueue LScene::applyEvent(LEvent* e){
 	EventQueue eq;
 	for(int i=0;i<cps.size();++i){

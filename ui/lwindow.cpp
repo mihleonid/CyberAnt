@@ -24,6 +24,7 @@ LWindow::LWindow(const char* title, bool force){
 		force=true;
 	}
 #endif
+	scene=new LScene();
 	if(force){
 		sdlMode=false;
 		T_CLEAR();
@@ -36,6 +37,7 @@ LWindow::LWindow(const char* title, bool force){
 		tw=p.getX();
 		th=p.getY();
 		ldr=new LTDrawer;
+		//TODO Treminal control
 		std::this_thread::sleep_for(std::chrono::milliseconds(1500)); // Micro sleep
 	}else{
 #ifdef SDL
@@ -57,14 +59,27 @@ LWindow::LWindow(const char* title, bool force){
 			throw 1;
 		}
 		ldr=new LSDrawer(ren);
+		cnt=new LControl();
 #endif
 	}
 }
-void LWindow::add(){
-	//TODO add component
+LScene* LWindow::getScene(){
+	return scene;
 }
 LDrawer* LWindow::getDrawer(){
 	return ldr;
+}
+LControl* LWindow::getControl(){
+	return cnt;
+}
+EventQueue LWindow::getEvents(){
+	cnt->loop();
+	LEvent* e;
+	EventQueue eq;
+	while((e=cnt->next())!=nullptr){
+		eq.pipe(scene->applyEvent(e));
+	}
+	return eq;
 }
 void LWindow::update(){
 	ldr->clear();
@@ -79,6 +94,7 @@ void LWindow::present(){
 	ldr->present();
 }
 LWindow::~LWindow(){
+	delete scene;
 	if(win!=nullptr){
 		SDL_DestroyWindow(win);
 	}
