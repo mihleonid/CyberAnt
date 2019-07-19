@@ -30,9 +30,11 @@ set(src
 	to.cpp
 	tubed.cpp
 	ui/lcolor.cpp
+	ui/lcomponent.cpp
 	ui/ldrawer.cpp
 	ui/limage.cpp
 	ui/lmonocolor.cpp
+	ui/lscene.cpp
 	ui/lwindow.cpp
 	ui/sdl/lsdrawer.cpp
 	ui/terminal/ltdrawer.cpp
