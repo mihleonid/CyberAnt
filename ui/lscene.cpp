@@ -1,6 +1,7 @@
 #include <algorithm>
 #include "lscene.h"
 #include "levent.h"
+#include "lcomponent.h"
 
 void LScene::add(LComponent* c){
 	cps.push_back(c);
@@ -19,13 +20,13 @@ void LScene::clearDelete(){
 }
 void LScene::draw(LDrawer* ldr){
 	for(int i=0;i<cps.size();++i){
-		cps[i].draw(ldr);
+		cps[i]->draw(ldr);
 	}
 }
 EventQueue LScene::applyEvent(LEvent* e){
 	EventQueue eq;
 	for(int i=0;i<cps.size();++i){
-		eq.push(cps.applyEvent(e));
+		eq.push(cps[i]->applyEvent(e));
 	}
 	delete e;
 	return eq;

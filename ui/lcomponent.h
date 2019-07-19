@@ -6,7 +6,7 @@ class LEvent;
 class LDrawer;
 
 class LComponent{
-	private:
+	protected:
 		Rect rect;
 	public:
 		LComponent(Rect p);
