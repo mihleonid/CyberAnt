@@ -95,9 +95,11 @@ void LWindow::present(){
 }
 LWindow::~LWindow(){
 	delete scene;
+#ifdef SDL
 	if(win!=nullptr){
 		SDL_DestroyWindow(win);
 	}
+#endif
 	delete ldr;
 }
 

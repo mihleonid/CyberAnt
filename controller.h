@@ -19,6 +19,6 @@ class Controller{
 		void loop();
 		EventQueue eventLoop();
 
-		~Controller();
+		virtual ~Controller();
 };
 

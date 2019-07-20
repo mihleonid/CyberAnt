@@ -75,10 +75,12 @@ void GameController::loop(){
 		while(!(q.empty())){
 			c=(GameControllerEvent*)(q.pop());
 			if(c->getExit()){
+				delete c;
 				goto quite;
 			}
 			if(c->getBack()){
 				if(back()){
+					delete c;
 					goto quite;
 				}
 			}

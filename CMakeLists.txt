@@ -59,4 +59,5 @@ target_link_libraries(cyberant SDL2 SDL2_ttf pthread)
 add_definitions(-std=c++11)
 add_definitions(-DDEBUG)
 add_definitions(-DSDL)
+add_definitions(-g)
 

@@ -7,4 +7,6 @@ void Model::loop(){
 void Model::applyEvent(Event* event){
 	std::cerr<<"Calling to model"<<std::endl;
 }
+Model::~Model(){
+}
 

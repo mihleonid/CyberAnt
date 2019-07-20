@@ -7,5 +7,6 @@ class View{
 		virtual void init();
 		virtual void loop(const Model* m);
 		virtual EventQueue getEvents();
+		virtual ~View();
 };
 

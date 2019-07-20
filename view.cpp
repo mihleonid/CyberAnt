@@ -10,4 +10,6 @@ EventQueue View::getEvents(){
 	std::cerr<<"Calling to view"<<std::endl;
 	return EventQueue();
 }
+View::~View(){
+}
 
