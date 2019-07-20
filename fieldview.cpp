@@ -1,6 +1,7 @@
 #include <iostream>
 #include <queue>
 #include "configurator.h"
+#include "ui/lbutton.h"
 #include "ui/levent.h"
 #include "ui/leventtype.h"
 #include "ui/lmouseevent.h"
@@ -182,6 +183,7 @@ void FieldView::init(){
 	mouseMoved=false;
 	win=new LWindow(Configurator::getWindowTitle());
 	ass=new Assets();
+	win->getScene()->add(new LButton(Rect(0), "EXIT", []()->Event*{return new GameControllerEvent(true, false);}));
 }
 FieldView::~FieldView() {
     delete ass;

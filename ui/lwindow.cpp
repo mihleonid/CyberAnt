@@ -90,6 +90,7 @@ std::pair<EventQueue, std::queue<LEvent*>> LWindow::getEvents(){
 void LWindow::update(){
 	ldr->clear();
 	
+	scene->draw(ldr);
 	if(!sdlMode){
 		ldr->color(LColor(154, 0, 160));
 		ldr->drawTextCenter(tw/2, 1, wtitle);

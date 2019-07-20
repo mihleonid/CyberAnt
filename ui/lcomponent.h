@@ -11,6 +11,7 @@ class LComponent{
 	public:
 		LComponent(Rect p);
 		Rect getRect() const;
+		virtual ~LComponent();
 
 		virtual void draw(LDrawer*);
 		virtual Event* applyEvent(LEvent*);

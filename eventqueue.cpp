@@ -6,7 +6,9 @@ Event* EventQueue::pop(){
 	return n;
 }
 void EventQueue::push(Event* e){
-	queue.push(e);
+	if(e!=nullptr){
+		queue.push(e);
+	}
 }
 void EventQueue::pipeM(EventQueue& eq){
 	while(!(eq.empty())){

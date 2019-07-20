@@ -4,6 +4,8 @@
 LComponent::LComponent(Rect p){
 	rect=p;
 }
+LComponent::~LComponent(){
+}
 Rect LComponent::getRect() const{
 	return rect;
 }

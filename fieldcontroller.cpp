@@ -5,3 +5,4 @@
 FieldController::FieldController(){
 	initialize(new FieldModel, new FieldView);
 }
+

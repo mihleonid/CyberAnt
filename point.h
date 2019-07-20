@@ -30,6 +30,8 @@ class Rect{
 		Rect(const Point& p); // (p, p)
 		Rect(const Rect& r); // Copy
 		Rect(Point a, Point b);
+
+		bool contain(const Point& p);
 };
 bool operator==(const Point& a, const Point& b);
 bool operator!=(const Point& a, const Point& b);

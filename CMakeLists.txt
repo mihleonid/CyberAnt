@@ -30,6 +30,7 @@ set(src
 	subscriber.cpp
 	to.cpp
 	tubed.cpp
+	ui/lbutton.cpp
 	ui/lcolor.cpp
 	ui/lcomponent.cpp
 	ui/lcontrol.cpp

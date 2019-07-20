@@ -56,6 +56,21 @@ Point Rect::getA() const{
 Point Rect::getB() const{
 	return b;
 }
+bool Rect::contain(const Point& p){
+	if(p.getX()<a.getX()){
+		return false;
+	}
+	if(p.getX()>b.getX()){
+		return false;
+	}
+	if(p.getY()<a.getY()){
+		return false;
+	}
+	if(p.getY()>b.getY()){
+		return false;
+	}
+	return true;
+}
 bool operator==(const Rect& a, const Rect& b){
 	return ((a.getA()==b.getA())&&(a.getB()==b.getB()));
 }
