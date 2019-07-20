@@ -10,5 +10,6 @@ class Assets{ // Class for loading and caching limages
 		LImage* getNode(std::string type);
 		LImage* getMine(std::string type);
 		LImage* get(std::string str);
+		~Assets();
 };
 

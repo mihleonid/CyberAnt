@@ -20,5 +20,7 @@ class LDrawer{
 
 		virtual void color(); // Restore default
 		virtual void color(LColor c);
+
+		virtual ~LDrawer();
 };
 

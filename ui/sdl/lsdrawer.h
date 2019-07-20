@@ -19,7 +19,7 @@ class LSDrawer:public LDrawer{
 		Rect drawRight(int x, int y, SDL_Texture* tex);
 		Rect drawCenter(int x, int y, SDL_Texture* tex);
 		LSDrawer(SDL_Renderer* r);
-		~LSDrawer();
+		virtual ~LSDrawer();
 
 		virtual Rect drawText(int x, int y, int text);
 		virtual Rect drawText(int x, int y, const char* text);

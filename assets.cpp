@@ -12,4 +12,9 @@ LImage* Assets::get(std::string str){
 	}
 	return new LImage(cache[str]);
 }
+Assets::~Assets(){
+	for(auto i=cache.begin();i!=cache.end();++i){
+		delete i->second;
+	}
+}
 

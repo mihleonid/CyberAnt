@@ -1,6 +1,10 @@
 #include <iostream>
 #include <thread>
 #include <chrono>
+#ifdef SDL
+#include <SDL.h>
+#include <SDL2/SDL_ttf.h>
+#endif
 #include "lwindow.h"
 #include "terminal/ltdrawer.h"
 #include "terminal/terminal_size.h"
@@ -13,7 +17,7 @@
 LWindow::LWindow(const char* title, bool force){
 	wtitle=title;
 #ifdef SDL
-	if(SDL_Init(SDL_INIT_EVERYTHING)!=0){
+	if(SDL_Init(SDL_INIT_VIDEO)!=0){
 		std::cerr<<"SDL_Init error: "<<SDL_GetError()<<std::endl;
 		std::cout<<"SDL is unavailible. Do you want to enter non-sdl mode? [1/0]:"<<std::endl;
 		int yn;
@@ -95,11 +99,18 @@ void LWindow::present(){
 }
 LWindow::~LWindow(){
 	delete scene;
+	delete cnt;
 #ifdef SDL
 	if(win!=nullptr){
 		SDL_DestroyWindow(win);
 	}
 #endif
 	delete ldr;
+#ifdef SDL
+	if(sdlMode){
+		SDL_Quit();
+		TTF_Quit();
+	}
+#endif
 }
 

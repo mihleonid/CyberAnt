@@ -45,3 +45,6 @@ void LDrawer::color(LColor c){
 	std::cerr<<"Calling to LDrawer::color(LColor)"<<std::endl;
 }
 
+LDrawer::~LDrawer(){
+}
+

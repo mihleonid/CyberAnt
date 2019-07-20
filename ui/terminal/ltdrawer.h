@@ -14,7 +14,7 @@ class LTDrawer:public LDrawer{
 		int background;
 	public:
 		LTDrawer();
-		~LTDrawer();
+		virtual ~LTDrawer();
 
 		virtual Rect draw(int x, int y, LImage* img);
 
