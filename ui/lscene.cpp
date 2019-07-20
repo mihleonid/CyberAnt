@@ -31,7 +31,6 @@ EventQueue LScene::applyEvent(LEvent* e){
 	for(int i=0;i<cps.size();++i){
 		eq.push(cps[i]->applyEvent(e));
 	}
-	delete e;
 	return eq;
 }
 

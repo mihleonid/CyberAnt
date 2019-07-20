@@ -10,6 +10,9 @@ LKeyboardEvent::LKeyboardEvent(LKeyboardEventType t, LKey k, bool s, bool c):LEv
 LKeyboardEventType LKeyboardEvent::getKeyboardType() const{
 	return mtype;
 }
+LKey LKeyboardEvent::getKey() const{
+	return key;
+}
 bool LKeyboardEvent::getShift() const{
 	return shift;
 }

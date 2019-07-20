@@ -76,14 +76,16 @@ LDrawer* LWindow::getDrawer(){
 LControl* LWindow::getControl(){
 	return cnt;
 }
-EventQueue LWindow::getEvents(){
+std::pair<EventQueue, std::queue<LEvent*>> LWindow::getEvents(){
 	cnt->loop();
 	LEvent* e;
 	EventQueue eq;
+	std::queue<LEvent*> q;
 	while((e=cnt->next())!=nullptr){
 		eq.pipe(scene->applyEvent(e));
+		q.push(e);
 	}
-	return eq;
+	return std::pair<EventQueue, std::queue<LEvent*>>(eq, q);
 }
 void LWindow::update(){
 	ldr->clear();

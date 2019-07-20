@@ -40,6 +40,7 @@ class LKeyboardEvent:public LEvent{
 	public:
 		LKeyboardEvent(LKeyboardEventType, LKey, bool s, bool c);
 		LKeyboardEventType getKeyboardType() const;
+		LKey getKey() const;
 		bool getShift() const;
 		bool getCtrl() const;
 };

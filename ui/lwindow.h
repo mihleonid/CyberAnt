@@ -31,7 +31,7 @@ class LWindow{
 
 		void update(); // Наведение на кнопки м пр.
 		void present(); // Обновть картинку на экране
-		EventQueue getEvents();
+		std::pair<EventQueue, std::queue<LEvent*>> getEvents();
 		LDrawer* getDrawer(); ///@deprecated
 		LControl* getControl();
 		~LWindow();

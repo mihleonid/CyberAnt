@@ -1,5 +1,10 @@
 #include <iostream>
+#include <queue>
 #include "configurator.h"
+#include "ui/levent.h"
+#include "ui/leventtype.h"
+#include "ui/lmouseevent.h"
+#include "ui/lkeyboardevent.h"
 #include "point.h"
 #include "gamecontrollerevent.h"
 #include "fieldevent.h"
@@ -60,100 +65,107 @@ void FieldView::loop(const Model* mode){
 	win->present();
 }
 EventQueue FieldView::getEvents(){
-	SDL_Event evt;
-	EventQueue v;
-	while(SDL_PollEvent(&evt)){
-		if(evt.type==SDL_QUIT){
+	std::pair<EventQueue, std::queue<LEvent*>> pair=win->getEvents();
+	EventQueue v=pair.first;
+	std::queue<LEvent*> q=pair.second;
+	while(!(q.empty())){
+		LEvent* evt=q.front();
+		q.pop();
+		if(evt->getType()==LEventType::Exit){
 			v.push(new GameControllerEvent(true, false));
 			break;
 		}
-		if(evt.type==SDL_MOUSEMOTION){
-			if(mouseDown){
-				mouseMoved=true;
-				scrollX-=evt.motion.x-mouseX;
-				scrollY-=evt.motion.y-mouseY;
-				mouseX=evt.motion.x;
-				mouseY=evt.motion.y;
+		if(evt->getType()==LEventType::Mouse){
+			LMouseEvent* mevt=(LMouseEvent*)evt;
+			if(mevt->getMouseType()==MOUSE_Move){
+				if(mouseDown){
+					mouseMoved=true;
+					scrollX-=mevt->getPos().getX()-mouseX;
+					scrollY-=mevt->getPos().getY()-mouseY;
+					mouseX=mevt->getPos().getX();
+					mouseY=mevt->getPos().getY();
+				}
 			}
-		}
-		if(evt.type==SDL_MOUSEBUTTONDOWN){
-			mouseDown=true;
-			mouseX=evt.motion.x;
-			mouseY=evt.motion.y;
-		}
-		if(evt.type==SDL_MOUSEBUTTONUP){
-			mouseDown=false;
-			if(!mouseMoved){
-				int x=evt.button.x+scrollX;//screen coordinats
-				int y=evt.button.y+scrollY;
-				x/=FW;//field coordinats
-				y/=FH;
-				clamp(x, 0, BlocksX);
-				clamp(y, 0, BlocksY);
-				v.push(new FieldEvent(EBuild, Point(x, y), BBase));
-				v.push(new FieldEvent(EBuild, Point(x, y), BIMine));
+			if(mevt->getMouseType()==BUTTON_Down){
+				mouseDown=true;
+				mouseX=mevt->getPos().getX();
+				mouseY=mevt->getPos().getY();
 			}
-			mouseMoved=false;
+			if(mevt->getMouseType()==BUTTON_Up){
+				mouseDown=false;
+				if(!mouseMoved){
+					int x=mevt->getPos().getX()+scrollX;//screen coordinats
+					int y=mevt->getPos().getY()+scrollY;
+					x/=FW;//field coordinats
+					y/=FH;
+					clamp(x, 0, BlocksX);
+					clamp(y, 0, BlocksY);
+					v.push(new FieldEvent(EBuild, Point(x, y), BBase));
+					v.push(new FieldEvent(EBuild, Point(x, y), BIMine));
+				}
+				mouseMoved=false;
+			}
+			continue;
 		}
-		if(evt.type==SDL_KEYDOWN){
-			switch (evt.key.keysym.sym){
-				case SDLK_1:
+		if(evt->getType()==Keyboard){
+			LKeyboardEvent* kevt=(LKeyboardEvent*)evt;
+			switch (kevt->getKey()){
+				case K_1:
 					v.push(new GameControllerEvent(-1));
 					break;
-				case SDLK_2:
+				case K_2:
 					v.push(new GameControllerEvent(1));
 					break;
-				case SDLK_d:
-					if(evt.key.keysym.mod&KMOD_CTRL){
+				case K_D:
+					if(kevt->getCtrl()){
 						scrollX+=3;
 					}
-					if(evt.key.keysym.mod&KMOD_SHIFT){
+					if(kevt->getShift()){
 						scrollX+=3;
 					}
 					scrollX+=2;
-				case SDLK_RIGHT:
+				case K_RIGHT:
 					scrollX++;
 					break;
-				case SDLK_a:
-					if(evt.key.keysym.mod&KMOD_CTRL){
+				case K_A:
+					if(kevt->getCtrl()){
 						scrollX-=3;
 					}
-					if(evt.key.keysym.mod&KMOD_SHIFT){
+					if(kevt->getShift()){
 						scrollX-=3;
 					}
 					scrollX-=2;
-				case SDLK_LEFT:
+				case K_LEFT:
 					scrollX--;
 					break;
-				case SDLK_s:
-					if(evt.key.keysym.mod&KMOD_CTRL){
+				case K_S:
+					if(kevt->getCtrl()){
 						scrollY+=3;
 					}
-					if(evt.key.keysym.mod&KMOD_SHIFT){
+					if(kevt->getShift()){
 						scrollY+=3;
 					}
 					scrollY+=2;
-				case SDLK_DOWN:
+				case K_DOWN:
 					scrollY++;
 					break;
-				case SDLK_w:
-					if(evt.key.keysym.mod&KMOD_CTRL){
+				case K_W:
+					if(kevt->getCtrl()){
 						scrollY-=3;
 					}
-					if(evt.key.keysym.mod&KMOD_SHIFT){
+					if(kevt->getShift()){
 						scrollY-=3;
 					}
 					scrollY-=2;
-				case SDLK_UP:
+				case K_UP:
 					scrollY--;
-					break;
-				case SDLK_ESCAPE:
-					v.push(new GameControllerEvent(true, false));
 					break;
 				default:
 					break;
 			}
+			continue;
 		}
+		delete evt;
 	}
 	return v;
 }

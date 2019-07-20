@@ -41,10 +41,10 @@ void LControl::loop(){
 			q.push(new LMouseEvent(LMouseEventType::MOUSE_Move, Point(evt.motion.x, evt.motion.y)));
 		}
 		if(evt.type==SDL_MOUSEBUTTONDOWN){
-			q.push(new LMouseEvent(LMouseEventType::BUTTON_Down, Point(evt.motion.x, evt.motion.y)));
+			q.push(new LMouseEvent(LMouseEventType::BUTTON_Down, Point(evt.button.x, evt.button.y)));
 		}
 		if(evt.type==SDL_MOUSEBUTTONUP){
-			q.push(new LMouseEvent(LMouseEventType::BUTTON_Up, Point(evt.motion.x, evt.motion.y)));
+			q.push(new LMouseEvent(LMouseEventType::BUTTON_Up, Point(evt.button.x, evt.button.y)));
 		}
 		if(evt.type==SDL_KEYDOWN){
 			switch (evt.key.keysym.sym){
