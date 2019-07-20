@@ -73,6 +73,7 @@ EventQueue FieldView::getEvents(){
 		q.pop();
 		if(evt->getType()==LEventType::Exit){
 			v.push(new GameControllerEvent(true, false));
+			delete evt;
 			break;
 		}
 		if(evt->getType()==LEventType::Mouse){
@@ -105,6 +106,7 @@ EventQueue FieldView::getEvents(){
 				}
 				mouseMoved=false;
 			}
+			delete mevt;
 			continue;
 		}
 		if(evt->getType()==Keyboard){
@@ -163,9 +165,13 @@ EventQueue FieldView::getEvents(){
 				default:
 					break;
 			}
+			delete kevt;
 			continue;
 		}
-		delete evt;
+	}
+	while(!(q.empty())){
+		delete q.front();
+		q.pop();
 	}
 	return v;
 }
