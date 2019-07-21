@@ -22,6 +22,7 @@ set(src
 	main.cpp
 	menucontroller.cpp
 	menuview.cpp
+	mine.cpp
 	model.cpp
 	point.cpp
 	putable.cpp

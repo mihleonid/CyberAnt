@@ -19,6 +19,7 @@
 #include "../gamecontrollerevent.cpp"
 #include "../menucontroller.cpp"
 #include "../menuview.cpp"
+#include "../mine.cpp"
 #include "../model.cpp"
 #include "../point.cpp"
 #include "../putable.cpp"
