@@ -85,7 +85,7 @@ Rect LSDrawer::drawTextCenter(int x, int y, int text){
 }
 SDL_Texture* LSDrawer::makeText(SDL_Renderer* ren, const char* c){
 	SDL_Color white={(Uint8)(col.fg().r()), (Uint8)(col.fg().g()), (Uint8)(col.fg().b())};
-	SDL_Surface* surfaceMessage=TTF_RenderText_Solid(font, c, white);
+	SDL_Surface* surfaceMessage=TTF_RenderUTF8_Solid(font, c, white);
 	SDL_Texture* message=SDL_CreateTextureFromSurface(ren, surfaceMessage);
 	SDL_FreeSurface(surfaceMessage);
 	return message;
