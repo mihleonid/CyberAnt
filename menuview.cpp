@@ -44,8 +44,8 @@ void MenuView::init(LWindow* cwin){
 	play* p=new play;
 	p->win=win;
 	scn=(new LScene())
-	->add(new LButton(Rect(Point(0)), Configurator::getPlay(), p))
-	->add(new LButton(Rect(Point(0, 24)), Configurator::getExit(), new exit));
+	->add(new LButton(Rect(win->getCenter().setDY(-20)), Configurator::getPlay(), p))
+	->add(new LButton(Rect(win->getCenter().setDY(20)), Configurator::getExit(), new exit));
 }
 MenuView::~MenuView(){
 	delete scn;
