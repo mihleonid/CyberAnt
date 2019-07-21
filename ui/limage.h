@@ -16,6 +16,7 @@ class LImage{
 #endif
 		LTSurface* tsurf;
 	public:
+		static bool textLoad;
 		LImage();
 		LImage(const char* str); // path withowt ext
 		LImage(const std::string& str); // path withowt ext

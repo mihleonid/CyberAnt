@@ -2,6 +2,7 @@
 #include <cassert>
 #include "limage.h"
 
+bool LImage::textLoad=false;
 LImage::LImage(){
 #ifdef SDL
 	surf=nullptr;
@@ -15,10 +16,14 @@ LImage::LImage(const char* str){
 	std::cout<<"Loaded "<<std::string(str)+std::string(".bmp")<<std::endl;
 #endif
 #endif
-	tsurf=new LTSurface((std::string(str)+std::string(".txt")).c_str());
+	if(textLoad){
+		tsurf=new LTSurface((std::string(str)+std::string(".txt")).c_str());
 #ifdef DEBUG
-	std::cout<<"Loaded "<<std::string(str)+std::string(".txt")<<std::endl;
+		std::cout<<"Loaded "<<std::string(str)+std::string(".txt")<<std::endl;
 #endif
+	}else{
+		tsurf=nullptr;
+	}
 }
 LImage::LImage(const std::string& str){
 #ifdef SDL
@@ -27,10 +32,14 @@ LImage::LImage(const std::string& str){
 	std::cout<<"Loaded "<<str+std::string(".bmp")<<std::endl;
 #endif
 #endif
-	tsurf=new LTSurface((str+std::string(".txt")).c_str());
+	if(textLoad){
+		tsurf=new LTSurface((str+std::string(".txt")).c_str());
 #ifdef DEBUG
-	std::cout<<"Loaded "<<str+std::string(".txt")<<std::endl;
+		std::cout<<"Loaded "<<str+std::string(".txt")<<std::endl;
 #endif
+	}else{
+		tsurf=nullptr;
+	}
 }
 LImage::LImage(LImage* img){
 #ifdef SDL
@@ -57,6 +66,9 @@ LImage::~LImage(){
 #ifdef SDL
 	if(surf!=nullptr){
 		SDL_FreeSurface(surf);
+		for(auto i=sdlcache.begin();i!=sdlcache.end();++i){
+			SDL_DestroyTexture(i->second);
+		}
 	}
 #endif
 	if(tsurf!=nullptr){

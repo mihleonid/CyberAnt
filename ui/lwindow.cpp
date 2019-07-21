@@ -6,6 +6,7 @@
 #include <SDL2/SDL_ttf.h>
 #endif
 #include "lwindow.h"
+#include "limage.h"
 #include "terminal/ltdrawer.h"
 #include "terminal/terminal_size.h"
 #include "terminal/terminal.h"
@@ -16,6 +17,7 @@
 
 LWindow::LWindow(const char* title, bool force){
 	wtitle=title;
+	LImage::textLoad=false;
 #ifdef SDL
 	if(SDL_Init(SDL_INIT_VIDEO)!=0){
 		std::cerr<<"SDL_Init error: "<<SDL_GetError()<<std::endl;
@@ -40,6 +42,7 @@ LWindow::LWindow(const char* title, bool force){
 		tw=p.getX();
 		th=p.getY();
 		ldr=new LTDrawer;
+		LImage::textLoad=true;
 		//TODO Treminal control
 		std::this_thread::sleep_for(std::chrono::milliseconds(1500)); // Micro sleep
 	}else{
