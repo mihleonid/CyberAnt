@@ -4,6 +4,7 @@
 #include "storage.h"
 #include "fieldevent.h"
 #include "base.h"
+#include "building.h"
 #include "random.h"
 #include "foenum.h"
 #include "resource.h"
@@ -32,6 +33,14 @@ FieldModel::~FieldModel(){
 
 void FieldModel::applyEvent(Event* ce){
 	FieldEvent* c=(FieldEvent*)ce;
+	if(c->getType()==EUpgrade){
+		if(field.get(c->getPos())!=nullptr){
+			FO* f=field.get(c->getPos());
+			if(f->getType()&FOBuilding){
+				++(((Building*)f)->level);//TODO upgrade
+			}
+		}
+	}
 	if(c->getType()==EBuild){
 		if(field.get(c->getPos())==nullptr){
 			switch(c->getWhat()){

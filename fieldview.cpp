@@ -107,6 +107,7 @@ EventQueue FieldView::getEvents(){
 					y/=FH;
 					clamp(x, 0, BlocksX);
 					clamp(y, 0, BlocksY);
+					v.push(new FieldEvent(EUpgrade, Point(x, y), BBase));
 					v.push(new FieldEvent(EBuild, Point(x, y), BBase));
 					v.push(new FieldEvent(EBuild, Point(x, y), BIMine));
 				}
