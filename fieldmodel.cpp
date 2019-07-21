@@ -25,6 +25,9 @@ FieldModel::FieldModel(){
 }
 FieldModel::~FieldModel(){
 	field.removeAll();
+	if(!baseBuilded){
+		delete rset;
+	}
 }
 
 void FieldModel::applyEvent(Event* ce){
