@@ -31,8 +31,9 @@ class LWindow{
 		LScene* getScene();
 		void setScene(LScene* scn);
 
-		void update(); // Наведение на кнопки м пр.
-		void present(); // Обновть картинку на экране
+		void draw(); // Отрисовка
+		void clear();
+		void present(); // Обновть картинку на экране (во избежание частичных отрисовок)
 		std::pair<EventQueue, std::queue<LEvent*>> getEvents();
 		Point getCenter();
 		Point getCorner();

@@ -11,7 +11,8 @@
 
 void MenuView::loop(const Model* mode){
 	win->setScene(scn);
-	win->update();
+	win->clear();
+	win->draw();
 	win->present();
 }
 EventQueue MenuView::getEvents(){

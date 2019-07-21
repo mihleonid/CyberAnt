@@ -20,7 +20,7 @@
 
 void FieldView::loop(const Model* mode){
 	win->setScene(scn);
-	win->update();
+	win->clear();
 	//TODO Draw from lwindow
 	//TODO LComponent caching texture
 	const FieldModel* model=(const FieldModel*)mode;
@@ -67,6 +67,7 @@ void FieldView::loop(const Model* mode){
 	drawTextRight(SCREEN_W-ccc.first, ay+yy, "Cristall: ").second;
 	*/
 
+	win->draw();
 	win->present();
 }
 EventQueue FieldView::getEvents(){

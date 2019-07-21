@@ -89,9 +89,10 @@ std::pair<EventQueue, std::queue<LEvent*>> LWindow::getEvents(){
 	}
 	return std::pair<EventQueue, std::queue<LEvent*>>(eq, q);
 }
-void LWindow::update(){
+void LWindow::clear(){
 	ldr->clear();
-	
+}
+void LWindow::draw(){
 	scene->draw(ldr);
 	if(!sdlMode){
 		ldr->color(LColor(154, 0, 160));
