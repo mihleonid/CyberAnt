@@ -81,6 +81,20 @@ LDrawer* LWindow::getDrawer(){
 LControl* LWindow::getControl(){
 	return cnt;
 }
+int LWindow::getFps(){
+	return fps;
+}
+void LWindow::setFps(int f){
+	if(f<8){
+		fps=8;
+		return;
+	}
+	if(f>40){
+		fps=40;
+		return;
+	}
+	fps=f;
+}
 std::pair<EventQueue, std::queue<LEvent*>> LWindow::getEvents(){
 	cnt->loop();
 	LEvent* e;

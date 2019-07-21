@@ -54,7 +54,7 @@ void FieldView::loop(const Model* mode){
 	}
 	Rect baseContains=win->getDrawer()->drawTextRight(win->getCorner().getX(), 0, "Base contains: ");
 	Point fps=win->getDrawer()->drawText(0, 20, "FPS: ").getB();
-	win->getDrawer()->drawText(fps.getX(), 20, 24); // TODO FUPS and GameControleer data
+	win->getDrawer()->drawText(fps.getX(), 20, win->getFps()); // TODO FUPS and GameControleer data
 	Rect iron=win->getDrawer()->drawTextRight(baseContains.getB(), model->rset->get(Iron));
 	win->getDrawer()->drawTextRight(iron.getA(), "Iron: ");
 	Rect oxygen=win->getDrawer()->drawTextRight(iron.getB(), model->rset->get(Oxygen));

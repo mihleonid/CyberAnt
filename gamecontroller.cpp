@@ -81,12 +81,12 @@ void GameController::loop(){
 			c=(GameControllerEvent*)(q.pop());
 			if(c->getExit()){
 				delete c;
-				goto quite;
+				goto quit;
 			}
 			if(c->getBack()){
 				if(back()){
 					delete c;
-					goto quite;
+					goto quit;
 				}
 			}
 			if(c->getController()!=nullptr){
@@ -96,11 +96,12 @@ void GameController::loop(){
 			FUPS+=c->getFUPSDelta();
 			FUPS=mmin(FUPS, 40);
 			FUPS=mmax(FUPS, 8);
+			win->setFps(FUPS);
 			delete c;
 		}
 		delayFps();
 	}
-	quite:;
+	quit:;
 }
 
 void GameController::initFps(){

@@ -25,7 +25,11 @@ class LWindow{
 		LDrawer* ldr;
 		LScene* scene;
 		LControl* cnt;
+		int fps=26; // Это нужно будет при многопоточности
 	public:
+		int getFps();
+		void setFps(int);
+
 		LWindow(const char* title, bool forceTerminal=false);
 
 		LScene* getScene();
