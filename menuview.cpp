@@ -4,6 +4,7 @@
 #include "point.h"
 #include "gamecontrollerevent.h"
 #include "event.h"
+#include "configurator.h"
 #include "menuview.h"
 #include "fieldcontroller.h"
 
@@ -38,8 +39,8 @@ void MenuView::init(LWindow* cwin){
 	play* p=new play;
 	p->win=win;
 	scn=(new LScene())
-	->add(new LButton(Rect(Point(0)), "Play", p))
-	->add(new LButton(Rect(Point(0, 24)), "EXIT", new exit));
+	->add(new LButton(Rect(Point(0)), Configurator::getPlay(), p))
+	->add(new LButton(Rect(Point(0, 24)), Configurator::getExit(), new exit));
 }
 MenuView::~MenuView(){
 	delete scn;

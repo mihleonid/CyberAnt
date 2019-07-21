@@ -11,4 +11,13 @@ void Configurator::configureResourceNode(ResourceType t, int& add, int& addP, in
 const char* Configurator::getWindowTitle(){
 	return "CyberAnt";
 }
+const char* Configurator::getPlay(){
+	return "Play";
+}
+const char* Configurator::getBack(){
+	return "Back";
+}
+const char* Configurator::getExit(){
+	return "Exit";
+}
 

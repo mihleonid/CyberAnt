@@ -188,11 +188,11 @@ void FieldView::init(LWindow* cwin){
 	typedef class:public Callback<Event*>{
 		public:
 		virtual Event* call(){
-			return new GameControllerEvent(true, true);
+			return new GameControllerEvent(false, true);
 		}
 	} exit;
 	scn=(new LScene)
-	->add(new LButton(Rect(0), "EXIT", new exit()));
+	->add(new LButton(Rect(0), Configurator::getBack(), new exit()));
 }
 FieldView::~FieldView(){
 	delete ass;
