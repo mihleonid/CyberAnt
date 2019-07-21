@@ -85,9 +85,9 @@ SDL_Texture* LImage::newTexture(const LColor& c, SDL_Renderer* ren) {
 	SDL_LockSurface(s);
 	for(int x=0;x<s->w;x++){
 		for(int y=0;y<s->h;y++){
-			Uint32 color=pixelGet(x, y);
+			Uint32 color=pixelGet(x, y, s);
 			if((color&0xFFFFFF)==0x010101){
-				pixelSet(x, y, (Uint32)c.fg().hex());
+				pixelSet(x, y, (Uint32)c.fg().hex(), s);
 			}
 		}
 	}
@@ -112,20 +112,20 @@ SDL_Texture* LImage::newTexture(SDL_Renderer* ren) {
 	}
 	return t;
 }
-Uint32 LImage::pixelGet(int x, int y){
-	if(surf==nullptr){
+Uint32 LImage::pixelGet(int x, int y, SDL_Surface* s){
+	if(s==nullptr){
 		std::cerr<<"LImage is not initialized"<<std::endl;
 		return 0;
 	}
-	Uint32 *pixels=(Uint32*)surf->pixels;
-	return pixels[(y*surf->w)+x];
+	Uint32 *pixels=(Uint32*)s->pixels;
+	return pixels[(y*s->w)+x];
 }
-void LImage::pixelSet(int x, int y, Uint32 color){
-	if(surf==nullptr){
+void LImage::pixelSet(int x, int y, Uint32 color, SDL_Surface* s){
+	if(s==nullptr){
 		std::cerr<<"LImage is not initialized"<<std::endl;
 	}
-	Uint32 *pixels=(Uint32*)surf->pixels;
-	pixels[(y*surf->w)+x]=SDL_MapRGB(surf->format, (color&0xFF0000)/0x10000, (color&0xFF00)/0x100, color&0xFF);
+	Uint32 *pixels=(Uint32*)s->pixels;
+	pixels[(y*surf->w)+x]=SDL_MapRGB(s->format, (color&0xFF0000)/0x10000, (color&0xFF00)/0x100, color&0xFF);
 }
 SDL_Surface* LImage::getSurface(){
 	return surf;
@@ -139,9 +139,9 @@ void LImage::applySDL(const LColor& c){
 	SDL_LockSurface(s);
 	for(int x=0;x<s->w;x++){
 		for(int y=0;y<s->h;y++){
-			Uint32 color=pixelGet(x, y);
+			Uint32 color=pixelGet(x, y, s);
 			if((color&0xFFFFFF)==0x010101){
-				pixelSet(x, y, (Uint32)c.fg().hex());
+				pixelSet(x, y, (Uint32)c.fg().hex(), s);
 			}
 		}
 	}

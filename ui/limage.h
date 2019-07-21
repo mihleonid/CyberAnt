@@ -26,8 +26,8 @@ class LImage{
 #ifdef SDL
 		SDL_Texture* newTexture(const LColor& c, SDL_Renderer* ren); // Special color (1, 1, 1)=>(c)
 		SDL_Texture* newTexture(SDL_Renderer* ren);
-		void pixelSet(int x, int y, Uint32 color);
-		Uint32 pixelGet(int x, int y);
+		void pixelSet(int x, int y, Uint32 colorr, SDL_Surface* s);
+		Uint32 pixelGet(int x, int yr, SDL_Surface* s);
 		SDL_Surface* getSurface();
 		void applySDL(const LColor& c); // Special color (1, 1, 1)=>(c)
 #endif
