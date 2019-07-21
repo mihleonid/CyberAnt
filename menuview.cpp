@@ -21,6 +21,9 @@ EventQueue MenuView::getEvents(){
 		if(pair.second.front()->getType()==LEventType::Exit){
 			pair.first.push(new GameControllerEvent(true, false));
 		}
+		if(pair.second.front()->getType()==LEventType::Back){
+			pair.first.push(new GameControllerEvent(false, true));
+		}
 		delete pair.second.front();
 		pair.second.pop();
 	}

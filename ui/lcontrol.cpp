@@ -50,7 +50,7 @@ void LControl::loop(){
 			switch (evt.key.keysym.sym){
 				case SDLK_ESCAPE:
 					{
-						q.push(new LEvent(LEventType::Exit));
+						q.push(new LEvent(LEventType::Back));
 						return;
 					}
 				default:

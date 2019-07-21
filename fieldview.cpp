@@ -77,6 +77,11 @@ EventQueue FieldView::getEvents(){
 			delete evt;
 			break;
 		}
+		if(evt->getType()==LEventType::Back){
+			v.push(new GameControllerEvent(false, true));
+			delete evt;
+			break;
+		}
 		if(evt->getType()==LEventType::Mouse){
 			LMouseEvent* mevt=(LMouseEvent*)evt;
 			if(mevt->getMouseType()==MOUSE_Move){
