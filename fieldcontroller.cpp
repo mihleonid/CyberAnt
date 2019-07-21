@@ -2,7 +2,7 @@
 #include "fieldmodel.h"
 #include "fieldview.h"
 
-FieldController::FieldController(){
-	initialize(new FieldModel, new FieldView);
+FieldController::FieldController(LWindow* win){
+	initialize(new FieldModel, new FieldView, win);
 }
 

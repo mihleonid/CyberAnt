@@ -19,6 +19,7 @@ class GameController{
 		void clearHist(int k); // k>0 -> удаляет последние k. k<0 -> оставляет первые -k.
 		bool back(); // Нужно ли выходить
 
+		LWindow* win=nullptr;
 	public:
 		GameController();
 		~GameController();

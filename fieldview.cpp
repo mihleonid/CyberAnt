@@ -1,6 +1,7 @@
 #include <iostream>
 #include <queue>
 #include "configurator.h"
+#include "callback.h"
 #include "ui/lbutton.h"
 #include "ui/levent.h"
 #include "ui/leventtype.h"
@@ -176,18 +177,23 @@ EventQueue FieldView::getEvents(){
 	}
 	return v;
 }
-void FieldView::init(){
+void FieldView::init(LWindow* cwin){
 	scrollX=0;
 	scrollY=0;
 	mouseDown=false;
 	mouseMoved=false;
-	win=new LWindow(Configurator::getWindowTitle());
+	win=cwin;
 	ass=new Assets();
-	win->getScene()->add(new LButton(Rect(0), "EXIT", []()->Event*{return new GameControllerEvent(true, false);}));
+	typedef class:public Callback<Event*>{
+		public:
+		virtual Event* call(){
+			return new GameControllerEvent(true, false);
+		}
+	} exit;
+	win->getScene()->add(new LButton(Rect(0), "EXIT", new exit()));
 }
-FieldView::~FieldView() {
-    delete ass;
-    delete win;
+FieldView::~FieldView(){
+	delete ass;
 }
 #undef FW
 #undef FH

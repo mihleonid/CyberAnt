@@ -4,6 +4,7 @@
 #include "eventqueue.h"
 #include "assets.h"
 
+class LWindow;
 
 class FieldView:public View{
 	private:
@@ -13,12 +14,12 @@ class FieldView:public View{
 		bool mouseMoved;
 		int mouseX;
 		int mouseY;
-		LWindow* win=nullptr;
 		Assets* ass=nullptr;
+		LWindow* win=nullptr;
 	public:
 		virtual void loop(const Model* m);
 		virtual EventQueue getEvents();
-		virtual void init();
+		virtual void init(LWindow* win);
 		~FieldView();
 };
 

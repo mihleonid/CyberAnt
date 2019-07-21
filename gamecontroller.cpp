@@ -1,7 +1,10 @@
 #include <iostream>
 #include <chrono>
 #include <thread>
+#include "ui/lwindow.h"
 #include "gamecontroller.h"
+#include "menucontroller.h"
+#include "configurator.h"
 #include "fieldcontroller.h"
 #include "gamecontrollerevent.h"
 #include "eventqueue.h"
@@ -17,7 +20,8 @@ GameController::GameController(){
 #ifdef DEBUG
 		std::cout<<"Initialization finishing..."<<std::endl;
 #endif
-		currentController=new FieldController();
+		win=new LWindow(Configurator::getWindowTitle());
+		currentController=new MenuController(win);
 		initFps();
 #ifdef DEBUG
 		std::cout<<"Initialization success."<<std::endl;
@@ -31,6 +35,7 @@ GameController::GameController(){
 GameController::~GameController(){
 	clearHist(hist.size());
 	delete currentController;
+	delete win;
 #ifdef DEBUG
 	std::cout<<"Exited"<<std::endl;
 #endif

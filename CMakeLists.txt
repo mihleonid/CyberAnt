@@ -5,6 +5,7 @@ set(src
 	assets.cpp
 	base.cpp
 	building.cpp
+	callback.cpp
 	configurator.cpp
 	controller.cpp
 	event.cpp
@@ -19,6 +20,8 @@ set(src
 	gamecontroller.cpp
 	gamecontrollerevent.cpp
 	main.cpp
+	menucontroller.cpp
+	menuview.cpp
 	model.cpp
 	point.cpp
 	putable.cpp
