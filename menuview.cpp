@@ -1,6 +1,7 @@
 #include <queue>
 #include "ui/lbutton.h"
 #include "ui/levent.h"
+#include "ui/leventtype.h"
 #include "point.h"
 #include "gamecontrollerevent.h"
 #include "event.h"
@@ -16,6 +17,9 @@ void MenuView::loop(const Model* mode){
 EventQueue MenuView::getEvents(){
 	std::pair<EventQueue, std::queue<LEvent*>> pair=win->getEvents();
 	while(!(pair.second.empty())){
+		if(pair.second.front()->getType()==LEventType::Exit){
+			pair.first.push(new GameControllerEvent(true, false));
+		}
 		delete pair.second.front();
 		pair.second.pop();
 	}
