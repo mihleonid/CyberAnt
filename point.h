@@ -8,8 +8,17 @@ class Point{
 		int getX() const;
 		int getY() const;
 
-		Point setDX(int d) const; // Delta. Creates new Point. TODO non copying and coppying modificator.
+		Point setDX(int d) const; // Delta. Creates new Point.
 		Point setDY(int d) const;
+
+		Point setX(int) const; // Creates new Point.
+		Point setY(int) const;
+
+		void setDXM(int d); // Delta. Modificates Point.
+		void setDYM(int d);
+
+		void setXM(int d); // Modificates Point.
+		void setYM(int d);
 
 		Point();
 		Point(int a); // (a, a)

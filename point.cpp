@@ -35,12 +35,35 @@ int Point::getY() const{
 int Point::getX() const{
 	return x;
 }
+
 Point Point::setDX(int d) const{
 	return Point(x+d, y);
 }
 Point Point::setDY(int d) const{
 	return Point(x, y+d);
 }
+
+Point Point::setX(int d) const{
+	return Point(d, y);
+}
+Point Point::setY(int d) const{
+	return Point(x, d);
+}
+
+void Point::setXM(int a){
+	x=a;
+}
+void Point::setYM(int a){
+	y=a;
+}
+
+void Point::setDXM(int a){
+	x+=a;
+}
+void Point::setDYM(int a){
+	y+=a;
+}
+
 bool operator==(const Point& a, const Point& b){
 	return ((a.getX()==b.getX())&&(a.getY()==b.getY()));
 }
