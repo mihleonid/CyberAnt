@@ -48,7 +48,6 @@ void FieldView::loop(const Model* mode){
 				img=c->getImage(ass);
 			}
 			win->getDrawer()->draw(FW*i-scrollX, FH*j-scrollY, img);
-			delete img;
 		}
 	}
 	/*
