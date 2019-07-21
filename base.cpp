@@ -6,8 +6,8 @@ Base::Base(Point p, Field* f, int lvl):Building(p, f, lvl){
 }
 void Base::update(){
 }
-LImage* Base::getImage(Assets* ass) const{
-	return ass->get("base")->applyColors(levelColor());
+std::pair<LImage*, LColor> Base::getImage(Assets* ass) const{
+	return std::pair<LImage*, LColor>(ass->get("base"), levelColor());
 }
 bool Base::empty() const{
 	return have.empty();

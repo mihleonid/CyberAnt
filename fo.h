@@ -1,5 +1,6 @@
 #pragma once
 #include "ui/limage.h"
+#include "ui/lcolor.h"
 #include "foenum.h"
 #include "assets.h"
 #include "point.h"
@@ -24,7 +25,7 @@ class FO{
 		virtual ~FO();
 
 		virtual void update();
-		virtual LImage* getImage(Assets* ass) const;
+		virtual std::pair<LImage*, LColor> getImage(Assets* ass) const;
 
 		friend class Field;
 };

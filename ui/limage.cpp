@@ -64,6 +64,7 @@ LImage::~LImage(){
 	}
 }
 LImage* LImage::applyColors(const LColor& c){
+	std::cerr<<"Using deprecated function LImage::applyColors"<<std::endl;
 #ifdef SDL
 	applySDL(c);
 #endif

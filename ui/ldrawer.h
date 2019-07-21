@@ -6,6 +6,7 @@
 class LDrawer{
 	public:
 		virtual Rect draw(int x, int y, LImage* img);
+		virtual Rect draw(int x, int y, LImage* img, const LColor& c);
 
 		virtual Rect drawText(int x, int y, int text);
 		virtual Rect drawText(int x, int y, const char* text);

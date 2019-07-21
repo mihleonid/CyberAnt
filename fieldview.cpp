@@ -42,12 +42,15 @@ void FieldView::loop(const Model* mode){
 			}
 			const FO* c=model->field.get(i, j);
 			LImage* img;
+			LColor col(255, 0, 0);
 			if(c==nullptr){
 				img=ass->get("field");
 			}else{
-				img=c->getImage(ass);
+				std::pair<LImage*, LColor> pair=c->getImage(ass);
+				img=pair.first;
+				col=pair.second;
 			}
-			win->getDrawer()->draw(FW*i-scrollX, FH*j-scrollY, img);
+			win->getDrawer()->draw(FW*i-scrollX, FH*j-scrollY, img, col);
 		}
 	}
 	/*

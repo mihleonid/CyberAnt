@@ -10,6 +10,10 @@ Rect LTDrawer::draw(int x, int y, LImage* img){
 	//TODO draw
 	return Rect(0);
 }
+Rect LTDrawer::draw(int x, int y, LImage* img, const LColor& c){
+	//TODO draw
+	return Rect(0);
+}
 Rect LTDrawer::drawText(int x, int y, const char* c, int len){
 	T_GOTO(x, y);
 	T_OPT(foreground);

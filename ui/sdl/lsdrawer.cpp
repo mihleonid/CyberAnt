@@ -16,6 +16,9 @@ LSDrawer::~LSDrawer(){
 Rect LSDrawer::draw(int x, int y, LImage* img){
 	return draw(x, y, img->newTexture(ren));
 }
+Rect LSDrawer::draw(int x, int y, LImage* img, const LColor& c){
+	return draw(x, y, img->newTexture(c, ren));
+}
 Rect LSDrawer::draw(int x, int y, SDL_Texture* tex){
 	SDL_Rect pos;
 	pos.x = x;

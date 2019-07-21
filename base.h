@@ -7,7 +7,7 @@
 class Base:public Building, public Storage, public Resourced, public Putable{
 	public:
 		virtual void update();
-		virtual LImage* getImage(Assets* ass) const;
+		virtual std::pair<LImage*, LColor> getImage(Assets* ass) const;
 		Base(Point p, Field* f, int lvl);
 		bool empty() const;
 		void put(ResourceSet g);

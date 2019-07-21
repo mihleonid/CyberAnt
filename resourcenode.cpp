@@ -26,7 +26,7 @@ ResourceSet ResourceNode::mine(ResourceSet need){
 	have.sub(rtype, Random::rnd(taxMin, taxMax));
 	return rest;
 }
-LImage* ResourceNode::getImage(Assets* ass) const{
-	return ass->getNode(Resource::typeToString(rtype))->applyColors(0xFFFFFF&((have.get(rtype)/4)*0x00000102));
+std::pair<LImage*, LColor> ResourceNode::getImage(Assets* ass) const{
+	return std::pair<LImage*, LColor>(ass->getNode(Resource::typeToString(rtype)), LColor(0xFFFFFF&((have.get(rtype)/4)*0x00000102), true));
 }
 
