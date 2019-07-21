@@ -7,15 +7,24 @@ class LDrawer{
 	public:
 		virtual Rect draw(int x, int y, LImage* img);
 		virtual Rect draw(int x, int y, LImage* img, const LColor& c);
+		Rect draw(Point p, LImage* img);
+		Rect draw(Point p, LImage* img, const LColor& c);
 
 		virtual Rect drawText(int x, int y, int text);
 		virtual Rect drawText(int x, int y, const char* text);
+		Rect drawText(Point p, int text);
+		Rect drawText(Point p, const char* text);
 
 		virtual Rect drawTextRight(int x, int y, int text);
 		virtual Rect drawTextRight(int x, int y, const char* text);
+		Rect drawTextRight(Point p, int text);
+		Rect drawTextRight(Point p, const char* text);
 
 		virtual Rect drawTextCenter(int x, int y, int text);
 		virtual Rect drawTextCenter(int x, int y, const char* text);
+		Rect drawTextCenter(Point p, int text);
+		Rect drawTextCenter(Point p, const char* text);
+
 		virtual void clear();
 		virtual void present();
 

@@ -22,7 +22,6 @@ void FieldView::loop(const Model* mode){
 	win->setScene(scn);
 	win->clear();
 	//TODO Draw from lwindow
-	//TODO LComponent caching texture
 	const FieldModel* model=(const FieldModel*)mode;
 	clamp(scrollX, -20, BlocksX*FW-SCREEN_W+20);
 	clamp(scrollY, -20, BlocksY*FH-SCREEN_H+20);
@@ -53,19 +52,15 @@ void FieldView::loop(const Model* mode){
 			win->getDrawer()->draw(FW*i-scrollX, FH*j-scrollY, img, col);
 		}
 	}
-	int ay=win->getDrawer()->drawTextRight(win->getCorner().getX(), 0, "Base contains: ").getB().getY();
-	//int x=drawText(0, 0, "FPS: ").first;
-	//drawText(x, 0, 24); // TODO FUPS and GameControleer data
-	Rect c=win->getDrawer()->drawTextRight(win->getCorner().getX(), ay, model->rset->get(Iron));
-	int y=win->getDrawer()->drawTextRight(c.getA().getX(), ay, "Iron: ").getA().getY();
-	/*
-	y=mmax(y, c.second);
-	std::pair<int, int> cc=drawTextRight(SCREEN_W, ay+y, model->rset->get(Oxygen));
-	int yy=drawTextRight(SCREEN_W-cc.first, ay+y, "Oxygen: ").second;
-	yy=mmax(y+yy, c.second+yy);
-	std::pair<int, int> ccc=drawTextRight(SCREEN_W, ay+yy, model->rset->get(Cristall));
-	drawTextRight(SCREEN_W-ccc.first, ay+yy, "Cristall: ").second;
-	*/
+	Rect baseContains=win->getDrawer()->drawTextRight(win->getCorner().getX(), 0, "Base contains: ");
+	Point fps=win->getDrawer()->drawText(0, 20, "FPS: ").getB();
+	win->getDrawer()->drawText(fps.getX(), 20, 24); // TODO FUPS and GameControleer data
+	Rect iron=win->getDrawer()->drawTextRight(baseContains.getB(), model->rset->get(Iron));
+	win->getDrawer()->drawTextRight(iron.getA(), "Iron: ");
+	Rect oxygen=win->getDrawer()->drawTextRight(iron.getB(), model->rset->get(Oxygen));
+	win->getDrawer()->drawTextRight(oxygen.getA(), "Oxygen: ");
+	Rect cristall=win->getDrawer()->drawTextRight(oxygen.getB(), model->rset->get(Cristall));
+	win->getDrawer()->drawTextRight(cristall.getA(), "Cristall: ");
 
 	win->draw();
 	win->present();
