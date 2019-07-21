@@ -190,9 +190,9 @@ void FieldView::init(LWindow* cwin){
 		virtual Event* call(){
 			return new GameControllerEvent(false, true);
 		}
-	} exit;
+	} back;
 	scn=(new LScene)
-	->add(new LButton(Rect(0), Configurator::getBack(), new exit()));
+	->add(new LButton(Rect(0), Configurator::getBack(), new back()));
 }
 FieldView::~FieldView(){
 	delete ass;

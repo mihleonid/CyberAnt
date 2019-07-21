@@ -17,6 +17,8 @@
 #include "../foenum.cpp"
 #include "../gamecontroller.cpp"
 #include "../gamecontrollerevent.cpp"
+#include "../menucontroller.cpp"
+#include "../menuview.cpp"
 #include "../model.cpp"
 #include "../point.cpp"
 #include "../putable.cpp"
