@@ -12,7 +12,7 @@ void base_test(){
 	need=b->mine(need);
 	assert(need==ResourceSet(Iron, 1));
 	assert(b->empty()==true);
-	assert(b->level==3);
+	assert(b->getLevel()==3);
 
 	f->removeAll();
 	delete f;

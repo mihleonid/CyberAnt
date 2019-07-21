@@ -53,11 +53,11 @@ void FieldView::loop(const Model* mode){
 			win->getDrawer()->draw(FW*i-scrollX, FH*j-scrollY, img, col);
 		}
 	}
-	int ay=win->getDrawer()->drawTextRight(win->getCorner().getX(), 0, "Base contains: ").getA().getY();
+	int ay=win->getDrawer()->drawTextRight(win->getCorner().getX(), 0, "Base contains: ").getB().getY();
 	//int x=drawText(0, 0, "FPS: ").first;
 	//drawText(x, 0, 24); // TODO FUPS and GameControleer data
 	Rect c=win->getDrawer()->drawTextRight(win->getCorner().getX(), ay, model->rset->get(Iron));
-	int y=win->getDrawer()->drawTextRight(c.getA().getX()-10, ay, "Iron: ").getA().getY();
+	int y=win->getDrawer()->drawTextRight(c.getA().getX(), ay, "Iron: ").getA().getY();
 	/*
 	y=mmax(y, c.second);
 	std::pair<int, int> cc=drawTextRight(SCREEN_W, ay+y, model->rset->get(Oxygen));

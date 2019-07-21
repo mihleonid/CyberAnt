@@ -25,7 +25,7 @@ Rect LSDrawer::draw(int x, int y, SDL_Texture* tex){
 	pos.y = y;
 	SDL_QueryTexture(tex, NULL, NULL, &pos.w, &pos.h);
 	SDL_RenderCopy(ren, tex, NULL, &pos);
-	return Rect(Point(pos.w+pos.x, pos.h+pos.y), Point(pos.w, pos.h));
+	return Rect(Point(pos.x, pos.y), Point(pos.w+pos.x, pos.h+pos.y));
 }
 Rect LSDrawer::drawText(int x, int y, const char* text){
 	SDL_Texture* txt=makeText(ren, text);
@@ -47,7 +47,7 @@ Rect LSDrawer::drawRight(int x, int y, SDL_Texture* tex){
 	SDL_QueryTexture(tex, NULL, NULL, &pos.w, &pos.h);
 	pos.x-=pos.w;
 	SDL_RenderCopy(ren, tex, NULL, &pos);
-	return Rect(Point(pos.w+pos.x, pos.h+pos.y), Point(pos.w, pos.h));
+	return Rect(Point(pos.x, pos.y), Point(pos.w+pos.x, pos.h+pos.y));
 }
 Rect LSDrawer::drawTextRight(int x, int y, const char* text){
 	SDL_Texture* txt=makeText(ren, text);
@@ -69,7 +69,7 @@ Rect LSDrawer::drawCenter(int x, int y, SDL_Texture* tex){
 	SDL_QueryTexture(tex, NULL, NULL, &pos.w, &pos.h);
 	pos.x-=pos.w/2;
 	SDL_RenderCopy(ren, tex, NULL, &pos);
-	return Rect(Point(pos.w+pos.x, pos.h+pos.y), Point(pos.w, pos.h));
+	return Rect(Point(pos.x, pos.y), Point(pos.w+pos.x, pos.h+pos.y));
 }
 Rect LSDrawer::drawTextCenter(int x, int y, const char* text){
 	SDL_Texture* txt=makeText(ren, text);
