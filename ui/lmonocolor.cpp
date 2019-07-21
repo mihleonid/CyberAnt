@@ -93,6 +93,18 @@ int LMonoColor::t(bool back, int eps) const{
 bool operator==(const LMonoColor& a, const LMonoColor& b){
 	return((a.r()==b.r())&&(a.g()==b.g())&&(a.b()==b.b()));
 }
+bool operator<(const LMonoColor& a, const LMonoColor& b){
+	return(a.hex()<b.hex());
+}
+bool operator>(const LMonoColor& a, const LMonoColor& b){
+	return(a.hex()>b.hex());
+}
+bool operator<=(const LMonoColor& a, const LMonoColor& b){
+	return(a.hex()<=b.hex());
+}
+bool operator>=(const LMonoColor& a, const LMonoColor& b){
+	return(a.hex()>=b.hex());
+}
 bool operator!=(const LMonoColor& a, const LMonoColor& b){
 	return((a.r()!=b.r())||(a.g()!=b.g())||(a.b()!=b.b()));
 }

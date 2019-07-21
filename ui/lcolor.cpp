@@ -40,6 +40,34 @@ void LColor::def(){
 bool operator==(const LColor& a, const LColor& b){
 	return((a.fg()==b.fg())&&(a.bg()==b.bg()));
 }
+bool operator<(const LColor& a, const LColor& b){
+	if(a.fg()<b.fg()){
+		return true;
+	}
+	if(a.fg()==b.fg()){
+		if(a.bg()<b.bg()){
+			return true;
+		}
+	}
+	return false;
+}
+bool operator>(const LColor& a, const LColor& b){
+	if(a.fg()>b.fg()){
+		return true;
+	}
+	if(a.fg()==b.fg()){
+		if(a.bg()>b.bg()){
+			return true;
+		}
+	}
+	return false;
+}
+bool operator<=(const LColor& a, const LColor& b){
+	return(!(a>b));
+}
+bool operator>=(const LColor& a, const LColor& b){
+	return(!(a<b));
+}
 bool operator!=(const LColor& a, const LColor& b){
 	return((a.fg()!=b.fg())||(a.bg()!=b.bg()));
 }

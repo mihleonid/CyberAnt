@@ -25,7 +25,6 @@ Rect LSDrawer::draw(int x, int y, SDL_Texture* tex){
 	pos.y = y;
 	SDL_QueryTexture(tex, NULL, NULL, &pos.w, &pos.h);
 	SDL_RenderCopy(ren, tex, NULL, &pos);
-	SDL_DestroyTexture(tex);
 	return Rect(Point(pos.w+pos.x, pos.h+pos.y), Point(pos.w, pos.h));
 }
 Rect LSDrawer::drawText(int x, int y, const char* text){

@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <map>
 #include "lcolor.h"
 #include "terminal/ltsurface.h"
 
@@ -11,6 +12,7 @@ class LImage{
 	private:
 #ifdef SDL
 		SDL_Surface* surf;
+		std::map<LColor, SDL_Texture*> sdlcache;
 #endif
 		LTSurface* tsurf;
 	public:

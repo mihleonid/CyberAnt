@@ -81,6 +81,9 @@ SDL_Texture* LImage::newTexture(const LColor& c, SDL_Renderer* ren) {
 		std::cerr<<"LImage is not initialized"<<std::endl;
 		return nullptr;
 	}
+	if((sdlcache.count(c))){//TODO clear cache
+		return sdlcache[c];
+	}
 	SDL_Surface* s=SDL_ConvertSurfaceFormat(surf, SDL_PIXELFORMAT_RGBA32, SDL_SWSURFACE);
 	SDL_LockSurface(s);
 	for(int x=0;x<s->w;x++){
@@ -97,6 +100,7 @@ SDL_Texture* LImage::newTexture(const LColor& c, SDL_Renderer* ren) {
 	if(t==nullptr){
 		std::cerr<<"SDL_CreateTextureFromSurface Error: "<<SDL_GetError()<<std::endl;
 	}
+	sdlcache[c]=t;
 	return t;
 }
 SDL_Texture* LImage::newTexture(SDL_Renderer* ren) {

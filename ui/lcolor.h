@@ -26,5 +26,9 @@ class LColor{
 		void def();
 };
 bool operator==(const LColor& a, const LColor& b);
+bool operator<(const LColor& a, const LColor& b);
+bool operator>(const LColor& a, const LColor& b);
+bool operator<=(const LColor& a, const LColor& b);
+bool operator>=(const LColor& a, const LColor& b);
 bool operator!=(const LColor& a, const LColor& b);
 

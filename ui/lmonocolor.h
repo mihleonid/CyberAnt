@@ -21,5 +21,9 @@ class LMonoColor{
 		int t(bool back, int eps=40) const; // TODO eps is a param for color recognization. We need a better recognization.
 };
 bool operator==(const LMonoColor& a, const LMonoColor& b);
+bool operator<(const LMonoColor& a, const LMonoColor& b);
+bool operator<(const LMonoColor& a, const LMonoColor& b);
+bool operator<=(const LMonoColor& a, const LMonoColor& b);
+bool operator>=(const LMonoColor& a, const LMonoColor& b);
 bool operator!=(const LMonoColor& a, const LMonoColor& b);
 

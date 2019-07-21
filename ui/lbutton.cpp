@@ -1,5 +1,7 @@
 #include "ldrawer.h"
 #include "lmouseevent.h"
+#include "levent.h"
+#include "leventtype.h"
 #include "lbutton.h"
 
 LButton::LButton(Rect p, std::string t, Callback<Event*>* c):LComponent(p){
@@ -23,6 +25,9 @@ void LButton::draw(LDrawer* ldr){
 	}
 }
 Event* LButton::applyEvent(LEvent* e){
+	if(e->getType()!=Mouse){
+		return nullptr;
+	}
 	if(((LMouseEvent*)e)->getMouseType()==BUTTON_Up){
 		if(rect.contain(((LMouseEvent*)e)->getPos())){
 			return onClick->call();
