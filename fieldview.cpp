@@ -19,6 +19,7 @@
 #define FH 64
 
 void FieldView::loop(const Model* mode){
+	win->setScene(scn);
 	win->update();
 	//TODO Draw from lwindow
 	//TODO LComponent caching texture
@@ -190,10 +191,12 @@ void FieldView::init(LWindow* cwin){
 			return new GameControllerEvent(true, false);
 		}
 	} exit;
-	win->getScene()->add(new LButton(Rect(0), "EXIT", new exit()));
+	scn=(new LScene)
+	->add(new LButton(Rect(0), "EXIT", new exit()));
 }
 FieldView::~FieldView(){
 	delete ass;
+	delete scn;
 }
 #undef FW
 #undef FH

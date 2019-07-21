@@ -28,7 +28,6 @@ LWindow::LWindow(const char* title, bool force){
 		force=true;
 	}
 #endif
-	scene=new LScene();
 	if(force){
 		sdlMode=false;
 		T_CLEAR();
@@ -70,6 +69,9 @@ LWindow::LWindow(const char* title, bool force){
 LScene* LWindow::getScene(){
 	return scene;
 }
+void LWindow::setScene(LScene* scn){
+	scene=scn;
+}
 LDrawer* LWindow::getDrawer(){
 	return ldr;
 }
@@ -100,8 +102,21 @@ void LWindow::update(){
 void LWindow::present(){
 	ldr->present();
 }
+Point LWindow::getCenter(){
+	if(sdlMode){
+		return Point(SCREEN_W/2, SCREEN_H/2);
+	}else{
+		return Point(tw/2, th/2);
+	}
+}
+Point LWindow::getCorner(){
+	if(sdlMode){
+		return Point(SCREEN_W, SCREEN_H);
+	}else{
+		return Point(tw, th);
+	}
+}
 LWindow::~LWindow(){
-	delete scene;
 	delete cnt;
 #ifdef SDL
 	if(win!=nullptr){

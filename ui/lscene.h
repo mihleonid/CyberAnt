@@ -10,8 +10,8 @@ class LScene{
 	private:
 		std::vector<LComponent*> cps;
 	public:
-		void add(LComponent*);
-		void erase(LComponent*);
+		LScene* add(LComponent*);
+		LScene* erase(LComponent*);
 		void clear();
 		void clearDelete();
 		void draw(LDrawer*);

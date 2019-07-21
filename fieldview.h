@@ -16,6 +16,7 @@ class FieldView:public View{
 		int mouseY;
 		Assets* ass=nullptr;
 		LWindow* win=nullptr;
+		LScene* scn;
 	public:
 		virtual void loop(const Model* m);
 		virtual EventQueue getEvents();

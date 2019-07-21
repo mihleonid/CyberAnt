@@ -8,6 +8,7 @@
 #include "lscene.h"
 #include "lcontrol.h"
 #include "../eventqueue.h"
+#include "../point.h"
 
 #define SCREEN_W 1024
 #define SCREEN_H 764
@@ -28,10 +29,13 @@ class LWindow{
 		LWindow(const char* title, bool forceTerminal=false);
 
 		LScene* getScene();
+		void setScene(LScene* scn);
 
 		void update(); // Наведение на кнопки м пр.
 		void present(); // Обновть картинку на экране
 		std::pair<EventQueue, std::queue<LEvent*>> getEvents();
+		Point getCenter();
+		Point getCorner();
 		LDrawer* getDrawer(); ///@deprecated
 		LControl* getControl();
 		~LWindow();

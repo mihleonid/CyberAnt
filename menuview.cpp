@@ -8,6 +8,7 @@
 #include "fieldcontroller.h"
 
 void MenuView::loop(const Model* mode){
+	win->setScene(scn);
 	win->update();
 	win->present();
 }
@@ -36,7 +37,11 @@ void MenuView::init(LWindow* cwin){
 	} exit;
 	play* p=new play;
 	p->win=win;
-	win->getScene()->add(new LButton(Rect(Point(0)), "Play", p));//TODO win
-	win->getScene()->add(new LButton(Rect(Point(0, 24)), "EXIT", new exit));
+	scn=(new LScene())
+	->add(new LButton(Rect(Point(0)), "Play", p))
+	->add(new LButton(Rect(Point(0, 24)), "EXIT", new exit));
+}
+MenuView::~MenuView(){
+	delete scn;
 }
 

@@ -3,11 +3,13 @@
 #include "levent.h"
 #include "lcomponent.h"
 
-void LScene::add(LComponent* c){
+LScene* LScene::add(LComponent* c){
 	cps.push_back(c);
+	return this;
 }
-void LScene::erase(LComponent* c){
+LScene* LScene::erase(LComponent* c){
 	cps.erase(std::remove(cps.begin(), cps.end(), c), cps.end());
+	return this;
 }
 void LScene::clear(){
 	cps.clear();
