@@ -188,7 +188,7 @@ void FieldView::init(LWindow* cwin){
 	typedef class:public Callback<Event*>{
 		public:
 		virtual Event* call(){
-			return new GameControllerEvent(true, false);
+			return new GameControllerEvent(true, true);
 		}
 	} exit;
 	scn=(new LScene)

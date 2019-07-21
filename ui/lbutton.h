@@ -9,6 +9,7 @@ class LButton:public LComponent{
 		Callback<Event*>* onClick;
 	public:
 		LButton(Rect p, std::string t, Callback<Event*>*);
+		LButton(Rect p, const char* t, Callback<Event*>*);
 		virtual ~LButton();
 		virtual void draw(LDrawer*);
 		virtual Event* applyEvent(LEvent*);
