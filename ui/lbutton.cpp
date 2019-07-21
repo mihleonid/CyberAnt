@@ -23,7 +23,7 @@ void LButton::draw(LDrawer* ldr){
 	}
 }
 Event* LButton::applyEvent(LEvent* e){
-	if(((LMouseEvent*)e)->getMouseType()==BUTTON_Down){
+	if(((LMouseEvent*)e)->getMouseType()==BUTTON_Up){
 		if(rect.contain(((LMouseEvent*)e)->getPos())){
 			return onClick->call();
 		}
