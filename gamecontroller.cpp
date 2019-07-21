@@ -63,10 +63,10 @@ void GameController::changeController(Controller* ctl){
 	hist.push(old);
 }
 bool GameController::back(){
-	delete currentController;
 	if(hist.empty()){
 		return true;
 	}
+	delete currentController;
 	currentController=hist.top();
 	hist.pop();
 	return false;

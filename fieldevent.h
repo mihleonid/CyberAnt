@@ -3,7 +3,7 @@
 #include "foenum.h"
 #include "point.h"
 
-enum FieldEventType{EBuild, ERemove, EUpgrade};
+enum FieldEventType{EBuild, ERemove, EUpgrade, EPrefab};
 
 class FieldEvent:public Event{
 	private:

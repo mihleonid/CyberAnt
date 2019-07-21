@@ -109,7 +109,6 @@ EventQueue FieldView::getEvents(){
 					clamp(y, 0, BlocksY);
 					v.push(new FieldEvent(EUpgrade, Point(x, y), BBase));
 					v.push(new FieldEvent(EBuild, Point(x, y), BBase));
-					v.push(new FieldEvent(EBuild, Point(x, y), BIMine));
 				}
 				mouseMoved=false;
 			}
@@ -195,8 +194,21 @@ void FieldView::init(LWindow* cwin){
 			return new GameControllerEvent(false, true);
 		}
 	} back;
+	typedef class:public Callback<Event*>{
+		public:
+		FOWhat type;
+		virtual Event* call(){
+			return new FieldEvent(EPrefab, Point(0), type);
+		}
+	} pfsel;
+	pfsel* pbase=new pfsel();
+	pbase->type=BBase;
+	pfsel* pimine=new pfsel();
+	pimine->type=BIMine;
 	scn=(new LScene)
-	->add(new LButton(Rect(0), Configurator::getBack(), new back()));
+	->add(new LButton(Rect(0), Configurator::getBack(), new back()))
+	->add(new LButton(Rect(0, 45), "Base", pbase))
+	->add(new LButton(Rect(0, 65), "Iron mine", pimine));
 }
 FieldView::~FieldView(){
 	delete ass;

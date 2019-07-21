@@ -42,9 +42,12 @@ void FieldModel::applyEvent(Event* ce){
 			}
 		}
 	}
+	if(c->getType()==EPrefab){
+		prefab=c->getWhat();
+	}
 	if(c->getType()==EBuild){
 		if(field.get(c->getPos())==nullptr){
-			switch(c->getWhat()){
+			switch(prefab){
 				case BBase:
 					if(!baseBuilded){
 						Base* b=new Base(c->getPos(), &field, 0);

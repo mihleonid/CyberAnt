@@ -7,6 +7,7 @@
 class FieldModel:public Model{
 	private:
 		bool baseBuilded=false; // Нельзя строить много баз
+		FOWhat prefab=BBase;
 	public:
 		Field field; // Поле, на котором ведётся игра
 		ResourceSet* rset; // Ресурсы в базе
