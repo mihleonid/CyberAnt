@@ -15,7 +15,7 @@ class LScene{
 		void clear();
 		void clearDelete();
 		void draw(LDrawer*);
-		EventQueue applyEvent(LEvent*);
+		EventQueue applyEvent(LEvent*, bool& stop);
 		~LScene();
 };
 

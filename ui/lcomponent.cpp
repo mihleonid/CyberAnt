@@ -12,8 +12,8 @@ Rect LComponent::getRect() const{
 void LComponent::draw(LDrawer* ldr){
 	std::cerr<<"Calling to LDRawer::draw"<<std::endl;
 }
-Event* LComponent::applyEvent(LEvent* e){
+std::pair<Event*, bool> LComponent::applyEvent(LEvent* e){
 	std::cerr<<"Calling to LDRawer::applyEvent"<<std::endl;
-	return nullptr;
+	return std::pair<Event*, bool>(nullptr, 0);
 }
 

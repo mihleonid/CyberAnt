@@ -100,9 +100,12 @@ std::pair<EventQueue, std::queue<LEvent*>> LWindow::getEvents(){
 	LEvent* e;
 	EventQueue eq;
 	std::queue<LEvent*> q;
+	bool stop;
 	while((e=cnt->next())!=nullptr){
-		eq.pipe(scene->applyEvent(e));
-		q.push(e);
+		eq.pipe(scene->applyEvent(e, stop));
+		if(!stop){
+			q.push(e);
+		}
 	}
 	return std::pair<EventQueue, std::queue<LEvent*>>(eq, q);
 }

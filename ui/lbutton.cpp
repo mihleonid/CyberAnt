@@ -17,22 +17,23 @@ LButton::~LButton(){
 }
 void LButton::draw(LDrawer* ldr){
 	Rect r=ldr->drawText(rect.getA().getX(), rect.getA().getY(), text.c_str());
-	if(r.getB().getX()+rect.getA().getX()>rect.getB().getX()){
-		rect=Rect(rect.getA(), Point(r.getB().getX()+rect.getA().getX(), rect.getB().getY()));
+	if(r.getB().getX()>rect.getB().getX()){
+		rect=Rect(rect.getA(), rect.getB().setX(r.getB().getX()));
 	}
-	if(r.getB().getY()+r.getA().getY()>rect.getB().getY()){
-		rect=Rect(rect.getA(), Point(rect.getB().getX(), r.getB().getY()+r.getA().getY()));
+	if(r.getB().getY()>rect.getB().getY()){
+		rect=Rect(rect.getA(), rect.getB().setY(r.getB().getY()));
 	}
 }
-Event* LButton::applyEvent(LEvent* e){
+std::pair<Event*, bool> LButton::applyEvent(LEvent* e){
 	if(e->getType()!=Mouse){
-		return nullptr;
+		return std::pair<Event*, bool>(nullptr, 0);
 	}
-	if(((LMouseEvent*)e)->getMouseType()==BUTTON_Up){
-		if(rect.contain(((LMouseEvent*)e)->getPos())){
-			return onClick->call();
+	if(rect.contain(((LMouseEvent*)e)->getPos())){
+		if(((LMouseEvent*)e)->getMouseType()==BUTTON_Up){
+			return std::pair<Event*, bool>(onClick->call(), 1);
 		}
+		return std::pair<Event*, bool>(nullptr, 1);
 	}
-	return nullptr;
+	return std::pair<Event*, bool>(nullptr, 0);
 }
 

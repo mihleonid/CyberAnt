@@ -14,6 +14,6 @@ class LComponent{
 		virtual ~LComponent();
 
 		virtual void draw(LDrawer*);
-		virtual Event* applyEvent(LEvent*);
+		virtual std::pair<Event*, bool> applyEvent(LEvent*); // Stop event
 };
 

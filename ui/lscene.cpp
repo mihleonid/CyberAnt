@@ -28,10 +28,15 @@ void LScene::draw(LDrawer* ldr){
 LScene::~LScene(){
 	clearDelete();
 }
-EventQueue LScene::applyEvent(LEvent* e){
+EventQueue LScene::applyEvent(LEvent* e, bool& stop){
 	EventQueue eq;
 	for(int i=0;i<cps.size();++i){
-		eq.push(cps[i]->applyEvent(e));
+		std::pair<Event*, bool> pair=cps[i]->applyEvent(e);
+		eq.push(pair.first);
+		if(pair.second){
+			stop=true;
+			break;
+		}
 	}
 	return eq;
 }
