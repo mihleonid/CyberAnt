@@ -1,3 +1,4 @@
+#include "mine.h"
 #include "fieldmodel.h"
 #include "resourced.h"
 #include "resourcenode.h"
@@ -55,7 +56,7 @@ void FieldModel::applyEvent(Event* ce){
 					}
 					break;
 				case BIMine:
-					field.set(new ResourceNode(c->getPos(), &field, Iron));
+					field.set(new Mine(c->getPos(), &field, 0, Iron));
 					break;
 			}
 		}
@@ -67,7 +68,7 @@ void FieldModel::loop(){
 		for(int y=0;y<BlocksY;y++){
 			FO* c=field.get(x, y);
 			if(c==nullptr){
-				switch(Random::rnd(80000)){
+				switch(Random::rnd(8000)){
 					case 1:
 						field.set(new ResourceNode(Point(x, y), &field, Iron));
 						break;
