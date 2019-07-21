@@ -12,6 +12,10 @@ Mine::Mine(Point p, Field* f, int lvl, ResourceType t):Building(p, f, lvl){
 	strength=1;
 	typ=t;
 }
+void Mine::upgrade(){
+	Building::upgrade();
+	++strength;
+}
 void Mine::update(){
 	ResourceSet got;
 	ResourceSet need(typ, strength);

@@ -38,7 +38,7 @@ void FieldModel::applyEvent(Event* ce){
 		if(field.get(c->getPos())!=nullptr){
 			FO* f=field.get(c->getPos());
 			if(f->getType()&FOBuilding){
-				++(((Building*)f)->level);//TODO upgrade
+				((Building*)f)->upgrade();
 			}
 		}
 	}
