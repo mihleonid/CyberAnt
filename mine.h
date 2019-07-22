@@ -9,7 +9,7 @@ class Mine:public Building{
 	public:
 		Mine(Point p, Field* f, int lvl, ResourceType t);
 		virtual void update();
-		virtual void upgrade();
+		virtual bool upgrade();
 		virtual std::pair<LImage*, LColor> getImage(Assets* ass) const;
 		
 };

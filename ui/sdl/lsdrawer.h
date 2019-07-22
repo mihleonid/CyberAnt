@@ -35,9 +35,10 @@ class LSDrawer:public LDrawer{
 		virtual Rect drawTextCenter(int x, int y, int text);
 
 		virtual void clear();
+		virtual void clear(const LColor& c);
 		virtual void present();
 
-		virtual void color(LColor c);
+		virtual void color(const LColor& c);
 		virtual void color();
 };
 

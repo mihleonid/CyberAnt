@@ -14,6 +14,7 @@ class LMonoColor{
 		LMonoColor(int r, int g, int b);
 		LMonoColor(const LMonoColor& c);
 
+		bool transparent() const;
 		int r() const;
 		int g() const;
 		int b() const;

@@ -36,6 +36,7 @@ class LWindow{
 		void setScene(LScene* scn);
 
 		void draw(); // Отрисовка
+		void clear(const LColor&);
 		void clear();
 		void present(); // Обновть картинку на экране (во избежание частичных отрисовок)
 		std::pair<EventQueue, std::queue<LEvent*>> getEvents();

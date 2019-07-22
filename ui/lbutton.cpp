@@ -32,9 +32,16 @@ void LButton::draw(LDrawer* ldr){
 		}
 		expand=false;
 	}
-	ldr->drawRect(rect, LColor(true, 255, 0, 255));
-	ldr->drawText(rect.getA().getX(), rect.getA().getY(), text.c_str());
+	ldr->drawRect(rect, col);
+	ldr->drawTextCenter((rect.getA().getX()+rect.getB().getX())/2, rect.getA().getY(), text.c_str());
 	
+}
+LButton* LButton::setColor(const LColor& c){
+	col=c;
+	return this;
+}
+LColor LButton::getColor() const{
+	return col;
 }
 std::pair<Event*, bool> LButton::applyEvent(LEvent* e){
 	if(e->getType()!=Mouse){

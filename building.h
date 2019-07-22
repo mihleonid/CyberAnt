@@ -9,7 +9,7 @@ class Building:public FO{ // Можно строить, имеет уровен�
 		int level=0;
 	public:
 		int getLevel() const;
-		virtual void upgrade();
+		virtual bool upgrade();
 		Building(Point p, Field* currF, int lvl);
 };
 

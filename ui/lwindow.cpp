@@ -112,6 +112,9 @@ std::pair<EventQueue, std::queue<LEvent*>> LWindow::getEvents(){
 void LWindow::clear(){
 	ldr->clear();
 }
+void LWindow::clear(const LColor& c){
+	ldr->clear(c);
+}
 void LWindow::draw(){
 	scene->draw(ldr);
 	if(!sdlMode){

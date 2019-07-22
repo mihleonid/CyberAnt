@@ -206,9 +206,9 @@ void FieldView::init(LWindow* cwin){
 	pfsel* pimine=new pfsel();
 	pimine->type=BIMine;
 	scn=(new LScene)
-	->add(new LButton(Rect(0), Configurator::getBack(), new back()))
-	->add(new LButton(Rect(0, 45), "Base", pbase))
-	->add(new LButton(Rect(0, 65), "Iron mine", pimine));
+	->add((new LButton(Rect(0), Configurator::getBack(), new back()))->setColor(LColor(true, 1, 0, 0)))
+	->add((new LButton(Rect(0, 45), "Base", pbase))->setColor(LColor(true, 1, 0, 0)))
+	->add((new LButton(Rect(0, 65), "Iron mine", pimine))->setColor(LColor(true, 1, 0, 0)));
 }
 FieldView::~FieldView(){
 	delete ass;

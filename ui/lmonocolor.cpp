@@ -15,6 +15,9 @@ LMonoColor::LMonoColor(int r, int g, int b):mr(r), mg(g), mb(b){
 LMonoColor::LMonoColor(const LMonoColor& c):mr(c.r()), mg(c.g()), mb(c.b()){
 }
 
+bool LMonoColor::transparent() const{
+	return((mr==1)&&(mg==0)&&(mb==0));
+}
 int LMonoColor::r() const{
 	return mr;
 }

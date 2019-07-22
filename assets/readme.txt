@@ -12,5 +12,9 @@ Format of *.txt file:
    ^w - white background.
    ^B - black foreground.
    ^b - black background.
+   ^T - transparent foreground.
+   ^t - transparent background
    TODO more.
+Format of *.bmp file:
+  Picture, but (1, 1, 1) = special, (1, 0, 0) = transparent.
 

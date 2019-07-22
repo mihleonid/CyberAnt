@@ -29,10 +29,11 @@ class LDrawer{
 		Rect drawTextCenter(Point p, const char* text);
 
 		virtual void clear();
+		virtual void clear(const LColor& c);
 		virtual void present();
 
 		virtual void color(); // Restore default
-		virtual void color(LColor c);
+		virtual void color(const LColor& c);
 
 		virtual ~LDrawer();
 };

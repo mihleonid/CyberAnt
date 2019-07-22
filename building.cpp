@@ -14,8 +14,12 @@ LColor Building::levelColor() const{
 	}
 	return LColor((0x000000|((15*level)*0x00010000)), true);
 }
-void Building::upgrade(){
-	++level;
+bool Building::upgrade(){
+	if(level<68){
+		++level;
+		return true;
+	}
+	return false;
 }
 int Building::getLevel() const{
 	return level;

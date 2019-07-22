@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include "lcomponent.h"
+#include "lcolor.h"
 #include "../callback.h"
 
 class LButton:public LComponent{
@@ -9,7 +10,10 @@ class LButton:public LComponent{
 		Callback<Event*>* onClick;
 		bool expand=true; // For optimization
 		bool down=false; // For drag over button
+		LColor col;
 	public:
+		LButton* setColor(const LColor&);
+		LColor getColor() const;
 		LButton(Rect p, std::string t, Callback<Event*>*);
 		LButton(Rect p, const char* t, Callback<Event*>*);
 		virtual ~LButton();

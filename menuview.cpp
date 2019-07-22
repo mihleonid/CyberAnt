@@ -1,5 +1,6 @@
 #include <queue>
 #include "ui/lbutton.h"
+#include "ui/lcolor.h"
 #include "ui/levent.h"
 #include "ui/leventtype.h"
 #include "point.h"
@@ -11,7 +12,7 @@
 
 void MenuView::loop(const Model* mode){
 	win->setScene(scn);
-	win->clear();
+	win->clear(LColor(true, 0, 120, 230));
 	win->draw();
 	win->present();
 }
@@ -47,8 +48,8 @@ void MenuView::init(LWindow* cwin){
 	play* p=new play;
 	p->win=win;
 	scn=(new LScene())
-	->add(new LButton(Rect(win->getCenter().setDY(-20)), Configurator::getPlay(), p))
-	->add(new LButton(Rect(win->getCenter().setDY(20)), Configurator::getExit(), new exit));
+	->add((new LButton(Rect(win->getCenter().setDY(-40).setDX(-70), win->getCenter().setDY(-20).setDX(70)), Configurator::getPlay(), p))->setColor(LColor(true, 0, 50, 240)))
+	->add((new LButton(Rect(win->getCenter().setDY(20).setDX(-70), win->getCenter().setDY(40).setDX(70)), Configurator::getExit(), new exit))->setColor(LColor(true, 0, 50, 240)));
 }
 MenuView::~MenuView(){
 	delete scn;
