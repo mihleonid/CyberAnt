@@ -13,6 +13,24 @@ LSDrawer::~LSDrawer(){
 	SDL_DestroyRenderer(ren);
 	TTF_CloseFont(font);
 }
+void LSDrawer::drawRect(const Rect& r, const LColor& c){
+	SDL_SetRenderDrawColor(ren, c.bg().r(), c.bg().g(), c.bg().b(), 0);
+	SDL_Rect re;
+	re.x=r.getA().getX();
+	re.y=r.getA().getY();
+	re.w=r.getB().getX()-r.getA().getX();
+	re.h=r.getB().getY()-r.getA().getY();
+	SDL_RenderFillRect(ren, &re);
+}
+void LSDrawer::drawRect(const Rect& r){
+	SDL_SetRenderDrawColor(ren, col.bg().r(), col.bg().g(), col.bg().b(), 0);
+	SDL_Rect re;
+	re.x=r.getA().getX();
+	re.y=r.getA().getY();
+	re.w=r.getB().getX()-r.getA().getX();
+	re.h=r.getB().getY()-r.getA().getY();
+	SDL_RenderFillRect(ren, &re);
+}
 Rect LSDrawer::draw(int x, int y, LImage* img){
 	return draw(x, y, img->newTexture(ren));
 }
@@ -100,8 +118,10 @@ void LSDrawer::present(){
 
 void LSDrawer::color(){
 	col.def();
+	SDL_SetRenderDrawColor(ren, col.bg().r(), col.bg().g(), col.bg().b(), 0);
 }
 void LSDrawer::color(LColor c){
 	col=c;
+	SDL_SetRenderDrawColor(ren, col.bg().r(), col.bg().g(), col.bg().b(), 0);
 }
 

@@ -7,6 +7,8 @@ class LButton:public LComponent{
 	private:
 		std::string text;
 		Callback<Event*>* onClick;
+		bool expand=true; // For optimization
+		bool down=false; // For drag over button
 	public:
 		LButton(Rect p, std::string t, Callback<Event*>*);
 		LButton(Rect p, const char* t, Callback<Event*>*);

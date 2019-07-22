@@ -75,6 +75,8 @@ Rect::Rect():a(0), b(0){
 }
 Rect::Rect(int x, int y):a(x, y), b(x, y){
 }
+Rect::Rect(int x, int y, int tx, int ty):a(x, y), b(tx, ty){
+}
 Rect::Rect(const Point& p):a(p), b(p){
 }
 Rect::Rect(const Rect& r):a(r.getA()), b(r.getB()){

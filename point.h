@@ -40,6 +40,7 @@ class Rect{
 
 		Rect();
 		Rect(int x, int y);
+		Rect(int x, int y, int tx, int ty);
 		Rect(const Point& p); // (p, p)
 		Rect(const Rect& r); // Copy
 		Rect(Point a, Point b);

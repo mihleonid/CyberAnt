@@ -5,6 +5,9 @@
 
 class LDrawer{
 	public:
+		virtual void drawRect(const Rect& r, const LColor& c);
+		virtual void drawRect(const Rect& r);
+
 		virtual Rect draw(int x, int y, LImage* img);
 		virtual Rect draw(int x, int y, LImage* img, const LColor& c);
 		Rect draw(Point p, LImage* img);

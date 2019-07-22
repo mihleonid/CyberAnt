@@ -16,13 +16,25 @@ LButton::~LButton(){
 	delete onClick;
 }
 void LButton::draw(LDrawer* ldr){
-	Rect r=ldr->drawText(rect.getA().getX(), rect.getA().getY(), text.c_str());
-	if(r.getB().getX()>rect.getB().getX()){
-		rect=Rect(rect.getA(), rect.getB().setX(r.getB().getX()));
+	if(expand){
+		Rect r=ldr->drawText(rect.getA().getX(), rect.getA().getY(), text.c_str());
+		if(r.getB().getX()>rect.getB().getX()){
+			rect=Rect(rect.getA(), rect.getB().setX(r.getB().getX()));
+		}
+		if(r.getB().getY()>rect.getB().getY()){
+			rect=Rect(rect.getA(), rect.getB().setY(r.getB().getY()));
+		}
+		if(r.getA().getX()<rect.getA().getX()){
+			rect=Rect(rect.getA().setX(r.getA().getX()), rect.getB());
+		}
+		if(r.getA().getY()<rect.getA().getY()){
+			rect=Rect(rect.getA().setY(r.getA().getY()), rect.getB());
+		}
+		expand=false;
 	}
-	if(r.getB().getY()>rect.getB().getY()){
-		rect=Rect(rect.getA(), rect.getB().setY(r.getB().getY()));
-	}
+	ldr->drawRect(rect, LColor(true, 255, 0, 255));
+	ldr->drawText(rect.getA().getX(), rect.getA().getY(), text.c_str());
+	
 }
 std::pair<Event*, bool> LButton::applyEvent(LEvent* e){
 	if(e->getType()!=Mouse){
@@ -30,9 +42,16 @@ std::pair<Event*, bool> LButton::applyEvent(LEvent* e){
 	}
 	if(rect.contain(((LMouseEvent*)e)->getPos())){
 		if(((LMouseEvent*)e)->getMouseType()==BUTTON_Up){
+			if(!down){
+				return std::pair<Event*, bool>(nullptr, 0);
+			}
+			down=false;
 			return std::pair<Event*, bool>(onClick->call(), 1);
 		}
-		return std::pair<Event*, bool>(nullptr, 1);
+		if(((LMouseEvent*)e)->getMouseType()==BUTTON_Down){
+			down=true;
+			return std::pair<Event*, bool>(nullptr, 1);
+		}
 	}
 	return std::pair<Event*, bool>(nullptr, 0);
 }

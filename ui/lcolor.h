@@ -14,6 +14,10 @@ class LColor{
 		LColor(int r, int g, int b);
 		LColor(int c);
 		LColor(int c, bool hex);
+		// Constructors for bg
+		LColor(bool, int r, int g, int b);
+		LColor(bool, int c);
+		LColor(bool, int c, bool hex);
 
 		LMonoColor fg() const;
 		LMonoColor bg() const;
