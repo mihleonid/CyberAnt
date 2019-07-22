@@ -1,6 +1,8 @@
 #include <iostream>
+#include <string>
 #include <queue>
 #include "configurator.h"
+#include "resource.h"
 #include "callback.h"
 #include "ui/lbutton.h"
 #include "ui/levent.h"
@@ -52,7 +54,7 @@ void FieldView::loop(const Model* mode){
 			win->getDrawer()->draw(FW*i-scrollX, FH*j-scrollY, img, col);
 		}
 	}
-	Rect baseContains=win->getDrawer()->drawTextRight(win->getCorner().getX(), 0, "Base contains: ");
+	Rect baseContains=win->getDrawer()->drawTextRight(win->getCorner().getX(), 0, (std::string(Configurator::getBaseContains())+std::string(": ")).c_str());
 	Point fps=win->getDrawer()->drawText(0, 20, "FPS: ").getB();
 	win->getDrawer()->drawText(fps.getX(), 20, win->getFps()); // TODO FUPS and GameControleer data
 	Rect iron=win->getDrawer()->drawTextRight(baseContains.getB(), model->rset->get(Iron));
@@ -61,6 +63,9 @@ void FieldView::loop(const Model* mode){
 	win->getDrawer()->drawTextRight(oxygen.getA(), "Oxygen: ");
 	Rect cristall=win->getDrawer()->drawTextRight(oxygen.getB(), model->rset->get(Cristall));
 	win->getDrawer()->drawTextRight(cristall.getA(), "Cristall: ");
+
+	Rect prefab=win->getDrawer()->drawText(Point(0, 52), (std::string(Configurator::getCurrentPrefab())+std::string(": ")).c_str());
+	win->getDrawer()->drawText(Point(prefab.getB().getX(), prefab.getA().getY()), FO::whatToLocalizedString(model->getPrefab()).c_str());
 
 	win->draw();
 	win->present();
@@ -207,8 +212,8 @@ void FieldView::init(LWindow* cwin){
 	pimine->type=BIMine;
 	scn=(new LScene)
 	->add((new LButton(Rect(0), Configurator::getBack(), new back()))->setColor(LColor(true, 1, 0, 0)))
-	->add((new LButton(Rect(0, 45), "Base", pbase))->setColor(LColor(true, 1, 0, 0)))
-	->add((new LButton(Rect(0, 65), "Iron mine", pimine))->setColor(LColor(true, 1, 0, 0)));
+	->add((new LButton(Rect(0, 75), "Base", pbase))->setColor(LColor(true, 1, 0, 0)))
+	->add((new LButton(Rect(0, 95), "Iron mine", pimine))->setColor(LColor(true, 1, 0, 0)));
 }
 FieldView::~FieldView(){
 	delete ass;
