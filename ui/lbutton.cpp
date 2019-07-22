@@ -4,11 +4,11 @@
 #include "leventtype.h"
 #include "lbutton.h"
 
-LButton::LButton(Rect p, std::string t, Callback<Event*>* c):LComponent(p){
+LButton::LButton(Rect p, std::string t, Callback<Event*>* c):LRectedComponent(p){
 	text=t;
 	onClick=c;
 }
-LButton::LButton(Rect p, const char* t, Callback<Event*>* c):LComponent(p){
+LButton::LButton(Rect p, const char* t, Callback<Event*>* c):LRectedComponent(p){
 	text=std::string(t);
 	onClick=c;
 }

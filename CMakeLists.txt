@@ -44,6 +44,7 @@ set(src
 	ui/lkeyboardevent.cpp
 	ui/lmonocolor.cpp
 	ui/lmouseevent.cpp
+	ui/lrectedcomponent.cpp
 	ui/lscene.cpp
 	ui/lwindow.cpp
 	ui/sdl/lsdrawer.cpp

@@ -1,13 +1,7 @@
 #include <iostream>
 #include "lcomponent.h"
 
-LComponent::LComponent(Rect p){
-	rect=p;
-}
 LComponent::~LComponent(){
-}
-Rect LComponent::getRect() const{
-	return rect;
 }
 void LComponent::draw(LDrawer* ldr){
 	std::cerr<<"Calling to LDRawer::draw"<<std::endl;

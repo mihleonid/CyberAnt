@@ -43,6 +43,7 @@
 #include "../ui/lmouseevent.cpp"
 #include "../ui/lscene.cpp"
 #include "../ui/lwindow.cpp"
+#include "../ui/rectedlcomponent.cpp"
 #include "../ui/sdl/lsdrawer.cpp"
 #include "../ui/terminal/ltdrawer.cpp"
 #include "../ui/terminal/ltsurface.cpp"

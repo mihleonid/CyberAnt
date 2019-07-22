@@ -1,10 +1,10 @@
 #pragma once
 #include <string>
-#include "lcomponent.h"
+#include "lrectedcomponent.h"
 #include "lcolor.h"
 #include "../callback.h"
 
-class LButton:public LComponent{
+class LButton:public LRectedComponent{
 	private:
 		std::string text;
 		Callback<Event*>* onClick;
