@@ -42,6 +42,7 @@ set(src
 	ui/levent.cpp
 	ui/limage.cpp
 	ui/lkeyboardevent.cpp
+	ui/lkeyboardlistener.cpp
 	ui/lmonocolor.cpp
 	ui/lmouseevent.cpp
 	ui/lrectedcomponent.cpp
