@@ -31,6 +31,9 @@ FieldModel::~FieldModel(){
 		delete rset;
 	}
 }
+FOWhat FieldModel::getPrefab() const{
+	return prefab;
+}
 
 void FieldModel::applyEvent(Event* ce){
 	FieldEvent* c=(FieldEvent*)ce;

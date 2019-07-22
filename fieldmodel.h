@@ -13,6 +13,7 @@ class FieldModel:public Model{
 		ResourceSet* rset; // Ресурсы в базе
 
 		FieldModel();
+		FOWhat getPrefab() const;
 		void applyEvent(Event* c);
 		void loop(); // Проход цикла
 		~FieldModel();
