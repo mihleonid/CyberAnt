@@ -1,4 +1,5 @@
 #include <fstream>
+#include <iostream>
 #include <cassert>
 #include <string>
 #include "configurator.h"
@@ -7,6 +8,8 @@ std::string Configurator::wtitle="";
 std::string Configurator::back="";
 std::string Configurator::exit="";
 std::string Configurator::play="";
+std::string Configurator::baseContains="";
+std::string Configurator::currentPrefab="";
 void Configurator::configureResourceNode(ResourceType t, int& add, int& addP, int& taxMin, int& taxMax, int& startVal){
 	add=-1;
 	addP=10;
@@ -15,40 +18,43 @@ void Configurator::configureResourceNode(ResourceType t, int& add, int& addP, in
 	startVal=100;
 	//TODO from files
 }
+//TODO fast read;
+#define getString(A, B){\
+	if(A.empty()){\
+		std::ifstream file("./assets/" B ".txt");\
+		if(!file.good()){\
+			std::cerr<<"./assets/" B ".txt"<<" is a bad file"<<std::endl;\
+		}\
+		assert(file.good());\
+		std::string s;\
+		bool start=false;\
+		while(file>>s){\
+			if(start){\
+				A+=" ";\
+			}\
+			start=true;\
+			A+=s;\
+		}\
+		file.close();\
+	}\
+	return A.c_str();\
+}
 const char* Configurator::getWindowTitle(){
-	if(wtitle.empty()){
-		std::ifstream file("./assets/wintitle.txt");
-		assert(file.good());
-		file>>wtitle;
-		file.close();
-	}
-	return wtitle.c_str();
+	getString(wtitle, "wintitle");
 }
 const char* Configurator::getPlay(){
-	if(play.empty()){
-		std::ifstream file("./assets/play.txt");
-		assert(file.good());
-		file>>play;
-		file.close();
-	}
-	return play.c_str();
+	getString(play, "play");
 }
 const char* Configurator::getBack(){
-	if(back.empty()){
-		std::ifstream file("./assets/back.txt");
-		assert(file.good());
-		file>>back;
-		file.close();
-	}
-	return back.c_str();
+	getString(back, "back");
 }
 const char* Configurator::getExit(){
-	if(exit.empty()){
-		std::ifstream file("./assets/exit.txt");
-		assert(file.good());
-		file>>exit;
-		file.close();
-	}
-	return exit.c_str();
+	getString(exit, "exit");
+}
+const char* Configurator::getBaseContains(){
+	getString(baseContains, "basecontains");
+}
+const char* Configurator::getCurrentPrefab(){
+	getString(currentPrefab, "currentprefab");
 }
 
