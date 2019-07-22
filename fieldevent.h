@@ -15,5 +15,7 @@ class FieldEvent:public Event{
 		FOWhat getWhat() const;
 		FieldEventType getType() const;
 		FieldEvent(FieldEventType t, Point p, FOWhat wh);
+		FieldEvent(FieldEventType t, FOWhat wh);
+		FieldEvent(FieldEventType t, Point p);
 };
 

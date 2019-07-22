@@ -5,6 +5,14 @@ FieldEvent::FieldEvent(FieldEventType t, Point p, FOWhat wh){
 	what=wh;
 	pos=p;
 }
+FieldEvent::FieldEvent(FieldEventType t, Point p){
+	type=t;
+	pos=p;
+}
+FieldEvent::FieldEvent(FieldEventType t, FOWhat wh){
+	type=t;
+	what=wh;
+}
 Point FieldEvent::getPos() const{
 	return pos;
 }

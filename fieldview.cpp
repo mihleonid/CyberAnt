@@ -112,8 +112,8 @@ EventQueue FieldView::getEvents(){
 					y/=FH;
 					clamp(x, 0, BlocksX);
 					clamp(y, 0, BlocksY);
-					v.push(new FieldEvent(EUpgrade, Point(x, y), BBase));
-					v.push(new FieldEvent(EBuild, Point(x, y), BBase));
+					v.push(new FieldEvent(EUpgrade, Point(x, y)));
+					v.push(new FieldEvent(EBuild, Point(x, y)));
 				}
 				mouseMoved=false;
 			}
@@ -203,7 +203,7 @@ void FieldView::init(LWindow* cwin){
 		public:
 		FOWhat type;
 		virtual Event* call(){
-			return new FieldEvent(EPrefab, Point(0), type);
+			return new FieldEvent(EPrefab, type);
 		}
 	} pfsel;
 	pfsel* pbase=new pfsel();
