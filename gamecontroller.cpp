@@ -94,7 +94,7 @@ void GameController::loop(){
 			}
 			clearHist(c->getDeleting());
 			FUPS+=c->getFUPSDelta();
-			FUPS=mmin(FUPS, 40);
+			FUPS=mmin(FUPS, 70);
 			FUPS=mmax(FUPS, 8);
 			win->setFps(FUPS);
 			delete c;

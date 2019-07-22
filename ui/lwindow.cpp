@@ -89,8 +89,8 @@ void LWindow::setFps(int f){
 		fps=8;
 		return;
 	}
-	if(f>40){
-		fps=40;
+	if(f>70){
+		fps=70;
 		return;
 	}
 	fps=f;
