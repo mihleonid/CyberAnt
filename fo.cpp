@@ -33,4 +33,17 @@ void FO::setPos(Point p){
 	pos=p;
 	currField->set(this, ppos);
 }
+std::string FO::whatToLocalizedString(FOWhat w){
+	switch(w){
+		case BBase:
+			return "Base";
+		case BIMine:
+			return "Iron mine";
+		case BOMine:
+			return "Oxygen mine";
+			//TODO more;
+		default:
+			return "error";
+	}
+}
 

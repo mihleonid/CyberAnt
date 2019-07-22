@@ -26,6 +26,19 @@ std::string Resource::typeToString(ResourceType type){
 			return "error";
 	}
 }
+std::string Resource::typeToLocalizedString(ResourceType type){
+	switch(type){
+		case Iron:
+			return "Iron";
+		case Oxygen:
+			return "Oxygen";
+		case Cristall:
+			return "Cristall";
+		default:
+			std::cerr<<"Resource::typeToLocalizedString: Unknown type "<<type<<std::endl;
+			return "error";
+	}
+}
 ResourceType Resource::stringToType(std::string str){
 	if(str.compare("iron")==0){
 		return Iron;

@@ -8,6 +8,7 @@ class Resource{
 	public:
 		static ResourceType randomType();
 		static std::string typeToString(ResourceType typ);
+		static std::string typeToLocalizedString(ResourceType typ);
 		static ResourceType stringToType(std::string str);
 };
 

@@ -1,4 +1,5 @@
 #pragma once
+#include <string>
 #include "ui/limage.h"
 #include "ui/lcolor.h"
 #include "foenum.h"
@@ -26,6 +27,8 @@ class FO{
 
 		virtual void update();
 		virtual std::pair<LImage*, LColor> getImage(Assets* ass) const;
+
+		static std::string whatToLocalizedString(FOWhat);
 
 		friend class Field;
 };

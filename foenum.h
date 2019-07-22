@@ -6,6 +6,6 @@ enum FOType{FOBuilding=1, FOResourced=2, FOPutable=4, FOStorage=8, FOTubed=16, F
 // Putable - можно давать что-либо.
 // Storage - хранит. Можно безнаказно брать.
 // Tubed - можно давать, но он не съест, пустит куда-либо.
-enum FOWhat{BBase, BIMine, BCanal, BRadio, RIron, ROxygen, RCristall};//radio = vishka
+enum FOWhat{BBase, BIMine, BOMine, BCanal, BRadio, RIron, ROxygen, RCristall};//radio = vishka
 FOType operator|(FOType a, FOType b);
 
