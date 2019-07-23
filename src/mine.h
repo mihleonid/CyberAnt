@@ -11,6 +11,5 @@ class Mine:public Building{
 		virtual void update();
 		virtual bool upgrade();
 		virtual std::pair<LImage*, LColor> getImage(Assets* ass) const;
-		
 };
 

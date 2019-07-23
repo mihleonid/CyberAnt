@@ -40,7 +40,7 @@ FO* Field::remove(int x, int y){
 
 	int uo=all.remove(cur->order); // Номер того, кого хотим обновить
 	(all[uo])->order=uo;
-	
+
 	field[i]=nullptr;
 	return cur;
 }
