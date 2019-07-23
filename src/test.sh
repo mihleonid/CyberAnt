@@ -1,5 +1,5 @@
 #!/bin/bash
-cd tests/;
+cd ../tests/;
 bash test.sh;
-cd ..
+cd ../src/;
 

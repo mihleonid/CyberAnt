@@ -1,2 +1,0 @@
-Centered buttons
-LSDrawer::Draw text right - слипается
