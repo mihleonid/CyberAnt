@@ -10,7 +10,7 @@ LScene* LScene::add(LComponent* c){
 }
 LScene* LScene::erase(LComponent* c){
 	cps.erase(std::remove(cps.begin(), cps.end(), c), cps.end());
-	unsubscribe((LSubscriber*)c);
+	unsubscribe(c);
 	return this;
 }
 void LScene::clear(){

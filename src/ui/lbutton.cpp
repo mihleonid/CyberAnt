@@ -34,7 +34,6 @@ void LButton::draw(LDrawer* ldr){
 	}
 	ldr->drawRect(rect, col);
 	ldr->drawTextCenter((rect.getA().getX()+rect.getB().getX())/2, rect.getA().getY(), text.c_str());
-	
 }
 LButton* LButton::setColor(const LColor& c){
 	col=c;
