@@ -1,10 +1,17 @@
 #include <iostream>
 #include "controller.h"
+#include "ui/lwindow.h"
 
-void Controller::initialize(Model* m, View* v, LWindow* win){
+void Controller::initialize(Model* m, View* v, LWindow* w){
 	model=m;
 	view=v;
-	v->init(win);
+	win=w;
+	scn=generateUIScene();
+	v->init(w);
+}
+LScene* Controller::generateUIScene(){
+	std::cerr<<"Controller must generate UI Scene"<<std::endl;
+	return nullptr;
 }
 Model* Controller::getModel(){
 	return model;
@@ -12,13 +19,20 @@ Model* Controller::getModel(){
 View* Controller::getView(){
 	return view;
 }
+LScene* Controller::getLScene(){
+	return scn;
+}
 const Model* Controller::getModel() const{
 	return model;
 }
 const View* Controller::getView() const{
 	return view;
 }
+const LScene* Controller::getLScene() const{
+	return scn;
+}
 void Controller::loop(){
+	win->setScene(scn);
 	if(model!=nullptr){
 		model->loop();
 	}
