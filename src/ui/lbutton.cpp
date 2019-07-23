@@ -59,6 +59,8 @@ std::pair<Event*, bool> LButton::applyEvent(LEvent* e){
 			down=true;
 			return std::pair<Event*, bool>(nullptr, 1);
 		}
+	}else{
+		down=false;
 	}
 	return std::pair<Event*, bool>(nullptr, 0);
 }
