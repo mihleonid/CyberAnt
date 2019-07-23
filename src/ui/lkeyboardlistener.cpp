@@ -14,10 +14,10 @@ LKeyboardListener::~LKeyboardListener(){
 }
 void LKeyboardListener::draw(LDrawer*){
 }
+std::vector<LEventType> LKeyboardListener::acceptedTypes(){
+	return {Keyboard};
+}
 Event* LKeyboardListener::applyEvent(LEvent* e){
-	if(e->getType()!=Keyboard){
-		return nullptr;
-	}
 	if(((LKeyboardEvent*)e)->getKeyboardType()==KEY_Down){
 		if(((LKeyboardEvent*)e)->getKey()==key){
 			return onDown->call();

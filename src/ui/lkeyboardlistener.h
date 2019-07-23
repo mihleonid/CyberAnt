@@ -11,6 +11,7 @@ class LKeyboardListener:public LComponent{
 		LKeyboardListener(LKey, Callback<Event*>*);
 		virtual ~LKeyboardListener();
 		virtual void draw(LDrawer*);
+		virtual std::vector<LEventType> acceptedTypes();
 		virtual Event* applyEvent(LEvent*);
 };
 
