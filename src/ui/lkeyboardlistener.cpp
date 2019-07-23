@@ -14,15 +14,15 @@ LKeyboardListener::~LKeyboardListener(){
 }
 void LKeyboardListener::draw(LDrawer*){
 }
-std::pair<Event*, bool> LKeyboardListener::applyEvent(LEvent* e){
+Event* LKeyboardListener::applyEvent(LEvent* e){
 	if(e->getType()!=Keyboard){
-		return std::pair<Event*, bool>(nullptr, 0);
+		return nullptr;
 	}
 	if(((LKeyboardEvent*)e)->getKeyboardType()==KEY_Down){
 		if(((LKeyboardEvent*)e)->getKey()==key){
-			return std::pair<Event*, bool>(onDown->call(), 0);
+			return onDown->call();
 		}
 	}
-	return std::pair<Event*, bool>(nullptr, 0);
+	return nullptr;
 }
 

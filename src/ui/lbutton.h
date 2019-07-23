@@ -18,6 +18,7 @@ class LButton:public LRectedComponent{
 		LButton(Rect p, const char* t, Callback<Event*>*);
 		virtual ~LButton();
 		virtual void draw(LDrawer*);
-		virtual std::pair<Event*, bool> applyEvent(LEvent*);
+		virtual Event* applyEvent(LEvent*);
+		virtual std::vector<LEventType> acceptedTypes();
 };
 

@@ -6,6 +6,7 @@
 #include <SDL2/SDL_ttf.h>
 #endif
 #include "lwindow.h"
+#include "levent.h"
 #include "limage.h"
 #include "terminal/ltdrawer.h"
 #include "terminal/terminal_size.h"
@@ -97,13 +98,16 @@ void LWindow::setFps(int f){
 }
 std::pair<EventQueue, std::queue<LEvent*>> LWindow::getEvents(){
 	cnt->loop();
-	LEvent* e;
+	LEvent* e=nullptr;
+
 	EventQueue eq;
 	std::queue<LEvent*> q;
-	bool stop;
+
 	while((e=cnt->next())!=nullptr){
-		eq.pipe(scene->applyEvent(e, stop));
-		if(!stop){
+		eq.pipe(scene->applyEvent(e));
+		if(e->getPrevented()){
+			delete e;
+		}else{
 			q.push(e);
 		}
 	}

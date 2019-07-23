@@ -9,3 +9,10 @@ LEventType LEvent::getType() const{
 LEvent::~LEvent(){
 }
 
+void LEvent::prevent(){
+	prevented=true;
+}
+bool LEvent::getPrevented(){
+	return prevented;
+}
+

@@ -5,10 +5,12 @@
 
 LScene* LScene::add(LComponent* c){
 	cps.push_back(c);
+	subscribe(c);
 	return this;
 }
 LScene* LScene::erase(LComponent* c){
 	cps.erase(std::remove(cps.begin(), cps.end(), c), cps.end());
+	unsubscribe((LSubscriber*)c);
 	return this;
 }
 void LScene::clear(){
@@ -28,16 +30,7 @@ void LScene::draw(LDrawer* ldr){
 LScene::~LScene(){
 	clearDelete();
 }
-EventQueue LScene::applyEvent(LEvent* e, bool& stop){
-	EventQueue eq;
-	for(int i=0;i<cps.size();++i){
-		std::pair<Event*, bool> pair=cps[i]->applyEvent(e);
-		eq.push(pair.first);
-		if(pair.second){
-			stop=true;
-			break;
-		}
-	}
-	return eq;
+EventQueue LScene::applyEvent(LEvent* e){
+	return send(e);
 }
 

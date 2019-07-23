@@ -1,7 +1,6 @@
-#include <algorithm>
+#include <map>
 #include <SDL.h>
 #include "lcontrol.h"
-#include "../subscriber.h"
 #include "levent.h"
 #include "lmouseevent.h"
 #include "lkeyboardevent.h"
@@ -91,20 +90,6 @@ LEvent* LControl::next(){
 	}
 	LEvent* e=q.front();
 	q.pop();
-	for(int i=0;i<subs[e->getType()].size();++i){
-		subs[e->getType()][i]->applyEvent(e);
-	}
 	return e;
-}
-void LControl::subscribe(Subscriber* s, LEventType t){
-	subs[t].push_back(s);
-}
-void LControl::unsubscribe(Subscriber* s, LEventType t){
-	subs[t].erase(std::remove(subs[t].begin(), subs[t].end(), s), subs[t].end());
-}
-void LControl::unsubscribe(Subscriber* s){
-	for(auto i=subs.begin();i!=subs.end();++i){
-		unsubscribe(s, i->first);
-	}
 }
 

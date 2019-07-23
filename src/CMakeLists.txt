@@ -31,7 +31,6 @@ set(src
 	resourced.cpp
 	resourcenode.cpp
 	resourceset.cpp
-	subscriber.cpp
 	to.cpp
 	tubed.cpp
 	ui/lbutton.cpp
@@ -40,6 +39,7 @@ set(src
 	ui/lcontrol.cpp
 	ui/ldrawer.cpp
 	ui/levent.cpp
+	ui/leventsender.cpp
 	ui/limage.cpp
 	ui/lkeyboardevent.cpp
 	ui/lkeyboardlistener.cpp
@@ -47,6 +47,7 @@ set(src
 	ui/lmouseevent.cpp
 	ui/lrectedcomponent.cpp
 	ui/lscene.cpp
+	ui/lsubscriber.cpp
 	ui/lwindow.cpp
 	ui/sdl/lsdrawer.cpp
 	ui/terminal/ltdrawer.cpp
