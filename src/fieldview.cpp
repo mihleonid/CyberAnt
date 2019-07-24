@@ -210,10 +210,13 @@ void FieldView::init(LWindow* cwin){
 	pbase->type=BBase;
 	pfsel* pimine=new pfsel();
 	pimine->type=BIMine;
+	pfsel* pomine=new pfsel();
+	pomine->type=BOMine;
 	scn=(new LScene)
 	->add((new LButton(Rect(0), Configurator::getBack(), new back()))->setColor(LColor(true, 1, 0, 0)))
 	->add((new LButton(Rect(0, 75), "Base", pbase))->setColor(LColor(true, 1, 0, 0)))
-	->add((new LButton(Rect(0, 95), "Iron mine", pimine))->setColor(LColor(true, 1, 0, 0)));
+	->add((new LButton(Rect(0, 95), "Iron mine", pimine))->setColor(LColor(true, 1, 0, 0)))
+	->add((new LButton(Rect(0, 115), "Oxygen mine", pomine))->setColor(LColor(true, 1, 0, 0)));
 }
 FieldView::~FieldView(){
 	delete ass;
