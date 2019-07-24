@@ -86,7 +86,7 @@ void FieldModel::loop(){
 			if(c==nullptr){
 				switch(Random::rnd(8000)){
 					case 1:
-						field.set(new ResourceNode(Point(x, y), &field, Iron));
+						field.set(new ResourceNode(Point(x, y), &field, Resource::randomType()));
 						break;
 				}
 				continue;

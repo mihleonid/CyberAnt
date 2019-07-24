@@ -14,10 +14,10 @@ std::string Configurator::currentPrefab="";
 std::string Configurator::currentLocale="";
 void Configurator::configureResourceNode(ResourceType t, int& add, int& addP, int& taxMin, int& taxMax, int& startVal){
 	add=-1;
-	addP=10;
+	addP=20;
 	taxMin=0;
 	taxMax=20;
-	startVal=100;
+	startVal=150;
 	//TODO from files
 }
 #define getString(A, B){\

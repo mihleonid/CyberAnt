@@ -1,19 +1,12 @@
-#include <random>
 #include <iostream>
 #include "resource.h"
 #include "configurator.h"
+#include "random.h"
 
 std::map<ResourceType, std::string> Resource::resourceTypeCache;
 ResourceType Resource::randomType(){
-	switch(rand()%3){
-		case 0:
-			return Iron;
-		case 1:
-			return Oxygen;
-		case 2:
-			return Cristall;
-	}
-	return Iron;
+	auto all=getAllTypes();
+	return all[Random::rnd(all.size()-1)];
 }
 std::string Resource::typeToString(ResourceType type){
 	switch(type){
@@ -48,6 +41,6 @@ ResourceType Resource::stringToType(std::string str){
 	return Iron;
 }
 std::vector<ResourceType> Resource::getAllTypes(){
-	return {Iron, Oxygen, Cristall}; 
+	return {Iron, Oxygen /*Cristall*/}; 
 }
 
