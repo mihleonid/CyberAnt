@@ -1,15 +1,15 @@
 #pragma once
-#include <utility>
+#include "lsubscriber.h"
 
 class Event;
 class LEvent;
 class LDrawer;
 
-class LComponent{
+class LComponent:public LSubscriber{
 	public:
 		virtual ~LComponent();
 
 		virtual void draw(LDrawer*);
-		virtual std::pair<Event*, bool> applyEvent(LEvent*); // Stop event
+		virtual Event* applyEvent(LEvent*);
 };
 

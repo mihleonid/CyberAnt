@@ -1,12 +1,12 @@
 #pragma once
 #include <vector>
-#include "../eventqueue.h"
+#include "leventsender.h"
 
 class LComponent;
 class LDrawer;
 class LEvent;
 
-class LScene{
+class LScene:public LEventSender{
 	private:
 		std::vector<LComponent*> cps;
 	public:
@@ -15,7 +15,7 @@ class LScene{
 		void clear();
 		void clearDelete();
 		void draw(LDrawer*);
-		EventQueue applyEvent(LEvent*, bool& stop);
+		EventQueue applyEvent(LEvent*);
 		~LScene();
 };
 

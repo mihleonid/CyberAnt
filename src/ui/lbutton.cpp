@@ -34,7 +34,6 @@ void LButton::draw(LDrawer* ldr){
 	}
 	ldr->drawRect(rect, col);
 	ldr->drawTextCenter((rect.getA().getX()+rect.getB().getX())/2, rect.getA().getY(), text.c_str());
-	
 }
 LButton* LButton::setColor(const LColor& c){
 	col=c;
@@ -43,23 +42,27 @@ LButton* LButton::setColor(const LColor& c){
 LColor LButton::getColor() const{
 	return col;
 }
-std::pair<Event*, bool> LButton::applyEvent(LEvent* e){
-	if(e->getType()!=Mouse){
-		return std::pair<Event*, bool>(nullptr, 0);
-	}
+std::vector<LEventType> LButton::acceptedTypes(){
+	return {Mouse};
+}
+Event* LButton::applyEvent(LEvent* e){
 	if(rect.contain(((LMouseEvent*)e)->getPos())){
 		if(((LMouseEvent*)e)->getMouseType()==BUTTON_Up){
 			if(!down){
-				return std::pair<Event*, bool>(nullptr, 0);
+				return nullptr;
 			}
 			down=false;
-			return std::pair<Event*, bool>(onClick->call(), 1);
+			e->prevent();
+			return onClick->call();
 		}
 		if(((LMouseEvent*)e)->getMouseType()==BUTTON_Down){
+			e->prevent();
 			down=true;
-			return std::pair<Event*, bool>(nullptr, 1);
+			return nullptr;
 		}
+	}else{
+		down=false;
 	}
-	return std::pair<Event*, bool>(nullptr, 0);
+	return nullptr;
 }
 
