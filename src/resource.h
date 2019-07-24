@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <map>
+#include <vector>
 
 //Типы ресурсов
 enum ResourceType{Iron, Oxygen, Cristall}; // При изменении нужно исправить resource.cpp, при желании --- создать возможность постройки в foenum, fieldmodelmodel, fieldview.
@@ -13,5 +14,6 @@ class Resource{
 		static std::string typeToString(ResourceType typ);
 		static std::string typeToLocalizedString(ResourceType typ);
 		static ResourceType stringToType(std::string str);
+		static std::vector<ResourceType> getAllTypes();
 };
 

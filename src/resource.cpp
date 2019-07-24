@@ -47,4 +47,7 @@ ResourceType Resource::stringToType(std::string str){
 	std::cerr<<"Resource::stringToType: Unknown type "<<str<<std::endl;
 	return Iron;
 }
+std::vector<ResourceType> Resource::getAllTypes(){
+	return {Iron, Oxygen, Cristall}; 
+}
 
