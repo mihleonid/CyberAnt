@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <vector>
 #include <map>
 #include "ui/limage.h"
 #include "ui/lcolor.h"
@@ -33,6 +34,7 @@ class FO{
 
 		static std::string whatToLocalizedString(FOWhat);
 		static std::string whatToString(FOWhat);
+		static std::vector<FOWhat> getAllWhats();
 
 		friend class Field;
 };

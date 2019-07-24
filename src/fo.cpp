@@ -54,4 +54,7 @@ std::string FO::whatToLocalizedString(FOWhat w){
 	}
 	return whatNamesCache[w];
 }
+std::vector<FOWhat> FO::getAllWhats(){
+	return {BBase, BIMine, BOMine};
+}
 
