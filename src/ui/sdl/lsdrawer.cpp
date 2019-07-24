@@ -100,8 +100,14 @@ Rect LSDrawer::drawTextCenter(int x, int y, int text){
 	return res;
 }
 SDL_Texture* LSDrawer::makeText(SDL_Renderer* ren, const char* c){
-	SDL_Color white={(Uint8)(col.fg().r()), (Uint8)(col.fg().g()), (Uint8)(col.fg().b())};
-	SDL_Surface* surfaceMessage=TTF_RenderUTF8_Solid(font, c, white);
+	SDL_Color fg={(Uint8)(col.fg().r()), (Uint8)(col.fg().g()), (Uint8)(col.fg().b())};
+	SDL_Surface* surfaceMessage;
+	if(col.bg().transparent()){
+		surfaceMessage=TTF_RenderUTF8_Solid(font, c, fg);
+	}else{
+		SDL_Color bg={(Uint8)(col.bg().r()), (Uint8)(col.bg().g()), (Uint8)(col.bg().b())};
+		surfaceMessage=TTF_RenderUTF8_Shaded(font, c, fg, bg);
+	}
 	SDL_Texture* message=SDL_CreateTextureFromSurface(ren, surfaceMessage);
 	SDL_FreeSurface(surfaceMessage);
 	return message;
