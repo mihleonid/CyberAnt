@@ -22,5 +22,7 @@ class Configurator{
 		static const char* getCurrentPrefab();
 		static const char* getBaseContains();
 		static std::string getLocalePath();
+		static std::string getTextFromFile(std::string path); // without assets dir and txt
+		static std::string getLocalizedTextFromFile(std::string path); // without assets dir and txt, from assets/{currentLocale}/
 };
 

@@ -20,27 +20,34 @@ void Configurator::configureResourceNode(ResourceType t, int& add, int& addP, in
 	startVal=100;
 	//TODO from files
 }
-//TODO fast read;
 #define getString(A, B){\
 	getCurrentLocale();\
 	if(A.empty()){\
-		std::ifstream file((ASSETS_DIR+currentLocale+"/"+std::string(B)+".txt").c_str());\
-		if(!file.good()){\
-			std::cerr<<(ASSETS_DIR+currentLocale+"/"+std::string(B)+".txt").c_str()<<" is a bad file"<<std::endl;\
-		}\
-		assert(file.good());\
-		std::string s;\
-		bool start=false;\
-		while(file>>s){\
-			if(start){\
-				A+=" ";\
-			}\
-			start=true;\
-			A+=s;\
-		}\
-		file.close();\
+		A=getLocalizedTextFromFile(std::string(B));\
 	}\
 	return A.c_str();\
+}
+std::string Configurator::getTextFromFile(std::string path){
+	std::ifstream file((ASSETS_DIR+path+".txt").c_str());
+	if(!file.good()){
+		std::cerr<<(ASSETS_DIR+path+".txt").c_str()<<" is a bad file"<<std::endl;
+		return "filesystem error";
+	}
+	std::string s;
+	std::string res;
+	bool start=false;
+	while(file>>s){
+		if(start){
+			res+=" ";
+		}
+		start=true;
+		res+=s;
+	}
+	file.close();
+	return res;
+}
+std::string Configurator::getLocalizedTextFromFile(std::string path){
+	return getTextFromFile(currentLocale+"/"+path);
 }
 void Configurator::getCurrentLocale(){
 	if(currentLocale.empty()){
