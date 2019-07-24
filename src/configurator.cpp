@@ -10,6 +10,7 @@ std::string Configurator::exit="";
 std::string Configurator::play="";
 std::string Configurator::baseContains="";
 std::string Configurator::currentPrefab="";
+std::string Configurator::currentLocale="";
 void Configurator::configureResourceNode(ResourceType t, int& add, int& addP, int& taxMin, int& taxMax, int& startVal){
 	add=-1;
 	addP=10;
@@ -20,10 +21,11 @@ void Configurator::configureResourceNode(ResourceType t, int& add, int& addP, in
 }
 //TODO fast read;
 #define getString(A, B){\
+	getCurrentLocale();\
 	if(A.empty()){\
-		std::ifstream file("./assets/en/" B ".txt");\
+		std::ifstream file(("./assets/"+currentLocale+"/"+std::string(B)+".txt").c_str());\
 		if(!file.good()){\
-			std::cerr<<"./assets/en/" B ".txt"<<" is a bad file"<<std::endl;\
+			std::cerr<<("./assets/"+currentLocale+"/"+std::string(B)+".txt").c_str()<<" is a bad file"<<std::endl;\
 		}\
 		assert(file.good());\
 		std::string s;\
@@ -38,6 +40,17 @@ void Configurator::configureResourceNode(ResourceType t, int& add, int& addP, in
 		file.close();\
 	}\
 	return A.c_str();\
+}
+void Configurator::getCurrentLocale(){
+	if(currentLocale.empty()){
+		std::ifstream file("./assets/currentlocale.txt");
+		if(!file.good()){
+			std::cerr<<"./assets/currentlocale.txt is a bad file"<<std::endl;
+		}
+		assert(file.good());
+		file>>currentLocale;
+		file.close();
+	}
 }
 const char* Configurator::getWindowTitle(){
 	getString(wtitle, "wintitle");
@@ -57,4 +70,5 @@ const char* Configurator::getBaseContains(){
 const char* Configurator::getCurrentPrefab(){
 	getString(currentPrefab, "currentprefab");
 }
+#undef getString
 

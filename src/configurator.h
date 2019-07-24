@@ -10,6 +10,8 @@ class Configurator{
 		static std::string play;
 		static std::string baseContains;
 		static std::string currentPrefab;
+		static std::string currentLocale;
+		static void getCurrentLocale();
 	public:
 		static void configureResourceNode(ResourceType type, int& add, int& addPossible, int& taxMin, int& taxMax, int& startVal);
 		static const char* getWindowTitle();
