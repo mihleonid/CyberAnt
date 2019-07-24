@@ -8,9 +8,9 @@ for file in tests/*.cpp;
 		./tester $file
 		cat tmp1.txt>>atop.txt
 		cat tmp2.txt>>amiddle.txt
-		rm tmp1.txt tmp2.txt
 	done
 rm tester
+rm tmp1.txt tmp2.txt
 cat top.txt>main.cpp
 cat atop.txt>>main.cpp
 cat middle.txt>>main.cpp
