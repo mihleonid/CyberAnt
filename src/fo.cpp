@@ -1,7 +1,9 @@
 #include <iostream>
 #include "fo.h"
+#include "configurator.h"
 #include "field.h"
 
+std::map<FOWhat, std::string> FO::whatNamesCache;
 FO::FO(Point p, Field* currF){
 	pos=p;
 	currField=currF;
@@ -33,17 +35,23 @@ void FO::setPos(Point p){
 	pos=p;
 	currField->set(this, ppos);
 }
-std::string FO::whatToLocalizedString(FOWhat w){
+std::string FO::whatToString(FOWhat w){
 	switch(w){
 		case BBase:
-			return "Base";
+			return "bbase";
 		case BIMine:
-			return "Iron mine";
+			return "bimine";
 		case BOMine:
-			return "Oxygen mine";
+			return "bomine";
 			//TODO more;
 		default:
 			return "error";
 	}
+}
+std::string FO::whatToLocalizedString(FOWhat w){
+	if(!(whatNamesCache.count(w))){
+		whatNamesCache[w]=Configurator::getLocalizedTextFromFile("fo/"+whatToString(w));
+	}
+	return whatNamesCache[w];
 }
 

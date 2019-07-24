@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <map>
 #include "ui/limage.h"
 #include "ui/lcolor.h"
 #include "foenum.h"
@@ -8,6 +9,8 @@
 class Field; // This is for avoiding cyclic includes
 
 class FO{
+	private:
+		static std::map<FOWhat, std::string> whatNamesCache;
 	protected:
 		FOType type;
 		FOWhat what;
@@ -29,6 +32,7 @@ class FO{
 		virtual std::pair<LImage*, LColor> getImage(Assets* ass) const;
 
 		static std::string whatToLocalizedString(FOWhat);
+		static std::string whatToString(FOWhat);
 
 		friend class Field;
 };

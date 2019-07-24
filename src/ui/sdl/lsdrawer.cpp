@@ -2,10 +2,11 @@
 #include <SDL.h>
 #include <SDL2/SDL_ttf.h>
 #include "lsdrawer.h"
+#include "../../common.hpp"
 
 LSDrawer::LSDrawer(SDL_Renderer* r){
 	ren=r;
-	font=TTF_OpenFont("assets/ubuntumono.ttf", 21);
+	font=TTF_OpenFont(ASSETS_DIR "ubuntumono.ttf", 21);
 	assert(font!=nullptr);
 	assert(ren!=nullptr);
 }
