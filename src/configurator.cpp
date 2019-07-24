@@ -9,6 +9,7 @@ std::string Configurator::wtitle="";
 std::string Configurator::back="";
 std::string Configurator::exit="";
 std::string Configurator::play="";
+std::string Configurator::settings="";
 std::string Configurator::baseContains="";
 std::string Configurator::currentPrefab="";
 std::string Configurator::currentLocale="";
@@ -71,6 +72,9 @@ const char* Configurator::getBack(){
 }
 const char* Configurator::getExit(){
 	getString(exit, "exit");
+}
+const char* Configurator::getSettings(){
+	getString(settings, "settings");
 }
 const char* Configurator::getBaseContains(){
 	getString(baseContains, "basecontains");
