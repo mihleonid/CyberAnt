@@ -8,7 +8,6 @@
 class MenuView:public View{
 	private:
 		LWindow* win=nullptr;
-		LScene* scn;
 	public:
 		virtual void loop(const Model* m);
 		virtual EventQueue getEvents();
