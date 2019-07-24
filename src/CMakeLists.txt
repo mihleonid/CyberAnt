@@ -31,6 +31,8 @@ set(src
 	resourced.cpp
 	resourcenode.cpp
 	resourceset.cpp
+	settingscontroller.cpp
+	settingsview.cpp
 	to.cpp
 	tubed.cpp
 	ui/lbutton.cpp
