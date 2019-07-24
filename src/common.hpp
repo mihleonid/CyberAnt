@@ -6,5 +6,8 @@
 
 #define BlocksX 30
 #define BlocksY 30
+
 // must be more than 1
+
+#define ASSETS_DIR "./assets/"
 

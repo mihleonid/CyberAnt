@@ -3,6 +3,7 @@
 #include <cassert>
 #include <string>
 #include "configurator.h"
+#include "common.hpp"
 
 std::string Configurator::wtitle="";
 std::string Configurator::back="";
@@ -23,9 +24,9 @@ void Configurator::configureResourceNode(ResourceType t, int& add, int& addP, in
 #define getString(A, B){\
 	getCurrentLocale();\
 	if(A.empty()){\
-		std::ifstream file(("./assets/"+currentLocale+"/"+std::string(B)+".txt").c_str());\
+		std::ifstream file((ASSETS_DIR+currentLocale+"/"+std::string(B)+".txt").c_str());\
 		if(!file.good()){\
-			std::cerr<<("./assets/"+currentLocale+"/"+std::string(B)+".txt").c_str()<<" is a bad file"<<std::endl;\
+			std::cerr<<(ASSETS_DIR+currentLocale+"/"+std::string(B)+".txt").c_str()<<" is a bad file"<<std::endl;\
 		}\
 		assert(file.good());\
 		std::string s;\
@@ -43,9 +44,9 @@ void Configurator::configureResourceNode(ResourceType t, int& add, int& addP, in
 }
 void Configurator::getCurrentLocale(){
 	if(currentLocale.empty()){
-		std::ifstream file("./assets/currentlocale.txt");
+		std::ifstream file(ASSETS_DIR "currentlocale.txt");
 		if(!file.good()){
-			std::cerr<<"./assets/currentlocale.txt is a bad file"<<std::endl;
+			std::cerr<<ASSETS_DIR<<"currentlocale.txt is a bad file"<<std::endl;
 		}
 		assert(file.good());
 		file>>currentLocale;
