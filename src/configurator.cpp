@@ -71,5 +71,9 @@ const char* Configurator::getBaseContains(){
 const char* Configurator::getCurrentPrefab(){
 	getString(currentPrefab, "currentprefab");
 }
+std::string Configurator::getLocalePath(){
+	getCurrentLocale();
+	return(ASSETS_DIR+currentLocale+"/");
+}
 #undef getString
 
