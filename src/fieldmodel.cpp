@@ -19,8 +19,15 @@ FieldModel::FieldModel(){
 		for(int y=0;y<BlocksY;y++){
 			switch(Random::rnd(20)){
 				case 1:
-					field.set(new ResourceNode(Point(x, y), &field, Iron));
-					break;
+					{
+						field.set(new ResourceNode(Point(x, y), &field, Iron));
+						break;
+					}
+				case 2:
+					{
+						field.set(new ResourceNode(Point(x, y), &field, Oxygen));
+						break;
+					}
 			}
 		}
 	}
@@ -63,6 +70,9 @@ void FieldModel::applyEvent(Event* ce){
 					break;
 				case BIMine:
 					field.set(new Mine(c->getPos(), &field, 0, Iron));
+					break;
+				case BOMine:
+					field.set(new Mine(c->getPos(), &field, 0, Oxygen));
 					break;
 			}
 		}
