@@ -21,7 +21,6 @@
 #define FH 64
 
 void FieldView::loop(const Model* mode){
-	win->setScene(scn);
 	win->clear();
 	//TODO Draw from lwindow
 	const FieldModel* model=(const FieldModel*)mode;
@@ -56,7 +55,7 @@ void FieldView::loop(const Model* mode){
 	}
 	Rect baseContains=win->getDrawer()->drawTextRight(win->getCorner().getX(), 0, (std::string(Configurator::getBaseContains())+std::string(": ")).c_str());
 	Point fps=win->getDrawer()->drawText(0, 20, "FPS: ").getB();
-	win->getDrawer()->drawText(fps.getX(), 20, win->getFps()); // TODO FUPS and GameControleer data
+	win->getDrawer()->drawText(fps.getX(), 20, win->getFps());
 	Rect iron=win->getDrawer()->drawTextRight(baseContains.getB(), model->rset->get(Iron));
 	win->getDrawer()->drawTextRight(iron.getA(), "Iron: ");
 	Rect oxygen=win->getDrawer()->drawTextRight(iron.getB(), model->rset->get(Oxygen));
@@ -193,31 +192,9 @@ void FieldView::init(LWindow* cwin){
 	mouseMoved=false;
 	win=cwin;
 	ass=new Assets();
-	typedef class:public Callback<Event*>{
-		public:
-		virtual Event* call(){
-			return new GameControllerEvent(false, true);
-		}
-	} back;
-	typedef class:public Callback<Event*>{
-		public:
-		FOWhat type;
-		virtual Event* call(){
-			return new FieldEvent(EPrefab, type);
-		}
-	} pfsel;
-	pfsel* pbase=new pfsel();
-	pbase->type=BBase;
-	pfsel* pimine=new pfsel();
-	pimine->type=BIMine;
-	scn=(new LScene)
-	->add((new LButton(Rect(0), Configurator::getBack(), new back()))->setColor(LColor(true, 1, 0, 0)))
-	->add((new LButton(Rect(0, 75), "Base", pbase))->setColor(LColor(true, 1, 0, 0)))
-	->add((new LButton(Rect(0, 95), "Iron mine", pimine))->setColor(LColor(true, 1, 0, 0)));
 }
 FieldView::~FieldView(){
 	delete ass;
-	delete scn;
 }
 #undef FW
 #undef FH

@@ -43,6 +43,7 @@ Controller::~Controller(){
 		delete model;
 	}
 	delete view;
+	delete scn;
 }
 EventQueue Controller::eventLoop(){
 	EventQueue res;
