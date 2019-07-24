@@ -4,10 +4,10 @@
 LComponent::~LComponent(){
 }
 void LComponent::draw(LDrawer* ldr){
-	std::cerr<<"Calling to LDRawer::draw"<<std::endl;
+	std::cerr<<"Calling to LComponent::draw"<<std::endl;
 }
 Event* LComponent::applyEvent(LEvent* e){
-	std::cerr<<"Calling to LDRawer::applyEvent"<<std::endl;
+	std::cerr<<"Calling to LComponent::applyEvent"<<std::endl;
 	return nullptr;
 }
 
