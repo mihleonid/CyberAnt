@@ -1,4 +1,5 @@
 #pragma once
+#include <string>
 #include "foenum.h"
 #include "resource.h"
 
@@ -20,5 +21,6 @@ class Configurator{
 		static const char* getPlay();
 		static const char* getCurrentPrefab();
 		static const char* getBaseContains();
+		static std::string getLocalePath();
 };
 
