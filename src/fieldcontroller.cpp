@@ -2,6 +2,7 @@
 #include "fieldmodel.h"
 #include "fieldview.h"
 #include "fieldevent.h"
+#include "fo.h"
 #include "gamecontrollerevent.h"
 #include "configurator.h"
 #include "ui/lscene.h"
@@ -24,16 +25,14 @@ LScene* FieldController::generateUIScene(){
 			return new FieldEvent(EPrefab, type);
 		}
 	} pfsel;
-	pfsel* pbase=new pfsel();
-	pbase->type=BBase;
-	pfsel* pimine=new pfsel();
-	pimine->type=BIMine;
-	pfsel* pomine=new pfsel();
-	pomine->type=BOMine;
-	return (new LScene)
-	->add((new LButton(Rect(0), Configurator::getBack(), new back()))->setColor(LColor(true, 1, 0, 0)))
-	->add((new LButton(Rect(0, 75), "Base", pbase))->setColor(LColor(true, 1, 0, 0)))
-	->add((new LButton(Rect(0, 95), "Iron mine", pimine))->setColor(LColor(true, 1, 0, 0)))
-	->add((new LButton(Rect(0, 115), "Oxygen mine", pomine))->setColor(LColor(true, 1, 0, 0)));
+	LScene* scn=(new LScene)->add((new LButton(Rect(0), Configurator::getBack(), new back()))->setColor(LColor(true, 1, 0, 0)));
+	int y=75;
+	for(FOWhat w:FO::getAllWhats()){
+		pfsel* p=new pfsel();
+		p->type=w;
+		scn->add((new LButton(Rect(0, y), FO::whatToLocalizedString(w), p))->setColor(LColor(true, 1, 0, 0)));
+		y+=20;
+	}
+	return scn;
 }
 
