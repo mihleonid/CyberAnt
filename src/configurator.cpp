@@ -21,9 +21,9 @@ void Configurator::configureResourceNode(ResourceType t, int& add, int& addP, in
 //TODO fast read;
 #define getString(A, B){\
 	if(A.empty()){\
-		std::ifstream file("./assets/" B ".txt");\
+		std::ifstream file("./assets/en/" B ".txt");\
 		if(!file.good()){\
-			std::cerr<<"./assets/" B ".txt"<<" is a bad file"<<std::endl;\
+			std::cerr<<"./assets/en/" B ".txt"<<" is a bad file"<<std::endl;\
 		}\
 		assert(file.good());\
 		std::string s;\
