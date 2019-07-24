@@ -1,6 +1,7 @@
 *.swp
 build
 src/assets
+tests/build.cpp
 CMakeCache.txt
 CMakeFiles/
 Makefile

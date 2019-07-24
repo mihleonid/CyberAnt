@@ -1,0 +1,4 @@
+#define _GLIBCXX_DEBUG
+#define DEBUG
+#define SDL
+
