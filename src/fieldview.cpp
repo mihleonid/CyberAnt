@@ -56,12 +56,12 @@ void FieldView::loop(const Model* mode){
 	Rect baseContains=win->getDrawer()->drawTextRight(win->getCorner().getX(), 0, (std::string(Configurator::getBaseContains())+std::string(": ")).c_str());
 	Point fps=win->getDrawer()->drawText(0, 20, "FPS: ").getB();
 	win->getDrawer()->drawText(fps.getX(), 20, win->getFps());
-	Rect iron=win->getDrawer()->drawTextRight(baseContains.getB(), model->rset->get(Iron));
-	win->getDrawer()->drawTextRight(iron.getA(), "Iron: ");
-	Rect oxygen=win->getDrawer()->drawTextRight(iron.getB(), model->rset->get(Oxygen));
-	win->getDrawer()->drawTextRight(oxygen.getA(), "Oxygen: ");
-	Rect cristall=win->getDrawer()->drawTextRight(oxygen.getB(), model->rset->get(Cristall));
-	win->getDrawer()->drawTextRight(cristall.getA(), "Cristall: ");
+
+	Rect crect=baseContains;
+	for(ResourceType t:Resource::getAllTypes()){
+		crect=win->getDrawer()->drawTextRight(crect.getB(), model->rset->get(t));
+		win->getDrawer()->drawTextRight(crect.getA(), (Resource::typeToLocalizedString(t)+": ").c_str());
+	}
 
 	Rect prefab=win->getDrawer()->drawText(Point(0, 52), (std::string(Configurator::getCurrentPrefab())+std::string(": ")).c_str());
 	win->getDrawer()->drawText(Point(prefab.getB().getX(), prefab.getA().getY()), FO::whatToLocalizedString(model->getPrefab()).c_str());
