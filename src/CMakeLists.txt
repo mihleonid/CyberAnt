@@ -47,6 +47,7 @@ set(src
 	ui/lkeyboardlistener.cpp
 	ui/lmonocolor.cpp
 	ui/lmouseevent.cpp
+	ui/lpanel.cpp
 	ui/lrectedcomponent.cpp
 	ui/lscene.cpp
 	ui/lsubscriber.cpp
