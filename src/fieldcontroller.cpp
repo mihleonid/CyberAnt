@@ -7,6 +7,7 @@
 #include "configurator.h"
 #include "ui/lscene.h"
 #include "ui/lbutton.h"
+#include "ui/lkeyboardlistener.h"
 
 FieldController::FieldController(LWindow* win){
 	initialize(new FieldModel, new FieldView, win);
@@ -26,6 +27,7 @@ LScene* FieldController::generateUIScene(){
 		}
 	} pfsel;
 	LScene* scn=(new LScene)->add((new LButton(Rect(0), Configurator::getBack(), new back()))->setColor(LColor(true, 1, 0, 0)));
+	scn->add(new LKeyboardListener(K_Q, new back));
 	int y=75;
 	for(FOWhat w:FO::getAllWhats()){
 		pfsel* p=new pfsel();
