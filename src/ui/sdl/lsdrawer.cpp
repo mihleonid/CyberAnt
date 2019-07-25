@@ -2,7 +2,9 @@
 #include <SDL.h>
 #include <SDL2/SDL_ttf.h>
 #include "lsdrawer.h"
+#include "../lquality.h"
 #include "../../common.hpp"
+#include "../../configurator.h"
 
 LSDrawer::LSDrawer(SDL_Renderer* r){
 	ren=r;
@@ -102,11 +104,32 @@ Rect LSDrawer::drawTextCenter(int x, int y, int text){
 SDL_Texture* LSDrawer::makeText(SDL_Renderer* ren, const char* c){
 	SDL_Color fg={(Uint8)(col.fg().r()), (Uint8)(col.fg().g()), (Uint8)(col.fg().b())};
 	SDL_Surface* surfaceMessage;
-	if(col.bg().transparent()){
-		surfaceMessage=TTF_RenderUTF8_Solid(font, c, fg);
-	}else{
-		SDL_Color bg={(Uint8)(col.bg().r()), (Uint8)(col.bg().g()), (Uint8)(col.bg().b())};
-		surfaceMessage=TTF_RenderUTF8_Shaded(font, c, fg, bg);
+	switch(Configurator::getQuality()){
+		case LQHigh:
+			{
+				if(col.bg().transparent()){
+					surfaceMessage=TTF_RenderUTF8_Blended(font, c, fg);
+				}else{
+					SDL_Color bg={(Uint8)(col.bg().r()), (Uint8)(col.bg().g()), (Uint8)(col.bg().b())};
+					surfaceMessage=TTF_RenderUTF8_Shaded(font, c, fg, bg);
+				}
+				break;
+			}
+		case LQMedium:
+			{
+				if(col.bg().transparent()){
+					surfaceMessage=TTF_RenderUTF8_Solid(font, c, fg);
+				}else{
+					SDL_Color bg={(Uint8)(col.bg().r()), (Uint8)(col.bg().g()), (Uint8)(col.bg().b())};
+					surfaceMessage=TTF_RenderUTF8_Shaded(font, c, fg, bg);
+				}
+				break;
+			}
+		case LQLow:
+			{
+				surfaceMessage=TTF_RenderUTF8_Solid(font, c, fg);
+				break;
+			}
 	}
 	SDL_Texture* message=SDL_CreateTextureFromSurface(ren, surfaceMessage);
 	SDL_FreeSurface(surfaceMessage);

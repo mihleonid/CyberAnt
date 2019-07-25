@@ -12,6 +12,8 @@ std::string Configurator::play="";
 std::string Configurator::baseContains="";
 std::string Configurator::currentPrefab="";
 std::string Configurator::currentLocale="";
+LQuality Configurator::quality;
+bool Configurator::qualityGetted=false;
 void Configurator::configureResourceNode(ResourceType t, int& add, int& addP, int& taxMin, int& taxMax, int& startVal){
 	add=-1;
 	addP=10;
@@ -81,6 +83,30 @@ const char* Configurator::getCurrentPrefab(){
 std::string Configurator::getLocalePath(){
 	getCurrentLocale();
 	return(ASSETS_DIR+currentLocale+"/");
+}
+LQuality Configurator::getQuality(){
+	if(qualityGetted){
+		return quality;
+	}
+	switch(getTextFromFile("quality")[0]){
+		case 'H':
+		default:
+			{
+				quality=LQHigh;
+				break;
+			}
+		case 'M':
+			{
+				quality=LQMedium;
+				break;
+			}
+		case 'L':
+			{
+				quality=LQLow;
+				break;
+			}
+	}
+	return quality;
 }
 #undef getString
 
