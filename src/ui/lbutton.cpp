@@ -33,6 +33,7 @@ void LButton::draw(LDrawer* ldr){
 		expand=false;
 	}
 	ldr->drawRect(rect, col);
+	ldr->color(col);
 	ldr->drawTextCenter((rect.getA().getX()+rect.getB().getX())/2, rect.getA().getY(), text.c_str());
 }
 LButton* LButton::setColor(const LColor& c){
