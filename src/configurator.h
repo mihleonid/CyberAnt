@@ -9,6 +9,7 @@ class Configurator{
 		static std::string back;
 		static std::string exit;
 		static std::string play;
+		static std::string settings;
 		static std::string baseContains;
 		static std::string currentPrefab;
 		static std::string currentLocale;
@@ -19,6 +20,7 @@ class Configurator{
 		static const char* getBack();
 		static const char* getExit();
 		static const char* getPlay();
+		static const char* getSettings();
 		static const char* getCurrentPrefab();
 		static const char* getBaseContains();
 		static std::string getLocalePath();
