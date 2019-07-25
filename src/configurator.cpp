@@ -15,6 +15,8 @@ std::string Configurator::currentPrefab="";
 std::string Configurator::currentLocale="";
 LQuality Configurator::quality;
 bool Configurator::qualityGetted=false;
+bool Configurator::smooth=false;
+bool Configurator::smoothGetted=false;
 void Configurator::configureResourceNode(ResourceType t, int& add, int& addP, int& taxMin, int& taxMax, int& startVal){
 	add=-1;
 	addP=20;
@@ -116,6 +118,12 @@ LQuality Configurator::getQuality(){
 			}
 	}
 	return quality;
+}
+bool Configurator::getSmooth(){
+	if(!smoothGetted){
+		smooth=(getTextFromFile("smooth")[0]=='Y');
+	}
+	return smooth;
 }
 #undef getString
 

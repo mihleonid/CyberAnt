@@ -16,6 +16,8 @@ class Configurator{
 		static std::string currentLocale;
 		static LQuality quality;
 		static bool qualityGetted;
+		static bool smooth;
+		static bool smoothGetted;
 		static void getCurrentLocale();
 	public:
 		static void configureResourceNode(ResourceType type, int& add, int& addPossible, int& taxMin, int& taxMax, int& startVal);
@@ -30,5 +32,6 @@ class Configurator{
 		static std::string getTextFromFile(std::string path); // without assets dir and txt
 		static std::string getLocalizedTextFromFile(std::string path); // without assets dir and txt, from assets/{currentLocale}/
 		static LQuality getQuality();
+		static bool getSmooth();
 };
 

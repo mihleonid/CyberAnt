@@ -2,6 +2,7 @@
 #include <cassert>
 #include <vector>
 #include "limage.h"
+#include "../configurator.h"
 
 bool LImage::textLoad=false;
 LImage::LImage(){
@@ -90,6 +91,9 @@ LImage* LImage::applyColors(int hex){
 
 #ifdef SDL
 void LImage::smooth(SDL_Surface* s){
+	if(!Configurator::getSmooth()){
+		return;
+	}
 	SDL_LockSurface(s);
 	for(int x=1;x<(s->w-1);x++){
 		for(int y=1;y<(s->h-1);y++){
