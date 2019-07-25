@@ -16,3 +16,12 @@ bool LEvent::getPrevented(){
 	return prevented;
 }
 
+std::vector<LEventType> getAllTypes(){
+	return {
+		Keyboard,
+		Mouse,
+		Exit,
+		Back,
+	};
+}
+

@@ -1,4 +1,5 @@
 #pragma once
+#include <vector>
 #include "leventtype.h"
 
 class LEvent{
@@ -12,5 +13,7 @@ class LEvent{
 
 		void prevent();
 		bool getPrevented();
+
+		static std::vector<LEventType> getAllTypes();
 };
 
