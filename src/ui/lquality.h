@@ -1,4 +1,4 @@
 #pragma once
 
-enum LQuality{LQHigh, LQMedium, LQLow};
+enum LQuality{LQUltra, LQHigh, LQMedium, LQLow};
 

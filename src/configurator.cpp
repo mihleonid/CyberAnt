@@ -89,6 +89,11 @@ LQuality Configurator::getQuality(){
 		return quality;
 	}
 	switch(getTextFromFile("quality")[0]){
+		case 'U':
+			{
+				quality=LQUltra;
+				break;
+			}
 		case 'H':
 		default:
 			{

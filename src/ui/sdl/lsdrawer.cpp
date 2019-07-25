@@ -105,6 +105,11 @@ SDL_Texture* LSDrawer::makeText(SDL_Renderer* ren, const char* c){
 	SDL_Color fg={(Uint8)(col.fg().r()), (Uint8)(col.fg().g()), (Uint8)(col.fg().b())};
 	SDL_Surface* surfaceMessage;
 	switch(Configurator::getQuality()){
+		case LQUltra:
+			{
+				surfaceMessage=TTF_RenderUTF8_Blended(font, c, fg);
+				break;
+			}
 		case LQHigh:
 			{
 				if(col.bg().transparent()){
