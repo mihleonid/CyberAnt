@@ -11,6 +11,9 @@ LSDrawer::LSDrawer(SDL_Renderer* r){
 	font=TTF_OpenFont(ASSETS_DIR "ubuntumono.ttf", 21);
 	assert(font!=nullptr);
 	assert(ren!=nullptr);
+	if((Configurator::getQuality()==LQHigh)||(Configurator::getQuality()==LQUltra)){
+		SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1");
+	}
 }
 LSDrawer::~LSDrawer(){
 	SDL_DestroyRenderer(ren);
