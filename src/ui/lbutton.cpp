@@ -46,24 +46,24 @@ LColor LButton::getColor() const{
 std::vector<LEventType> LButton::acceptedTypes(){
 	return {Mouse};
 }
-Event* LButton::applyEvent(LEvent* e){
+EventQueue LButton::applyEvent(LEvent* e){
 	if(rect.contain(((LMouseEvent*)e)->getPos())){
 		if(((LMouseEvent*)e)->getMouseType()==BUTTON_Up){
 			if(!down){
-				return nullptr;
+				return EventQueue();
 			}
 			down=false;
 			e->prevent();
-			return onClick->call();
+			return EventQueue(onClick->call());
 		}
 		if(((LMouseEvent*)e)->getMouseType()==BUTTON_Down){
 			e->prevent();
 			down=true;
-			return nullptr;
+			return EventQueue();
 		}
 	}else{
 		down=false;
 	}
-	return nullptr;
+	return EventQueue();
 }
 

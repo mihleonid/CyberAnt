@@ -1,5 +1,11 @@
 #include "eventqueue.h"
 
+EventQueue::EventQueue(){
+}
+EventQueue::EventQueue(Event* e){
+	push(e);
+}
+
 Event* EventQueue::pop(){
 	Event* n=queue.front();
 	queue.pop();

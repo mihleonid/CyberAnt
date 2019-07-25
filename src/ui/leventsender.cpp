@@ -5,7 +5,7 @@
 EventQueue LEventSender::send(LEvent* e){
 	EventQueue q;
 	for(int i=0;i<subs[e->getType()].size();++i){
-		q.push(subs[e->getType()][i]->applyEvent(e));
+		q.pipe(subs[e->getType()][i]->applyEvent(e));
 		if(e->getPrevented()){
 			break;
 		}
