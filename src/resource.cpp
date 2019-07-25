@@ -6,7 +6,7 @@
 std::map<ResourceType, std::string> Resource::resourceTypeCache;
 ResourceType Resource::randomType(){
 	auto all=getAllTypes();
-	return all[Random::rnd(all.size()-1)];
+	return all[Random::rnd(all.size())-1];
 }
 std::string Resource::typeToString(ResourceType type){
 	switch(type){

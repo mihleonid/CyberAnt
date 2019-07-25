@@ -20,12 +20,7 @@ FieldModel::FieldModel(){
 			switch(Random::rnd(20)){
 				case 1:
 					{
-						field.set(new ResourceNode(Point(x, y), &field, Iron));
-						break;
-					}
-				case 2:
-					{
-						field.set(new ResourceNode(Point(x, y), &field, Oxygen));
+						field.set(new ResourceNode(Point(x, y), &field, Resource::randomType()));
 						break;
 					}
 			}
