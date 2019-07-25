@@ -33,6 +33,7 @@ class LImage{
 		Uint32 pixelGet(int x, int yr, SDL_Surface* s);
 		SDL_Surface* getSurface();
 		void applySDL(const LColor& c); // Special color (1, 1, 1)=>(c)
+		void smooth(SDL_Surface* su);
 #endif
 		LTSurface newTSurface(const LColor& c); // Special color (^S)=>(c)
 		void letterSet(int x, int y, char let, LColor c);

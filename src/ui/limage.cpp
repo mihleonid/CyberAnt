@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cassert>
+#include <vector>
 #include "limage.h"
 
 bool LImage::textLoad=false;
@@ -88,6 +89,48 @@ LImage* LImage::applyColors(int hex){
 }
 
 #ifdef SDL
+void LImage::smooth(SDL_Surface* s){
+	SDL_LockSurface(s);
+	for(int x=1;x<(s->w-1);x++){
+		for(int y=1;y<(s->h-1);y++){
+			std::vector<std::pair<std::pair<int, int>, std::pair<int, int>>> cls;
+			for(int xx=x-1;xx<=x+1;++xx){
+				for(int yy=y-1;yy<=y+1;++yy){
+					Uint32 color=pixelGet(xx, yy, s);
+					int r=(color&0xFF0000)/0x010000;
+					int g=(color&0x00FF00)/0x000100;
+					int b=(color&0x0000FF)/0x000001;
+					if(xx==x){
+						cls.push_back({{r, g}, {b, 3}});
+					}
+					if(yy==y){
+						cls.push_back({{r, g}, {b, 2}});
+					}
+					if(xx==x){
+						if(yy==y){
+							cls.push_back({{r, g}, {b, 24}});
+						}
+					}
+				}
+			}
+			int r=0;
+			int g=0;
+			int b=0;
+			int cnt=0;
+			for(int i=0;i<cls.size();++i){
+				r+=cls[i].first.first*cls[i].second.second;
+				g+=cls[i].first.second*cls[i].second.second;
+				b+=cls[i].second.first*cls[i].second.second;
+				cnt+=cls[i].second.second;
+			}
+			r/=cnt;
+			g/=cnt;
+			b/=cnt;
+			pixelSet(x, y, (Uint32)(b*0x10000+g*0x100+r), s);
+		}
+	}
+	SDL_UnlockSurface(s);
+}
 SDL_Texture* LImage::newTexture(const LColor& c, SDL_Renderer* ren) {
 	if(surf==nullptr){
 		std::cerr<<"LImage is not initialized"<<std::endl;
@@ -107,6 +150,7 @@ SDL_Texture* LImage::newTexture(const LColor& c, SDL_Renderer* ren) {
 		}
 	}
 	SDL_UnlockSurface(s);
+	smooth(s);
 	SDL_Texture* t=SDL_CreateTextureFromSurface(ren, s);
 	SDL_FreeSurface(s);
 	if(t==nullptr){
@@ -121,6 +165,7 @@ SDL_Texture* LImage::newTexture(SDL_Renderer* ren) {
 		return nullptr;
 	}
 	SDL_Surface* s=SDL_ConvertSurfaceFormat(surf, SDL_PIXELFORMAT_RGBA32, SDL_SWSURFACE);
+	smooth(s);
 	SDL_Texture* t=SDL_CreateTextureFromSurface(ren, s);
 	SDL_FreeSurface(s);
 	if(t==nullptr){
