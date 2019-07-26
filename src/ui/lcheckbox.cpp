@@ -7,10 +7,12 @@
 LCheckBox::LCheckBox(Rect p, std::string t, ACallback<Event*, bool>* o):LRectedComponent(p){
 	text=t;
 	onStateChanged=o;
+	checked=false;
 }
 LCheckBox::LCheckBox(Rect p, const char* t, ACallback<Event*, bool>* o):LRectedComponent(p){
 	text=std::string(t);
 	onStateChanged=o;
+	checked=false;
 }
 LCheckBox::~LCheckBox(){
 }
@@ -63,7 +65,7 @@ EventQueue LCheckBox::applyEvent(LEvent* e){
 			}
 			down=false;
 			e->prevent();
-			checked=!checked;
+			checked=(!checked);
 			return EventQueue(onStateChanged->call(checked));
 		}
 		if(((LMouseEvent*)e)->getMouseType()==BUTTON_Down){
