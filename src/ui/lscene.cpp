@@ -24,6 +24,7 @@ void LScene::clearDelete(){
 }
 void LScene::draw(LDrawer* ldr){
 	for(int i=0;i<cps.size();++i){
+		cps[i]->applyTalk();
 		cps[i]->draw(ldr);
 	}
 }

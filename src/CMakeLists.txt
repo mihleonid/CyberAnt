@@ -51,6 +51,7 @@ set(src
 	ui/lrectedcomponent.cpp
 	ui/lscene.cpp
 	ui/lsubscriber.cpp
+	ui/ltalk.cpp
 	ui/lwindow.cpp
 	ui/sdl/lsdrawer.cpp
 	ui/terminal/ltdrawer.cpp

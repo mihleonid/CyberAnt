@@ -1,5 +1,6 @@
 #include <iostream>
 #include "lcomponent.h"
+#include "ltalk.h"
 
 LComponent::~LComponent(){
 }
@@ -9,5 +10,17 @@ void LComponent::draw(LDrawer* ldr){
 EventQueue LComponent::applyEvent(LEvent* e){
 	std::cerr<<"Calling to LComponent::applyEvent"<<std::endl;
 	return EventQueue();
+}
+void LComponent::applyTalk(){
+	if(lts.empty()){
+		return;
+	}
+	LTalk* t=lts.front();
+	lts.pop();
+	t->talk(this);
+	delete t;
+}
+void LComponent::addTalk(LTalk* t){
+	lts.push(t);
 }
 
