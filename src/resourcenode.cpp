@@ -23,7 +23,7 @@ bool ResourceNode::empty() const{
 }
 ResourceSet ResourceNode::mine(ResourceSet need){
 	ResourceSet rest=have.sub(need);
-	have.sub(rtype, Random::rnd(taxMin, taxMax));
+	have.sub(rtype, std::min(Random::rnd(taxMin, taxMax), need.get(rtype)-rest.get(rtype)));
 	return rest;
 }
 std::pair<LImage*, LColor> ResourceNode::getImage(Assets* ass) const{
