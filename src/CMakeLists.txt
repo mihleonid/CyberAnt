@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.5)
 project(CyberAnt)
 
 set(src
+	acallback.cpp
 	assets.cpp
 	base.cpp
 	building.cpp
