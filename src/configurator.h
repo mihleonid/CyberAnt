@@ -15,6 +15,10 @@ class Configurator{
 		static std::string currentPrefab;
 		static std::string currentLocale;
 		static std::string smoothString;
+		static std::string qualityL;
+		static std::string qualityM;
+		static std::string qualityH;
+		static std::string qualityU;
 		static LQuality quality;
 		static bool qualityGetted;
 		static bool smooth;
@@ -30,6 +34,10 @@ class Configurator{
 		static const char* getCurrentPrefab();
 		static const char* getBaseContains();
 		static const char* getSmoothString();
+		static const char* getQualityL();
+		static const char* getQualityM();
+		static const char* getQualityH();
+		static const char* getQualityU();
 		static std::string getLocalePath();
 		static std::string getTextFromFile(std::string path); // without assets dir and txt
 		static void setTextToFile(std::string path, std::string text); // without assets dir and txt

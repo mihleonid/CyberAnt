@@ -14,6 +14,10 @@ std::string Configurator::baseContains="";
 std::string Configurator::currentPrefab="";
 std::string Configurator::currentLocale="";
 std::string Configurator::smoothString="";
+std::string Configurator::qualityL="";
+std::string Configurator::qualityM="";
+std::string Configurator::qualityH="";
+std::string Configurator::qualityU="";
 LQuality Configurator::quality;
 bool Configurator::qualityGetted=false;
 bool Configurator::smooth=false;
@@ -64,6 +68,10 @@ void Configurator::setTextToFile(std::string path, std::string text){
 	Configurator::currentPrefab="";
 	Configurator::currentLocale="";
 	Configurator::smoothString="";
+	Configurator::qualityL="";
+	Configurator::qualityM="";
+	Configurator::qualityH="";
+	Configurator::qualityU="";
 	Configurator::quality;
 	Configurator::qualityGetted=false;
 	Configurator::smooth=false;
@@ -107,6 +115,18 @@ const char* Configurator::getCurrentPrefab(){
 }
 const char* Configurator::getSmoothString(){
 	getString(smoothString, "smoothstring");
+}
+const char* Configurator::getQualityL(){
+	getString(qualityL, "qualityl");
+}
+const char* Configurator::getQualityM(){
+	getString(qualityM, "qualitym");
+}
+const char* Configurator::getQualityH(){
+	getString(qualityH, "qualityh");
+}
+const char* Configurator::getQualityU(){
+	getString(qualityU, "qualityu");
 }
 std::string Configurator::getLocalePath(){
 	getCurrentLocale();
