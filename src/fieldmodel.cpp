@@ -5,6 +5,7 @@
 #include "storage.h"
 #include "fieldevent.h"
 #include "base.h"
+#include "standingenemy.h"
 #include "building.h"
 #include "random.h"
 #include "foenum.h"
@@ -86,6 +87,11 @@ void FieldModel::loop(){
 				switch(Random::rnd(8000)){
 					case 1:
 						field.set(new ResourceNode(Point(x, y), &field, Resource::randomType()));
+						break;
+				}
+				switch(Random::rnd(8000)){
+					case 1:
+						field.set(new StandingEnemy(Point(x, y), &field));
 						break;
 				}
 				continue;

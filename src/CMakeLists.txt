@@ -36,10 +36,12 @@ set(src
 	resourceset.cpp
 	settingscontroller.cpp
 	settingsview.cpp
+	standingenemy.cpp
 	to.cpp
 	tubed.cpp
 	ui/lbutton.cpp
 	ui/lcheckbox.cpp
+	ui/lcheckboxswitcher.cpp
 	ui/lcolor.cpp
 	ui/lcomponent.cpp
 	ui/lcontrol.cpp
@@ -55,7 +57,6 @@ set(src
 	ui/lrectedcomponent.cpp
 	ui/lscene.cpp
 	ui/lsubscriber.cpp
-	ui/lcheckboxswitcher.cpp
 	ui/ltalk.cpp
 	ui/lwindow.cpp
 	ui/sdl/lsdrawer.cpp
