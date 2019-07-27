@@ -59,7 +59,7 @@ EventQueue LCheckBoxSwitcher::applyEvent(LEvent* e){
 	return EventQueue();
 }
 LCheckBoxSwitcher* LCheckBoxSwitcher::add(LCheckBox* cb){
-	all.push_back(cb);
+	all.push_back(cb->setRound(true));
 	return this;
 }
 

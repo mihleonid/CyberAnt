@@ -8,11 +8,13 @@ LCheckBox::LCheckBox(Rect p, std::string t, ACallback<Event*, bool>* o):LRectedC
 	text=t;
 	onStateChanged=o;
 	checked=false;
+	round=false;
 }
 LCheckBox::LCheckBox(Rect p, const char* t, ACallback<Event*, bool>* o):LRectedComponent(p){
 	text=std::string(t);
 	onStateChanged=o;
 	checked=false;
+	round=false;
 }
 LCheckBox::~LCheckBox(){
 }
@@ -35,17 +37,30 @@ void LCheckBox::draw(LDrawer* ldr){
 	}
 	ldr->drawRect(rect, col);
 	ldr->color(col);
-	if(checked){
-		ldr->drawTextCenter((rect.getA().getX()+rect.getB().getX())/2, rect.getA().getY(), ("[X] "+text).c_str());
+	if(round){
+		if(checked){
+			ldr->drawTextCenter((rect.getA().getX()+rect.getB().getX())/2, rect.getA().getY(), ("(X) "+text).c_str());
+		}else{
+			ldr->drawTextCenter((rect.getA().getX()+rect.getB().getX())/2, rect.getA().getY(), ("( ) "+text).c_str());
+		}
 	}else{
-		ldr->drawTextCenter((rect.getA().getX()+rect.getB().getX())/2, rect.getA().getY(), ("[ ] "+text).c_str());
+		if(checked){
+			ldr->drawTextCenter((rect.getA().getX()+rect.getB().getX())/2, rect.getA().getY(), ("[X] "+text).c_str());
+		}else{
+			ldr->drawTextCenter((rect.getA().getX()+rect.getB().getX())/2, rect.getA().getY(), ("[ ] "+text).c_str());
+		}
 	}
 }
 bool LCheckBox::getChecked(){
 	return checked;
 }
-void LCheckBox::setChecked(bool b){
+LCheckBox* LCheckBox::setChecked(bool b){
 	checked=b;
+	return this;
+}
+LCheckBox* LCheckBox::setRound(bool b){
+	round=b;
+	return this;
 }
 LCheckBox* LCheckBox::setColor(const LColor& c){
 	col=c;

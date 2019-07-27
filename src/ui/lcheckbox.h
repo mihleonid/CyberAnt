@@ -12,10 +12,12 @@ class LCheckBox:public LRectedComponent{
 		bool down=false; // For drag over button
 		LColor col;
 		bool checked;
+		bool round;
 		ACallback<Event*, bool>* onStateChanged;
 	public:
 		bool getChecked();
-		void setChecked(bool);
+		LCheckBox* setChecked(bool);
+		LCheckBox* setRound(bool);
 		LCheckBox* setColor(const LColor&);
 		LColor getColor() const;
 		LCheckBox(Rect p, std::string t, ACallback<Event*, bool>* onStateChanged);
