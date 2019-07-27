@@ -51,6 +51,23 @@ std::string Configurator::getTextFromFile(std::string path){
 	file.close();
 	return res;
 }
+void Configurator::setTextToFile(std::string path, std::string text){
+	std::ifstream file((ASSETS_DIR+path+".txt").c_str());
+	file<<text;
+	Configurator::wtitle="";
+	Configurator::back="";
+	Configurator::exit="";
+	Configurator::play="";
+	Configurator::settings="";
+	Configurator::baseContains="";
+	Configurator::currentPrefab="";
+	Configurator::currentLocale="";
+	Configurator::quality;
+	Configurator::qualityGetted=false;
+	Configurator::smooth=false;
+	Configurator::smoothGetted=false;
+	file.close();
+}
 std::string Configurator::getLocalizedTextFromFile(std::string path){
 	return getTextFromFile(currentLocale+"/"+path);
 }
