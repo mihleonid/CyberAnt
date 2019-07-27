@@ -13,6 +13,7 @@ std::string Configurator::settings="";
 std::string Configurator::baseContains="";
 std::string Configurator::currentPrefab="";
 std::string Configurator::currentLocale="";
+std::string Configurator::smoothString="";
 LQuality Configurator::quality;
 bool Configurator::qualityGetted=false;
 bool Configurator::smooth=false;
@@ -62,6 +63,7 @@ void Configurator::setTextToFile(std::string path, std::string text){
 	Configurator::baseContains="";
 	Configurator::currentPrefab="";
 	Configurator::currentLocale="";
+	Configurator::smoothString="";
 	Configurator::quality;
 	Configurator::qualityGetted=false;
 	Configurator::smooth=false;
@@ -102,6 +104,9 @@ const char* Configurator::getBaseContains(){
 }
 const char* Configurator::getCurrentPrefab(){
 	getString(currentPrefab, "currentprefab");
+}
+const char* Configurator::getSmoothString(){
+	getString(smoothString, "smoothstring");
 }
 std::string Configurator::getLocalePath(){
 	getCurrentLocale();
