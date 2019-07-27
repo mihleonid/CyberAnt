@@ -52,7 +52,7 @@ std::string Configurator::getTextFromFile(std::string path){
 	return res;
 }
 void Configurator::setTextToFile(std::string path, std::string text){
-	std::ifstream file((ASSETS_DIR+path+".txt").c_str());
+	std::ofstream file((ASSETS_DIR+path+".txt").c_str());
 	file<<text;
 	Configurator::wtitle="";
 	Configurator::back="";
