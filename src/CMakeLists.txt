@@ -5,6 +5,7 @@ set(src
 	acallback.cpp
 	assets.cpp
 	base.cpp
+	bigtube.cpp
 	building.cpp
 	callback.cpp
 	configurator.cpp
