@@ -8,7 +8,7 @@
 
 LSDrawer::LSDrawer(SDL_Renderer* r){
 	ren=r;
-	font=TTF_OpenFont(ASSETS_DIR "ubuntumono.ttf", 21);
+	font=TTF_OpenFont(ASSETS_DIR "robotomono.ttf", 20);
 	assert(font!=nullptr);
 	assert(ren!=nullptr);
 	if((Configurator::getQuality()==LQHigh)||(Configurator::getQuality()==LQUltra)){
