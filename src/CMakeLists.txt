@@ -9,6 +9,7 @@ set(src
 	callback.cpp
 	configurator.cpp
 	controller.cpp
+	crazyto.cpp
 	event.cpp
 	eventqueue.cpp
 	field.cpp
