@@ -8,4 +8,7 @@ const Tubed* TO::where(const std::vector<std::pair<const Tubed*, const Point&>>&
 	std::cerr<<"Calling TO::where"<<std::endl;
 	return nullptr;
 }
+bool TO::whant(const Putable* p){
+	return false;
+}
 

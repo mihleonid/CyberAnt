@@ -11,4 +11,7 @@ const Tubed* CrazyTO::where(const std::vector<std::pair<const Tubed*, const Poin
 	}
 	return nullptr;
 }
+bool CrazyTO::whant(const Putable* p){
+	return true;
+}
 
