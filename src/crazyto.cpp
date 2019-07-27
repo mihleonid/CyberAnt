@@ -1,12 +1,20 @@
+#include "random.h"
 #include "crazyto.h"
 
 CrazyTO::CrazyTO(ResourceSet r):TO(r){
 }
-const Tubed* CrazyTO::where(const std::vector<std::pair<const Tubed*, const Point&>>& nbs){
+Tubed* CrazyTO::where(const std::vector<Tubed*>& nbs){
+	for(int j=0;j<5;++j){
+		int i=Random::rnd()%nbs.size();
+		if(!(was.count(nbs[i]))){
+			was.insert(nbs[i]);
+			return nbs[i];
+		}
+	}
 	for(int i=0;i<nbs.size();++i){
-		if(!(was.count(nbs[i].first))){
-			was.insert(nbs[i].first);
-			return nbs[i].first;
+		if(!(was.count(nbs[i]))){
+			was.insert(nbs[i]);
+			return nbs[i];
 		}
 	}
 	return nullptr;

@@ -7,7 +7,7 @@ class CrazyTO:public TO{
 		std::set<const Tubed*> was;
 	public:
 		CrazyTO(ResourceSet);
-		virtual const Tubed* where(const std::vector<std::pair<const Tubed*, const Point&>>&);//принимает доступных строений. отдаёт куда направить. nullptr=удалить
+		virtual Tubed* where(const std::vector<Tubed*>&);
 		virtual bool whant(const Putable*);
 };
 

@@ -12,6 +12,7 @@ FO::~FO(){
 }
 std::pair<LImage*, LColor> FO::getImage(Assets* ass) const{
 	std::cerr<<"Calling to FO::getImage()"<<std::endl;
+	std::cerr<<getPos().getX()<<" "<<getPos().getY();
 	return std::pair<LImage*, LColor>(nullptr, LColor(0));
 }
 void FO::update(){
@@ -43,6 +44,8 @@ std::string FO::whatToString(FOWhat w){
 			return "bimine";
 		case BOMine:
 			return "bomine";
+		case BBigTube:
+			return "bigtube";
 			//TODO more;
 		default:
 			return "error";
@@ -55,6 +58,6 @@ std::string FO::whatToLocalizedString(FOWhat w){
 	return whatNamesCache[w];
 }
 std::vector<FOWhat> FO::getAllWhats(){
-	return {BBase, BIMine, BOMine};
+	return {BBase, BIMine, BOMine, BBigTube};
 }
 

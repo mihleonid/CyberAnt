@@ -9,6 +9,7 @@
 #include "random.h"
 #include "foenum.h"
 #include "resource.h"
+#include "bigtube.h"
 
 FieldModel::FieldModel(){
 	rset=new ResourceSet();
@@ -68,6 +69,9 @@ void FieldModel::applyEvent(Event* ce){
 					break;
 				case BOMine:
 					field.set(new Mine(c->getPos(), &field, 0, Oxygen));
+					break;
+				case BBigTube:
+					field.set(new BigTube(c->getPos(), &field, 0));
 					break;
 			}
 		}

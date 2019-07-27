@@ -5,7 +5,7 @@
 #include "tubed.h"
 #include "foenum.h"
 
-class BigTube:public Building, public Tubed{
+class BigTube:public Tubed, public Building{
 	private:
 		std::vector<TO*> tos;
 	public:

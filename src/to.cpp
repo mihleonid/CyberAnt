@@ -4,11 +4,13 @@
 TO::TO(ResourceSet r){
 	have=r;
 }
-const Tubed* TO::where(const std::vector<std::pair<const Tubed*, const Point&>>& nbs){
+Tubed* TO::where(const std::vector<Tubed*>& nbs){
 	std::cerr<<"Calling TO::where"<<std::endl;
 	return nullptr;
 }
 bool TO::whant(const Putable* p){
 	return false;
+}
+TO::~TO(){
 }
 
