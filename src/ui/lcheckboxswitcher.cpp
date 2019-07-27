@@ -15,10 +15,10 @@ void LCheckBoxSwitcher::draw(LDrawer* ldr){
 		all[i]->applyTalk();
 		if(all[i]->getChecked()){
 			for(int j=0;j<i;++j){
-				all[i]->setChecked(false);
+				all[j]->setChecked(false);
 			}
 			for(int j=i+1;j<all.size();++j){
-				all[i]->setChecked(false);
+				all[j]->setChecked(false);
 			}
 		}
 		all[i]->draw(ldr);
@@ -47,10 +47,10 @@ EventQueue LCheckBoxSwitcher::applyEvent(LEvent* e){
 			EventQueue q=all[i]->applyEvent(e);
 			if(all[i]->getChecked()){
 				for(int j=0;j<i;++j){
-					all[i]->setChecked(false);
+					all[j]->setChecked(false);
 				}
 				for(int j=i+1;j<all.size();++j){
-					all[i]->setChecked(false);
+					all[j]->setChecked(false);
 				}
 			}
 			return q;
