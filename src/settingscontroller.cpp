@@ -47,9 +47,29 @@ LScene* SettingsController::generateUIScene(){
 	LCheckBox* smooth=new LCheckBox(Rect(win->getCenter().setDY(-20).setDX(-70), win->getCenter().setDY(0).setDX(70)), Configurator::getSmoothString(), (new configput)->init("smooth", "Y", "N"));
 	smooth->setColor(LColor(true, 0, 50, 240));
 	smooth->setChecked(Configurator::getSmooth());
+	//TODO relative
+	LCheckBox* ql=new LCheckBox(Rect(win->getCenter().setDY(-60).setDX(-70), win->getCenter().setDY(-40).setDX(70)), Configurator::getQualityL(), (new configput)->init("quality", "L", ""));
+	ql->setColor(LColor(true, 0, 50, 240));
+	ql->setChecked(Configurator::getQuality()==LQLow);
+	LCheckBox* qm=new LCheckBox(Rect(win->getCenter().setDY(-100).setDX(-70), win->getCenter().setDY(-80).setDX(70)), Configurator::getQualityM(), (new configput)->init("quality", "M", ""));
+	qm->setChecked(Configurator::getQuality()==LQMedium);
+	qm->setColor(LColor(true, 0, 50, 240));
+	LCheckBox* qh=new LCheckBox(Rect(win->getCenter().setDY(-140).setDX(-70), win->getCenter().setDY(-120).setDX(70)), Configurator::getQualityH(), (new configput)->init("quality", "H", ""));
+	qh->setChecked(Configurator::getQuality()==LQHigh);
+	qh->setColor(LColor(true, 0, 50, 240));
+	LCheckBox* qu=new LCheckBox(Rect(win->getCenter().setDY(-180).setDX(-70), win->getCenter().setDY(-160).setDX(70)), Configurator::getQualityU(), (new configput)->init("quality", "U", ""));
+	qu->setChecked(Configurator::getQuality()==LQUltra);
+	qu->setColor(LColor(true, 0, 50, 240));
+	LCheckBoxSwitcher* qswitcher=new LCheckBoxSwitcher(Rect(win->getCenter().setDY(-180).setDX(-70), win->getCenter().setDY(-40).setDX(70)));
+	qswitcher
+		->add(ql)
+		->add(qm)
+		->add(qh)
+		->add(qu);
 	return (new LScene())
 	->add(new LKeyboardListener(K_Q, new back))
 	->add(smooth)
+	->add(qswitcher)
 	->add((new LButton(Rect(win->getCenter().setDY(20).setDX(-70), win->getCenter().setDY(40).setDX(70)), Configurator::getBack(), new back))->setColor(LColor(true, 0, 50, 240)));
 }
 
