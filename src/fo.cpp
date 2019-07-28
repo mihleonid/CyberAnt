@@ -12,13 +12,14 @@ FO::FO(Point p, Field* currF){
 }
 FO::~FO(){
 }
-void FO::damage(int d){
+bool FO::damage(int d){
 	if(health>d){
 		health-=d;
-		return;
+		return false;
 	}
 	health=0;
 	currField->remove(getPos());
+	return true;
 }
 int FO::getHealth() const{
 	return health;

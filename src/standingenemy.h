@@ -2,6 +2,8 @@
 #include "fo.h"
 
 class StandingEnemy:public FO{
+	private:
+		int strength;
 	public:
 		StandingEnemy(Point, Field*);
 		virtual void update();

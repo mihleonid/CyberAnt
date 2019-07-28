@@ -32,7 +32,7 @@ class FO{
 
 		FO(Point p, Field* currField);
 		virtual ~FO();
-		virtual void damage(int);
+		virtual bool damage(int); // Return is deleted
 
 		virtual void update();
 		virtual std::pair<LImage*, LColor> getImage(Assets* ass) const;
