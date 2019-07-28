@@ -18,16 +18,21 @@ class FO{
 		Field* currField;
 		Point pos;
 		int order=-1; // Нужно для Field
+		int health;
+		int maxhealth;
 	public:
 		FOType getType() const;
 		FOWhat getWhat() const;
 		Field* getField();
 		Point getPos() const;
+		int getHealth() const;
+		int getMaxHealth() const;
 
 		void setPos(Point p);
 
 		FO(Point p, Field* currField);
 		virtual ~FO();
+		virtual void damage(int);
 
 		virtual void update();
 		virtual std::pair<LImage*, LColor> getImage(Assets* ass) const;

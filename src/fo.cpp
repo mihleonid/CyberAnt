@@ -7,8 +7,24 @@ std::map<FOWhat, std::string> FO::whatNamesCache;
 FO::FO(Point p, Field* currF){
 	pos=p;
 	currField=currF;
+	maxhealth=100;
+	health=100;
 }
 FO::~FO(){
+}
+void FO::damage(int d){
+	if(health>d){
+		health-=d;
+		return;
+	}
+	health=0;
+	currField->remove(getPos());
+}
+int FO::getHealth() const{
+	return health;
+}
+int FO::getMaxHealth() const{
+	return maxhealth;
 }
 std::pair<LImage*, LColor> FO::getImage(Assets* ass) const{
 	std::cerr<<"Calling to FO::getImage()"<<std::endl;

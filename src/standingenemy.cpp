@@ -4,7 +4,7 @@
 
 StandingEnemy::StandingEnemy(Point p, Field* f):FO(p, f){
 	what=BBase;
-	type=FONone;
+	type=FOEnemy;
 }
 void StandingEnemy::update(){
 	for(Point p:getField()->getnb(getPos())){
@@ -12,8 +12,11 @@ void StandingEnemy::update(){
 		if(f==nullptr){
 			continue;
 		}
-		if(Random::rnd(2000)==1){
-			getField()->remove(p);
+		if(f->getType()&FOEnemy){
+			return;
+		}
+		if(Random::rnd(40)==1){
+			f->damage(1);
 		}
 	}
 }

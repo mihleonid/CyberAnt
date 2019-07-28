@@ -52,6 +52,12 @@ void FieldView::loop(const Model* mode){
 				col=pair.second;
 			}
 			win->getDrawer()->draw(FW*i-scrollX, FH*j-scrollY, img, col);
+			if(c!=nullptr){
+				if(c->getHealth()!=c->getMaxHealth()){
+					Point start=Point(FW*i-scrollX, FH*j-scrollY+FH-2);
+					win->getDrawer()->drawRect(Rect(start, start.setDY(2).setDX(FW*c->getHealth()/c->getMaxHealth())), LColor(true, 255, 0, 0));
+				}
+			}
 		}
 	}
 	Rect baseContains=win->getDrawer()->drawTextRight(win->getCorner().getX(), 0, (std::string(Configurator::getBaseContains())+std::string(": ")).c_str());
