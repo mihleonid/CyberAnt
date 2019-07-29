@@ -14,7 +14,7 @@ void StandingEnemy::update(){
 			continue;
 		}
 		if(f->getType()&FOEnemy){
-			return;
+			continue;
 		}
 		if(Random::rnd(40)==1){
 			if(f->damage(strength)){
