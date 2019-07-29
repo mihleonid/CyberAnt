@@ -13,7 +13,7 @@ Field::Field(){
 	}
 }
 Field::~Field(){
-	delete field;
+	delete[] field;
 }
 
 

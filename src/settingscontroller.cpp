@@ -18,7 +18,7 @@ LScene* SettingsController::generateUIScene(){
 			virtual Event* call(){
 				return new GameControllerEvent(false, true);
 			}
-	} back;
+	} backi;
 	typedef class:public ACallback<Event*, bool>{
 		private:
 			std::string f;
@@ -67,9 +67,9 @@ LScene* SettingsController::generateUIScene(){
 		->add(qh)
 		->add(qu);
 	return (new LScene())
-	->add(new LKeyboardListener(K_Q, new back))
+	->add(new LKeyboardListener(K_Q, new backi))
 	->add(smooth)
 	->add(qswitcher)
-	->add((new LButton(Rect(win->getCenter().setDY(20).setDX(-70), win->getCenter().setDY(40).setDX(70)), Configurator::getBack(), new back))->setColor(LColor(true, 0, 50, 240)));
+	->add((new LButton(Rect(win->getCenter().setDY(20).setDX(-70), win->getCenter().setDY(40).setDX(70)), Configurator::getBack(), new backi))->setColor(LColor(true, 0, 50, 240)));
 }
 

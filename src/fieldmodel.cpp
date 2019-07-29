@@ -45,7 +45,7 @@ void FieldModel::applyEvent(Event* ce){
 		if(field.get(c->getPos())!=nullptr){
 			FO* f=field.get(c->getPos());
 			if(f->getType()&FOBuilding){
-				((Building*)f)->upgrade();
+				dynamic_cast<Building*>(f)->upgrade();
 			}
 		}
 	}
@@ -59,7 +59,7 @@ void FieldModel::applyEvent(Event* ce){
 					if(!baseBuilded){
 						Base* b=new Base(c->getPos(), &field, 0);
 						field.set((FO*)b);
-						((Storage*)b)->have=*rset;
+						(dynamic_cast<Storage*>(b))->have=*rset;
 						delete rset;
 						rset=&(dynamic_cast<Storage*>(b)->have);
 						baseBuilded=true;

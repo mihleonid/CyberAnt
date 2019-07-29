@@ -72,7 +72,6 @@ void Configurator::setTextToFile(std::string path, std::string text){
 	Configurator::qualityM="";
 	Configurator::qualityH="";
 	Configurator::qualityU="";
-	Configurator::quality;
 	Configurator::qualityGetted=false;
 	Configurator::smooth=false;
 	Configurator::smoothGetted=false;

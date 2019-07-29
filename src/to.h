@@ -11,6 +11,6 @@ class TO{
 		TO(ResourceSet r);
 		virtual Tubed* where(const std::vector<Tubed*>&);//принимает доступных строений. отдаёт куда направить. nullptr=удалить
 		virtual bool whant(const Putable*);
-		~TO();
+		virtual ~TO();
 };
 
