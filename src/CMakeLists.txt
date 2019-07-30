@@ -22,6 +22,8 @@ set(src
 	foenum.cpp
 	gamecontroller.cpp
 	gamecontrollerevent.cpp
+	gameovercontroller.cpp
+	gameoverview.cpp
 	main.cpp
 	menucontroller.cpp
 	menuview.cpp
