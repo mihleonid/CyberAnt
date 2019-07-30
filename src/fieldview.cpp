@@ -25,8 +25,8 @@ void FieldView::loop(const Model* mode){
 	win->getDrawer()->color(LColor(true, 1, 0, 0));
 	//TODO Draw from lwindow
 	const FieldModel* model=(const FieldModel*)mode;
-	clamp(scrollX, -20, BlocksX*FW-SCREEN_W+20);
-	clamp(scrollY, -20, BlocksY*FH-SCREEN_H+20);
+	clamp(scrollX, -70, BlocksX*FW-SCREEN_W+20);
+	clamp(scrollY, -160, BlocksY*FH-SCREEN_H+20);
 	for(int i=0;i<BlocksX;i++){
 		for(int j=0;j<BlocksY;j++){
 			if(FW*i-scrollX+FW<0){
