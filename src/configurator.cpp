@@ -18,6 +18,7 @@ std::string Configurator::qualityL="";
 std::string Configurator::qualityM="";
 std::string Configurator::qualityH="";
 std::string Configurator::qualityU="";
+std::string Configurator::gameOver="";
 LQuality Configurator::quality;
 bool Configurator::qualityGetted=false;
 bool Configurator::smooth=false;
@@ -72,6 +73,7 @@ void Configurator::setTextToFile(std::string path, std::string text){
 	Configurator::qualityM="";
 	Configurator::qualityH="";
 	Configurator::qualityU="";
+	Configurator::gameOver="";
 	Configurator::qualityGetted=false;
 	Configurator::smooth=false;
 	Configurator::smoothGetted=false;
@@ -126,6 +128,9 @@ const char* Configurator::getQualityH(){
 }
 const char* Configurator::getQualityU(){
 	getString(qualityU, "qualityu");
+}
+const char* Configurator::getGameOver(){
+	getString(gameOver, "gameover");
 }
 std::string Configurator::getLocalePath(){
 	getCurrentLocale();

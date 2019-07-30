@@ -15,7 +15,7 @@
 void GameOverView::loop(const Model* mode){
 	win->clear(LColor(true, 0, 120, 230));
 	win->draw();
-	win->getDrawer()->drawTextCenter(win->getCenter().getX(), win->getCenter().getY(), "Game over."); //TODO from configurator
+	win->getDrawer()->drawTextCenter(win->getCenter().getX(), win->getCenter().getY(), Configurator::getGameOver());
 	win->present();
 }
 EventQueue GameOverView::getEvents(){

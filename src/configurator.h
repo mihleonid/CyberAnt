@@ -19,6 +19,7 @@ class Configurator{
 		static std::string qualityM;
 		static std::string qualityH;
 		static std::string qualityU;
+		static std::string gameOver;
 		static LQuality quality;
 		static bool qualityGetted;
 		static bool smooth;
@@ -38,6 +39,7 @@ class Configurator{
 		static const char* getQualityM();
 		static const char* getQualityH();
 		static const char* getQualityU();
+		static const char* getGameOver();
 		static std::string getLocalePath();
 		static std::string getTextFromFile(std::string path); // without assets dir and txt
 		static void setTextToFile(std::string path, std::string text); // without assets dir and txt
