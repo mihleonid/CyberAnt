@@ -62,13 +62,15 @@ void GameController::changeController(Controller* ctl){
 	currentController=ctl;
 	hist.push(old);
 }
-bool GameController::back(){
-	if(hist.empty()){
-		return true;
+bool GameController::back(int d){
+	for(int i=0;i<d;++i){
+		if(hist.empty()){
+			return true;
+		}
+		delete currentController;
+		currentController=hist.top();
+		hist.pop();
 	}
-	delete currentController;
-	currentController=hist.top();
-	hist.pop();
 	return false;
 }
 
@@ -83,11 +85,9 @@ void GameController::loop(){
 				delete c;
 				goto quit;
 			}
-			if(c->getBack()){
-				if(back()){
-					delete c;
-					goto quit;
-				}
+			if(back(c->getBack())){
+				delete c;
+				goto quit;
 			}
 			if(c->getController()!=nullptr){
 				changeController(c->getController());

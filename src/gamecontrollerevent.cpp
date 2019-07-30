@@ -12,13 +12,17 @@ GameControllerEvent::GameControllerEvent(Controller* newctl, int d){
 }
 GameControllerEvent::GameControllerEvent(bool e, bool b){
 	exit=e;
+	back=1;
+}
+GameControllerEvent::GameControllerEvent(bool e, int b){
+	exit=e;
 	back=b;
 }
 
 int GameControllerEvent::getFUPSDelta() const{
 	return FUPSDelta;
 }
-bool GameControllerEvent::getBack() const{
+int GameControllerEvent::getBack() const{
 	return back;
 }
 bool GameControllerEvent::getExit() const{
