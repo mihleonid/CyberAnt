@@ -79,7 +79,8 @@ void FieldModel::applyEvent(Event* ce){
 	}
 }
 
-void FieldModel::loop(){
+EventQueue FieldModel::loop(){
+	EventQueue eq;
 	for(int x=0;x<BlocksX;x++){ // Вот тут надо проходить через все (чтобы создавать новые случайные).
 		for(int y=0;y<BlocksY;y++){
 			FO* c=field.get(x, y);
@@ -106,5 +107,6 @@ void FieldModel::loop(){
 			c->update();
 		}
 	}
+	return eq;
 }
 

@@ -15,7 +15,7 @@ class FieldModel:public Model{
 		FieldModel();
 		FOWhat getPrefab() const;
 		void applyEvent(Event* c);
-		void loop(); // Проход цикла
+		EventQueue loop(); // Проход цикла
 		~FieldModel();
 };
 

@@ -34,7 +34,7 @@ const LScene* Controller::getLScene() const{
 void Controller::loop(){
 	win->setScene(scn);
 	if(model!=nullptr){
-		model->loop();
+		eventQueue.pipe(model->loop());
 	}
 	view->loop(model);
 }
@@ -63,6 +63,7 @@ EventQueue Controller::eventLoop(){
 			delete c;
 		}
 	}
+	res.pipeM(eventQueue);
 	return res;
 }
 

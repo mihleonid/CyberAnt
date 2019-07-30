@@ -11,6 +11,7 @@ class Controller{
 		Model* model;
 		View* view;
 		LScene* scn;
+		EventQueue eventQueue; // Понадобиться при многопоточности (пока можно обойтись и без неё).
 	protected:
 		LWindow* win;
 		void initialize(Model* m, View* v, LWindow* win);
