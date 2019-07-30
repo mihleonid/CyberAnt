@@ -7,6 +7,6 @@ class FieldController:public Controller{
 	protected:
 		virtual LScene* generateUIScene();
 	public:
-		FieldController(LWindow* win);
+		virtual void init(LWindow* win);
 };
 

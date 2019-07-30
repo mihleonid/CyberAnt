@@ -21,7 +21,9 @@ GameController::GameController(){
 		std::cout<<"Initialization finishing..."<<std::endl;
 #endif
 		win=new LWindow(Configurator::getWindowTitle());
-		currentController=new MenuController(win);
+		currentController=new MenuController();
+		currentController->init(win);
+		win->setScene(currentController->getLScene());
 		initFps();
 #ifdef DEBUG
 		std::cout<<"Initialization success."<<std::endl;
@@ -61,6 +63,8 @@ void GameController::changeController(Controller* ctl){
 	Controller* old=currentController;
 	currentController=ctl;
 	hist.push(old);
+	currentController->init(win);
+	win->setScene(currentController->getLScene());
 }
 bool GameController::back(int d){
 	for(int i=0;i<d;++i){
@@ -69,6 +73,7 @@ bool GameController::back(int d){
 		}
 		delete currentController;
 		currentController=hist.top();
+		win->setScene(currentController->getLScene());
 		hist.pop();
 	}
 	return false;

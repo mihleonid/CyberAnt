@@ -8,7 +8,7 @@
 #include "gamecontrollerevent.h"
 #include "configurator.h"
 
-GameOverController::GameOverController(LWindow* win){
+void GameOverController::init(LWindow* win){
 	initialize(nullptr, new GameOverView, win);
 }
 LScene* GameOverController::generateUIScene(){

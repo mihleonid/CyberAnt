@@ -5,6 +5,6 @@ class SettingsController:public Controller{
 	protected:
 		LScene* generateUIScene();
 	public:
-		SettingsController(LWindow* win);
+		virtual void init(LWindow* win);
 };
 

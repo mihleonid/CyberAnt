@@ -9,7 +9,7 @@
 #include "configurator.h"
 #include "acallback.h"
 
-SettingsController::SettingsController(LWindow* win){
+void SettingsController::init(LWindow* win){
 	initialize(nullptr, new SettingsView, win);
 }
 LScene* SettingsController::generateUIScene(){

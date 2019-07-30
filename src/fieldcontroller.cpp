@@ -9,7 +9,7 @@
 #include "ui/lbutton.h"
 #include "ui/lkeyboardlistener.h"
 
-FieldController::FieldController(LWindow* win){
+void FieldController::init(LWindow* win){
 	initialize(new FieldModel, new FieldView, win);
 }
 LScene* FieldController::generateUIScene(){

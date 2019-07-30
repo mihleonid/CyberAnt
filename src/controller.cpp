@@ -2,6 +2,9 @@
 #include "controller.h"
 #include "ui/lwindow.h"
 
+void Controller::init(LWindow* win){
+	std::cout<<"Calling Controller::init()"<<std::endl;
+}
 void Controller::initialize(Model* m, View* v, LWindow* w){
 	model=m;
 	view=v;
@@ -35,7 +38,6 @@ const LScene* Controller::getLScene() const{
 	return scn;
 }
 void Controller::loop(){
-	win->setScene(scn);
 	if(model!=nullptr){
 		eventQueue.pipe(model->loop());
 	}

@@ -5,6 +5,6 @@ class GameOverController:public Controller{
 	protected:
 		LScene* generateUIScene();
 	public:
-		GameOverController(LWindow* win);
+		virtual void init(LWindow* win);
 };
 

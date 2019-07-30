@@ -114,7 +114,7 @@ EventQueue FieldModel::loop(){
 		}
 	}
 	if(baseDestroyed&baseBuilded){
-		eq.push(new GameControllerEvent(new GameOverController(win)));
+		eq.push(new GameControllerEvent(new GameOverController()));
 	}
 	return eq;
 }

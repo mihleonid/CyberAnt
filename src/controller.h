@@ -14,9 +14,11 @@ class Controller{
 		EventQueue eventQueue; // Понадобиться при многопоточности (пока можно обойтись и без неё).
 	protected:
 		LWindow* win;
-		void initialize(Model* m, View* v, LWindow* win);
+		void initialize(Model* m, View* v, LWindow* win); // А это вызывает реализация Controller a
 		virtual LScene* generateUIScene();
 	public:
+		virtual void init(LWindow* win); // Этот метод будет вызывать GameController
+
 		Model* getModel();
 		View* getView();
 		LScene* getLScene();
