@@ -11,9 +11,6 @@ void Controller::initialize(Model* m, View* v, LWindow* w){
 	win=w;
 	scn=generateUIScene();
 	v->init(w);
-	if(m!=nullptr){
-		m->win=w;
-	}
 }
 LScene* Controller::generateUIScene(){
 	std::cerr<<"Controller must generate UI Scene"<<std::endl;
