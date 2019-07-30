@@ -2,7 +2,7 @@
 
 Base::Base(Point p, Field* f, int lvl):Building(p, f, lvl){
 	what=BBase;
-	type=(FOType)(FOBuilding|FOResourced|FOStorage|FOPutable);
+	type=(FOType)(FOBuilding|FOResourced|FOStorage|FOPutable|FOBase);
 }
 void Base::update(){
 }

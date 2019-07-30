@@ -11,6 +11,8 @@
 #include "foenum.h"
 #include "resource.h"
 #include "bigtube.h"
+#include "gameovercontroller.h"
+#include "gamecontrollerevent.h"
 
 FieldModel::FieldModel(){
 	rset=new ResourceSet();
@@ -81,6 +83,7 @@ void FieldModel::applyEvent(Event* ce){
 
 EventQueue FieldModel::loop(){
 	EventQueue eq;
+	bool baseDestroyed=true;
 	for(int x=0;x<BlocksX;x++){ // Вот тут надо проходить через все (чтобы создавать новые случайные).
 		for(int y=0;y<BlocksY;y++){
 			FO* c=field.get(x, y);
@@ -97,6 +100,9 @@ EventQueue FieldModel::loop(){
 				}
 				continue;
 			}
+			if(c->getType()&FOBase){
+				baseDestroyed=false;
+			}
 			if(c->getType()&FOResourced){
 				if((dynamic_cast<Resourced*>(c))->empty()){
 					field.remove(x, y);
@@ -106,6 +112,9 @@ EventQueue FieldModel::loop(){
 			}
 			c->update();
 		}
+	}
+	if(baseDestroyed&baseBuilded){
+		eq.push(new GameControllerEvent(new GameOverController(win)));
 	}
 	return eq;
 }
