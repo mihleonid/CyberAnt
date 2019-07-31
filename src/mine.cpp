@@ -30,9 +30,11 @@ void Mine::update(){
 			continue;
 		}
 		if(fff->getType()&FOResourced){
-			if(rand()%80<level+2){
-				got.add(need);
-				got.sub(dynamic_cast<Resourced*>(fff)->mine(need));
+			if(!(fff->getType()&FOBase)){
+				if(rand()%80<level+2){
+					got.add(need);
+					got.sub(dynamic_cast<Resourced*>(fff)->mine(need));
+				}
 			}
 		}
 		if(fff->getType()&FOTubed){
