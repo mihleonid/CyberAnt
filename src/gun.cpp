@@ -17,8 +17,8 @@ void Gun::update(){
 			continue;
 		}
 		if(f->getType()&FOEnemy){
-			if(iron>=10){
-				iron-=10;
+			if(iron>=cost){
+				iron-=cost;
 				if(f->damage(strength)){
 					++strength;
 				}
