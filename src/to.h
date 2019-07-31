@@ -9,7 +9,8 @@ class TO{
 	public:
 		ResourceSet have;
 		TO(ResourceSet r);
-		virtual Tubed* where(const std::vector<Tubed*>&);//принимает доступных строений. отдаёт куда направить. nullptr=удалить
+		virtual void sended(Tubed* me); // Вызывает тот, кто принял.
+		virtual Tubed* where(const std::vector<Tubed*>&); // принимает доступных строений. отдаёт куда направить. nullptr=удалить
 		virtual bool whant(const Putable*);
 		virtual ~TO();
 };

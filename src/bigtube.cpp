@@ -35,7 +35,7 @@ void BigTube::update(){
 		Tubed* res=tos[i]->where(aims);
 		if(res==nullptr){
 #ifdef DEBUG
-			std::cout<<"Losing TO"<<std::endl;
+			std::cout<<"Losing TO. At Point("<<getPos().getX()<<", "<<getPos().getY()<<")"<<std::endl;
 #endif
 			delete tos[i];
 			tos[i]=tos[tos.size()-1];

@@ -4,9 +4,10 @@
 
 class CrazyTO:public TO{
 	private:
-		std::set<const Tubed*> was;
+		std::set<Tubed*> was;
 	public:
 		CrazyTO(ResourceSet);
+		virtual void sended(Tubed*);
 		virtual Tubed* where(const std::vector<Tubed*>&);
 		virtual bool whant(const Putable*);
 };
