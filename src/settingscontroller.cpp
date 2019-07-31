@@ -1,7 +1,7 @@
 #include "settingscontroller.h"
-#include "settingsview.h"
 #include "ui/lscene.h"
 #include "ui/lbutton.h"
+#include "ui/lwindow.h"
 #include "ui/lcheckboxswitcher.h"
 #include "ui/lkeyboardlistener.h"
 #include "fieldcontroller.h"
@@ -10,7 +10,7 @@
 #include "acallback.h"
 
 void SettingsController::init(LWindow* win){
-	initialize(nullptr, new SettingsView, win);
+	initialize(nullptr, nullptr, nullptr, win);
 }
 LScene* SettingsController::generateUIScene(){
 	typedef class:public Callback<Event*>{

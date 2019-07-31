@@ -18,8 +18,8 @@ class FieldView:public View{
 		LWindow* win=nullptr;
 	public:
 		virtual void loop(const Model* m);
-		virtual EventQueue getEvents();
 		virtual void init(LWindow* win);
 		~FieldView();
+		friend class FieldEventListener;
 };
 

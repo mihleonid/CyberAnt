@@ -17,9 +17,6 @@
 #include "fieldmodel.h"
 #include "common.hpp"
 
-#define FW 64
-#define FH 64
-
 void FieldView::loop(const Model* mode){
 	win->clear();
 	win->getDrawer()->color(LColor(true, 1, 0, 0));
@@ -74,123 +71,6 @@ void FieldView::loop(const Model* mode){
 	win->getDrawer()->drawText(Point(prefab.getB().getX(), prefab.getA().getY()), FO::whatToLocalizedString(model->getPrefab()).c_str());
 
 	win->draw();
-	win->present();
-}
-EventQueue FieldView::getEvents(){
-	std::pair<EventQueue, std::queue<LEvent*>> pair=win->getEvents();
-	EventQueue v=pair.first;
-	std::queue<LEvent*> q=pair.second;
-	while(!(q.empty())){
-		LEvent* evt=q.front();
-		q.pop();
-		if(evt->getType()==LEventType::Exit){
-			v.push(new GameControllerEvent(true, false));
-			delete evt;
-			break;
-		}
-		if(evt->getType()==LEventType::Back){
-			v.push(new GameControllerEvent(false, true));
-			delete evt;
-			break;
-		}
-		if(evt->getType()==LEventType::Mouse){
-			LMouseEvent* mevt=(LMouseEvent*)evt;
-			if(mevt->getMouseType()==MOUSE_Move){
-				if(mouseDown){
-					mouseMoved=true;
-					scrollX-=mevt->getPos().getX()-mouseX;
-					scrollY-=mevt->getPos().getY()-mouseY;
-					mouseX=mevt->getPos().getX();
-					mouseY=mevt->getPos().getY();
-				}
-			}
-			if(mevt->getMouseType()==BUTTON_Down){
-				mouseDown=true;
-				mouseX=mevt->getPos().getX();
-				mouseY=mevt->getPos().getY();
-			}
-			if(mevt->getMouseType()==BUTTON_Up){
-				mouseDown=false;
-				if(!mouseMoved){
-					int x=mevt->getPos().getX()+scrollX;//screen coordinats
-					int y=mevt->getPos().getY()+scrollY;
-					x/=FW;//field coordinats
-					y/=FH;
-					clamp(x, 0, BlocksX);
-					clamp(y, 0, BlocksY);
-					v.push(new FieldEvent(EUpgrade, Point(x, y)));
-					v.push(new FieldEvent(EBuild, Point(x, y)));
-				}
-				mouseMoved=false;
-			}
-			delete mevt;
-			continue;
-		}
-		if(evt->getType()==Keyboard){
-			LKeyboardEvent* kevt=(LKeyboardEvent*)evt;
-			switch (kevt->getKey()){
-				case K_1:
-					v.push(new GameControllerEvent(-1));
-					break;
-				case K_2:
-					v.push(new GameControllerEvent(1));
-					break;
-				case K_D:
-					if(kevt->getCtrl()){
-						scrollX+=3;
-					}
-					if(kevt->getShift()){
-						scrollX+=3;
-					}
-					scrollX+=2;
-				case K_RIGHT:
-					scrollX++;
-					break;
-				case K_A:
-					if(kevt->getCtrl()){
-						scrollX-=3;
-					}
-					if(kevt->getShift()){
-						scrollX-=3;
-					}
-					scrollX-=2;
-				case K_LEFT:
-					scrollX--;
-					break;
-				case K_S:
-					if(kevt->getCtrl()){
-						scrollY+=3;
-					}
-					if(kevt->getShift()){
-						scrollY+=3;
-					}
-					scrollY+=2;
-				case K_DOWN:
-					scrollY++;
-					break;
-				case K_W:
-					if(kevt->getCtrl()){
-						scrollY-=3;
-					}
-					if(kevt->getShift()){
-						scrollY-=3;
-					}
-					scrollY-=2;
-				case K_UP:
-					scrollY--;
-					break;
-				default:
-					break;
-			}
-			delete kevt;
-			continue;
-		}
-	}
-	while(!(q.empty())){
-		delete q.front();
-		q.pop();
-	}
-	return v;
 }
 void FieldView::init(LWindow* cwin){
 	scrollX=0;
@@ -203,6 +83,4 @@ void FieldView::init(LWindow* cwin){
 FieldView::~FieldView(){
 	delete ass;
 }
-#undef FW
-#undef FH
 

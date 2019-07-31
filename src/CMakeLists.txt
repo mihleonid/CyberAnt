@@ -12,10 +12,12 @@ set(src
 	controller.cpp
 	crazyto.cpp
 	event.cpp
+	eventlistener.cpp
 	eventqueue.cpp
 	field.cpp
 	fieldcontroller.cpp
 	fieldevent.cpp
+	fieldeventlistener.cpp
 	fieldmodel.cpp
 	fieldview.cpp
 	fo.cpp
@@ -23,10 +25,8 @@ set(src
 	gamecontroller.cpp
 	gamecontrollerevent.cpp
 	gameovercontroller.cpp
-	gameoverview.cpp
 	main.cpp
 	menucontroller.cpp
-	menuview.cpp
 	mine.cpp
 	model.cpp
 	point.cpp
@@ -37,7 +37,6 @@ set(src
 	resourcenode.cpp
 	resourceset.cpp
 	settingscontroller.cpp
-	settingsview.cpp
 	standingenemy.cpp
 	to.cpp
 	tubed.cpp

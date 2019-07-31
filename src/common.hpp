@@ -7,6 +7,9 @@
 #define BlocksX 30
 #define BlocksY 30
 
+#define FW 64
+#define FH 64
+
 // must be more than 1
 
 #define ASSETS_DIR "./assets/"

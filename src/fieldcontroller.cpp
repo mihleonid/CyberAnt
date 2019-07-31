@@ -1,6 +1,7 @@
 #include "fieldcontroller.h"
 #include "fieldmodel.h"
 #include "fieldview.h"
+#include "fieldeventlistener.h"
 #include "fieldevent.h"
 #include "fo.h"
 #include "gamecontrollerevent.h"
@@ -10,7 +11,7 @@
 #include "ui/lkeyboardlistener.h"
 
 void FieldController::init(LWindow* win){
-	initialize(new FieldModel, new FieldView, win);
+	initialize(new FieldModel, new FieldView, new FieldEventListener, win);
 }
 LScene* FieldController::generateUIScene(){
 	typedef class:public Callback<Event*>{

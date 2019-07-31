@@ -12,7 +12,9 @@ GameControllerEvent::GameControllerEvent(Controller* newctl, int d){
 }
 GameControllerEvent::GameControllerEvent(bool e, bool b){
 	exit=e;
-	back=1;
+	if(b){
+		back=1;
+	}
 }
 GameControllerEvent::GameControllerEvent(bool e, int b){
 	exit=e;

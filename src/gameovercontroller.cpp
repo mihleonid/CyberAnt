@@ -1,7 +1,7 @@
 #include "gameovercontroller.h"
-#include "gameoverview.h"
 #include "ui/lscene.h"
 #include "ui/lbutton.h"
+#include "ui/lwindow.h"
 #include "ui/lkeyboardlistener.h"
 #include "fieldcontroller.h"
 #include "settingscontroller.h"
@@ -9,7 +9,7 @@
 #include "configurator.h"
 
 void GameOverController::init(LWindow* win){
-	initialize(nullptr, new GameOverView, win);
+	initialize(nullptr, nullptr, nullptr, win);
 }
 LScene* GameOverController::generateUIScene(){
 	typedef class:public Callback<Event*>{

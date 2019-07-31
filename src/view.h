@@ -8,7 +8,6 @@ class View{
 	public:
 		virtual void init(LWindow*);
 		virtual void loop(const Model* m);
-		virtual EventQueue getEvents();
 		virtual ~View();
 };
 

@@ -1,6 +1,6 @@
 #include "menucontroller.h"
-#include "menuview.h"
 #include "ui/lscene.h"
+#include "ui/lwindow.h"
 #include "ui/lbutton.h"
 #include "ui/lkeyboardlistener.h"
 #include "fieldcontroller.h"
@@ -9,7 +9,7 @@
 #include "configurator.h"
 
 void MenuController::init(LWindow* win){
-	initialize(nullptr, new MenuView, win);
+	initialize(nullptr, nullptr, nullptr, win);
 }
 LScene* MenuController::generateUIScene(){
 	typedef class:public Callback<Event*>{
