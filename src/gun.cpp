@@ -17,12 +17,10 @@ void Gun::update(){
 			continue;
 		}
 		if(f->getType()&FOEnemy){
-			if(iron>10){
+			if(iron>=10){
 				iron-=10;
-				if(Random::rnd(10)==1){
-					if(f->damage(strength)){
-						++strength;
-					}
+				if(f->damage(strength)){
+					++strength;
 				}
 			}else{
 #ifdef DEBUG
