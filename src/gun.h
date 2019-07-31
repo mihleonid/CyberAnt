@@ -7,6 +7,7 @@ class Gun:public Building{
 	public:
 		Gun(Point, Field*, int lvl);
 		virtual void update();
+		virtual bool upgrade();
 		virtual std::pair<LImage*, LColor> getImage(Assets* ass) const;
 };
 

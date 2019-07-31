@@ -14,7 +14,7 @@ void Gun::update(){
 			continue;
 		}
 		if(f->getType()&FOEnemy){
-			if(Random::rnd(40)==1){
+			if(Random::rnd(23)==1){
 				if(f->damage(strength)){
 					++strength;
 				}
@@ -22,7 +22,14 @@ void Gun::update(){
 		}
 	}
 }
+bool Gun::upgrade(){
+	if(Building::upgrade()){
+		++strength;
+		return true;
+	}
+	return false;
+}
 std::pair<LImage*, LColor> Gun::getImage(Assets* ass) const{
-	return std::pair<LImage*, LColor>(ass->get("gun"), LColor(0));
+	return std::pair<LImage*, LColor>(ass->get("gun"), levelColor());
 }
 
