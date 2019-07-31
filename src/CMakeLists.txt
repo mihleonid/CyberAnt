@@ -59,6 +59,7 @@ set(src
 	ui/lscene.cpp
 	ui/lsubscriber.cpp
 	ui/ltalk.cpp
+	ui/ltextbox.cpp
 	ui/lwindow.cpp
 	ui/sdl/lsdrawer.cpp
 	ui/terminal/ltdrawer.cpp
