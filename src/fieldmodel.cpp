@@ -1,4 +1,5 @@
 #include "mine.h"
+#include "gun.h"
 #include "fieldmodel.h"
 #include "resourced.h"
 #include "resourcenode.h"
@@ -75,6 +76,9 @@ void FieldModel::applyEvent(Event* ce){
 					break;
 				case BBigTube:
 					field.set(new BigTube(c->getPos(), &field, 0));
+					break;
+				case BGun:
+					field.set(new Gun(c->getPos(), &field, 0));
 					break;
 			}
 		}

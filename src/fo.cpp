@@ -63,6 +63,8 @@ std::string FO::whatToString(FOWhat w){
 			return "bomine";
 		case BBigTube:
 			return "bigtube";
+		case BGun:
+			return "gun";
 			//TODO more;
 		default:
 			return "error";
@@ -75,6 +77,6 @@ std::string FO::whatToLocalizedString(FOWhat w){
 	return whatNamesCache[w];
 }
 std::vector<FOWhat> FO::getAllWhats(){
-	return {BBase, BIMine, BOMine, BBigTube};
+	return {BBase, BIMine, BOMine, BBigTube, BGun};
 }
 

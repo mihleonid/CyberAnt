@@ -25,6 +25,7 @@ set(src
 	gamecontroller.cpp
 	gamecontrollerevent.cpp
 	gameovercontroller.cpp
+	gun.cpp
 	main.cpp
 	menucontroller.cpp
 	mine.cpp
