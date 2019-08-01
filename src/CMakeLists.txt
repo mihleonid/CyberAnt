@@ -3,6 +3,7 @@ project(CyberAnt)
 
 set(src
 	acallback.cpp
+	ask.cpp
 	assets.cpp
 	base.cpp
 	bigtube.cpp

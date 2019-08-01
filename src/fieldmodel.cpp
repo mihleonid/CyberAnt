@@ -18,7 +18,7 @@
 FieldModel::FieldModel(){
 	rset=new ResourceSet();
 	rset->add(Oxygen, 100);
-	rset->add(Iron, 20);
+	rset->add(Iron, 2000);
 	rset->add(Cristall, 10);
 	for(int x=0;x<BlocksX;x++){
 		for(int y=0;y<BlocksY;y++){
@@ -92,7 +92,7 @@ EventQueue FieldModel::loop(){
 		for(int y=0;y<BlocksY;y++){
 			FO* c=field.get(x, y);
 			if(c==nullptr){
-				switch(Random::rnd(8000)){
+				switch(Random::rnd(10000)){
 					case 1:
 						field.set(new ResourceNode(Point(x, y), &field, Resource::randomType()));
 						break;
