@@ -4,7 +4,7 @@
 #include "storage.h"
 #include "tubed.h"
 #include "random.h"
-#include "ask.h"
+//#include "ask.h"
 
 Gun::Gun(Point p, Field* f, int lvl):Building(p, f, lvl){
 	what=BBase;

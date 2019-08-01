@@ -57,5 +57,6 @@ std::pair<LImage*, LColor> BigTube::getImage(Assets* ass) const{
 }
 void BigTube::send(TO* g){
 	tos.push_back(g);
+	g->sended(this);
 }
 
