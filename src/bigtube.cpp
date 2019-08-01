@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 #include "bigtube.h"
 
 BigTube::BigTube(Point p, Field* f, int lvl):Building(p, f, lvl){
@@ -6,9 +7,14 @@ BigTube::BigTube(Point p, Field* f, int lvl):Building(p, f, lvl){
 	type=(FOType)(FOBuilding|FOTubed);
 }
 void BigTube::update(){
+	int counter=level+10;
 	std::vector<Point> nbs=getField()->getnb(getPos());
+	std::random_shuffle(nbs.begin(), nbs.end());
 	std::vector<Tubed*> aims;
 	for(int k=0;k<nbs.size();++k){
+		if(counter<=0){
+			return;
+		}
 		FO* cf=getField()->get(nbs[k]);
 		if(cf==nullptr){
 			continue;
@@ -19,6 +25,7 @@ void BigTube::update(){
 		if((cf->getType())&FOPutable){
 			for(int i=0;i<tos.size();++i){
 				if(tos[i]->whant(dynamic_cast<Putable*>(cf))){
+					--counter;
 					dynamic_cast<Putable*>(cf)->put(tos[i]->have);
 					delete tos[i];
 					tos[i]=tos[tos.size()-1];
@@ -35,6 +42,10 @@ void BigTube::update(){
 		return;
 	}
 	for(int i=0;i<tos.size();++i){
+		--counter;
+		if(counter<=0){
+			return;
+		}
 		Tubed* res=tos[i]->where(aims);
 		if(res==nullptr){
 #ifdef DEBUG
