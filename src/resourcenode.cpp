@@ -5,7 +5,7 @@
 
 ResourceNode::ResourceNode(Point pos, Field* f, ResourceType type):FO(pos, f){
 	rtype=type;
-	this->type=(FOResourced|FOStorage);
+	this->type=FOResourced;
 	int startVal;
 	Configurator::configureResourceNode(rtype, add, addPossible, taxMin, taxMax, startVal);
 	have.add(rtype, startVal);

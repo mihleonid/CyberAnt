@@ -4,6 +4,7 @@
 #include "storage.h"
 #include "tubed.h"
 #include "random.h"
+#include "ask.h"
 
 Gun::Gun(Point p, Field* f, int lvl):Building(p, f, lvl){
 	what=BBase;
@@ -26,17 +27,14 @@ void Gun::update(){
 					++strength;
 				}
 			}else{
-#ifdef DEBUG
-				std::cout<<"Gun is inactive"<<std::endl;
-				std::cout<<"Sending Ask"<<std::endl;
 				int need=cost-iron;
-				for(Point p:getField()->getnb(getPos())){
-					FO* f=getField()->get(p);
-					if(f==nullptr){
+				for(Point pp:getField()->getnb(getPos())){
+					FO* ff=getField()->get(pp);
+					if(ff==nullptr){
 						continue;
 					}
-					if(f->getType()&FOStorage){
-						need=dynamic_cast<Storage*>(f)->have.sub(Iron, need);
+					if(ff->getType()&FOStorage){
+						need=dynamic_cast<Storage*>(ff)->have.sub(Iron, need);
 					}
 				}
 				if(need==0){
@@ -46,17 +44,17 @@ void Gun::update(){
 					iron=cost-need;
 				}
 				/*
-				for(Point p:getField()->getnb(getPos())){
-					FO* f=getField()->get(p);
-					if(f==nullptr){
+				   TODO  Ask
+				for(Point pp:getField()->getnb(getPos())){
+					FO* ff=getField()->get(pp);
+					if(ff==nullptr){
 						continue;
 					}
-					if(f->getType()&FOTubed){
-						dynamic_cast<Tubed*>(f)->send(new Ask(ResourceSet(Iron, need)));
+					if(ff->getType()&FOTubed){
+						dynamic_cast<Tubed*>(ff)->send(new Ask(this, ResourceSet(Iron, need)));
 					}
 				}
 				*/
-#endif
 			}
 		}
 	}

@@ -4,6 +4,8 @@
 TO::TO(ResourceSet r){
 	have=r;
 }
+TO::TO(){
+}
 void TO::sended(Tubed*){
 }
 void TO::proccessFO(FO*){

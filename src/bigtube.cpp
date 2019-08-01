@@ -13,6 +13,9 @@ void BigTube::update(){
 		if(cf==nullptr){
 			continue;
 		}
+		for(int i=0;i<tos.size();++i){
+			tos[i]->proccessFO(cf);
+		}
 		if((cf->getType())&FOPutable){
 			for(int i=0;i<tos.size();++i){
 				if(tos[i]->whant(dynamic_cast<Putable*>(cf))){
