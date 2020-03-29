@@ -4,9 +4,8 @@
 TO::TO(ResourceSet r){
 	have=r;
 }
-TO::TO(){
-}
-void TO::sended(Tubed*){
+bool TO::sended(Tubed*){
+	return true;
 }
 void TO::proccessFO(FO*){
 }

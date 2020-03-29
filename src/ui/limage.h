@@ -3,6 +3,7 @@
 #include <map>
 #include "lcolor.h"
 #include "terminal/ltsurface.h"
+#include "ldrawer.h"
 
 #ifdef SDL
 #include <SDL.h>
@@ -15,6 +16,7 @@ class LImage{
 		std::map<LColor, SDL_Texture*> sdlcache;
 #endif
 		LTSurface* tsurf;
+		LDrawer* ldr=nullptr;
 	public:
 		static bool textLoad;
 		LImage();
@@ -25,6 +27,7 @@ class LImage{
 		~LImage();
 		LImage* applyColors(const LColor& c); // this
 		LImage* applyColors(int hex);
+		LDrawer* getDrawer();
 
 #ifdef SDL
 		SDL_Texture* newTexture(const LColor& c, SDL_Renderer* ren); // Special color (1, 1, 1)=>(c)

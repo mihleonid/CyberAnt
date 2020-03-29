@@ -12,6 +12,10 @@ Gun::Gun(Point p, Field* f, int lvl):Building(p, f, lvl){
 	strength=1;
 	cost=1;
 	iron=0;
+	restoreAskCounter();
+}
+void Gun::restoreAskCounter(){
+	askCounter=30;
 }
 void Gun::update(){
 	for(Point p:getField()->getnb(getPos())){
@@ -23,9 +27,7 @@ void Gun::update(){
 			start:;
 			if(iron>=cost){
 				iron-=cost;
-				if(f->damage(strength)){
-					++strength;
-				}
+				f->damage(strength);
 			}else{
 				int need=cost-iron;
 				for(Point pp:getField()->getnb(getPos())){
@@ -43,14 +45,19 @@ void Gun::update(){
 				}else{
 					iron=cost-need;
 				}
-				for(Point pp:getField()->getnb(getPos())){
-					FO* ff=getField()->get(pp);
-					if(ff==nullptr){
-						continue;
+				if(askCounter<=0){
+					restoreAskCounter();
+					for(Point pp:getField()->getnb(getPos())){
+						FO* ff=getField()->get(pp);
+						if(ff==nullptr){
+							continue;
+						}
+						if(ff->getType()&FOTubed){
+							dynamic_cast<Tubed*>(ff)->send(new Ask(this, ResourceSet(Iron, need)));
+						}
 					}
-					if(ff->getType()&FOTubed){
-						dynamic_cast<Tubed*>(ff)->send(new Ask(this, ResourceSet(Iron, need)));
-					}
+				}else{
+					--askCounter;
 				}
 			}
 		}
@@ -65,10 +72,13 @@ bool Gun::upgrade(){
 	return false;
 }
 std::pair<LImage*, LColor> Gun::getImage(Assets* ass) const{
-	return std::pair<LImage*, LColor>(ass->get("gun"), LColor(0, iron, 0));
-	return std::pair<LImage*, LColor>(ass->get("gun"), levelColor());//TODO bar
+	LImage* img=ass->get("gun");
+	img->getDrawer()->drawRect(Rect(0, 0, FW, 2), LColor(0, iron, 0));
+	return std::pair<LImage*, LColor>(img, LColor(0, iron, 0));
+	return std::pair<LImage*, LColor>(ass->get("gun"), levelColor());
 }
 void Gun::put(ResourceSet g){
 	iron+=g.get(Iron);
+	restoreAskCounter();
 }
 

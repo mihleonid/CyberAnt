@@ -12,7 +12,7 @@ class Ask:public TO{
 	public:
 		Ask(const Putable* target, ResourceSet);
 		Ask(Ask*);
-		virtual void sended(Tubed*);
+		virtual bool sended(Tubed*);
 		virtual Tubed* where(const std::vector<Tubed*>&);
 		virtual bool whant(const Putable*);
 		virtual void proccessFO(FO*);

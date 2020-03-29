@@ -7,6 +7,8 @@ class Gun:public Building, public Putable{ // Зарежается железо�
 		int strength;
 		int iron;
 		int cost;
+		int askCounter; // Чтобы не перегружать сеть
+		void restoreAskCounter();
 	public:
 		Gun(Point, Field*, int lvl);
 		virtual void update();

@@ -1,6 +1,9 @@
 #include <iostream>
 #include <cassert>
 #include <vector>
+#include <SDL.h>
+#include "sdl/lsdrawer.h"
+#include "ldrawer.h"
 #include "limage.h"
 #include "../configurator.h"
 
@@ -61,8 +64,10 @@ LImage::LImage(LImage* img, const LColor& c){
 #ifdef SDL
 	surf=SDL_ConvertSurfaceFormat(img->surf, SDL_PIXELFORMAT_RGBA32, SDL_SWSURFACE);
 #endif
+	/*
 	tsurf=new LTSurface(img->tsurf);
 	applyColors(c);
+	*/
 }
 LImage::~LImage(){
 #ifdef SDL
@@ -73,16 +78,21 @@ LImage::~LImage(){
 		}
 	}
 #endif
+	/*
 	if(tsurf!=nullptr){
 		delete tsurf;
 	}
+	*/
+	delete ldr;
 }
 LImage* LImage::applyColors(const LColor& c){
 	std::cerr<<"Using deprecated function LImage::applyColors"<<std::endl;
 #ifdef SDL
 	applySDL(c);
 #endif
+	/*
 	applyT(c);
+	*/
 	return this;
 }
 LImage* LImage::applyColors(int hex){
@@ -232,5 +242,11 @@ std::pair<char, LColor> LImage::letterGet(int x, int y) const{
 }
 const LTSurface& LImage::getTSurface(){
 	return *tsurf;
+}
+LDrawer* LImage::getDrawer(){
+	if(ldr==nullptr){
+		ldr=new LSDrawer(SDL_CreateSoftwareRenderer(surf));
+	}
+	return ldr;
 }
 

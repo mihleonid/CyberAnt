@@ -64,11 +64,14 @@ void BigTube::update(){
 	}
 }
 std::pair<LImage*, LColor> BigTube::getImage(Assets* ass) const{
-	return std::pair<LImage*, LColor>(ass->get("bigtube"), LColor(tos.size()/10, 0, 0));
+	return std::pair<LImage*, LColor>(ass->get("bigtube"), LColor(std::min((int)tos.size()/10, 255), std::min((int)tos.size()/100, 255), 0));
 	return std::pair<LImage*, LColor>(ass->get("bigtube"), levelColor());// Network overloading TODO to bar
 }
 void BigTube::send(TO* g){
-	tos.push_back(g);
-	g->sended(this);
+	if(g->sended(this)){
+		tos.push_back(g);
+	}else{
+		delete g;
+	}
 }
 

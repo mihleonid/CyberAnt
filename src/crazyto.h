@@ -7,7 +7,7 @@ class CrazyTO:public TO{
 		std::set<Tubed*> was;
 	public:
 		CrazyTO(ResourceSet);
-		virtual void sended(Tubed*);
+		virtual bool sended(Tubed*);
 		virtual Tubed* where(const std::vector<Tubed*>&);
 		virtual bool whant(const Putable*);
 };

@@ -1,7 +1,8 @@
 #pragma once
 #include "../point.h"
 #include "lcolor.h"
-#include "limage.h"
+
+class LImage;
 
 class LDrawer{
 	public:

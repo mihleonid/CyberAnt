@@ -6,33 +6,34 @@
 #include "fo.h"
 
 Ask::Ask(const Putable* t, ResourceSet r):TO(r){
+	std::cout<<"New"<<std::endl;
 	target=t;
 	ideal=r;
 	asking=true;
 	life=10;
 }
-Ask::Ask(Ask* cpy){
+Ask::Ask(Ask* cpy):TO(cpy->have){
+	std::cout<<"Copy"<<std::endl;
 	if(cpy->asking==false){
 		std::cerr<<"Copying answered ask = game imbalance"<<std::endl;
 	}
 	asking=true;
 	was=cpy->was;
 	target=cpy->target;
-	have=cpy->have;
 	ideal=cpy->ideal;
 	life=cpy->life;
 }
-void Ask::sended(Tubed* t){
+bool Ask::sended(Tubed* t){
 	if(asking){
 		for(int i=0;i<was.size();++i){
 			if(was[i]==t){
-				life=0;
-				return;
+				return false;
 			}
 		}
 		was.push_back(t);
 		--life;
 	}
+	return true;
 }
 Tubed* Ask::where(const std::vector<Tubed*>& nbs){
 	if(life==0){

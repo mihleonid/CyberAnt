@@ -82,4 +82,5 @@ add_definitions(-std=c++11)
 add_definitions(-DDEBUG)
 add_definitions(-DSDL)
 add_definitions(-g)
+add_definitions(-ggdb)
 

@@ -3,8 +3,9 @@
 
 CrazyTO::CrazyTO(ResourceSet r):TO(r){
 }
-void CrazyTO::sended(Tubed* t){
+bool CrazyTO::sended(Tubed* t){
 	was.insert(t);
+	return true;
 }
 Tubed* CrazyTO::where(const std::vector<Tubed*>& nbs){
 	for(int j=0;j<5;++j){
