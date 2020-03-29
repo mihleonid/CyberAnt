@@ -15,7 +15,7 @@ void ResourceNode::update(){
 		have.add(rtype, add);
 	}
 	if(empty()){
-		getField()->remove(getPos());
+		delete getField()->remove(getPos());
 	}
 }
 bool ResourceNode::empty() const{
