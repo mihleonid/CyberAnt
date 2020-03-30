@@ -18,34 +18,11 @@
 
 LWindow::LWindow(const char* title, bool force){
 	wtitle=title;
-	LImage::textLoad=false;
-#ifdef SDL
-	if(SDL_Init(SDL_INIT_VIDEO)!=0){
-		std::cerr<<"SDL_Init error: "<<SDL_GetError()<<std::endl;
-		std::cout<<"SDL is unavailible. Do you want to enter non-sdl mode? [1/0]:"<<std::endl;
-		int yn;
-		std::cin>>yn;
-		if(yn==0){
-			throw 1;
-		}
-		force=true;
-	}
-#endif
 	if(force){
 		sdlMode=false;
-		T_CLEAR();
-		T_GOTO(5, 5);
-		T_OPT(F_MAGENTA);
-		T_OPT(B_GREEN);
-		std::cout<<"LUI v 1.0 (Terminal graphics)";
-		T_NL();
-		Point p=terminal_size();
-		tw=p.getX();
-		th=p.getY();
 		//ldr=new LTDrawer;
 		LImage::textLoad=true;
 		//TODO Treminal control
-		std::this_thread::sleep_for(std::chrono::milliseconds(1500)); // Micro sleep
 	}else{
 #ifdef SDL
 		sdlMode=true;
@@ -66,9 +43,9 @@ LWindow::LWindow(const char* title, bool force){
 			throw 1;
 		}
 		ldr=new LSDrawer(ren);
-		cnt=new LControl();
 #endif
 	}
+	cnt=new LControl();
 }
 LScene* LWindow::getScene(){
 	return scene;

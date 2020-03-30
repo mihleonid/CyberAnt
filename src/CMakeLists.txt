@@ -42,6 +42,7 @@ set(src
 	standingenemy.cpp
 	to.cpp
 	tubed.cpp
+	ui/lapp.cpp
 	ui/lbutton.cpp
 	ui/lcheckbox.cpp
 	ui/lcheckboxswitcher.cpp

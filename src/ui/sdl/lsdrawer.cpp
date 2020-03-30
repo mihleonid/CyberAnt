@@ -105,7 +105,7 @@ Rect LSDrawer::drawTextCenter(int x, int y, int text){
 	return res;
 }
 SDL_Texture* LSDrawer::makeText(SDL_Renderer* ren, const char* c){
-	Uint8 alpha=0;
+	Uint8 alpha=0; // TODO make alpha
 	SDL_Color fg={(Uint8)(col.fg().r()), (Uint8)(col.fg().g()), (Uint8)(col.fg().b()), alpha};
 	SDL_Surface* surfaceMessage;
 	switch(Configurator::getQuality()){
