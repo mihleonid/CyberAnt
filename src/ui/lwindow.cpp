@@ -26,10 +26,6 @@ LWindow::LWindow(const char* title, bool force){
 	}else{
 #ifdef SDL
 		sdlMode=true;
-		if(TTF_Init()!=0){
-			std::cerr<<"TTF_Init error"<<std::endl;
-			throw 1;
-		}
 		tw=SCREEN_W;
 		th=SCREEN_H;
 		win=SDL_CreateWindow(wtitle, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_W, SCREEN_H, SDL_WINDOW_SHOWN);

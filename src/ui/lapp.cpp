@@ -5,15 +5,21 @@
 LApp::LApp(bool useText){
 	LImage::textLoad=false;//TODO
 #ifdef SDL
-	if(SDL_Init(SDL_INIT_VIDEO)!=0){
-		std::cerr<<"SDL_Init error: "<<SDL_GetError()<<std::endl;
-		std::cout<<"SDL is unavailible. Do you want to enter non-sdl mode? [1/0]:"<<std::endl;
-		int yn;
-		std::cin>>yn;
-		if(yn==0){
+	if(!useText){
+		if(SDL_Init(SDL_INIT_VIDEO)!=0){
+			std::cerr<<"SDL_Init error: "<<SDL_GetError()<<std::endl;
+			std::cout<<"SDL is unavailible. Do you want to enter non-sdl mode? [1/0]:"<<std::endl;
+			int yn;
+			std::cin>>yn;
+			if(yn==0){
+				throw 1;
+			}
+			useText=true;
+		}
+		if(TTF_Init()!=0){
+			std::cerr<<"TTF_Init error"<<std::endl;
 			throw 1;
 		}
-		useText=true;
 	}
 #endif
 	text=useText;
