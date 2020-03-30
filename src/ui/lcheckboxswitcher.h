@@ -14,7 +14,7 @@ class LCheckBoxSwitcher:public LRectedComponent{
 		LCheckBoxSwitcher* add(LCheckBox*);
 
 		LCheckBoxSwitcher(Rect p);
-		~LCheckBoxSwitcher();
+		virtual ~LCheckBoxSwitcher();
 
 		virtual void draw(LDrawer*);
 		virtual EventQueue applyEvent(LEvent*);

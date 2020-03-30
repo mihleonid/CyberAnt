@@ -17,6 +17,7 @@ LCheckBox::LCheckBox(Rect p, const char* t, ACallback<Event*, bool>* o):LRectedC
 	round=false;
 }
 LCheckBox::~LCheckBox(){
+	delete onStateChanged;
 }
 void LCheckBox::draw(LDrawer* ldr){
 	if(expand){

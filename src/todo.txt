@@ -1,0 +1,636 @@
+Use override and delete;
+Fix this:
+/home/leonid/CyberAnt/src/configurator.cpp: In static member function ‘static void Configurator::configureResourceNode(ResourceType, int&, int&, int&, int&, int&)’:
+/home/leonid/CyberAnt/src/configurator.cpp:26:55: warning: unused parameter ‘t’ [-Wunused-parameter]
+   26 | void Configurator::configureResourceNode(ResourceType t, int& add, int& addP, int& taxMin, int& taxMax, int& startVal){
+      |                                          ~~~~~~~~~~~~~^
+/home/leonid/CyberAnt/src/controller.cpp: In member function ‘virtual void Controller::init(LWindow*)’:
+/home/leonid/CyberAnt/src/controller.cpp:7:32: warning: unused parameter ‘win’ [-Wunused-parameter]
+    7 | void Controller::init(LWindow* win){
+      |                       ~~~~~~~~~^~~
+/home/leonid/CyberAnt/src/crazyto.cpp: In member function ‘virtual bool CrazyTO::whant(const Putable*)’:
+/home/leonid/CyberAnt/src/crazyto.cpp:24:36: warning: unused parameter ‘p’ [-Wunused-parameter]
+   24 | bool CrazyTO::whant(const Putable* p){
+      |                     ~~~~~~~~~~~~~~~^
+/home/leonid/CyberAnt/src/fieldevent.cpp: In constructor ‘FieldEvent::FieldEvent(FieldEventType, Point, FOWhat)’:
+/home/leonid/CyberAnt/src/fieldevent.cpp:6:6: warning: implicitly-declared ‘Point& Point::operator=(const Point&)’ is deprecated [-Wdeprecated-copy]
+    6 |  pos=p;
+      |      ^
+In file included from /home/leonid/CyberAnt/src/fieldevent.h:4,
+                 from /home/leonid/CyberAnt/src/fieldevent.cpp:1:
+/home/leonid/CyberAnt/src/point.h:25:3: note: because ‘Point’ has user-provided ‘Point::Point(const Point&)’
+   25 |   Point(const Point& p);
+      |   ^~~~~
+/home/leonid/CyberAnt/src/fieldevent.cpp: In constructor ‘FieldEvent::FieldEvent(FieldEventType, Point)’:
+/home/leonid/CyberAnt/src/fieldevent.cpp:10:6: warning: implicitly-declared ‘Point& Point::operator=(const Point&)’ is deprecated [-Wdeprecated-copy]
+   10 |  pos=p;
+      |      ^
+In file included from /home/leonid/CyberAnt/src/fieldevent.h:4,
+                 from /home/leonid/CyberAnt/src/fieldevent.cpp:1:
+/home/leonid/CyberAnt/src/point.h:25:3: note: because ‘Point’ has user-provided ‘Point::Point(const Point&)’
+   25 |   Point(const Point& p);
+      |   ^~~~~
+/home/leonid/CyberAnt/src/fieldeventlistener.cpp: In member function ‘virtual EventQueue FieldEventListener::getEvents(std::queue<LEvent*>, View*)’:
+/home/leonid/CyberAnt/src/fieldeventlistener.cpp:63:19: warning: this statement may fall through [-Wimplicit-fallthrough=]
+   63 |      view->scrollX+=2;
+      |      ~~~~~~~~~~~~~^~~
+/home/leonid/CyberAnt/src/fieldeventlistener.cpp:64:5: note: here
+   64 |     case K_RIGHT:
+      |     ^~~~
+/home/leonid/CyberAnt/src/fieldeventlistener.cpp:74:19: warning: this statement may fall through [-Wimplicit-fallthrough=]
+   74 |      view->scrollX-=2;
+      |      ~~~~~~~~~~~~~^~~
+/home/leonid/CyberAnt/src/fieldeventlistener.cpp:75:5: note: here
+   75 |     case K_LEFT:
+      |     ^~~~
+/home/leonid/CyberAnt/src/fieldeventlistener.cpp:85:19: warning: this statement may fall through [-Wimplicit-fallthrough=]
+   85 |      view->scrollY+=2;
+      |      ~~~~~~~~~~~~~^~~
+/home/leonid/CyberAnt/src/fieldeventlistener.cpp:86:5: note: here
+   86 |     case K_DOWN:
+      |     ^~~~
+/home/leonid/CyberAnt/src/fieldeventlistener.cpp:96:19: warning: this statement may fall through [-Wimplicit-fallthrough=]
+   96 |      view->scrollY-=2;
+      |      ~~~~~~~~~~~~~^~~
+/home/leonid/CyberAnt/src/fieldeventlistener.cpp:97:5: note: here
+   97 |     case K_UP:
+      |     ^~~~
+/home/leonid/CyberAnt/src/fieldmodel.cpp: In member function ‘virtual void FieldModel::applyEvent(Event*)’:
+/home/leonid/CyberAnt/src/fieldmodel.cpp:60:10: warning: enumeration value ‘BRadio’ not handled in switch [-Wswitch]
+   60 |    switch(prefab){
+      |          ^
+/home/leonid/CyberAnt/src/fieldmodel.cpp:60:10: warning: enumeration value ‘RIron’ not handled in switch [-Wswitch]
+/home/leonid/CyberAnt/src/fieldmodel.cpp:60:10: warning: enumeration value ‘ROxygen’ not handled in switch [-Wswitch]
+/home/leonid/CyberAnt/src/fieldmodel.cpp:60:10: warning: enumeration value ‘RCristall’ not handled in switch [-Wswitch]
+/home/leonid/CyberAnt/src/fieldview.cpp: In member function ‘virtual void FieldView::loop(const Model*)’:
+/home/leonid/CyberAnt/src/fieldview.cpp:49:14: warning: implicitly-declared ‘LColor& LColor::operator=(const LColor&)’ is deprecated [-Wdeprecated-copy]
+   49 |     col=pair.second;
+      |              ^~~~~~
+In file included from /home/leonid/CyberAnt/src/ui/lbutton.h:4,
+                 from /home/leonid/CyberAnt/src/fieldview.cpp:7:
+/home/leonid/CyberAnt/src/ui/lcolor.h:12:3: note: because ‘LColor’ has user-provided ‘LColor::LColor(const LColor&)’
+   12 |   LColor(const LColor& a);
+      |   ^~~~~~
+/home/leonid/CyberAnt/src/fieldview.cpp:66:74: warning: implicitly-declared ‘Rect& Rect::operator=(const Rect&)’ is deprecated [-Wdeprecated-copy]
+   66 |   crect=win->getDrawer()->drawTextRight(crect.getB(), model->rset->get(t));
+      |                                                                          ^
+In file included from /home/leonid/CyberAnt/src/ui/lrectedcomponent.h:2,
+                 from /home/leonid/CyberAnt/src/ui/lbutton.h:3,
+                 from /home/leonid/CyberAnt/src/fieldview.cpp:7:
+/home/leonid/CyberAnt/src/ui/../point.h:45:3: note: because ‘Rect’ has user-provided ‘Rect::Rect(const Rect&)’
+   45 |   Rect(const Rect& r); // Copy
+      |   ^~~~
+/home/leonid/CyberAnt/src/fo.cpp: In constructor ‘FO::FO(Point, Field*)’:
+/home/leonid/CyberAnt/src/fo.cpp:8:6: warning: implicitly-declared ‘Point& Point::operator=(const Point&)’ is deprecated [-Wdeprecated-copy]
+    8 |  pos=p;
+      |      ^
+In file included from /home/leonid/CyberAnt/src/ui/ldrawer.h:2,
+                 from /home/leonid/CyberAnt/src/ui/limage.h:6,
+                 from /home/leonid/CyberAnt/src/fo.h:5,
+                 from /home/leonid/CyberAnt/src/fo.cpp:2:
+/home/leonid/CyberAnt/src/ui/../point.h:25:3: note: because ‘Point’ has user-provided ‘Point::Point(const Point&)’
+   25 |   Point(const Point& p);
+      |   ^~~~~
+/home/leonid/CyberAnt/src/fo.cpp: In member function ‘virtual std::pair<LImage*, LColor> FO::getImage(Assets*) const’:
+/home/leonid/CyberAnt/src/fo.cpp:30:49: warning: unused parameter ‘ass’ [-Wunused-parameter]
+   30 | std::pair<LImage*, LColor> FO::getImage(Assets* ass) const{
+      |                                         ~~~~~~~~^~~
+/home/leonid/CyberAnt/src/fo.cpp: In member function ‘void FO::setPos(Point)’:
+/home/leonid/CyberAnt/src/fo.cpp:53:6: warning: implicitly-declared ‘Point& Point::operator=(const Point&)’ is deprecated [-Wdeprecated-copy]
+   53 |  pos=p;
+      |      ^
+In file included from /home/leonid/CyberAnt/src/ui/ldrawer.h:2,
+                 from /home/leonid/CyberAnt/src/ui/limage.h:6,
+                 from /home/leonid/CyberAnt/src/fo.h:5,
+                 from /home/leonid/CyberAnt/src/fo.cpp:2:
+/home/leonid/CyberAnt/src/ui/../point.h:25:3: note: because ‘Point’ has user-provided ‘Point::Point(const Point&)’
+   25 |   Point(const Point& p);
+      |   ^~~~~
+/home/leonid/CyberAnt/src/main.cpp: In function ‘int main(int, char**)’:
+/home/leonid/CyberAnt/src/main.cpp:4:14: warning: unused parameter ‘argc’ [-Wunused-parameter]
+    4 | int main(int argc, char* argv[]){
+      |          ~~~~^~~~
+/home/leonid/CyberAnt/src/main.cpp:4:26: warning: unused parameter ‘argv’ [-Wunused-parameter]
+    4 | int main(int argc, char* argv[]){
+      |                    ~~~~~~^~~~~~
+/home/leonid/CyberAnt/src/model.cpp: In member function ‘virtual void Model::applyEvent(Event*)’:
+/home/leonid/CyberAnt/src/model.cpp:8:31: warning: unused parameter ‘event’ [-Wunused-parameter]
+    8 | void Model::applyEvent(Event* event){
+      |                        ~~~~~~~^~~~~
+/home/leonid/CyberAnt/src/putable.cpp: In member function ‘virtual void Putable::put(ResourceSet)’:
+/home/leonid/CyberAnt/src/putable.cpp:4:31: warning: unused parameter ‘give’ [-Wunused-parameter]
+    4 | void Putable::put(ResourceSet give){
+      |                   ~~~~~~~~~~~~^~~~
+/home/leonid/CyberAnt/src/resourced.cpp: In member function ‘virtual ResourceSet Resourced::mine(ResourceSet)’:
+/home/leonid/CyberAnt/src/resourced.cpp:8:41: warning: unused parameter ‘need’ [-Wunused-parameter]
+    8 | ResourceSet Resourced::mine(ResourceSet need){
+      |                             ~~~~~~~~~~~~^~~~
+In file included from /home/leonid/CyberAnt/src/ui/../acallback.h:10,
+                 from /home/leonid/CyberAnt/src/ui/lcheckbox.h:6,
+                 from /home/leonid/CyberAnt/src/ui/lcheckboxswitcher.h:4,
+                 from /home/leonid/CyberAnt/src/settingscontroller.cpp:5:
+/home/leonid/CyberAnt/src/ui/../acallback.cpp: In instantiation of ‘T ACallback<T, A>::call(A) [with T = Event*; A = bool]’:
+/home/leonid/CyberAnt/src/ui/../acallback.cpp:4:30:   required from here
+/home/leonid/CyberAnt/src/ui/../acallback.cpp:4:54: warning: unused parameter ‘a’ [-Wunused-parameter]
+    4 | template<class T, class A> T ACallback<T, A>::call(A a){
+      |                                                    ~~^
+/home/leonid/CyberAnt/src/to.cpp: In member function ‘virtual Tubed* TO::where(const std::vector<Tubed*>&)’:
+/home/leonid/CyberAnt/src/to.cpp:12:45: warning: unused parameter ‘nbs’ [-Wunused-parameter]
+   12 | Tubed* TO::where(const std::vector<Tubed*>& nbs){
+      |                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~
+/home/leonid/CyberAnt/src/to.cpp: In member function ‘virtual bool TO::whant(const Putable*)’:
+/home/leonid/CyberAnt/src/to.cpp:16:31: warning: unused parameter ‘p’ [-Wunused-parameter]
+   16 | bool TO::whant(const Putable* p){
+      |                ~~~~~~~~~~~~~~~^
+/home/leonid/CyberAnt/src/tubed.cpp: In member function ‘virtual void Tubed::send(TO*)’:
+/home/leonid/CyberAnt/src/tubed.cpp:8:22: warning: unused parameter ‘give’ [-Wunused-parameter]
+    8 | void Tubed::send(TO* give){
+      |                  ~~~~^~~~
+/home/leonid/CyberAnt/src/ui/lbutton.cpp: In member function ‘virtual void LButton::draw(LDrawer*)’:
+/home/leonid/CyberAnt/src/ui/lbutton.cpp:22:60: warning: implicitly-declared ‘Rect& Rect::operator=(const Rect&)’ is deprecated [-Wdeprecated-copy]
+   22 |    rect=Rect(rect.getA(), rect.getB().setX(r.getB().getX()));
+      |                                                            ^
+In file included from /home/leonid/CyberAnt/src/ui/ldrawer.h:2,
+                 from /home/leonid/CyberAnt/src/ui/lbutton.cpp:1:
+/home/leonid/CyberAnt/src/ui/../point.h:45:3: note: because ‘Rect’ has user-provided ‘Rect::Rect(const Rect&)’
+   45 |   Rect(const Rect& r); // Copy
+      |   ^~~~
+/home/leonid/CyberAnt/src/ui/lbutton.cpp:25:60: warning: implicitly-declared ‘Rect& Rect::operator=(const Rect&)’ is deprecated [-Wdeprecated-copy]
+   25 |    rect=Rect(rect.getA(), rect.getB().setY(r.getB().getY()));
+      |                                                            ^
+In file included from /home/leonid/CyberAnt/src/ui/ldrawer.h:2,
+                 from /home/leonid/CyberAnt/src/ui/lbutton.cpp:1:
+/home/leonid/CyberAnt/src/ui/../point.h:45:3: note: because ‘Rect’ has user-provided ‘Rect::Rect(const Rect&)’
+   45 |   Rect(const Rect& r); // Copy
+      |   ^~~~
+/home/leonid/CyberAnt/src/ui/lbutton.cpp:28:60: warning: implicitly-declared ‘Rect& Rect::operator=(const Rect&)’ is deprecated [-Wdeprecated-copy]
+   28 |    rect=Rect(rect.getA().setX(r.getA().getX()), rect.getB());
+      |                                                            ^
+In file included from /home/leonid/CyberAnt/src/ui/ldrawer.h:2,
+                 from /home/leonid/CyberAnt/src/ui/lbutton.cpp:1:
+/home/leonid/CyberAnt/src/ui/../point.h:45:3: note: because ‘Rect’ has user-provided ‘Rect::Rect(const Rect&)’
+   45 |   Rect(const Rect& r); // Copy
+      |   ^~~~
+/home/leonid/CyberAnt/src/ui/lbutton.cpp:31:60: warning: implicitly-declared ‘Rect& Rect::operator=(const Rect&)’ is deprecated [-Wdeprecated-copy]
+   31 |    rect=Rect(rect.getA().setY(r.getA().getY()), rect.getB());
+      |                                                            ^
+In file included from /home/leonid/CyberAnt/src/ui/ldrawer.h:2,
+                 from /home/leonid/CyberAnt/src/ui/lbutton.cpp:1:
+/home/leonid/CyberAnt/src/ui/../point.h:45:3: note: because ‘Rect’ has user-provided ‘Rect::Rect(const Rect&)’
+   45 |   Rect(const Rect& r); // Copy
+      |   ^~~~
+/home/leonid/CyberAnt/src/ui/lbutton.cpp: In member function ‘LButton* LButton::setColor(const LColor&)’:
+/home/leonid/CyberAnt/src/ui/lbutton.cpp:40:6: warning: implicitly-declared ‘LColor& LColor::operator=(const LColor&)’ is deprecated [-Wdeprecated-copy]
+   40 |  col=c;
+      |      ^
+In file included from /home/leonid/CyberAnt/src/ui/ldrawer.h:3,
+                 from /home/leonid/CyberAnt/src/ui/lbutton.cpp:1:
+/home/leonid/CyberAnt/src/ui/lcolor.h:12:3: note: because ‘LColor’ has user-provided ‘LColor::LColor(const LColor&)’
+   12 |   LColor(const LColor& a);
+      |   ^~~~~~
+/home/leonid/CyberAnt/src/ui/lcheckbox.cpp: In member function ‘virtual void LCheckBox::draw(LDrawer*)’:
+/home/leonid/CyberAnt/src/ui/lcheckbox.cpp:26:60: warning: implicitly-declared ‘Rect& Rect::operator=(const Rect&)’ is deprecated [-Wdeprecated-copy]
+   26 |    rect=Rect(rect.getA(), rect.getB().setX(r.getB().getX()));
+      |                                                            ^
+In file included from /home/leonid/CyberAnt/src/ui/ldrawer.h:2,
+                 from /home/leonid/CyberAnt/src/ui/lcheckbox.cpp:1:
+/home/leonid/CyberAnt/src/ui/../point.h:45:3: note: because ‘Rect’ has user-provided ‘Rect::Rect(const Rect&)’
+   45 |   Rect(const Rect& r); // Copy
+      |   ^~~~
+/home/leonid/CyberAnt/src/ui/lcheckbox.cpp:29:60: warning: implicitly-declared ‘Rect& Rect::operator=(const Rect&)’ is deprecated [-Wdeprecated-copy]
+   29 |    rect=Rect(rect.getA(), rect.getB().setY(r.getB().getY()));
+      |                                                            ^
+In file included from /home/leonid/CyberAnt/src/ui/ldrawer.h:2,
+                 from /home/leonid/CyberAnt/src/ui/lcheckbox.cpp:1:
+/home/leonid/CyberAnt/src/ui/../point.h:45:3: note: because ‘Rect’ has user-provided ‘Rect::Rect(const Rect&)’
+   45 |   Rect(const Rect& r); // Copy
+      |   ^~~~
+/home/leonid/CyberAnt/src/ui/lcheckbox.cpp:32:60: warning: implicitly-declared ‘Rect& Rect::operator=(const Rect&)’ is deprecated [-Wdeprecated-copy]
+   32 |    rect=Rect(rect.getA().setX(r.getA().getX()), rect.getB());
+      |                                                            ^
+In file included from /home/leonid/CyberAnt/src/ui/ldrawer.h:2,
+                 from /home/leonid/CyberAnt/src/ui/lcheckbox.cpp:1:
+/home/leonid/CyberAnt/src/ui/../point.h:45:3: note: because ‘Rect’ has user-provided ‘Rect::Rect(const Rect&)’
+   45 |   Rect(const Rect& r); // Copy
+      |   ^~~~
+/home/leonid/CyberAnt/src/ui/lcheckbox.cpp:35:60: warning: implicitly-declared ‘Rect& Rect::operator=(const Rect&)’ is deprecated [-Wdeprecated-copy]
+   35 |    rect=Rect(rect.getA().setY(r.getA().getY()), rect.getB());
+      |                                                            ^
+In file included from /home/leonid/CyberAnt/src/ui/ldrawer.h:2,
+                 from /home/leonid/CyberAnt/src/ui/lcheckbox.cpp:1:
+/home/leonid/CyberAnt/src/ui/../point.h:45:3: note: because ‘Rect’ has user-provided ‘Rect::Rect(const Rect&)’
+   45 |   Rect(const Rect& r); // Copy
+      |   ^~~~
+/home/leonid/CyberAnt/src/ui/lcheckbox.cpp: In member function ‘LCheckBox* LCheckBox::setColor(const LColor&)’:
+/home/leonid/CyberAnt/src/ui/lcheckbox.cpp:67:6: warning: implicitly-declared ‘LColor& LColor::operator=(const LColor&)’ is deprecated [-Wdeprecated-copy]
+   67 |  col=c;
+      |      ^
+In file included from /home/leonid/CyberAnt/src/ui/ldrawer.h:3,
+                 from /home/leonid/CyberAnt/src/ui/lcheckbox.cpp:1:
+/home/leonid/CyberAnt/src/ui/lcolor.h:12:3: note: because ‘LColor’ has user-provided ‘LColor::LColor(const LColor&)’
+   12 |   LColor(const LColor& a);
+      |   ^~~~~~
+In file included from /home/leonid/CyberAnt/src/ui/../acallback.h:10,
+                 from /home/leonid/CyberAnt/src/ui/lcheckbox.h:6,
+                 from /home/leonid/CyberAnt/src/ui/lcheckbox.cpp:5:
+/home/leonid/CyberAnt/src/ui/../acallback.cpp: In instantiation of ‘T ACallback<T, A>::call(A) [with T = Event*; A = bool]’:
+/home/leonid/CyberAnt/src/ui/lcheckbox.cpp:85:50:   required from here
+/home/leonid/CyberAnt/src/ui/../acallback.cpp:4:54: warning: unused parameter ‘a’ [-Wunused-parameter]
+    4 | template<class T, class A> T ACallback<T, A>::call(A a){
+      |                                                    ~~^
+/home/leonid/CyberAnt/src/ui/lcheckboxswitcher.cpp: In destructor ‘virtual LCheckBoxSwitcher::~LCheckBoxSwitcher()’:
+/home/leonid/CyberAnt/src/ui/lcheckboxswitcher.cpp:9:15: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<LCheckBox*>::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
+    9 |  for(int i=0;i<all.size();++i){
+      |              ~^~~~~~~~~~~
+/home/leonid/CyberAnt/src/ui/lcheckboxswitcher.cpp: In member function ‘virtual void LCheckBoxSwitcher::draw(LDrawer*)’:
+/home/leonid/CyberAnt/src/ui/lcheckboxswitcher.cpp:14:15: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<LCheckBox*>::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
+   14 |  for(int i=0;i<all.size();++i){
+      |              ~^~~~~~~~~~~
+/home/leonid/CyberAnt/src/ui/lcheckboxswitcher.cpp:20:19: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<LCheckBox*>::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
+   20 |    for(int j=i+1;j<all.size();++j){
+      |                  ~^~~~~~~~~~~
+/home/leonid/CyberAnt/src/ui/lcheckboxswitcher.cpp: In member function ‘LCheckBoxSwitcher* LCheckBoxSwitcher::setColor(const LColor&)’:
+/home/leonid/CyberAnt/src/ui/lcheckboxswitcher.cpp:28:6: warning: implicitly-declared ‘LColor& LColor::operator=(const LColor&)’ is deprecated [-Wdeprecated-copy]
+   28 |  col=c;
+      |      ^
+In file included from /home/leonid/CyberAnt/src/ui/lcheckboxswitcher.h:3,
+                 from /home/leonid/CyberAnt/src/ui/lcheckboxswitcher.cpp:1:
+/home/leonid/CyberAnt/src/ui/lcolor.h:12:3: note: because ‘LColor’ has user-provided ‘LColor::LColor(const LColor&)’
+   12 |   LColor(const LColor& a);
+      |   ^~~~~~
+/home/leonid/CyberAnt/src/ui/lcheckboxswitcher.cpp: In member function ‘virtual EventQueue LCheckBoxSwitcher::applyEvent(LEvent*)’:
+/home/leonid/CyberAnt/src/ui/lcheckboxswitcher.cpp:42:15: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<LCheckBox*>::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
+   42 |  for(int i=0;i<all.size();++i){
+      |              ~^~~~~~~~~~~
+/home/leonid/CyberAnt/src/ui/lcheckboxswitcher.cpp:52:20: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<LCheckBox*>::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
+   52 |     for(int j=i+1;j<all.size();++j){
+      |                   ~^~~~~~~~~~~
+In file included from /home/leonid/CyberAnt/src/ui/lcolor.cpp:1:
+/home/leonid/CyberAnt/src/ui/lcolor.h: In constructor ‘LColor::LColor(bool, int, int, int)’:
+/home/leonid/CyberAnt/src/ui/lcolor.h:7:14: warning: ‘LColor::b’ will be initialized after [-Wreorder]
+    7 |   LMonoColor b;
+      |              ^
+/home/leonid/CyberAnt/src/ui/lcolor.h:6:14: warning:   ‘LMonoColor LColor::f’ [-Wreorder]
+    6 |   LMonoColor f;
+      |              ^
+/home/leonid/CyberAnt/src/ui/lcolor.cpp:19:1: warning:   when initialized here [-Wreorder]
+   19 | LColor::LColor(bool bo, int r, int g, int v):b(r, g, v), f(255){
+      | ^~~~~~
+/home/leonid/CyberAnt/src/ui/lcolor.cpp:19:21: warning: unused parameter ‘bo’ [-Wunused-parameter]
+   19 | LColor::LColor(bool bo, int r, int g, int v):b(r, g, v), f(255){
+      |                ~~~~~^~
+In file included from /home/leonid/CyberAnt/src/ui/lcolor.cpp:1:
+/home/leonid/CyberAnt/src/ui/lcolor.h: In constructor ‘LColor::LColor(bool, int)’:
+/home/leonid/CyberAnt/src/ui/lcolor.h:7:14: warning: ‘LColor::b’ will be initialized after [-Wreorder]
+    7 |   LMonoColor b;
+      |              ^
+/home/leonid/CyberAnt/src/ui/lcolor.h:6:14: warning:   ‘LMonoColor LColor::f’ [-Wreorder]
+    6 |   LMonoColor f;
+      |              ^
+/home/leonid/CyberAnt/src/ui/lcolor.cpp:21:1: warning:   when initialized here [-Wreorder]
+   21 | LColor::LColor(bool bo, int r):b(r), f(255){
+      | ^~~~~~
+/home/leonid/CyberAnt/src/ui/lcolor.cpp:21:21: warning: unused parameter ‘bo’ [-Wunused-parameter]
+   21 | LColor::LColor(bool bo, int r):b(r), f(255){
+      |                ~~~~~^~
+In file included from /home/leonid/CyberAnt/src/ui/lcolor.cpp:1:
+/home/leonid/CyberAnt/src/ui/lcolor.h: In constructor ‘LColor::LColor(bool, int, bool)’:
+/home/leonid/CyberAnt/src/ui/lcolor.h:7:14: warning: ‘LColor::b’ will be initialized after [-Wreorder]
+    7 |   LMonoColor b;
+      |              ^
+/home/leonid/CyberAnt/src/ui/lcolor.h:6:14: warning:   ‘LMonoColor LColor::f’ [-Wreorder]
+    6 |   LMonoColor f;
+      |              ^
+/home/leonid/CyberAnt/src/ui/lcolor.cpp:23:1: warning:   when initialized here [-Wreorder]
+   23 | LColor::LColor(bool bo, int r, bool g):b(r, g), f(255){
+      | ^~~~~~
+/home/leonid/CyberAnt/src/ui/lcolor.cpp:23:21: warning: unused parameter ‘bo’ [-Wunused-parameter]
+   23 | LColor::LColor(bool bo, int r, bool g):b(r, g), f(255){
+      |                ~~~~~^~
+/home/leonid/CyberAnt/src/ui/lcolor.cpp: In member function ‘void LColor::setFg(const LMonoColor&)’:
+/home/leonid/CyberAnt/src/ui/lcolor.cpp:33:4: warning: implicitly-declared ‘LMonoColor& LMonoColor::operator=(const LMonoColor&)’ is deprecated [-Wdeprecated-copy]
+   33 |  f=c;
+      |    ^
+In file included from /home/leonid/CyberAnt/src/ui/lcolor.h:2,
+                 from /home/leonid/CyberAnt/src/ui/lcolor.cpp:1:
+/home/leonid/CyberAnt/src/ui/lmonocolor.h:15:3: note: because ‘LMonoColor’ has user-provided ‘LMonoColor::LMonoColor(const LMonoColor&)’
+   15 |   LMonoColor(const LMonoColor& c);
+      |   ^~~~~~~~~~
+/home/leonid/CyberAnt/src/ui/lcolor.cpp: In member function ‘void LColor::setBg(const LMonoColor&)’:
+/home/leonid/CyberAnt/src/ui/lcolor.cpp:36:4: warning: implicitly-declared ‘LMonoColor& LMonoColor::operator=(const LMonoColor&)’ is deprecated [-Wdeprecated-copy]
+   36 |  b=c;
+      |    ^
+In file included from /home/leonid/CyberAnt/src/ui/lcolor.h:2,
+                 from /home/leonid/CyberAnt/src/ui/lcolor.cpp:1:
+/home/leonid/CyberAnt/src/ui/lmonocolor.h:15:3: note: because ‘LMonoColor’ has user-provided ‘LMonoColor::LMonoColor(const LMonoColor&)’
+   15 |   LMonoColor(const LMonoColor& c);
+      |   ^~~~~~~~~~
+/home/leonid/CyberAnt/src/ui/lcolor.cpp: In member function ‘void LColor::setFg(char)’:
+/home/leonid/CyberAnt/src/ui/lcolor.cpp:39:16: warning: implicitly-declared ‘LMonoColor& LMonoColor::operator=(const LMonoColor&)’ is deprecated [-Wdeprecated-copy]
+   39 |  f=LMonoColor(c);
+      |                ^
+In file included from /home/leonid/CyberAnt/src/ui/lcolor.h:2,
+                 from /home/leonid/CyberAnt/src/ui/lcolor.cpp:1:
+/home/leonid/CyberAnt/src/ui/lmonocolor.h:15:3: note: because ‘LMonoColor’ has user-provided ‘LMonoColor::LMonoColor(const LMonoColor&)’
+   15 |   LMonoColor(const LMonoColor& c);
+      |   ^~~~~~~~~~
+/home/leonid/CyberAnt/src/ui/lcolor.cpp: In member function ‘void LColor::setBg(char)’:
+/home/leonid/CyberAnt/src/ui/lcolor.cpp:42:16: warning: implicitly-declared ‘LMonoColor& LMonoColor::operator=(const LMonoColor&)’ is deprecated [-Wdeprecated-copy]
+   42 |  b=LMonoColor(c);
+      |                ^
+In file included from /home/leonid/CyberAnt/src/ui/lcolor.h:2,
+                 from /home/leonid/CyberAnt/src/ui/lcolor.cpp:1:
+/home/leonid/CyberAnt/src/ui/lmonocolor.h:15:3: note: because ‘LMonoColor’ has user-provided ‘LMonoColor::LMonoColor(const LMonoColor&)’
+   15 |   LMonoColor(const LMonoColor& c);
+      |   ^~~~~~~~~~
+/home/leonid/CyberAnt/src/ui/lcolor.cpp: In member function ‘void LColor::def()’:
+/home/leonid/CyberAnt/src/ui/lcolor.cpp:45:18: warning: implicitly-declared ‘LMonoColor& LMonoColor::operator=(const LMonoColor&)’ is deprecated [-Wdeprecated-copy]
+   45 |  f=LMonoColor(255);
+      |                  ^
+In file included from /home/leonid/CyberAnt/src/ui/lcolor.h:2,
+                 from /home/leonid/CyberAnt/src/ui/lcolor.cpp:1:
+/home/leonid/CyberAnt/src/ui/lmonocolor.h:15:3: note: because ‘LMonoColor’ has user-provided ‘LMonoColor::LMonoColor(const LMonoColor&)’
+   15 |   LMonoColor(const LMonoColor& c);
+      |   ^~~~~~~~~~
+/home/leonid/CyberAnt/src/ui/lcolor.cpp:46:16: warning: implicitly-declared ‘LMonoColor& LMonoColor::operator=(const LMonoColor&)’ is deprecated [-Wdeprecated-copy]
+   46 |  b=LMonoColor(0);
+      |                ^
+In file included from /home/leonid/CyberAnt/src/ui/lcolor.h:2,
+                 from /home/leonid/CyberAnt/src/ui/lcolor.cpp:1:
+/home/leonid/CyberAnt/src/ui/lmonocolor.h:15:3: note: because ‘LMonoColor’ has user-provided ‘LMonoColor::LMonoColor(const LMonoColor&)’
+   15 |   LMonoColor(const LMonoColor& c);
+      |   ^~~~~~~~~~
+/home/leonid/CyberAnt/src/ui/lcomponent.cpp: In member function ‘virtual void LComponent::draw(LDrawer*)’:
+/home/leonid/CyberAnt/src/ui/lcomponent.cpp:10:32: warning: unused parameter ‘ldr’ [-Wunused-parameter]
+   10 | void LComponent::draw(LDrawer* ldr){
+      |                       ~~~~~~~~~^~~
+/home/leonid/CyberAnt/src/ui/lcomponent.cpp: In member function ‘virtual EventQueue LComponent::applyEvent(LEvent*)’:
+/home/leonid/CyberAnt/src/ui/lcomponent.cpp:13:43: warning: unused parameter ‘e’ [-Wunused-parameter]
+   13 | EventQueue LComponent::applyEvent(LEvent* e){
+      |                                   ~~~~~~~~^
+/home/leonid/CyberAnt/src/ui/ldrawer.cpp: In member function ‘virtual void LDrawer::drawRect(const Rect&, const LColor&)’:
+/home/leonid/CyberAnt/src/ui/ldrawer.cpp:4:36: warning: unused parameter ‘r’ [-Wunused-parameter]
+    4 | void LDrawer::drawRect(const Rect& r, const LColor& c){
+      |                        ~~~~~~~~~~~~^
+/home/leonid/CyberAnt/src/ui/ldrawer.cpp:4:53: warning: unused parameter ‘c’ [-Wunused-parameter]
+    4 | void LDrawer::drawRect(const Rect& r, const LColor& c){
+      |                                       ~~~~~~~~~~~~~~^
+/home/leonid/CyberAnt/src/ui/ldrawer.cpp: In member function ‘virtual void LDrawer::drawRect(const Rect&)’:
+/home/leonid/CyberAnt/src/ui/ldrawer.cpp:7:36: warning: unused parameter ‘r’ [-Wunused-parameter]
+    7 | void LDrawer::drawRect(const Rect& r){
+      |                        ~~~~~~~~~~~~^
+/home/leonid/CyberAnt/src/ui/ldrawer.cpp: In member function ‘virtual Rect LDrawer::draw(int, int, LImage*, const LColor&)’:
+/home/leonid/CyberAnt/src/ui/ldrawer.cpp:11:24: warning: unused parameter ‘x’ [-Wunused-parameter]
+   11 | Rect LDrawer::draw(int x, int y, LImage* img, const LColor& c){
+      |                    ~~~~^
+/home/leonid/CyberAnt/src/ui/ldrawer.cpp:11:31: warning: unused parameter ‘y’ [-Wunused-parameter]
+   11 | Rect LDrawer::draw(int x, int y, LImage* img, const LColor& c){
+      |                           ~~~~^
+/home/leonid/CyberAnt/src/ui/ldrawer.cpp:11:42: warning: unused parameter ‘img’ [-Wunused-parameter]
+   11 | Rect LDrawer::draw(int x, int y, LImage* img, const LColor& c){
+      |                                  ~~~~~~~~^~~
+/home/leonid/CyberAnt/src/ui/ldrawer.cpp:11:61: warning: unused parameter ‘c’ [-Wunused-parameter]
+   11 | Rect LDrawer::draw(int x, int y, LImage* img, const LColor& c){
+      |                                               ~~~~~~~~~~~~~~^
+/home/leonid/CyberAnt/src/ui/ldrawer.cpp: In member function ‘virtual Rect LDrawer::draw(int, int, LImage*)’:
+/home/leonid/CyberAnt/src/ui/ldrawer.cpp:15:24: warning: unused parameter ‘x’ [-Wunused-parameter]
+   15 | Rect LDrawer::draw(int x, int y, LImage* img){
+      |                    ~~~~^
+/home/leonid/CyberAnt/src/ui/ldrawer.cpp:15:31: warning: unused parameter ‘y’ [-Wunused-parameter]
+   15 | Rect LDrawer::draw(int x, int y, LImage* img){
+      |                           ~~~~^
+/home/leonid/CyberAnt/src/ui/ldrawer.cpp:15:42: warning: unused parameter ‘img’ [-Wunused-parameter]
+   15 | Rect LDrawer::draw(int x, int y, LImage* img){
+      |                                  ~~~~~~~~^~~
+/home/leonid/CyberAnt/src/ui/ldrawer.cpp: In member function ‘virtual Rect LDrawer::drawText(int, int, int)’:
+/home/leonid/CyberAnt/src/ui/ldrawer.cpp:26:28: warning: unused parameter ‘x’ [-Wunused-parameter]
+   26 | Rect LDrawer::drawText(int x, int y, int text){
+      |                        ~~~~^
+/home/leonid/CyberAnt/src/ui/ldrawer.cpp:26:35: warning: unused parameter ‘y’ [-Wunused-parameter]
+   26 | Rect LDrawer::drawText(int x, int y, int text){
+      |                               ~~~~^
+/home/leonid/CyberAnt/src/ui/ldrawer.cpp:26:42: warning: unused parameter ‘text’ [-Wunused-parameter]
+   26 | Rect LDrawer::drawText(int x, int y, int text){
+      |                                      ~~~~^~~~
+/home/leonid/CyberAnt/src/ui/ldrawer.cpp: In member function ‘virtual Rect LDrawer::drawText(int, int, const char*)’:
+/home/leonid/CyberAnt/src/ui/ldrawer.cpp:30:28: warning: unused parameter ‘x’ [-Wunused-parameter]
+   30 | Rect LDrawer::drawText(int x, int y, const char* text){
+      |                        ~~~~^
+/home/leonid/CyberAnt/src/ui/ldrawer.cpp:30:35: warning: unused parameter ‘y’ [-Wunused-parameter]
+   30 | Rect LDrawer::drawText(int x, int y, const char* text){
+      |                               ~~~~^
+/home/leonid/CyberAnt/src/ui/ldrawer.cpp:30:50: warning: unused parameter ‘text’ [-Wunused-parameter]
+   30 | Rect LDrawer::drawText(int x, int y, const char* text){
+      |                                      ~~~~~~~~~~~~^~~~
+/home/leonid/CyberAnt/src/ui/ldrawer.cpp: In member function ‘virtual Rect LDrawer::drawTextRight(int, int, int)’:
+/home/leonid/CyberAnt/src/ui/ldrawer.cpp:41:33: warning: unused parameter ‘x’ [-Wunused-parameter]
+   41 | Rect LDrawer::drawTextRight(int x, int y, int text){
+      |                             ~~~~^
+/home/leonid/CyberAnt/src/ui/ldrawer.cpp:41:40: warning: unused parameter ‘y’ [-Wunused-parameter]
+   41 | Rect LDrawer::drawTextRight(int x, int y, int text){
+      |                                    ~~~~^
+/home/leonid/CyberAnt/src/ui/ldrawer.cpp:41:47: warning: unused parameter ‘text’ [-Wunused-parameter]
+   41 | Rect LDrawer::drawTextRight(int x, int y, int text){
+      |                                           ~~~~^~~~
+/home/leonid/CyberAnt/src/ui/ldrawer.cpp: In member function ‘virtual Rect LDrawer::drawTextRight(int, int, const char*)’:
+/home/leonid/CyberAnt/src/ui/ldrawer.cpp:45:33: warning: unused parameter ‘x’ [-Wunused-parameter]
+   45 | Rect LDrawer::drawTextRight(int x, int y, const char* text){
+      |                             ~~~~^
+/home/leonid/CyberAnt/src/ui/ldrawer.cpp:45:40: warning: unused parameter ‘y’ [-Wunused-parameter]
+   45 | Rect LDrawer::drawTextRight(int x, int y, const char* text){
+      |                                    ~~~~^
+/home/leonid/CyberAnt/src/ui/ldrawer.cpp:45:55: warning: unused parameter ‘text’ [-Wunused-parameter]
+   45 | Rect LDrawer::drawTextRight(int x, int y, const char* text){
+      |                                           ~~~~~~~~~~~~^~~~
+/home/leonid/CyberAnt/src/ui/ldrawer.cpp: In member function ‘virtual Rect LDrawer::drawTextCenter(int, int, int)’:
+/home/leonid/CyberAnt/src/ui/ldrawer.cpp:56:34: warning: unused parameter ‘x’ [-Wunused-parameter]
+   56 | Rect LDrawer::drawTextCenter(int x, int y, int text){
+      |                              ~~~~^
+/home/leonid/CyberAnt/src/ui/ldrawer.cpp:56:41: warning: unused parameter ‘y’ [-Wunused-parameter]
+   56 | Rect LDrawer::drawTextCenter(int x, int y, int text){
+      |                                     ~~~~^
+/home/leonid/CyberAnt/src/ui/ldrawer.cpp:56:48: warning: unused parameter ‘text’ [-Wunused-parameter]
+   56 | Rect LDrawer::drawTextCenter(int x, int y, int text){
+      |                                            ~~~~^~~~
+/home/leonid/CyberAnt/src/ui/ldrawer.cpp: In member function ‘virtual Rect LDrawer::drawTextCenter(int, int, const char*)’:
+/home/leonid/CyberAnt/src/ui/ldrawer.cpp:60:34: warning: unused parameter ‘x’ [-Wunused-parameter]
+   60 | Rect LDrawer::drawTextCenter(int x, int y, const char* text){
+      |                              ~~~~^
+/home/leonid/CyberAnt/src/ui/ldrawer.cpp:60:41: warning: unused parameter ‘y’ [-Wunused-parameter]
+   60 | Rect LDrawer::drawTextCenter(int x, int y, const char* text){
+      |                                     ~~~~^
+/home/leonid/CyberAnt/src/ui/ldrawer.cpp:60:56: warning: unused parameter ‘text’ [-Wunused-parameter]
+   60 | Rect LDrawer::drawTextCenter(int x, int y, const char* text){
+      |                                            ~~~~~~~~~~~~^~~~
+/home/leonid/CyberAnt/src/ui/ldrawer.cpp: In member function ‘virtual void LDrawer::clear(const LColor&)’:
+/home/leonid/CyberAnt/src/ui/ldrawer.cpp:74:35: warning: unused parameter ‘c’ [-Wunused-parameter]
+   74 | void LDrawer::clear(const LColor& c){
+      |                     ~~~~~~~~~~~~~~^
+/home/leonid/CyberAnt/src/ui/ldrawer.cpp: In member function ‘virtual void LDrawer::color(const LColor&)’:
+/home/leonid/CyberAnt/src/ui/ldrawer.cpp:83:35: warning: unused parameter ‘c’ [-Wunused-parameter]
+   83 | void LDrawer::color(const LColor& c){
+      |                     ~~~~~~~~~~~~~~^
+/home/leonid/CyberAnt/src/ui/leventsender.cpp: In member function ‘EventQueue LEventSender::send(LEvent*)’:
+/home/leonid/CyberAnt/src/ui/leventsender.cpp:7:15: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<LSubscriber*>::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
+    7 |  for(int i=0;i<subs[e->getType()].size();++i){
+      |              ~^~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/leonid/CyberAnt/src/ui/leventsender.cpp: In member function ‘void LEventSender::unsubscribe(LSubscriber*, LEventType)’:
+/home/leonid/CyberAnt/src/ui/leventsender.cpp:20:15: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<LSubscriber*>::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
+   20 |  for(int i=0;i<subs[t].size();++i){
+      |              ~^~~~~~~~~~~~~~~
+/home/leonid/CyberAnt/src/ui/leventsender.cpp: In member function ‘void LEventSender::subscribe(LSubscriber*)’:
+/home/leonid/CyberAnt/src/ui/leventsender.cpp:29:15: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<LEventType>::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
+   29 |  for(int i=0;i<accepted.size();++i){
+      |              ~^~~~~~~~~~~~~~~~
+/home/leonid/CyberAnt/src/ui/limage.cpp: In constructor ‘LImage::LImage(LImage*, const LColor&)’:
+/home/leonid/CyberAnt/src/ui/limage.cpp:63:43: warning: unused parameter ‘c’ [-Wunused-parameter]
+   63 | LImage::LImage(LImage* img, const LColor& c){
+      |                             ~~~~~~~~~~~~~~^
+/home/leonid/CyberAnt/src/ui/limage.cpp: In member function ‘void LImage::smooth(SDL_Surface*)’:
+/home/leonid/CyberAnt/src/ui/limage.cpp:134:17: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<std::pair<std::pair<int, int>, std::pair<int, int> > >::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
+  134 |    for(int i=0;i<cls.size();++i){
+      |                ~^~~~~~~~~~~
+/home/leonid/CyberAnt/src/ui/lmonocolor.cpp: In constructor ‘LMonoColor::LMonoColor(int, bool)’:
+/home/leonid/CyberAnt/src/ui/lmonocolor.cpp:8:36: warning: unused parameter ‘hex’ [-Wunused-parameter]
+    8 | LMonoColor::LMonoColor(int c, bool hex){
+      |                               ~~~~~^~~
+/home/leonid/CyberAnt/src/ui/lmouseevent.cpp: In constructor ‘LMouseEvent::LMouseEvent(LMouseEventType, Point)’:
+/home/leonid/CyberAnt/src/ui/lmouseevent.cpp:6:6: warning: implicitly-declared ‘Point& Point::operator=(const Point&)’ is deprecated [-Wdeprecated-copy]
+    6 |  pos=p;
+      |      ^
+In file included from /home/leonid/CyberAnt/src/ui/lmouseevent.h:4,
+                 from /home/leonid/CyberAnt/src/ui/lmouseevent.cpp:1:
+/home/leonid/CyberAnt/src/ui/../point.h:25:3: note: because ‘Point’ has user-provided ‘Point::Point(const Point&)’
+   25 |   Point(const Point& p);
+      |   ^~~~~
+/home/leonid/CyberAnt/src/ui/lpanel.cpp: In member function ‘LPanel* LPanel::setColor(const LColor&)’:
+/home/leonid/CyberAnt/src/ui/lpanel.cpp:16:6: warning: implicitly-declared ‘LColor& LColor::operator=(const LColor&)’ is deprecated [-Wdeprecated-copy]
+   16 |  col=c;
+      |      ^
+In file included from /home/leonid/CyberAnt/src/ui/lpanel.h:3,
+                 from /home/leonid/CyberAnt/src/ui/lpanel.cpp:1:
+/home/leonid/CyberAnt/src/ui/lcolor.h:12:3: note: because ‘LColor’ has user-provided ‘LColor::LColor(const LColor&)’
+   12 |   LColor(const LColor& a);
+      |   ^~~~~~
+/home/leonid/CyberAnt/src/ui/lrectedcomponent.cpp: In constructor ‘LRectedComponent::LRectedComponent(const Rect&)’:
+/home/leonid/CyberAnt/src/ui/lrectedcomponent.cpp:5:7: warning: implicitly-declared ‘Rect& Rect::operator=(const Rect&)’ is deprecated [-Wdeprecated-copy]
+    5 |  rect=p;
+      |       ^
+In file included from /home/leonid/CyberAnt/src/ui/lrectedcomponent.h:2,
+                 from /home/leonid/CyberAnt/src/ui/lrectedcomponent.cpp:2:
+/home/leonid/CyberAnt/src/ui/../point.h:45:3: note: because ‘Rect’ has user-provided ‘Rect::Rect(const Rect&)’
+   45 |   Rect(const Rect& r); // Copy
+      |   ^~~~
+/home/leonid/CyberAnt/src/ui/lscene.cpp: In member function ‘void LScene::clearDelete()’:
+/home/leonid/CyberAnt/src/ui/lscene.cpp:20:15: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<LComponent*>::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
+   20 |  for(int i=0;i<cps.size();++i){
+      |              ~^~~~~~~~~~~
+/home/leonid/CyberAnt/src/ui/lscene.cpp: In member function ‘void LScene::draw(LDrawer*)’:
+/home/leonid/CyberAnt/src/ui/lscene.cpp:26:15: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<LComponent*>::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
+   26 |  for(int i=0;i<cps.size();++i){
+      |              ~^~~~~~~~~~~
+/home/leonid/CyberAnt/src/ui/ltalk.cpp: In member function ‘virtual void LTalk::talk(LComponent*)’:
+/home/leonid/CyberAnt/src/ui/ltalk.cpp:3:30: warning: unused parameter ‘c’ [-Wunused-parameter]
+    3 | void LTalk::talk(LComponent* c){
+      |                  ~~~~~~~~~~~~^
+/home/leonid/CyberAnt/src/ui/ltextbox.cpp: In constructor ‘LTextBox::LTextBox(Point, std::string)’:
+/home/leonid/CyberAnt/src/ui/ltextbox.cpp:7:6: warning: implicitly-declared ‘Point& Point::operator=(const Point&)’ is deprecated [-Wdeprecated-copy]
+    7 |  pos=p;
+      |      ^
+In file included from /home/leonid/CyberAnt/src/ui/ldrawer.h:2,
+                 from /home/leonid/CyberAnt/src/ui/ltextbox.cpp:1:
+/home/leonid/CyberAnt/src/ui/../point.h:25:3: note: because ‘Point’ has user-provided ‘Point::Point(const Point&)’
+   25 |   Point(const Point& p);
+      |   ^~~~~
+/home/leonid/CyberAnt/src/ui/ltextbox.cpp: In constructor ‘LTextBox::LTextBox(Point, const char*)’:
+/home/leonid/CyberAnt/src/ui/ltextbox.cpp:11:6: warning: implicitly-declared ‘Point& Point::operator=(const Point&)’ is deprecated [-Wdeprecated-copy]
+   11 |  pos=p;
+      |      ^
+In file included from /home/leonid/CyberAnt/src/ui/ldrawer.h:2,
+                 from /home/leonid/CyberAnt/src/ui/ltextbox.cpp:1:
+/home/leonid/CyberAnt/src/ui/../point.h:25:3: note: because ‘Point’ has user-provided ‘Point::Point(const Point&)’
+   25 |   Point(const Point& p);
+      |   ^~~~~
+/home/leonid/CyberAnt/src/ui/ltextbox.cpp: In member function ‘virtual EventQueue LTextBox::applyEvent(LEvent*)’:
+/home/leonid/CyberAnt/src/ui/ltextbox.cpp:22:41: warning: unused parameter ‘e’ [-Wunused-parameter]
+   22 | EventQueue LTextBox::applyEvent(LEvent* e){
+      |                                 ~~~~~~~~^
+/home/leonid/CyberAnt/src/ui/sdl/lsdrawer.cpp: In member function ‘SDL_Texture* LSDrawer::makeText(SDL_Renderer*, const char*)’:
+/home/leonid/CyberAnt/src/ui/sdl/lsdrawer.cpp:108:83: warning: missing initializer for member ‘SDL_Color::a’ [-Wmissing-field-initializers]
+  108 |  SDL_Color fg={(Uint8)(col.fg().r()), (Uint8)(col.fg().g()), (Uint8)(col.fg().b())};
+      |                                                                                   ^
+/home/leonid/CyberAnt/src/ui/sdl/lsdrawer.cpp:121:87: warning: missing initializer for member ‘SDL_Color::a’ [-Wmissing-field-initializers]
+  121 |      SDL_Color bg={(Uint8)(col.bg().r()), (Uint8)(col.bg().g()), (Uint8)(col.bg().b())};
+      |                                                                                       ^
+/home/leonid/CyberAnt/src/ui/sdl/lsdrawer.cpp:131:87: warning: missing initializer for member ‘SDL_Color::a’ [-Wmissing-field-initializers]
+  131 |      SDL_Color bg={(Uint8)(col.bg().r()), (Uint8)(col.bg().g()), (Uint8)(col.bg().b())};
+      |                                                                                       ^
+/home/leonid/CyberAnt/src/ui/sdl/lsdrawer.cpp: In member function ‘virtual void LSDrawer::color(const LColor&)’:
+/home/leonid/CyberAnt/src/ui/sdl/lsdrawer.cpp:164:6: warning: implicitly-declared ‘LColor& LColor::operator=(const LColor&)’ is deprecated [-Wdeprecated-copy]
+  164 |  col=c;
+      |      ^
+In file included from /home/leonid/CyberAnt/src/ui/sdl/../ldrawer.h:3,
+                 from /home/leonid/CyberAnt/src/ui/sdl/lsdrawer.h:4,
+                 from /home/leonid/CyberAnt/src/ui/sdl/lsdrawer.cpp:4:
+/home/leonid/CyberAnt/src/ui/sdl/../lcolor.h:12:3: note: because ‘LColor’ has user-provided ‘LColor::LColor(const LColor&)’
+   12 |   LColor(const LColor& a);
+      |   ^~~~~~
+/home/leonid/CyberAnt/src/ui/terminal/ltdrawer.cpp: In member function ‘virtual Rect LTDrawer::draw(int, int, LImage*)’:
+/home/leonid/CyberAnt/src/ui/terminal/ltdrawer.cpp:9:25: warning: unused parameter ‘x’ [-Wunused-parameter]
+    9 | Rect LTDrawer::draw(int x, int y, LImage* img){
+      |                     ~~~~^
+/home/leonid/CyberAnt/src/ui/terminal/ltdrawer.cpp:9:32: warning: unused parameter ‘y’ [-Wunused-parameter]
+    9 | Rect LTDrawer::draw(int x, int y, LImage* img){
+      |                            ~~~~^
+/home/leonid/CyberAnt/src/ui/terminal/ltdrawer.cpp:9:43: warning: unused parameter ‘img’ [-Wunused-parameter]
+    9 | Rect LTDrawer::draw(int x, int y, LImage* img){
+      |                                   ~~~~~~~~^~~
+/home/leonid/CyberAnt/src/ui/terminal/ltdrawer.cpp: In member function ‘virtual Rect LTDrawer::draw(int, int, LImage*, const LColor&)’:
+/home/leonid/CyberAnt/src/ui/terminal/ltdrawer.cpp:13:25: warning: unused parameter ‘x’ [-Wunused-parameter]
+   13 | Rect LTDrawer::draw(int x, int y, LImage* img, const LColor& c){
+      |                     ~~~~^
+/home/leonid/CyberAnt/src/ui/terminal/ltdrawer.cpp:13:32: warning: unused parameter ‘y’ [-Wunused-parameter]
+   13 | Rect LTDrawer::draw(int x, int y, LImage* img, const LColor& c){
+      |                            ~~~~^
+/home/leonid/CyberAnt/src/ui/terminal/ltdrawer.cpp:13:43: warning: unused parameter ‘img’ [-Wunused-parameter]
+   13 | Rect LTDrawer::draw(int x, int y, LImage* img, const LColor& c){
+      |                                   ~~~~~~~~^~~
+/home/leonid/CyberAnt/src/ui/terminal/ltdrawer.cpp:13:62: warning: unused parameter ‘c’ [-Wunused-parameter]
+   13 | Rect LTDrawer::draw(int x, int y, LImage* img, const LColor& c){
+      |                                                ~~~~~~~~~~~~~~^
+/home/leonid/CyberAnt/src/ui/terminal/ltsurface.cpp: In constructor ‘LTSurface::LTSurface(const char*)’:
+/home/leonid/CyberAnt/src/ui/terminal/ltsurface.cpp:84:25: warning: implicitly-declared ‘LColor& LColor::operator=(const LColor&)’ is deprecated [-Wdeprecated-copy]
+   84 |      curc=LColor(1, 1, 1);
+      |                         ^
+In file included from /home/leonid/CyberAnt/src/ui/terminal/ltsurface.h:2,
+                 from /home/leonid/CyberAnt/src/ui/terminal/ltsurface.cpp:2:
+/home/leonid/CyberAnt/src/ui/terminal/../lcolor.h:12:3: note: because ‘LColor’ has user-provided ‘LColor::LColor(const LColor&)’
+   12 |   LColor(const LColor& a);
+      |   ^~~~~~
+/home/leonid/CyberAnt/src/ui/terminal/ltsurface.cpp: In member function ‘std::pair<char, LColor> LTSurface::get(int, int) const’:
+/home/leonid/CyberAnt/src/ui/terminal/ltsurface.cpp:100:44: warning: unused parameter ‘x’ [-Wunused-parameter]
+  100 | std::pair<char, LColor> LTSurface::get(int x, int y) const{
+      |                                        ~~~~^
+/home/leonid/CyberAnt/src/ui/terminal/ltsurface.cpp: In member function ‘void LTSurface::set(int, int, std::pair<char, LColor>)’:
+/home/leonid/CyberAnt/src/ui/terminal/ltsurface.cpp:106:25: warning: unused parameter ‘x’ [-Wunused-parameter]
+  106 | void LTSurface::set(int x, int y, std::pair<char, LColor> p){
+      |                     ~~~~^
+/home/leonid/CyberAnt/src/ui/terminal/ltsurface.cpp: In member function ‘void LTSurface::applyColors(LColor)’:
+/home/leonid/CyberAnt/src/ui/terminal/ltsurface.cpp:112:19: warning: implicitly-declared ‘LColor& LColor::operator=(const LColor&)’ is deprecated [-Wdeprecated-copy]
+  112 |    surf[i].second=c;
+      |                   ^
+In file included from /home/leonid/CyberAnt/src/ui/terminal/ltsurface.h:2,
+                 from /home/leonid/CyberAnt/src/ui/terminal/ltsurface.cpp:2:
+/home/leonid/CyberAnt/src/ui/terminal/../lcolor.h:12:3: note: because ‘LColor’ has user-provided ‘LColor::LColor(const LColor&)’
+   12 |   LColor(const LColor& a);
+      |   ^~~~~~
+/home/leonid/CyberAnt/src/view.cpp: In member function ‘virtual void View::loop(const Model*)’:
+/home/leonid/CyberAnt/src/view.cpp:7:30: warning: unused parameter ‘m’ [-Wunused-parameter]
+    7 | void View::loop(const Model* m){
+      |                 ~~~~~~~~~~~~~^
+/home/leonid/CyberAnt/src/xstack/xstack.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+/home/leonid/CyberAnt/src/xstack/xstackiterator.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~

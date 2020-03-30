@@ -3,6 +3,9 @@
 #include "ltalk.h"
 
 LComponent::~LComponent(){
+	while(lts.size()){
+		applyTalk();
+	}
 }
 void LComponent::draw(LDrawer* ldr){
 	std::cerr<<"Calling to LComponent::draw"<<std::endl;

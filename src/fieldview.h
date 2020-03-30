@@ -19,7 +19,7 @@ class FieldView:public View{
 	public:
 		virtual void loop(const Model* m);
 		virtual void init(LWindow* win);
-		~FieldView();
+		virtual ~FieldView();
 		friend class FieldEventListener;
 };
 

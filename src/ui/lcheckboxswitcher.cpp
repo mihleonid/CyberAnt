@@ -62,4 +62,3 @@ LCheckBoxSwitcher* LCheckBoxSwitcher::add(LCheckBox* cb){
 	all.push_back(cb->setRound(true));
 	return this;
 }
-
