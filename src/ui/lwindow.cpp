@@ -42,7 +42,7 @@ LWindow::LWindow(const char* title, bool force){
 		Point p=terminal_size();
 		tw=p.getX();
 		th=p.getY();
-		ldr=new LTDrawer;
+		//ldr=new LTDrawer;
 		LImage::textLoad=true;
 		//TODO Treminal control
 		std::this_thread::sleep_for(std::chrono::milliseconds(1500)); // Micro sleep
@@ -159,4 +159,3 @@ LWindow::~LWindow(){
 	}
 #endif
 }
-

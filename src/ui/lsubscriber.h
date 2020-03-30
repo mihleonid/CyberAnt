@@ -7,7 +7,6 @@ class LEvent;
 
 class LSubscriber{
 	public:
-		virtual EventQueue applyEvent(LEvent*);
+		virtual EventQueue applyEvent(LEvent*)=0;
 		virtual std::vector<LEventType> acceptedTypes();
 };
-

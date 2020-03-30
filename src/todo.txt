@@ -1,4 +1,5 @@
-Use override and delete;
+Add terminal interface;
+Use override and 0;
 Fix this:
 /home/leonid/CyberAnt/src/configurator.cpp: In static member function ‘static void Configurator::configureResourceNode(ResourceType, int&, int&, int&, int&, int&)’:
 /home/leonid/CyberAnt/src/configurator.cpp:26:55: warning: unused parameter ‘t’ [-Wunused-parameter]

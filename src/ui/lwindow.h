@@ -47,4 +47,3 @@ class LWindow{
 		~LWindow();
 
 };
-

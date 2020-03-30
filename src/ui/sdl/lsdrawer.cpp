@@ -105,7 +105,8 @@ Rect LSDrawer::drawTextCenter(int x, int y, int text){
 	return res;
 }
 SDL_Texture* LSDrawer::makeText(SDL_Renderer* ren, const char* c){
-	SDL_Color fg={(Uint8)(col.fg().r()), (Uint8)(col.fg().g()), (Uint8)(col.fg().b())};
+	Uint8 alpha=0;
+	SDL_Color fg={(Uint8)(col.fg().r()), (Uint8)(col.fg().g()), (Uint8)(col.fg().b()), alpha};
 	SDL_Surface* surfaceMessage;
 	switch(Configurator::getQuality()){
 		case LQUltra:
@@ -118,7 +119,7 @@ SDL_Texture* LSDrawer::makeText(SDL_Renderer* ren, const char* c){
 				if(col.bg().transparent()){
 					surfaceMessage=TTF_RenderUTF8_Blended(font, c, fg);
 				}else{
-					SDL_Color bg={(Uint8)(col.bg().r()), (Uint8)(col.bg().g()), (Uint8)(col.bg().b())};
+					SDL_Color bg={(Uint8)(col.bg().r()), (Uint8)(col.bg().g()), (Uint8)(col.bg().b()), alpha};
 					surfaceMessage=TTF_RenderUTF8_Shaded(font, c, fg, bg);
 				}
 				break;
@@ -128,7 +129,7 @@ SDL_Texture* LSDrawer::makeText(SDL_Renderer* ren, const char* c){
 				if(col.bg().transparent()){
 					surfaceMessage=TTF_RenderUTF8_Solid(font, c, fg);
 				}else{
-					SDL_Color bg={(Uint8)(col.bg().r()), (Uint8)(col.bg().g()), (Uint8)(col.bg().b())};
+					SDL_Color bg={(Uint8)(col.bg().r()), (Uint8)(col.bg().g()), (Uint8)(col.bg().b()), alpha};
 					surfaceMessage=TTF_RenderUTF8_Shaded(font, c, fg, bg);
 				}
 				break;

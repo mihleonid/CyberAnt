@@ -1,7 +1,6 @@
 #pragma once
 #include <queue>
 #include "lsubscriber.h"
-#include "../eventqueue.h"
 
 class LEvent;
 class LDrawer;
@@ -13,8 +12,7 @@ class LComponent:public LSubscriber{
 	public:
 		virtual ~LComponent();
 
-		virtual void draw(LDrawer*);
-		virtual EventQueue applyEvent(LEvent*);
+		virtual void draw(LDrawer*)=0;
 
 		void applyTalk();
 		void addTalk(LTalk* t);
