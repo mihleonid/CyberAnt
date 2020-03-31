@@ -15,20 +15,26 @@
 #include "sdl/lsdrawer.h"
 #endif
 #include "lcolor.h"
+#include "lapp.h"
 
-LWindow::LWindow(const char* title, bool force){
+LWindow::LWindow(const char* title){
 	wtitle=title;
-	if(force){
-		sdlMode=false;
+	cnt=new LControl();
+}
+LWindow::LWindow(){
+}
+void LWindow::init(LApp* a, bool text){
+	app=a;
+	if(text){
 		//ldr=new LTDrawer;
 		LImage::textLoad=true;
 		//TODO Treminal control
+		Point p=terminal_size();
+		tw=p.getX();
+		th=p.getY();
 	}else{
 #ifdef SDL
-		sdlMode=true;
-		tw=SCREEN_W;
-		th=SCREEN_H;
-		win=SDL_CreateWindow(wtitle, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_W, SCREEN_H, SDL_WINDOW_SHOWN);
+		win=SDL_CreateWindow(wtitle, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, tw, th, SDL_WINDOW_SHOWN);// TODO ch title, resizable
 		if(win==nullptr){
 			std::cerr<<"SDL_CreateWindow error:"<<SDL_GetError()<<std::endl;
 			throw 1;
@@ -41,7 +47,6 @@ LWindow::LWindow(const char* title, bool force){
 		ldr=new LSDrawer(ren);
 #endif
 	}
-	cnt=new LControl();
 }
 LScene* LWindow::getScene(){
 	return scene;
@@ -94,7 +99,7 @@ void LWindow::clear(const LColor& c){
 }
 void LWindow::draw(){
 	scene->draw(ldr);
-	if(!sdlMode){
+	if(app->isTerm()){
 		ldr->color(LColor(154, 0, 160));
 		ldr->drawTextCenter(tw/2, 1, wtitle);
 		T_NL();
@@ -104,18 +109,31 @@ void LWindow::present(){
 	ldr->present();
 }
 Point LWindow::getCenter(){
-	if(sdlMode){
-		return Point(SCREEN_W/2, SCREEN_H/2);
-	}else{
-		return Point(tw/2, th/2);
-	}
+	return Point(tw/2, th/2);
 }
 Point LWindow::getCorner(){
-	if(sdlMode){
-		return Point(SCREEN_W, SCREEN_H);
-	}else{
-		return Point(tw, th);
+	return Point(tw, th);
+}
+int LWindow::getH() const{
+	return th;
+}
+int LWindow::getW() const{
+	return tw;
+}
+void LWindow::postResize(){
+#ifdef SDL
+	if(win!=nullptr){
+		SDL_SetWindowSize(win, tw, th);
 	}
+#endif
+}
+LWindow* LWindow::setH(int h){
+	th=h;
+	return this;
+}
+LWindow* LWindow::setW(int w){
+	tw=w;
+	return this;
 }
 LWindow::~LWindow(){
 	delete cnt;
@@ -125,10 +143,4 @@ LWindow::~LWindow(){
 	}
 #endif
 	delete ldr;
-#ifdef SDL
-	if(sdlMode){
-		SDL_Quit();
-		TTF_Quit();
-	}
-#endif
 }

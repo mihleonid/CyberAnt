@@ -4,9 +4,6 @@
 #include "gamecontrollerevent.h"
 #include "ui/lwindow.h"
 
-void Controller::init(LWindow* win){
-	std::cout<<"Calling Controller::init()"<<std::endl;
-}
 void Controller::initialize(Model* m, View* v, EventListener* el, LWindow* w){
 	model=m;
 	view=v;
@@ -16,10 +13,6 @@ void Controller::initialize(Model* m, View* v, EventListener* el, LWindow* w){
 	if(v!=nullptr){
 		v->init(w);
 	}
-}
-LScene* Controller::generateUIScene(){
-	std::cerr<<"Controller must generate UI Scene"<<std::endl;
-	return nullptr;
 }
 Model* Controller::getModel(){
 	return model;

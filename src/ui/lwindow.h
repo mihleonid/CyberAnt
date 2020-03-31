@@ -10,27 +10,29 @@
 #include "../eventqueue.h"
 #include "../point.h"
 
-#define SCREEN_W 1024
-#define SCREEN_H 764
+class LApp;
 
 class LWindow{
 	private:
-		bool sdlMode;
+		LApp* app=nullptr;
 #ifdef SDL
 		SDL_Window* win=nullptr;
 #endif
-		int tw;
-		int th;
+		int tw=1024;
+		int th=764;
 		const char* wtitle;
 		LDrawer* ldr;
 		LScene* scene;
 		LControl* cnt;
 		int fps=26; // Это нужно будет при многопоточности
+		void postResize();
 	public:
+		void init(LApp* a, bool text);
 		int getFps();
 		void setFps(int);
 
-		LWindow(const char* title, bool forceTerminal=false);
+		LWindow(const char* title);
+		LWindow();
 
 		LScene* getScene();
 		void setScene(LScene* scn);
@@ -44,6 +46,12 @@ class LWindow{
 		Point getCorner();
 		LDrawer* getDrawer(); ///@deprecated
 		LControl* getControl();
+
+		int getH() const;
+		int getW() const;
+		LWindow* setH(int h);
+		LWindow* setW(int w);
+
 		~LWindow();
 
 };

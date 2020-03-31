@@ -1,5 +1,6 @@
 #pragma once
-#include <vector>
+
+#include <set>
 #ifdef SDL
 #include <SDL.h>
 #endif
@@ -9,9 +10,11 @@ class LWindow;
 class LApp{
 	private:
 		bool text;
-		std::vector<LWindow*> wins;
+		std::set<LWindow*> wins;
 	public:
-		LApp(bool useText);
-		void addWindow(LWindw* win);
+		LApp(bool useText=false);
+		LApp* addWindow(LWindow* win);
+		LApp* eraseWindow(LWindow* win);
+		bool isTerm() const;
 		~LApp();
 };

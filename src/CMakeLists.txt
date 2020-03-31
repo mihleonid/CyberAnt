@@ -67,6 +67,7 @@ set(src
 	ui/sdl/lsdrawer.cpp
 	ui/terminal/ltdrawer.cpp
 	ui/terminal/ltsurface.cpp
+	ui/terminal/terminal_size.cpp
 	view.cpp
 	xstack/xstack.cpp
 	xstack/xstackiterator.cpp

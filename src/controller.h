@@ -17,9 +17,9 @@ class Controller{
 	protected:
 		LWindow* win;
 		void initialize(Model*, View*, EventListener*, LWindow*); // А это вызывает реализация Controller a
-		virtual LScene* generateUIScene();
+		virtual LScene* generateUIScene()=0;
 	public:
-		virtual void init(LWindow* win); // Этот метод будет вызывать GameController
+		virtual void init(LWindow* win)=0; // Этот метод будет вызывать GameController
 
 		Model* getModel();
 		View* getView();

@@ -20,6 +20,7 @@ class GameController{
 		bool back(int); // Нужно ли выходить
 
 		LWindow* win=nullptr;
+		LApp* app=nullptr;
 	public:
 		GameController();
 		~GameController();

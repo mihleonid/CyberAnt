@@ -2,6 +2,7 @@
 #include <chrono>
 #include <thread>
 #include "ui/lwindow.h"
+#include "ui/lapp.h"
 #include "gamecontroller.h"
 #include "menucontroller.h"
 #include "configurator.h"
@@ -17,10 +18,12 @@ GameController::GameController(){
 #endif
 	try{
 		Random::init();
+		LApp* app=new LApp();
 #ifdef DEBUG
 		std::cout<<"Initialization finishing..."<<std::endl;
 #endif
 		win=new LWindow(Configurator::getWindowTitle());
+		app->addWindow(win);
 		currentController=new MenuController();
 		currentController->init(win);
 		win->setScene(currentController->getLScene());
@@ -37,7 +40,7 @@ GameController::GameController(){
 GameController::~GameController(){
 	clearHist(hist.size());
 	delete currentController;
-	delete win;
+	delete app;
 #ifdef DEBUG
 	std::cout<<"Exited"<<std::endl;
 #endif
@@ -105,8 +108,13 @@ void GameController::loop(){
 			delete c;
 		}
 		delayFps();
+		continue;
+		quit:;
+		while(!q.empty()){
+			delete q.pop();
+		}
+		return;
 	}
-	quit:;
 }
 
 void GameController::initFps(){
