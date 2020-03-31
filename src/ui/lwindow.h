@@ -46,6 +46,7 @@ class LWindow{
 		Point getCorner();
 		LDrawer* getDrawer(); ///@deprecated
 		LControl* getControl();
+		LApp* getApp();
 
 		int getH() const;
 		int getW() const;

@@ -40,7 +40,7 @@ GameController::GameController(){
 GameController::~GameController(){
 	clearHist(hist.size());
 	delete currentController;
-	delete app;
+	delete win->getApp();
 #ifdef DEBUG
 	std::cout<<"Exited"<<std::endl;
 #endif

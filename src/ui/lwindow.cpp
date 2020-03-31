@@ -135,6 +135,9 @@ LWindow* LWindow::setW(int w){
 	tw=w;
 	return this;
 }
+LApp* LWindow::getApp(){
+	return app;
+}
 LWindow::~LWindow(){
 	delete cnt;
 #ifdef SDL
