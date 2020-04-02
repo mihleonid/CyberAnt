@@ -18,7 +18,7 @@ bool FO::damage(int d){
 		return false;
 	}
 	health=0;
-	currField->remove(getPos());
+	delete currField->remove(getPos());
 	return true;
 }
 int FO::getHealth() const{
@@ -27,13 +27,7 @@ int FO::getHealth() const{
 int FO::getMaxHealth() const{
 	return maxhealth;
 }
-std::pair<LImage*, LColor> FO::getImage(Assets* ass) const{
-	std::cerr<<"Calling to FO::getImage()"<<std::endl;
-	std::cerr<<getPos().getX()<<" "<<getPos().getY();
-	return std::pair<LImage*, LColor>(nullptr, LColor(0));
-}
 void FO::update(){
-	std::cerr<<"Calling to FO::update()"<<std::endl;
 }
 
 FOType FO::getType() const{

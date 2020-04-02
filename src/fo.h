@@ -35,7 +35,7 @@ class FO{
 		virtual bool damage(int); // Return is deleted
 
 		virtual void update();
-		virtual std::pair<LImage*, LColor> getImage(Assets* ass) const;
+		virtual std::pair<LImage*, LColor> getImage(Assets* ass) const=0;
 
 		static std::string whatToLocalizedString(FOWhat);
 		static std::string whatToString(FOWhat);

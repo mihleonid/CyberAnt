@@ -41,11 +41,15 @@ Rect LSDrawer::draw(int x, int y, LImage* img, const LColor& c){
 	return draw(x, y, img->newTexture(c, ren));
 }
 Rect LSDrawer::draw(int x, int y, SDL_Texture* tex){
+	int angle=45;//TODO angle
+	SDL_Point centroid;//TODO centroid
+	centroid.x=32;
+	centroid.y=32;
 	SDL_Rect pos;
 	pos.x = x;
 	pos.y = y;
 	SDL_QueryTexture(tex, NULL, NULL, &pos.w, &pos.h);
-	SDL_RenderCopy(ren, tex, NULL, &pos);
+	SDL_RenderCopyEx(ren, tex, NULL, &pos, angle, &centroid, SDL_FLIP_NONE);
 	return Rect(Point(pos.x, pos.y), Point(pos.w+pos.x, pos.h+pos.y));
 }
 Rect LSDrawer::drawText(int x, int y, const char* text){
