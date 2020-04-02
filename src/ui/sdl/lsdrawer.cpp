@@ -41,7 +41,7 @@ Rect LSDrawer::draw(int x, int y, LImage* img, const LColor& c){
 	return draw(x, y, img->newTexture(c, ren));
 }
 Rect LSDrawer::draw(int x, int y, SDL_Texture* tex){
-	int angle=45;//TODO angle
+	int angle=0;//TODO angle
 	SDL_Point centroid;//TODO centroid
 	centroid.x=32;
 	centroid.y=32;
